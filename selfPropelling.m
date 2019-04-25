@@ -10,10 +10,11 @@ dt = 0.1;
 T = 100;
 
 if type == "polygon"
-    n = 9;
+    T = 20;
+    n = 16;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
-    neg_leaders = @(t)[-1,0;-1,1;0,0.4;1.5,0];
+    neg_leaders = @(t)[0,0;0,1;0.5,0.3;1,0];
     % Defining Boundary
     for i=1:length(names)
         eval([names{i} '=inputStruct.' names{i} ';' ]);
@@ -26,11 +27,30 @@ if type == "polygon"
 end
 
 if type == "surveying"
+    T = 30;
     n = 16;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
     unit_square = [0,0;0,1;1,1;1,0]/100;
     neg_leaders = @(t) (t<15)*100*unit_square + (t>=15)*20*unit_square ;
+    % Defining Boundary
+    for i=1:length(names)
+        eval([names{i} '=inputStruct.' names{i} ';' ]);
+    end
+    % Defining Initial Values
+    X = 0.001*rand(n,2)+2*ones(n,2);
+    V = 0.001*rand(n,2);
+    % Defining Regular Polygon
+    f = @f_polygon;
+end
+
+if type == "moving"
+    T = 50;
+    n = 16;
+    % Reading InputStruct:
+    names = fieldnames(inputStruct);
+    unit_triangle = [0,0;0.5,sqrt(3)/2;1,0]/100;
+    neg_leaders = @(t) 40*unit_triangle + (t>=15)*(t<=35)*[t-15,t-15]/20 ;
     % Defining Boundary
     for i=1:length(names)
         eval([names{i} '=inputStruct.' names{i} ';' ]);
@@ -64,6 +84,7 @@ if type == "star"
 end
 
 if type == "regular_polygon"
+    T = 20;
     n = 9;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
@@ -76,28 +97,43 @@ if type == "regular_polygon"
     V = 0.001*rand(n,2);
     % Defining Regular Polygon
     s = [-2*pi/n_s:2*pi/n_s:2*pi-4*pi/n_s]';
-    neg_leaders = @(t) [sin(s),cos(s)];
+    neg_leaders = @(t) 0.5*[sin(s),cos(s)];
     f = @f_polygon;
 end
 
-% Time evolution
+% Figure
+figure(1), set(gcf, 'Color', 'white');
+axis tight;
+
+% Create AVI object
+nFrames = 20;
+vidObj = VideoWriter([type,'.avi']);
+vidObj.Quality = 100;
+vidObj.FrameRate = 10;
+open(vidObj);
+
+% Time evolution, Create movie
 for t = 0:dt:T
     neg_leaders_t = neg_leaders(t);
     [X,V] = runge_kutta_evolution(X, V, dt, f, neg_leaders_t);
     if (apply(@(v)max(abs(v)), V(:))<1e-4) & false
         disp('closed due to slow spead');
         break
-    end
-    figure(1);
+    end    
     plot(X(:,1),X(:,2),'b.');
     hold on;
     plot(neg_leaders_t([1:end,1],1), neg_leaders_t([1:end,1],2),'r:');
-    title(['t',num2str(t)])
+    title(['Time: ',num2str(t)])
     %quiver(X(:,1),X(:,2),V(:,1),V(:,2),0);
     axis([-1,2,-1,2]);
     axis square;
     hold off;
+    writeVideo(vidObj, getframe(gca));
 end
+close(gcf);
+
+% Save as AVI file.
+close(vidObj);
 
 end
 
@@ -106,9 +142,9 @@ function dY = f_polygon(Y, vertices)
     p = 8;
     d = size(Y,2); n = size(Y,1)/2; l=size(vertices,1);
     area = polyarea(vertices(:,1),vertices(:,2));
-    rd = 2*sqrt(area/n);
+    rd = 1.5*sqrt(area/n);
     fI = @(r)2*(r-rd).*(r-rd<0);
-    fh = @(r)(10*r+2*l).*(r>0);
+    fh = @(r)(0.1*r+1*l).*(r>0);
     vd = 0; a = 1.5;
     X = Y(1:n,:);
     V = Y(n+1:2*n,:);
