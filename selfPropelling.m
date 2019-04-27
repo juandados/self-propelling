@@ -27,12 +27,13 @@ if type == "polygon"
 end
 
 if type == "surveying"
-    T = 30;
+    T = 60;
     n = 16;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
     unit_square = [0,0;0,1;1,1;1,0]/100;
-    neg_leaders = @(t) (t<15)*100*unit_square + (t>=15)*20*unit_square ;
+    tl = 55;
+    neg_leaders = @(t) (t<tl)*100*unit_square + (t>=tl)*20*unit_square ;
     % Defining Boundary
     for i=1:length(names)
         eval([names{i} '=inputStruct.' names{i} ';' ]);
@@ -142,9 +143,11 @@ function dY = f_polygon(Y, vertices)
     p = 8;
     d = size(Y,2); n = size(Y,1)/2; l=size(vertices,1);
     area = polyarea(vertices(:,1),vertices(:,2));
-    rd = 1.5*sqrt(area/n);
-    fI = @(r)2*(r-rd).*(r-rd<0);
-    fh = @(r)(0.1*r+1*l).*(r>0);
+    rd = sqrt(area)/(sqrt(n)-1);
+    fI = @(r)10*(r-rd).*(r-rd<0);
+    fh = @(h)(0.1*h+1*l/2).*(h>0);
+    pw = rd;
+    fh = @(h)(1*h^2+l*h/2).*(h>0)+80*(h*sin(h*pi/pw)).*(h<pw).*(h>0);
     vd = 0; a = 1.5;
     X = Y(1:n,:);
     V = Y(n+1:2*n,:);
@@ -155,8 +158,10 @@ function dY = f_polygon(Y, vertices)
         r = apply(@(v)norm(v,p), R);
         DUsI = (fI(r)./r)*ones(1,d).*R;
         DUsI(i,:) = zeros(1,d);
+        DUsI = DUsI;
         [h, x_poly,y_poly] = poly_dist(X(i,1),X(i,2),vertices(:,1),vertices(:,2));
-        DUsH = repmat(fh(h),1,d).*(X(i,:)-[x_poly, y_poly]);
+        H = X(i,:)-[x_poly, y_poly];
+        DUsH = repmat(fh(h),1,d).*H/h;
         hold on;
 %        quiver(-DUsH(:,1)',-DUsH(:,2)',0);
 %        quiver(repmat(X(i,1),3,1), repmat(X(i,2),3,1), -H(:,1),-H(:,2),0);
