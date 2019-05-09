@@ -1,4 +1,4 @@
-function [] = selfPropelling(inputStruct, type)
+function [X] = selfPropelling(inputStruct, type, K)
 % Examples:
 % selfPropelling(struct("n",30),"polygon")
 
@@ -8,6 +8,8 @@ end
 % Defining Default Parameters
 dt = 0.1;
 T = 100;
+global k;
+k = K;
 
 if type == "polygon"
     T = 20;
@@ -15,6 +17,23 @@ if type == "polygon"
     % Reading InputStruct:
     names = fieldnames(inputStruct);
     neg_leaders = @(t)[0,0;0,1;0.5,0.3;1,0];
+    % Defining Boundary
+    for i=1:length(names)
+        eval([names{i} '=inputStruct.' names{i} ';' ]);
+    end
+    % Defining Initial Values
+    X = 0.001*rand(n,2)+2*ones(n,2);
+    V = 0.001*rand(n,2);
+    % Defining Regular Polygon
+    f = @f_polygon;
+end
+
+if type == "rectangle"
+    T = 24;
+    n = 16;
+    % Reading InputStruct:
+    names = fieldnames(inputStruct);
+    neg_leaders = @(t)[0,0;0,1;4,1;4,0]/4;
     % Defining Boundary
     for i=1:length(names)
         eval([names{i} '=inputStruct.' names{i} ';' ]);
@@ -85,7 +104,7 @@ if type == "star"
 end
 
 if type == "regular_polygon"
-    T = 20;
+    T = 12;
     n = 9;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
@@ -94,7 +113,7 @@ if type == "regular_polygon"
         eval([names{i} '=inputStruct.' names{i} ';' ]);
     end
     % Defining Initial Values
-    X = 0.001*rand(n,2)+2*ones(n,2);
+    X = 0.001*rand(n,2)+0*ones(n,2);
     V = 0.001*rand(n,2);
     % Defining Regular Polygon
     s = [-2*pi/n_s:2*pi/n_s:2*pi-4*pi/n_s]';
@@ -123,9 +142,12 @@ for t = 0:dt:T
     end    
     plot(X(:,1),X(:,2),'b.');
     hold on;
+    %quiver(X(:,1),X(:,2),V(:,1),V(:,2),0);
+    voronoi(X(:,1),X(:,2));
+    %triplot(delaunayTriangulation(X),'-g');
     plot(neg_leaders_t([1:end,1],1), neg_leaders_t([1:end,1],2),'r:');
     title(['Time: ',num2str(t)])
-    %quiver(X(:,1),X(:,2),V(:,1),V(:,2),0);
+    
     axis([-1,2,-1,2]);
     axis square;
     hold off;
@@ -140,14 +162,15 @@ end
 
 function dY = f_polygon(Y, vertices)
     % fH depending on the distance from every individual to the polygon
-    p = 8;
+    global k;
+    p = 2;
     d = size(Y,2); n = size(Y,1)/2; l=size(vertices,1);
     area = polyarea(vertices(:,1),vertices(:,2));
-    rd = sqrt(area)/(sqrt(n)-1);
-    fI = @(r)10*(r-rd).*(r-rd<0);
-    fh = @(h)(0.1*h+1*l/2).*(h>0);
+    rd = k*sqrt(area)/(sqrt(n)-1);
+    fI = @(r)20*(r-rd).*(r-rd<0);
+    %fh = @(h)20*(h+rd).*(h+rd>0);%CVT
+    %fh = @(h)80*(h).*(h>0);
     pw = rd;
-    fh = @(h)(1*h^2+l*h/2).*(h>0)+80*(h*sin(h*pi/pw)).*(h<pw).*(h>0);
     vd = 0; a = 1.5;
     X = Y(1:n,:);
     V = Y(n+1:2*n,:);
