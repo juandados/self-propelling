@@ -1,4 +1,4 @@
-function [] = selfPropelling(inputStruct, type)
+function [X] = selfPropelling(inputStruct, type, K)
 % Examples:
 % selfPropelling(struct("n",30),"polygon")
 
@@ -8,6 +8,8 @@ end
 % Defining Default Parameters
 dt = 0.1;
 T = 100;
+global k;
+k = K;
 
 if type == "polygon"
     T = 20;
@@ -102,7 +104,7 @@ if type == "star"
 end
 
 if type == "regular_polygon"
-    T = 40;
+    T = 12;
     n = 9;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
@@ -111,7 +113,7 @@ if type == "regular_polygon"
         eval([names{i} '=inputStruct.' names{i} ';' ]);
     end
     % Defining Initial Values
-    X = 0.001*rand(n,2)+2*ones(n,2);
+    X = 0.001*rand(n,2)+0*ones(n,2);
     V = 0.001*rand(n,2);
     % Defining Regular Polygon
     s = [-2*pi/n_s:2*pi/n_s:2*pi-4*pi/n_s]';
@@ -141,7 +143,7 @@ for t = 0:dt:T
     plot(X(:,1),X(:,2),'b.');
     hold on;
     %quiver(X(:,1),X(:,2),V(:,1),V(:,2),0);
-    %voronoi(X(:,1),X(:,2));
+    voronoi(X(:,1),X(:,2));
     %triplot(delaunayTriangulation(X),'-g');
     plot(neg_leaders_t([1:end,1],1), neg_leaders_t([1:end,1],2),'r:');
     title(['Time: ',num2str(t)])
@@ -160,12 +162,14 @@ end
 
 function dY = f_polygon(Y, vertices)
     % fH depending on the distance from every individual to the polygon
+    global k;
     p = 2;
     d = size(Y,2); n = size(Y,1)/2; l=size(vertices,1);
     area = polyarea(vertices(:,1),vertices(:,2));
-    rd = 1.0*sqrt(area)/(sqrt(n)-1);
-    fI = @(r)15*(r-rd).*(r-rd<0);
-    fh = @(h)(15*h+1).*(h>0);
+    rd = k*sqrt(area)/(sqrt(n)-1);
+    fI = @(r)20*(r-rd).*(r-rd<0);
+    %fh = @(h)20*(h+rd).*(h+rd>0);%CVT
+    %fh = @(h)80*(h).*(h>0);
     pw = rd;
     vd = 0; a = 1.5;
     X = Y(1:n,:);
