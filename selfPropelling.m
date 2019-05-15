@@ -1,4 +1,4 @@
-function [X] = selfPropelling(inputStruct, type, K)
+function [] = selfPropelling(inputStruct, type)
 % Examples:
 % selfPropelling(struct("n",30),"polygon")
 
@@ -8,15 +8,30 @@ end
 % Defining Default Parameters
 dt = 0.1;
 T = 100;
-global k;
-k = K;
+
+if type == "L"
+    T = 20;
+    n = 16;
+    % Reading InputStruct:
+    names = fieldnames(inputStruct);
+    neg_leaders = @(t)[0,0;0,1;0.5,1;0.5,0.5;1,0.5;1,0];
+    % Defining Boundary
+    for i=1:length(names)
+        eval([names{i} '=inputStruct.' names{i} ';' ]);
+    end
+    % Defining Initial Values
+    X = 0.001*rand(n,2)+2*ones(n,2);
+    V = 0.001*rand(n,2);
+    % Defining Regular Polygon
+    f = @f_polygon;
+end
 
 if type == "polygon"
     T = 20;
     n = 16;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
-    neg_leaders = @(t)[0,0;0,1;0.5,0.3;1,0];
+    neg_leaders = @(t)[0,0;0.5,1;0.5,0.5;1,0.5];
     % Defining Boundary
     for i=1:length(names)
         eval([names{i} '=inputStruct.' names{i} ';' ]);
@@ -91,7 +106,7 @@ if type == "star"
     n_s = 2*n_s;
     s = [-2*pi/n_s:2*pi/n_s:2*pi-4*pi/n_s]';
     mask = 0.5*repmat(2+(-1).^([1:size(s)]'),1,2);
-    neg_leaders = @(t) mask.*[sin(s),cos(s)];
+    neg_leaders = @(t) 0.5*mask.*[sin(s),cos(s)];
     % Defining Boundary
     for i=1:length(names)
         eval([names{i} '=inputStruct.' names{i} ';' ]);
@@ -104,7 +119,7 @@ if type == "star"
 end
 
 if type == "regular_polygon"
-    T = 12;
+    T = 100;
     n = 9;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
@@ -122,7 +137,7 @@ if type == "regular_polygon"
 end
 
 % Figure
-figure(1), set(gcf, 'Color', 'white');
+figure(), set(gcf, 'Color', 'white');
 axis tight;
 
 % Create AVI object
@@ -153,7 +168,7 @@ for t = 0:dt:T
     hold off;
     writeVideo(vidObj, getframe(gca));
 end
-close(gcf);
+%close(gcf);
 
 % Save as AVI file.
 close(vidObj);
@@ -162,16 +177,15 @@ end
 
 function dY = f_polygon(Y, vertices)
     % fH depending on the distance from every individual to the polygon
-    global k;
     p = 2;
     d = size(Y,2); n = size(Y,1)/2; l=size(vertices,1);
     area = polyarea(vertices(:,1),vertices(:,2));
-    rd = k*sqrt(area)/(sqrt(n)-1);
-    fI = @(r)20*(r-rd).*(r-rd<0);
-    %fh = @(h)20*(h+rd).*(h+rd>0);%CVT
-    %fh = @(h)80*(h).*(h>0);
+    rd = 1*sqrt(area/n);
+    fI = @(r)10*(r-rd).*(r-rd<0);
+    fh = @(h)10*(h+rd/2).*(h+rd/2>0);
+    %fh = @(h)80*(h).*(h>0); %borders
     pw = rd;
-    vd = 0; a = 1.5;
+    vd = 0; a = 1.5; a = 1.0;
     X = Y(1:n,:);
     V = Y(n+1:2*n,:);
     dX = V;
