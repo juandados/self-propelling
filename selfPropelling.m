@@ -1,4 +1,4 @@
-function [] = selfPropelling(inputStruct, type)
+function [X] = selfPropelling(inputStruct, type)
 % Examples:
 % selfPropelling(struct("n",30),"polygon")
 
@@ -61,12 +61,12 @@ if type == "rectangle"
 end
 
 if type == "surveying"
-    T = 60;
+    T = 30;
     n = 16;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
     unit_square = [0,0;0,1;1,1;1,0]/100;
-    tl = 55;
+    tl = 15;
     neg_leaders = @(t) (t<tl)*100*unit_square + (t>=tl)*20*unit_square ;
     % Defining Boundary
     for i=1:length(names)
@@ -80,12 +80,14 @@ if type == "surveying"
 end
 
 if type == "moving"
-    T = 50;
+    T = 45;
     n = 16;
+    tl1 = 15;
+    tl2 = 30;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
     unit_triangle = [0,0;0.5,sqrt(3)/2;1,0]/100;
-    neg_leaders = @(t) 40*unit_triangle + (t>=15)*(t<=35)*[t-15,t-15]/20 ;
+    neg_leaders = @(t) 40*unit_triangle + (t>=tl1)*(t<=tl2)*[t-tl1,t-tl1]/20 ;
     % Defining Boundary
     for i=1:length(names)
         eval([names{i} '=inputStruct.' names{i} ';' ]);
@@ -119,7 +121,7 @@ if type == "star"
 end
 
 if type == "regular_polygon"
-    T = 100;
+    T = 50;
     n = 9;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
@@ -137,7 +139,7 @@ if type == "regular_polygon"
 end
 
 % Figure
-figure(), set(gcf, 'Color', 'white');
+figure(1), set(gcf, 'Color', 'white');
 axis tight;
 
 % Create AVI object
@@ -158,7 +160,7 @@ for t = 0:dt:T
     plot(X(:,1),X(:,2),'b.');
     hold on;
     %quiver(X(:,1),X(:,2),V(:,1),V(:,2),0);
-    voronoi(X(:,1),X(:,2));
+    %voronoi(X(:,1),X(:,2));
     %triplot(delaunayTriangulation(X),'-g');
     plot(neg_leaders_t([1:end,1],1), neg_leaders_t([1:end,1],2),'r:');
     title(['Time: ',num2str(t)])
@@ -185,7 +187,7 @@ function dY = f_polygon(Y, vertices)
     fh = @(h)10*(h+rd/2).*(h+rd/2>0);
     %fh = @(h)80*(h).*(h>0); %borders
     pw = rd;
-    vd = 0; a = 1.5; a = 1.0;
+    vd = 0; a = 1.5; a = 0.5;
     X = Y(1:n,:);
     V = Y(n+1:2*n,:);
     dX = V;
