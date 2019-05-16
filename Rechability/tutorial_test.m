@@ -65,7 +65,7 @@ wMax = 1;
 % do dStep1 here
 
 % control trying to min or max value function?
-uMode = 'min';
+uMode = 'max';
 % do dStep2 here
 
 
@@ -102,8 +102,14 @@ HJIextraArgs.deleteLastPlot = true; %delete previous plot as you update
 %[data, tau, extraOuts] = ...
 % HJIPDE_solve(data0, tau, schemeData, minWith, extraArgs)
 [data, tau2, ~] = ...
-  HJIPDE_solve(data0, tau, schemeData, 'none', HJIextraArgs);
-
+  HJIPDE_solve(data0, tau, schemeData, 'minVWithTarget', HJIextraArgs);
+save('test.mat', 'tau', 'g', 'data')
+%% Plotting
+figure(2);
+load('test.mat');
+hold on;
+ind = find(tau==1.5);
+visSetIm(g, data(:,:,:,ind),'red',-0.5); %visSetIm(g, data, color, level, sliceDim, applyLight)
 %% Compute optimal trajectory from some initial state
 if compTraj
   pause
