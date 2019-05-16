@@ -160,8 +160,9 @@ for t = 0:dt:T
     plot(X(:,1),X(:,2),'b.');
     hold on;
     %quiver(X(:,1),X(:,2),V(:,1),V(:,2),0);
-    %voronoi(X(:,1),X(:,2));
+    %voronoi(X(:,1),X(:,2))
     %triplot(delaunayTriangulation(X),'-g');
+    plot_voronoi_centroids(X);
     plot(neg_leaders_t([1:end,1],1), neg_leaders_t([1:end,1],2),'r:');
     title(['Time: ',num2str(t)])
     
@@ -211,4 +212,25 @@ function dY = f_polygon(Y, vertices)
     dV1 = -a*((v-vd)./v)*ones(1,d).*V;
     dV = dV1 - dV2;
     dY = [dX; dV];
+end
+
+function [] = plot_voronoi_centroids(X)
+    try
+        dt = delaunayTriangulation(X(:,1),X(:,2));
+        [V,C] = voronoiDiagram(dt);
+        centroids=[];
+        for i=1:size(C,1)
+            try
+                polygon = polyshape(V(C{i},1),V(C{i},2));
+                [cx,cy] = centroid(polygon);
+                centroids(i,:)=[cx,cy];
+            catch
+            end
+        end
+        voronoi(X(:,1),X(:,2));
+        hold on;
+        %plot(V(:,1),V(:,2), '*');
+        plot(centroids(:,1),centroids(:,2),'o');
+    catch
+    end
 end
