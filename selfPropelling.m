@@ -14,7 +14,7 @@ if type == "L"
     n = 16;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
-    neg_leaders = @(t)[0,0;0,1;0.5,1;0.5,0.5;1,0.5;1,0];
+    neg_leaders = @(t)100*[0,0;0,1;0.5,1;0.5,0.5;1,0.5;1,0];
     % Defining Boundary
     for i=1:length(names)
         eval([names{i} '=inputStruct.' names{i} ';' ]);
@@ -31,7 +31,7 @@ if type == "polygon"
     n = 16;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
-    neg_leaders = @(t)[0,0;0.5,1;0.5,0.5;1,0.5];
+    neg_leaders = @(t)100*[0,0;0.5,1;0.5,0.5;1,0.5];
     % Defining Boundary
     for i=1:length(names)
         eval([names{i} '=inputStruct.' names{i} ';' ]);
@@ -48,7 +48,7 @@ if type == "rectangle"
     n = 16;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
-    neg_leaders = @(t)[0,0;0,1;4,1;4,0]/4;
+    neg_leaders = @(t)100*[0,0;0,1;4,1;4,0]/4;
     % Defining Boundary
     for i=1:length(names)
         eval([names{i} '=inputStruct.' names{i} ';' ]);
@@ -61,20 +61,21 @@ if type == "rectangle"
 end
 
 if type == "surveying"
-    T = 30;
+    T = 120;
     n = 16;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
-    unit_square = [0,0;0,1;1,1;1,0]/100;
-    tl = 15;
+    unit_square = [0,0;0,1;1,1;1,0];
+    tl = 80;
     neg_leaders = @(t) (t<tl)*100*unit_square + (t>=tl)*20*unit_square ;
     % Defining Boundary
     for i=1:length(names)
         eval([names{i} '=inputStruct.' names{i} ';' ]);
     end
     % Defining Initial Values
-    X = 0.001*rand(n,2)+2*ones(n,2);
-    V = 0.001*rand(n,2);
+    %X = 0.001*rand(n,2)+2*ones(n,2);
+    X = 0.001*rand(n,2)+100*ones(n,2);
+    V = 0.00001*rand(n,2);
     % Defining Regular Polygon
     f = @f_polygon;
 end
@@ -86,7 +87,7 @@ if type == "moving"
     tl2 = 30;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
-    unit_triangle = [0,0;0.5,sqrt(3)/2;1,0]/100;
+    unit_triangle = [0,0;0.5,sqrt(3)/2;1,0];
     neg_leaders = @(t) 40*unit_triangle + (t>=tl1)*(t<=tl2)*[t-tl1,t-tl1]/20 ;
     % Defining Boundary
     for i=1:length(names)
@@ -108,7 +109,7 @@ if type == "star"
     n_s = 2*n_s;
     s = [-2*pi/n_s:2*pi/n_s:2*pi-4*pi/n_s]';
     mask = 0.5*repmat(2+(-1).^([1:size(s)]'),1,2);
-    neg_leaders = @(t) 0.5*mask.*[sin(s),cos(s)];
+    neg_leaders = @(t) 100*0.5*mask.*[sin(s),cos(s)];
     % Defining Boundary
     for i=1:length(names)
         eval([names{i} '=inputStruct.' names{i} ';' ]);
@@ -134,7 +135,7 @@ if type == "regular_polygon"
     V = 0.001*rand(n,2);
     % Defining Regular Polygon
     s = [-2*pi/n_s:2*pi/n_s:2*pi-4*pi/n_s]';
-    neg_leaders = @(t) 0.5*[sin(s),cos(s)];
+    neg_leaders = @(t) 100*0.5*[sin(s),cos(s)];
     f = @f_polygon;
 end
 
@@ -157,6 +158,7 @@ for t = 0:dt:T
         disp('closed due to slow spead');
         break
     end    
+    figure(1);
     plot(X(:,1),X(:,2),'b.');
     hold on;
     %quiver(X(:,1),X(:,2),V(:,1),V(:,2),0);
@@ -166,7 +168,8 @@ for t = 0:dt:T
     plot(neg_leaders_t([1:end,1],1), neg_leaders_t([1:end,1],2),'r:');
     title(['Time: ',num2str(t)])
     
-    axis([-1,2,-1,2]);
+    %axis([-1,2,-1,2]);
+    axis([-50,200,-50,200]);
     axis square;
     hold off;
     writeVideo(vidObj, getframe(gca));
@@ -184,11 +187,11 @@ function dY = f_polygon(Y, vertices)
     d = size(Y,2); n = size(Y,1)/2; l=size(vertices,1);
     area = polyarea(vertices(:,1),vertices(:,2));
     rd = 1*sqrt(area/n);
-    fI = @(r)10*(r-rd).*(r-rd<0);
-    fh = @(h)10*(h+rd/2).*(h+rd/2>0);
+    fI = @(r)0.1*(r-rd).*(r-rd<0);
+    fh = @(h)0.1*(h+rd/2).*(h+rd/2>0);
     %fh = @(h)80*(h).*(h>0); %borders
     pw = rd;
-    vd = 0; a = 1.5; a = 0.5;
+    vd = 0; a = 0.05; %a = 0.15;
     X = Y(1:n,:);
     V = Y(n+1:2*n,:);
     dX = V;
@@ -211,6 +214,12 @@ function dY = f_polygon(Y, vertices)
     v = apply(@(v)norm(v,p), V);
     dV1 = -a*((v-vd)./v)*ones(1,d).*V;
     dV = dV1 - dV2;
+    %Thresholding the force:
+    acc_max = 0.75*9.8;
+    dV_norm = apply(@(v)norm(v,p), dV);
+    dV = (dV./dV_norm).*min(acc_max, dV_norm);
+    figure(3); hold off; plot(dV_norm, 'r*'); hold on;
+    plot(apply(@(v)norm(v,p), dV), 'b.'); axis([1,n,-5, 100]);
     dY = [dX; dV];
 end
 
