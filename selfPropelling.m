@@ -164,7 +164,7 @@ for t = 0:dt:T
     %quiver(X(:,1),X(:,2),V(:,1),V(:,2),0);
     %voronoi(X(:,1),X(:,2))
     %triplot(delaunayTriangulation(X),'-g');
-    plot_voronoi_centroids(X);
+    plot_voronoi_centroids(X, neg_leaders_t);
     plot(neg_leaders_t([1:end,1],1), neg_leaders_t([1:end,1],2),'r:');
     title(['Time: ',num2str(t)])
     
@@ -223,23 +223,29 @@ function dY = f_polygon(Y, vertices)
     dY = [dX; dV];
 end
 
-function [] = plot_voronoi_centroids(X)
-    try
-        dt = delaunayTriangulation(X(:,1),X(:,2));
+function [] = plot_voronoi_centroids(X, bndry)
+        domain = polyshape(bndry);
+        int_mask = isinterior(domain,X);
+        x = X(int_mask,:);
+        dt = delaunayTriangulation(x(:,1),x(:,2));
         [V,C] = voronoiDiagram(dt);
         centroids=[];
         for i=1:size(C,1)
-            try
-                polygon = polyshape(V(C{i},1),V(C{i},2));
+                VCI = V(C{i},:);
+                disp(VCI);
+                VCI = V(logical(prod(isfinite(VCI'))'),:);
+                disp(VCI);
+                polygon = polyshape(VCI(:,1),VCI(:,2));
+                disp(polygon.Vertices);
+                polygon = intersect(polygon, domain);
                 [cx,cy] = centroid(polygon);
                 centroids(i,:)=[cx,cy];
-            catch
-            end
         end
         voronoi(X(:,1),X(:,2));
         hold on;
         %plot(V(:,1),V(:,2), '*');
-        plot(centroids(:,1),centroids(:,2),'o');
-    catch
-    end
+        try
+            plot(centroids(:,1),centroids(:,2),'o');
+        catch
+        end
 end

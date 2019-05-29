@@ -47,10 +47,10 @@ R = 1;
 % data0 = shapeCylinder(grid,ignoreDims,center,radius)
 data0 = shapeCylinder(g, [2, 4], [0; 0; 0; 0], R);
 % plotting Cylinder
-visSetIm(g, data0);
+%visSetIm(g, data0);
 %% time vector
 t0 = 0;
-tMax = 2;
+tMax = 1;
 dt = 0.05;
 tau = t0:dt:tMax;
 
@@ -71,7 +71,7 @@ dMode = 'min'; %avoid
 % obj = Quad4DCAvoid(x, aMax, bMax, dxMax, dyMax, dims)
 % aMax: x- and y-acceleration bound for vehicle A
 % bMax: x- and y-acceleration bounds for vehicle B
-dQuad = Quad4DCAvoid([0, 0, 0, 0], 0.75*gravity, 0.75*gravity, 0, 0, [1 2 3 4]);
+dQuad = Quad4DCAvoid([2, 0, 2, 0], 0.75*gravity*[1,1], 0.75*gravity*[1,1], 0, 0, [1 2 3 4]);
 
 % Put grid and dynamic systems into schemeData
 schemeData.grid = g;
