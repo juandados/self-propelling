@@ -164,8 +164,8 @@ for t = 0:dt:T
     %quiver(X(:,1),X(:,2),V(:,1),V(:,2),0);
     %voronoi(X(:,1),X(:,2))
     %triplot(delaunayTriangulation(X),'-g');
-    plot_voronoi_centroids(X, neg_leaders_t);
-    plot(neg_leaders_t([1:end,1],1), neg_leaders_t([1:end,1],2),'r:');
+    voronoi_centroids(X, neg_leaders_t);
+    plot(neg_leaders_t([1:end,1],1), neg_leaders_t([1:end,1],2),'r');
     title(['Time: ',num2str(t)])
     
     %axis([-1,2,-1,2]);
@@ -186,7 +186,7 @@ function dY = f_polygon(Y, vertices)
     p = 2;
     d = size(Y,2); n = size(Y,1)/2; l=size(vertices,1);
     area = polyarea(vertices(:,1),vertices(:,2));
-    rd = 1*sqrt(area/n);
+    rd = 1.2*sqrt(area/n);
     fI = @(r)0.1*(r-rd).*(r-rd<0);
     fh = @(h)0.1*(h+rd/2).*(h+rd/2>0);
     %fh = @(h)80*(h).*(h>0); %borders
@@ -215,37 +215,28 @@ function dY = f_polygon(Y, vertices)
     dV1 = -a*((v-vd)./v)*ones(1,d).*V;
     dV = dV1 - dV2;
     %Thresholding the force:
-    acc_max = 0.75*9.8;
-    dV_norm = apply(@(v)norm(v,p), dV);
-    dV = (dV./dV_norm).*min(acc_max, dV_norm);
-    figure(3); hold off; plot(dV_norm, 'r*'); hold on;
-    plot(apply(@(v)norm(v,p), dV), 'b.'); axis([1,n,-5, 100]);
+    if false
+        acc_max = 0.75*9.8;
+        dV_norm = apply(@(v)norm(v,p), dV);
+        dV = (dV./dV_norm).*min(acc_max, dV_norm);
+        %figure(3); hold off; plot(dV_norm, 'r*'); hold on;
+        %plot(apply(@(v)norm(v,p), dV), 'b.'); axis([1,n,-5, 100]);
+    end
     dY = [dX; dV];
 end
 
-function [] = plot_voronoi_centroids(X, bndry)
-        domain = polyshape(bndry);
-        int_mask = isinterior(domain,X);
-        x = X(int_mask,:);
-        dt = delaunayTriangulation(x(:,1),x(:,2));
-        [V,C] = voronoiDiagram(dt);
-        centroids=[];
-        for i=1:size(C,1)
-                VCI = V(C{i},:);
-                disp(VCI);
-                VCI = V(logical(prod(isfinite(VCI'))'),:);
-                disp(VCI);
-                polygon = polyshape(VCI(:,1),VCI(:,2));
-                disp(polygon.Vertices);
-                polygon = intersect(polygon, domain);
-                [cx,cy] = centroid(polygon);
-                centroids(i,:)=[cx,cy];
-        end
-        voronoi(X(:,1),X(:,2));
-        hold on;
-        %plot(V(:,1),V(:,2), '*');
-        try
-            plot(centroids(:,1),centroids(:,2),'o');
-        catch
-        end
+function [] = voronoi_centroids(pos, bnd_pnts)
+    try
+        domain = polyshape(bnd_pnts);
+        int_mask = isinterior(domain, pos);
+        pos = pos(int_mask,:);
+        [vornb, vorvx] = polybnd_voronoi(pos, bnd_pnts);
+        for i = 1:size(pos,1)
+            influence_domain = intersect(domain, polyshape(vorvx{i}(:,1),vorvx{i}(:,2)));
+            plot(influence_domain.Vertices(:,1),influence_domain.Vertices(:,2), 'r:'); hold on;
+            [cx,cy] = centroid(influence_domain);
+            plot(cx, cy, 'go');
+        end  
+    catch
+    end
 end

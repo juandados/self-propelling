@@ -39,7 +39,7 @@ compTraj = false;
 %% Grid
 grid_min = [-10; -5; -10; -5]; % Lower corner of computation domain
 grid_max = [10; 5; 10; 5];    % Upper corner of computation domain
-N = [30; 20; 30; 20];         % Number of grid points per dimension
+N = floor(0.8*[30; 20; 30; 20]);         % Number of grid points per dimension
 g = createGrid(grid_min, grid_max, N); % There are no periodic
 % state space dimensions
 %% target set
@@ -50,7 +50,7 @@ data0 = shapeCylinder(g, [2, 4], [0; 0; 0; 0], R);
 %visSetIm(g, data0);
 %% time vector
 t0 = 0;
-tMax = 1;
+tMax = 30;
 dt = 0.05;
 tau = t0:dt:tMax;
 
@@ -97,44 +97,35 @@ schemeData.dMode = dMode;
 HJIextraArgs.visualize = true; %show plot
 HJIextraArgs.fig_num = 1; %set figure number
 HJIextraArgs.deleteLastPlot = true; %delete previous plot as you update
+HJIextraArgs.keepLast = true;
+HJIextraArgs.stopConverge = true;
 
 %[data, tau, extraOuts] = ...
 % HJIPDE_solve(data0, tau, schemeData, minWith, extraArgs)
 [data, tau2, ~] = ...
-  HJIPDE_solve(data0, tau, schemeData, 'none', HJIextraArgs);
+  HJIPDE_solve(data0, tau, schemeData, 'minVWithTarget', HJIextraArgs);
+save('quad_avoidance.mat', 'tau', 'tau', 'g', 'data')
 
-%% Compute optimal trajectory from some initial state
-if compTraj
-  pause
-  
-  %set the initial state
-  xinit = [2, 1, -pi];
-  
-  %check if this initial state is in the BRS/BRT
-  %value = eval_u(g, data, x)
-  value = eval_u(g,data(:,:,:,end),xinit);
-  
-  if value <= 0 %if initial state is in BRS/BRT
-    % find optimal trajectory
-    
-    dCar.x = xinit; %set initial state of the dubins car
-
-    TrajextraArgs.uMode = uMode; %set if control wants to min or max
-    TrajextraArgs.visualize = true; %show plot
-    TrajextraArgs.fig_num = 2; %figure number
-    
-    %we want to see the first two dimensions (x and y)
-    TrajextraArgs.projDim = [1 1 0]; 
-    
-    %flip data time points so we start from the beginning of time
-    dataTraj = flip(data,4);
-    
-    % [traj, traj_tau] = ...
-    % computeOptTraj(g, data, tau, dynSys, extraArgs)
-    [traj, traj_tau] = ...
-      computeOptTraj(g, dataTraj, tau2, dCar, TrajextraArgs);
-  else
-    error(['Initial state is not in the BRS/BRT! It have a value of ' num2str(value,2)])
-  end
-end
+%% Visualize Slices
+load('quad_avoidance.mat')
+kr = 5;
+vi = kr*[-1,-1];
+xi = [30, -20];
+vj = kr*[1,-1];
+xj = [0, 0];
+vr = vi - vj;
+[m, ind_vxr] =min(abs(g.vs{2,1}-vr(1)));
+[m, ind_vyr] =min(abs(g.vs{4,1}-vr(2)));
+% 2D Grid
+grid_min = [-10; -10;]; % Lower corner of computation domain
+grid_max = [10; 10;];    % Upper corner of computation domain
+N = [30; 30;];         % Number of grid points per dimension
+g2 = createGrid(grid_min, grid_max, N); % There are no periodic
+figure(3); 
+plot(xi(1), xi(2),'b.', 'markerSize', 20); hold on;
+quiver(xi(1), xi(2), vi(1), vi(2), 'LineWidth', 2, 'AutoScale', 'off', 'MaxHeadSize', 2);  
+plot(xj(1), xj(2),'r.', 'markerSize', 20); hold on;
+quiver(xj(1), xj(2), vj(1), vj(2), 'LineWidth', 2, 'AutoScale', 'off', 'MaxHeadSize', 2);
+visSetIm(g2, squeeze(data(:,ind_vxr,:,ind_vyr))); hold off;
+axis([-10, 40, -30, 10]);
 end
