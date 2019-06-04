@@ -6,8 +6,8 @@ classdef TFM < Node
   
   properties
     % Highways
-    hws = {};
-    hw_speed = 10;
+    domain;
+    speed_limit = 10;
     
     % Separation distance of vehicles within platoons
     ipsd = 20; % Intra-platoon separation distance

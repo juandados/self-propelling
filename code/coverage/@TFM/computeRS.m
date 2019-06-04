@@ -20,13 +20,13 @@ switch type
     %% Safety between two quadrotors
     filename = [fileparts(mfilename('fullpath')) ...
       '/../RS_core/saved/qr_qr_safe_V_' ...
-      num2str(obj.cr) '_' num2str(obj.hw_speed) '.mat'];
+      num2str(obj.cr) '_' num2str(obj.speed_limit) '.mat'];
     
     if exist(filename, 'file')
       load(filename)
     else
       [data, g, tau] = ...
-        quad_quad_collision_2D(obj.cr, obj.hw_speed, visualize);
+        quad_quad_collision_2D(obj.cr, obj.speed_limit, visualize);
       
       if fourD
         % Reconstruct the base reachable set
