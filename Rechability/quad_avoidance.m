@@ -104,14 +104,14 @@ HJIextraArgs.stopConverge = true;
 % HJIPDE_solve(data0, tau, schemeData, minWith, extraArgs)
 [data, tau2, ~] = ...
   HJIPDE_solve(data0, tau, schemeData, 'minVWithTarget', HJIextraArgs);
-save('quad_avoidance.mat', 'tau', 'tau', 'g', 'data')
+save('quad_avoidance.mat', 'tau', 'tau', 'g', 'data', 'dQuad', )
 
 %% Visualize Slices
 load('quad_avoidance.mat')
 kr = 5;
 vi = kr*[-1,-1];
 xi = [30, -20];
-vj = kr*[1,-1];
+vj = 0.5*kr*[-1,-1];
 xj = [0, 0];
 vr = vi - vj;
 [m, ind_vxr] =min(abs(g.vs{2,1}-vr(1)));
@@ -119,7 +119,7 @@ vr = vi - vj;
 % 2D Grid
 grid_min = [-10; -10;]; % Lower corner of computation domain
 grid_max = [10; 10;];    % Upper corner of computation domain
-N = [30; 30;];         % Number of grid points per dimension
+N = floor(0.8*[30; 30]);         % Number of grid points per dimension
 g2 = createGrid(grid_min, grid_max, N); % There are no periodic
 figure(3); 
 plot(xi(1), xi(2),'b.', 'markerSize', 20); hold on;
