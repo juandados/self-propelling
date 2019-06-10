@@ -11,8 +11,8 @@ rd = sqrt(tfm.domain.area/n);
 fI = @(r)10*(r-rd).*(r-rd<0);
 fh = @(h)10*(h+rd/2).*(h+rd/2>0);
 
-X = [tfm.aas{:}];
-X = [X.x];
+aas = [tfm.aas{:}];
+X = [aas.x];
 X = X([1,3],:)';
 
 % Force due distance intra vehicles
@@ -35,5 +35,6 @@ vd = 0; a = 0.1;
 uv = -a*((v-vd)./v).*V;
 
 % total control signal
-u = -u_dom - u_vehs + uv;
+%u = -u_dom - u_vehs + uv;
+u = -u_dom + u_vehs + uv;
 end

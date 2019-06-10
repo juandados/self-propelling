@@ -81,7 +81,7 @@ if save_figures
   end
 end
 
-save('bla.mat', 'tfm');
+%save('bla.mat', 'tfm');
 %% Integration
 tMax = 25;
 t = 0:tfm.dt:tMax;
@@ -89,10 +89,11 @@ t = 0:tfm.dt:tMax;
 u = cell(size(tfm.aas));
 for i = 1:length(t)
   [safe, uSafe] = tfm.checkAASafety;
-  %safe(length(tfm.aas)) = 1;
+  class(uSafe)
+  uCoverage = tfm.coverageCtrl;
   for j = 1:length(tfm.aas)
     if safe(j)
-      u{j} = controlLogic(tfm, tfm.aas{j});
+      u{j} = uCoverage{j};
     else
       u{j} = uSafe{j};
     end
@@ -126,11 +127,4 @@ for i = 1:length(t)
 end
 
 %tfm.printBreadthFirst;
-end
-
-function u = controlLogic(tfm, veh)
-if strcmp(veh.q, 'Free')
-  u = veh.coverDomain(tfm);
-  return
-end
 end
