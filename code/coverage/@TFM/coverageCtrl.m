@@ -1,4 +1,4 @@
-function u = coverageCtrl(obj)
+function uCoverage = coverageCtrl(obj)
 % u = joinPlatoon(obj, platoon)
 % method of Quadrotor class
 %
@@ -21,6 +21,9 @@ dV2 = zeros(size(V));
 for i = 1:n
     R = ones(n,1)*X(i,:) - X;
     r = apply(@(v)norm(v,2), R);
+    if min(r(r~=0)) < 1
+        disp('colission!!!!!')
+    end
     DUsI = (fI(r)./r)*ones(1,2).*R;
     DUsI(i,:) = zeros(1,2);
     DUsI = DUsI;
@@ -36,12 +39,17 @@ dV1 = -a*((v-vd)./v)*ones(1,2).*V;
 u = dV1 - dV2;
 
 %Thresholding the force:
-if false
+if true
     acc_max = 0.75*9.8;
     u_norm = apply(@(v)norm(v,2), u);
     u = (u./u_norm).*min(acc_max, u_norm);
     %figure(3); hold off; plot(dV_norm, 'r*'); hold on;
     %plot(apply(@(v)norm(v,p), dV), 'b.'); axis([1,n,-5, 100]);
 end
-u = mat2cell(u);
+
+uCoverage = cell(n, 1);
+for i=1:n
+    uCoverage{i} = u(i,:);
+end
+
 end

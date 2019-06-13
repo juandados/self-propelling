@@ -62,7 +62,8 @@ for i = 1:length(obj.aas)
   
   % There should not be more than one conflict
   if nnz(~safe(i,:)) > 1
-    error('More than one conflict detected!')
+    %error('More than one conflict detected!')
+    disp('More than one conflict detected!')
   end
   
   % Update safe-preserving control for agent i

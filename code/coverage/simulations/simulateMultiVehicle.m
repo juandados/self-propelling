@@ -17,10 +17,10 @@ tfm.computeRS('qr_qr_safe_V');
 % Setup speed limit
 tfm.speed_limit = 10;
 % collision radius
-tfm.cr = 5;
+tfm.cr = 1;
 %% Domain
-vertX = [-10,-10,10,10];
-vertY = [-10,10,10,-10];
+vertX = [-50,-50,50,50];
+vertY = [-50,50,50,-50];
 dm = TargetDomain(vertX, vertY);
 tfm.addDomain(dm);
 
@@ -36,7 +36,7 @@ f.Color = 'white';
 
 %% Quadrotors
 %(1 vehicles)
-n = 4;
+n = 16;
 xs = 50*rand(n,1);
 ys = 50*rand(n,1);
 vq = [0.1 0];
@@ -49,12 +49,13 @@ end
 colors = lines(length(tfm.aas));
 for j = 1:length(tfm.aas)
   extraArgs.Color = colors(j,:);
-  extraArgs.arrowLength = 5;
+  extraArgs.ArrowLength = 0; %j prev 1
+  extraArgs.LineWidth = 0.01; %j
   tfm.aas{j}.plotPosition(extraArgs);
 end
 
-%xlim([-50 50])
-%ylim([-50 50])
+xlim([-250 250])
+ylim([-250 250])
 title('t=0')
 axis square
 drawnow
@@ -81,31 +82,29 @@ if save_figures
   end
 end
 
-%save('bla.mat', 'tfm');
 %% Integration
-tMax = 25;
+tMax = 150;
 t = 0:tfm.dt:tMax;
 
 u = cell(size(tfm.aas));
 for i = 1:length(t)
   [safe, uSafe] = tfm.checkAASafety;
-  class(uSafe)
   uCoverage = tfm.coverageCtrl;
   for j = 1:length(tfm.aas)
-    if safe(j)
+    if safe(j) || false
       u{j} = uCoverage{j};
     else
+      disp("using safety ctrl")
       u{j} = uSafe{j};
     end
     
     tfm.aas{j}.updateState(u{j}, tfm.dt);
     tfm.aas{j}.plotPosition;
-    
-  end
+    % Plot reachable set
+    %tfm.aas{j}.plot_safe_V(tfm.aas{end}, tfm.qr_qr_safe_V, tfm.safetyTime)
   
-  % Plot reachable set
-  tfm.aas{1}.plot_safe_V(tfm.aas{end}, tfm.qr_qr_safe_V, tfm.safetyTime)
-    
+  end
+      
   title(['t=' num2str(t(i))])
   drawnow
 
