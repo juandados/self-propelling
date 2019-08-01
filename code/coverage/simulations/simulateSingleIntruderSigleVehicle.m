@@ -11,16 +11,16 @@ if nargin < 2
   fig_formats = {'png'};
 end
 
-%% TFM
-tfm = TFM;
-tfm.computeRS('qr_qr_safe_V');
+%% TM
+tm = TM;
+tm.computeRS('qr_qr_safe_V');
 % Highway speed
-tfm.hw_speed = 10;
+tm.speed_limit = 10;
 % collision radius
-tfm.cr = 5;
+tm.cr = 5;
 %% Domain
 %dm = Domain();
-%tfm.addDomain(hw);
+%tm.addDomain(hw);
 
 % plot
 f = figure;
@@ -43,7 +43,7 @@ vq = rotate2D(vq, theta);
 
 for j = 1:length(xs)
   q = UTMQuad4D([xs(j) vq(1) ys(j) vq(2)]);
-  tfm.regVehicle(q);
+  tm.regVehicle(q);
 end
 
 % Intruder
@@ -53,13 +53,13 @@ vin = rotate2D(vin, 9*pi/8);
 pin = rotate2D(pin, theta);
 vin = rotate2D(vin, theta);
 intruder = UTMQuad4D([pin(1) vin(1) pin(2) vin(2)]);
-tfm.regVehicle(intruder);
+tm.regVehicle(intruder);
 
-colors = lines(length(tfm.aas));
-for j = 1:length(tfm.aas)
+colors = lines(length(tm.aas));
+for j = 1:length(tm.aas)
   extraArgs.Color = colors(j,:);
   extraArgs.arrowLength = 5;
-  tfm.aas{j}.plotPosition(extraArgs);
+  tm.aas{j}.plotPosition(extraArgs);
 end
 
 xlim([-50 200])
@@ -92,26 +92,26 @@ end
 
 %% Integration
 tMax = 25;
-t = 0:tfm.dt:tMax;
+t = 0:tm.dt:tMax;
 
-u = cell(size(tfm.aas));
+u = cell(size(tm.aas));
 for i = 1:length(t)
-  [safe, uSafe] = tfm.checkAASafety;
-  safe(length(tfm.aas)) = 1;
-  for j = 1:length(tfm.aas)
+  [safe, uSafe] = tm.checkAASafety;
+  safe(length(tm.aas)) = 1;
+  for j = 1:length(tm.aas)
     if safe(j)
-      u{j} = controlLogic(tfm, tfm.aas{j});
+      u{j} = controlLogic(tm, tm.aas{j});
     else
       u{j} = uSafe{j};
     end
     
-    tfm.aas{j}.updateState(u{j}, tfm.dt);
-    tfm.aas{j}.plotPosition;
+    tm.aas{j}.updateState(u{j}, tm.dt);
+    tm.aas{j}.plotPosition;
     
   end
   
   % Plot reachable set
-  tfm.aas{1}.plot_safe_V(tfm.aas{end}, tfm.qr_qr_safe_V, tfm.safetyTime)
+  tm.aas{1}.plot_safe_V(tm.aas{end}, tm.qr_qr_safe_V, tm.safetyTime)
     
   title(['t=' num2str(t(i))])
   drawnow
@@ -133,10 +133,10 @@ for i = 1:length(t)
   end
 end
 
-tfm.printBreadthFirst;
+%tm.printBreadthFirst;
 end
 
-function u = controlLogic(tfm, veh)
+function u = controlLogic(tm, veh)
 if strcmp(veh.q, 'Free')
   u = [0; 0];
   return

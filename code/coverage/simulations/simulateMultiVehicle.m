@@ -1,5 +1,6 @@
 function simulateMultiVehicle(save_figures, fig_formats)
 % Simulates 2 quadrotors avoiding each other
+rng(2);
 
 addpath(genpath('..'))
 
@@ -11,22 +12,22 @@ if nargin < 2
   fig_formats = {'png'};
 end
 
-%% TFM
-tfm = TFM;
-tfm.computeRS('qr_qr_safe_V');
+%% TM
+tm = TM;
+tm.computeRS('qr_qr_safe_V');
 % Setup speed limit
-tfm.speed_limit = 10;
+tm.speed_limit = 10;
 % collision radius
-tfm.cr = 1;
+tm.cr = 1;
 %% Domain
 vertX = [-50,-50,50,50];
 vertY = [-50,50,50,-50];
-dm = TargetDomain(vertX, vertY);
-tfm.addDomain(dm);
+domain = TargetDomain(vertX, vertY);
+tm.addDomain(domain);
 
 % plot
 f = figure;
-domainPlot(dm);
+domainPlot(domain);
 hold on
 
 f.Children.FontSize = 16;
@@ -42,22 +43,22 @@ ys = 50*rand(n,1);
 vq = [0.1 0];
 
 for j = 1:length(xs)
-  q = UTMQuad4D([xs(j) vq(1) ys(j) vq(2)]);
-  tfm.regVehicle(q);
+  q = UTMQuad4D([xs(j) vq(1) ys(j) vq(2)], -0.75*9.8, 0.75*9.8);
+  tm.regVehicle(q);
 end
 
-colors = lines(length(tfm.aas));
-for j = 1:length(tfm.aas)
+colors = lines(length(tm.aas));
+for j = 1:length(tm.aas)
   extraArgs.Color = colors(j,:);
   extraArgs.ArrowLength = 0; %j prev 1
   extraArgs.LineWidth = 0.01; %j
-  tfm.aas{j}.plotPosition(extraArgs);
+  tm.aas{j}.plotPosition(extraArgs);
 end
 
-xlim([-250 250])
-ylim([-250 250])
-title('t=0')
-axis square
+xlim([-250 250]);
+ylim([-250 250]);
+title('t=0');
+axis square;
 drawnow
 
 if save_figures
@@ -84,24 +85,24 @@ end
 
 %% Integration
 tMax = 150;
-t = 0:tfm.dt:tMax;
+t = 0:tm.dt:tMax;
 
-u = cell(size(tfm.aas));
+u = cell(size(tm.aas));
 for i = 1:length(t)
-  [safe, uSafe] = tfm.checkAASafety;
-  uCoverage = tfm.coverageCtrl;
-  for j = 1:length(tfm.aas)
+  [safe, uSafe] = tm.checkAASafety;
+  uCoverage = tm.coverageCtrl;
+  for j = 1:length(tm.aas)
     if safe(j) || false
       u{j} = uCoverage{j};
     else
-      disp("using safety ctrl")
+      %disp("using safety ctrl")
       u{j} = uSafe{j};
     end
     
-    tfm.aas{j}.updateState(u{j}, tfm.dt);
-    tfm.aas{j}.plotPosition;
+    tm.aas{j}.updateState(u{j}, tm.dt);
+    tm.aas{j}.plotPosition;
     % Plot reachable set
-    %tfm.aas{j}.plot_safe_V(tfm.aas{end}, tfm.qr_qr_safe_V, tfm.safetyTime)
+    %tm.aas{j}.plot_safe_V(tm.aas{end}, tm.qr_qr_safe_V, tm.safetyTime)
   
   end
       
@@ -125,5 +126,5 @@ for i = 1:length(t)
   end
 end
 
-%tfm.printBreadthFirst;
+%tm.printBreadthFirst;
 end
