@@ -1,0 +1,338 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Avoidance controller
+\end_layout
+
+\begin_layout Standard
+The dynamic between two quadrotors 
+\begin_inset Formula $Q_{i},$
+\end_inset
+
+ 
+\begin_inset Formula $Q_{j}$
+\end_inset
+
+ can be defined in terms of relative variables as follows [rechability-based
+ safety and Goal Satisfaction p.
+ 6].
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+p_{x,r} & =p_{x,i}-p_{x,j}\\
+p_{y,r} & =p_{y,i}-p_{y,j}\\
+v_{x,r} & =v_{x,i}-v_{x,j}\\
+v_{y,r} & =v_{y,i}-v_{y,j}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+ is the evader and 
+\begin_inset Formula $Q_{j}$
+\end_inset
+
+ is the pursuer and is consider as the model disturbance.
+\end_layout
+
+\begin_layout Standard
+In this case, we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\dot{p}_{x,r} & =v_{x,r}\\
+\dot{p}_{y,r} & =v_{y,r}\\
+\dot{v}_{x,r} & =u_{x,i}-u_{x,j}\\
+\dot{v}_{y,r} & =u_{y,i}-u_{y,j}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rechability-Based Controllers.
+\end_layout
+
+\begin_layout Subsection
+Avoiding collisions
+\end_layout
+
+\begin_layout Standard
+We define an unsafe configuration when it is within a minimum separation
+ distance 
+\begin_inset Formula $d$
+\end_inset
+
+ to a reference vehicle in both the 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ directions.
+ In such a way we define the target set as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}_{S}=\left\{ x:\text{\left|p_{x,r}\right|, \left|p_{y,r}\right|}\leq d\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The zero sublevel set of the associated HJ PDE
+\end_layout
+
+\begin_layout Subsubsection
+HJ PDE [HJ Rechability: System Decomposition Mo Chen]
+\end_layout
+
+\begin_layout Standard
+The value function 
+\begin_inset Formula $V_{A}\left(t,z\right)$
+\end_inset
+
+ is the viscosity solution of the HJ partial differential equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H\left(s,z,\lambda\right)=\underset{u\in U}{max}\,\underset{d\in D}{min}\,\lambda·f\left(z,u,d\right)$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V_{A}=\underset{\gamma\left[u\right]\left(\cdot\right)\in\Gamma\left(t\right)}{inf}\underset{u\left(\cdot\right)\in\mathbb{U}}{sup}\underset{s\in\left[t,0\right]}{min}V_{0}\left(\zeta\left(0;z,t,u\left(\cdot\right),\gamma\left[u\right]\left(\cdot\right)\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $min\left\{ D_{s}V\left(s,z\right)+H\left(z,\nabla V\left(s,z\right)\right),V_{0}\left(z\right)-V\left(s,z\right)\right\} =0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lets consider the inner product 
+\begin_inset Formula $\nabla V\cdot f$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\nabla V\cdot f & =\nabla V_{1}v_{x,r}+\left(\nabla V_{2}u_{x,i}-\nabla V_{2}u_{x,j}\right)+\nabla V_{3}v_{y,r}+\left(\nabla V_{4}u_{y,i}-\nabla V_{4}u_{y,j}\right)\nonumber \\
+ & =\nabla V_{1}v_{x,r}+\nabla V_{3}v_{y,r}+\underset{avoidance\,controller}{\underbrace{\left(\nabla V_{2}u_{x,i}+\nabla V_{4}u_{y,i}\right)}}-\underset{disturbance}{\underbrace{\left(\nabla V_{2}u_{x,j}+\nabla V_{4}u_{y,j}\right)}}\label{eq:vdotf}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The optimal control avoiding danger is given by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u^{*}=\arg\underset{u}{\max}\underset{d}{\min}\nabla V\cdot f
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here some facts:
+\end_layout
+
+\begin_layout Enumerate
+The min value happens when the disturbance is 
+\begin_inset Formula $\left(u_{x,j},u_{y,j}\right)=\frac{\left(\nabla V_{2},\nabla V_{4}\right)}{\left\Vert \left(\nabla V_{2},\nabla V_{4}\right)\right\Vert _{2}}u_{max}$
+\end_inset
+
+, in such a case Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:vdotf"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ becomes:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla V\cdot f=\nabla V_{1}v_{x,r}+\nabla V_{3}v_{y,r}+\underset{avoidance\,controller}{\underbrace{\left(\nabla V_{2}u_{x,i}+\nabla V_{4}u_{y,i}\right)}}-\left\Vert \left(\nabla V_{2},\nabla V_{4}\right)\right\Vert _{2}u_{max}\label{eq:Max avoidance}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The admisible region for controller 
+\begin_inset Formula $u=\left(u_{x,i},u_{y,i}\right)\in\mathbb{R}^{2}$
+\end_inset
+
+, is the intersection between the circle 
+\begin_inset Formula $\left\Vert u_{x,i},u_{y,i}\right\Vert _{2}\leq u_{max}$
+\end_inset
+
+ and the semiplane 
+\begin_inset Formula $u_{y,i}>-\left(\frac{\nabla V_{2}}{\nabla V_{4}}\right)u_{x,i}+\frac{\left(-\nabla V_{1}v_{x,r}-\nabla V_{3}v_{y,r}+\left\Vert \left(\nabla V_{2},\nabla V_{4}\right)\right\Vert _{2}u_{max}\right)}{\nabla V_{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+The max value happens when the controller is 
+\begin_inset Formula $\left(u_{x,i},u_{y,i}\right)=\frac{\left(\nabla V_{2},\nabla V_{4}\right)}{\left\Vert \left(\nabla V_{2},\nabla V_{4}\right)\right\Vert _{2}}u_{max}$
+\end_inset
+
+, in such a case Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Max avoidance"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ become
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla V\cdot f=\nabla V_{1}v_{x,r}+\nabla V_{3}v_{y,r}\label{eq: optimal controller}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Goal satisfaction like controller
+\end_layout
+
+\end_body
+\end_document
