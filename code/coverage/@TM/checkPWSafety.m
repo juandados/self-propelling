@@ -64,7 +64,9 @@ if any(base_x <= qr_qr_safe_V.g.min) || ...
 end
 
 % Compute safety value
-valuex = eval_u(qr_qr_safe_V.g, qr_qr_safe_V.data, base_x);
+% juan:
+V_t = qr_qr_safe_V.data(:,:,:,:,1);
+valuex = eval_u(qr_qr_safe_V.g, V_t, base_x);
 
 % Compute safety preserving control if needed
 if valuex > safetyTime %%|| rand > 0.98
@@ -80,55 +82,55 @@ safe = 0;
 % Compute control assuming "pursuer" is facing 0 degrees
 % base_grad = calculateCostate(qr_qr_safe_V.g, qr_qr_safe_V.grad, base_x);
 % In the help of calculateCostate it says that it is not needed anymore, because it could be replaced by eval_u
-base_grad = eval_u(qr_qr_safe_V.g, qr_qr_safe_V.grad, base_x);
+
+%juan:
+grad_t = {qr_qr_safe_V.grad{1}(:,:,:,:,1); qr_qr_safe_V.grad{2}(:,:,:,:,1); ...
+    qr_qr_safe_V.grad{3}(:,:,:,:,1); qr_qr_safe_V.grad{4}(:,:,:,:,1)};
+base_grad = eval_u(qr_qr_safe_V.g, grad_t , base_x);
 
 % Controller1: |u|_{inf}<u_{max}
 %ux = (base_grad(2)>=0)*evader.uMax + (base_grad(2)<0)*evader.uMin;
 %uy = (base_grad(4)>=0)*evader.uMax + (base_grad(4)<0)*evader.uMin;
 
-% Controller2: |u|_{2}<u_{max} maximum
+% Controller2: |u|_{2}<u_{max} optimal
 normalizer = norm([base_grad(2), base_grad(4)]) + eps;
 ux = (base_grad(2))*evader.uMax/normalizer;
 uy = (base_grad(4))*evader.uMax/normalizer;
-
-% Controller3: |u|_{2}<u_{max} left minimum
-M = -base_grad(2)/(base_grad(4)+ eps);
-B = (-base_grad(1)*base_x(1)-base_grad(3)*base_x(3)+...
-    norm([base_grad(2),base_grad(4)])*pursuer.uMax)/(base_grad(4)+eps);
-if safe ~= true
-    
-    xx = [-pursuer.uMax:0.05:pursuer.uMax];
-    yy = M*xx+B;
-    disp('m');
-    disp(M);
-    disp('B');
-    disp(B);
-    figure(100);
-    plot(xx, yy);
-    hold on;
-    th = 0:0.1:2*pi;
-    plot(pursuer.uMax*cos(th),pursuer.uMax*sin(th));
-    hold off;
-    axis([-pursuer.uMax, pursuer.uMax, -50*pursuer.uMax, 50*pursuer.uMax]);
-end
-% a = 1+(base_grad(2)/base_grad(4))^2;
-% b = -2*(base_grad(2)/base_grad(4)^2)*(-base_grad(1)*base_x(1)- ...
-%     base_grad(3)*base_x(3)+norm([base_grad(2),base_grad(4)])*pursuer.uMax);
-% c = ((-base_grad(1)*base_x(1)-base_grad(3)*base_x(3)+ ...
-%     norm([base_grad(2),base_grad(4)])*pursuer.uMax)/base_grad(4))^2-evader.uMax^2;
-% Controller 4a (+):
-% ux = (-b + sqrt(b^2-4*a*c))/(2*a);
-% uy = M * ux + B;
-% disp('ux');
-% disp(ux);
-% disp('force');
-% disp(sqrt(ux^2+uy^2));
-
-% Controller 4b (-):
-% ux = (-b - sqrt(b^2-4*a*c))/(2*a);
-% uy = M * x2 + B;
-
 u = [ux; uy];
+
+disp('max min(grad_v . f), for optimal controller, this MUST BE >= 0');
+disp(base_grad(1)*base_x(2) + base_grad(3)*base_x(4));
+
+min_h = base_grad(1)*base_x(2)+base_grad(3)*base_x(4) + ... 
+    -2*(base_grad(2)*ux + base_grad(4)*uy);
+disp('min min(gradV.f) From max disturbance');
+disp(min_h);
+
+if min_h < 0
+    % Controller3: |u|_{2}<u_{max} left minimum
+    M = -base_grad(2)/(base_grad(4)+ eps);
+    B = (-base_grad(1)*base_x(2)-base_grad(3)*base_x(4)+...
+        norm([base_grad(2),base_grad(4)])*pursuer.uMax)/(base_grad(4)+eps);
+    a = 1 + M^2;
+    b = 2*M*B;
+    c = B^2 - evader.uMax^2;
+    % Controller 4a (+):
+    ux_ = (-b + sqrt(b^2-4*a*c))/(2*a);
+    uy_ = M * ux_ + B;
+    disp('ux');
+    disp(ux_);
+    disp('force');
+    disp(sqrt(ux_^2+uy_^2));
+
+    % Controller 4b (-):
+    % ux = (-b - sqrt(b^2-4*a*c))/(2*a);
+    % uy = M * x2 + B;
+
+    u = [ux_; uy_];
+end
+
+disp('u');
+disp(u);
 
 
 % Rotate the control to correspond with the actual heading of the

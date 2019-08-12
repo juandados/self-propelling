@@ -10,8 +10,8 @@ dt = 0.1;
 T = 100;
 
 if type == "L"
-    T = 20;
-    n = 16;
+    T = 40;
+    n = 12;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
     neg_leaders = @(t)100*[0,0;0,1;0.5,1;0.5,0.5;1,0.5;1,0];
@@ -27,7 +27,7 @@ if type == "L"
 end
 
 if type == "polygon"
-    T = 20;
+    T = 40;
     n = 16;
     % Reading InputStruct:
     names = fieldnames(inputStruct);
@@ -164,7 +164,7 @@ for t = 0:dt:T
     %quiver(X(:,1),X(:,2),V(:,1),V(:,2),0);
     %voronoi(X(:,1),X(:,2))
     %triplot(delaunayTriangulation(X),'-g');
-    voronoi_centroids(X, neg_leaders_t);
+    %voronoi_centroids(X, neg_leaders_t);
     plot(neg_leaders_t([1:end,1],1), neg_leaders_t([1:end,1],2),'r');
     title(['Time: ',num2str(t)])
     
@@ -187,11 +187,11 @@ function dY = f_polygon(Y, vertices)
     d = size(Y,2); n = size(Y,1)/2; l=size(vertices,1);
     area = polyarea(vertices(:,1),vertices(:,2));
     rd = 1.2*sqrt(area/n);
-    fI = @(r)0.1*(r-rd).*(r-rd<0);
-    fh = @(h)0.1*(h+rd/2).*(h+rd/2>0);
+    fI = @(r)1*(r-rd).*(r-rd<0);
+    fh = @(h)1*(h+rd/2).*(h+rd/2>0);
     %fh = @(h)80*(h).*(h>0); %borders
     pw = rd;
-    vd = 0; a = 0.05; %a = 0.15;
+    vd = 0; a = 0.2; %a = 0.15;
     X = Y(1:n,:);
     V = Y(n+1:2*n,:);
     dX = V;

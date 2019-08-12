@@ -15,46 +15,54 @@ fourD = true;
 visualize = true;
 
 % Computes base reachable sets
-switch type    
-  case 'qr_qr_safe_V'
-    %% Safety between two quadrotors
-    filename = [fileparts(mfilename('fullpath')) ...
-      '/../RS_core/saved/qr_qr_safe_V_' ...
-      num2str(obj.cr) '_' num2str(obj.speed_limit) '.mat'];
-    
-    if exist(filename, 'file')
-      load(filename)
-    else
-      [data, g, tau] = ...
-        quad_quad_collision_2D(obj.cr, obj.speed_limit, visualize);
-      
-      if fourD
-        % Reconstruct the base reachable set
-        gridLim = [g.min-1 g.max+1; g.min-1 g.max+1];
-        [~, ~, TTR_out] = ...
-          recon2x2D(tau, {g; g}, {data; data}, gridLim, tau(end));
-        g = TTR_out.g;
-        data = TTR_out.value;
-        grad = TTR_out.grad;
-        % >>> checking steady state
-%         [~, ~, TTR_out] = ...
-%           recon2x2D(tau, {g; g}, {data; data}, gridLim, tau(end-1));
-%         g_prev = TTR_out.g;
-%         data_prev = TTR_out.value;
-%         grad_prev = TTR_out.grad;
-        % <<< end
-        save(filename, 'g', 'data', 'grad', 'tau')
-      else
-        grad = [];
-      end
-    end
-    obj.qr_qr_safe_V.g = g;
-    obj.qr_qr_safe_V.data = data;
-    obj.qr_qr_safe_V.grad = grad;
-    obj.qr_qr_safe_V.tau = tau;
-    % checking DsV = 0, it means the solution is in steady state:
-    
-  otherwise
-    error('Undefined reachable set type.')
+switch type
+    case 'qr_qr_safe_V_circle'
+        % Safety between two quadrotors square domain
+        filename = [fileparts(mfilename('fullpath')) ...
+            '/../RS_core/saved/qr_qr_safe_V_circle_' ...
+            num2str(obj.cr) '_' num2str(obj.speed_limit) '.mat'];
+        if exist(filename, 'file')
+            load(filename)
+        else
+            [data, g, tau, grad] = ...
+                quad_quad_collision_4D(obj.cr, obj.speed_limit, visualize);
+            % Is the grad properly computed? or should it computed using
+            % computecostate?
+            save(filename, 'g', 'data', 'grad', 'tau');
+        end
+        obj.qr_qr_safe_V.g = g;
+        obj.qr_qr_safe_V.data = data;
+        obj.qr_qr_safe_V.grad = grad;
+        obj.qr_qr_safe_V.tau = tau;        
+    case 'qr_qr_safe_V'
+        % Safety between two quadrotors square domain
+        filename = [fileparts(mfilename('fullpath')) ...
+          '/../RS_core/saved/qr_qr_safe_V_' ...
+          num2str(obj.cr) '_' num2str(obj.speed_limit) '.mat'];
+
+        if exist(filename, 'file')
+            load(filename)
+        else
+            [data, g, tau] = ...
+                quad_quad_collision_2D(obj.cr, obj.speed_limit, visualize);
+            if fourD
+                % Reconstruct the base reachable set
+                gridLim = [g.min-1 g.max+1; g.min-1 g.max+1];
+                [~, ~, TTR_out] = ...
+                  recon2x2D(tau, {g; g}, {data; data}, gridLim, tau(end));
+                g = TTR_out.g;
+                data = TTR_out.value;
+                grad = TTR_out.grad;
+                save(filename, 'g', 'data', 'grad', 'tau');
+            else
+                grad = [];
+            end
+        end
+        obj.qr_qr_safe_V.g = g;
+        obj.qr_qr_safe_V.data = data;
+        obj.qr_qr_safe_V.grad = grad;
+        obj.qr_qr_safe_V.tau = tau;  
+    otherwise
+        error('Undefined reachable set type.')
 end
 end % end function
