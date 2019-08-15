@@ -98,12 +98,12 @@ if recordVideo
 end
 
 % Time integration
-tMax = 30;
+tMax = 1;
 t = 0:tm.dt:tMax;
 
 u = cell(size(tm.aas));
 for i = 1:length(t)
-  %[safe, uSafe] = tm.checkAASafety;
+  [safe, uSafe] = tm.checkAASafety;
   uCoverage = tm.coverageCtrl;
   for j = 1:length(tm.aas)
     %if safe(j) || true
