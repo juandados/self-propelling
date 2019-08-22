@@ -1,15 +1,11 @@
-function simulateMultiVehicle(recordVideo, fig_formats)
+function simulateMultiVehicle(recordVideo)
 % Simulates 2 quadrotors avoiding each other
 rng(2);
 
-addpath(genpath('..'))
+addpath('..');
 
 if nargin < 1
   recordVideo = false;
-end
-
-if nargin < 2
-  fig_formats = {'png'};
 end
 
 % ---- Traffic Manager ----
@@ -23,7 +19,7 @@ tm.speed_limit = 10;
 tm.cr = 1;
 
 % domain setup
-domainType = 'polygon';
+domainType = 'square';
 switch domainType
     case 'square'
         vertX = [-50,-50, 50, 50];
@@ -52,7 +48,7 @@ tm.addDomain(domain);
 f = figure;
 domain.domainPlot('blue', 'red');
 hold on;
-f.Children.FontSize = 16;
+f.Children.FontSize = 9;
 f.Position(1:2) = [200 200];
 f.Position(3:4) = [1000 750];
 f.Color = 'white';
@@ -64,7 +60,7 @@ axis square;
 % ---- Quadrotors ----
 
 % random initial states
-n = 16;
+n = 9;
 px = 50 * rand(n,1);
 py = 50 * rand(n,1);
 vx = 0.1 * rand(n,1);
@@ -98,19 +94,39 @@ if recordVideo
 end
 
 % Time integration
-tMax = 1;
+tMax = 60;
 t = 0:tm.dt:tMax;
 
 u = cell(size(tm.aas));
 for i = 1:length(t)
-  [safe, uSafe] = tm.checkAASafety;
+  [safe, uSafeOptimal, uSafeRight, uSafeLeft] = tm.checkAASafety;
   uCoverage = tm.coverageCtrl;
   for j = 1:length(tm.aas)
-    %if safe(j) || true
-    if true
+    if safe(j)
       u{j} = uCoverage{j};
     else
-      u{j} = real(uSafe{j});
+      %projection aug 22 2019
+      uC = uCoverage{j}';
+      uO = uSafeOptimal{j};
+      uR = uSafeRight{j};
+      uL = uSafeLeft{j};
+      s = uL - uR;
+      d = uR - uC;
+      zref = s(2) * (uO(1) - uR(1)) - s(1) * (uO(2) - uR(2));
+      zcomp = s(2) * (uC(1) - uR(1)) - s(1) * (uC(2) - uR(2));
+      if zref * zcomp < 0
+          u{j} = -(d' * s / norm(s)^2)*s + uR;
+          if norm(u{j}) > umax
+              ctrls = [uR, uL];
+              dists = [norm(uC-uR), norm(uC-uL)];
+              [minDist, ind] = min(dists);
+              u{j} = ctrls(:,ind);
+          end
+      else
+          u{j} = uC;
+      end
+      % using only optimal
+      %u{j} = uO;
     end  
     tm.aas{j}.updateState(u{j}, tm.dt);
     tm.aas{j}.plotPosition;

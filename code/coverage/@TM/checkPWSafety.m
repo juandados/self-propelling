@@ -1,4 +1,4 @@
-function [safe, uSafe, safe_val] = checkPWSafety(obj, i, j)
+function [safe, uSafeOptimal, uSafeLeft, uSafeRight, safe_val] = checkPWSafety(obj, i, j)
 % function checkPWSafety(obj, i, j)
 %          (check pairwise safety)
 %
@@ -18,7 +18,9 @@ function [safe, uSafe, safe_val] = checkPWSafety(obj, i, j)
 % Vehicle is safe with respect to itself
 if isempty(obj.aas{j}) || obj.aas{i} == obj.aas{j}
   safe = 1;
-  uSafe = [];
+  uSafeOptimal = [];
+  uSafeLeft = [];
+  uSafeRight = [];
   safe_val = 10;
   return
 end
@@ -28,9 +30,7 @@ switch(class(obj.aas{i}))
     %% agent i is a quadrotor
     switch(class(obj.aas{j}))
       case 'UTMQuad4D'
-        [safe, uSafe, safe_val] = checkPWSafety_qr_qr(obj.qr_qr_safe_V, ...
-          obj.safetyTime, obj.aas{i}, obj.aas{j});
-        
+        [safe,  uSafeOptimal, uSafeLeft, uSafeRight, safe_val] = checkPWSafety_qr_qr(obj.qr_qr_safe_V, obj.safetyTime, obj.aas{i}, obj.aas{j});
       otherwise
         error('Unknown agent type')
         
@@ -42,8 +42,7 @@ end % end outer switch
 end % end function
 
 %%
-function [safe, uSafe, valuex] = checkPWSafety_qr_qr(qr_qr_safe_V, safetyTime, ...
-  evader, pursuer)
+function [safe, uSafeOptimal, uSafeLeft, uSafeRight, valuex] = checkPWSafety_qr_qr(qr_qr_safe_V, safetyTime, evader, pursuer)
 % Safety of quadrotor qr1 with respect to quadrotor qr2
 
 % Heading of evader
@@ -58,7 +57,9 @@ base_x = [base_pos(1); base_vel(1); base_pos(2); base_vel(2)];
 if any(base_x <= qr_qr_safe_V.g.min) || ...
     any(base_x >= qr_qr_safe_V.g.max)
   safe = 1;
-  uSafe = [];
+  uSafeOptimal = [];
+  uSafeLeft = [];
+  uSafeRight = [];
   valuex = 10;
   return
 end
@@ -72,7 +73,10 @@ valuex = eval_u(qr_qr_safe_V.g, V_t, base_x);
 if valuex > safetyTime %%|| rand > 0.98
   % Safe; no need to worry about computing controller
   safe = 1;
-  uSafe = [];
+  uSafeOptimal = [];
+  uSafeLeft = [];
+  uSafeRight = [];
+  valuex = 10;
   return
 end
 
@@ -96,45 +100,44 @@ base_grad = eval_u(qr_qr_safe_V.g, grad_t , base_x);
 normalizer = norm([base_grad(2), base_grad(4)]) + eps;
 ux = (base_grad(2))*evader.uMax/normalizer;
 uy = (base_grad(4))*evader.uMax/normalizer;
-u = [ux; uy];
-
-disp('max min(grad_v . f), for optimal controller, this MUST BE >= 0');
-disp(base_grad(1)*base_x(2) + base_grad(3)*base_x(4));
+uo = [ux; uy];
 
 min_h = base_grad(1)*base_x(2)+base_grad(3)*base_x(4) + ... 
     -2*(base_grad(2)*ux + base_grad(4)*uy);
-disp('min min(gradV.f) From max disturbance');
-disp(min_h);
+max_h = base_grad(1)*base_x(2)+base_grad(3)*base_x(4);
 
-if min_h < 0
+if min_h * max_h < 0
+    %dV/dt
+    dt = 0.05; %Change it to tm.dV
+    dV_dt = -(data(:,:,:,:,end) - data(:,:,:,:,end-1))/dt; % check the order because time is going backwards
+    base_dV_dt = eval_u(g, dV_dt, base_x);
     % Controller3: |u|_{2}<u_{max} left minimum
     M = -base_grad(2)/(base_grad(4)+ eps);
-    B = (-base_grad(1)*base_x(2)-base_grad(3)*base_x(4)+...
+    B = (-base_dV_dt - base_grad(1)*base_x(2)-base_grad(3)*base_x(4)+...
         norm([base_grad(2),base_grad(4)])*pursuer.uMax)/(base_grad(4)+eps);
     a = 1 + M^2;
     b = 2*M*B;
     c = B^2 - evader.uMax^2;
     % Controller 4a (+):
-    ux_ = (-b + sqrt(b^2-4*a*c))/(2*a);
-    uy_ = M * ux_ + B;
-    disp('ux');
-    disp(ux_);
-    disp('force');
-    disp(sqrt(ux_^2+uy_^2));
-
+    ux = (-b + sqrt(b^2-4*a*c))/(2*a);
+    uy = M * ux + B;
+    ur = [ux; uy];
     % Controller 4b (-):
-    % ux = (-b - sqrt(b^2-4*a*c))/(2*a);
-    % uy = M * x2 + B;
-
-    u = [ux_; uy_];
+    ux = (-b - sqrt(b^2-4*a*c))/(2*a);
+    uy = M * ux + B;
+    if abs(imag(ux))>0.01 || abs(imag(uy))>0.01
+        error('Complex force is not allowed');
+    end
+    ul = [ux; uy];
+else
+    ur = uo;
+    ul = uo;
 end
-
-disp('u');
-disp(u);
-
-
-% Rotate the control to correspond with the actual heading of the
-% "pursuer"
-uSafe = rotate2D(u, theta);  
+% Rotate the control to correspond with the actual heading of the "pursuer"
+% Optimal controller is the one that maximize the hamiltonian
+uSafeOptimal = rotate2D(uo, theta);
+% Rigth and left intercepts for zero hamiltonian an force constrain*
+uSafeRight = rotate2D(ur, theta);
+uSafeLeft = rotate2D(ul, theta);
 
 end

@@ -61,7 +61,7 @@ data = shapeCylinder(g, [2, 4], [0; 0; 0; 0], d);
 % time vector
 t0 = 0;
 dt = 0.05;
-tMax = 2*dt;
+tMax = 5 * dt;
 tau = t0:dt:tMax;
 
 % control trying to min or max value function?

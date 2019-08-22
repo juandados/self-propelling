@@ -1,4 +1,4 @@
-function [safe, uSafe, safe_val] = checkAASafety(obj)
+function [safe, uSafeOptimal, uSafeRight, uSafeLeft, safe_val] = checkAASafety(obj)
 % function [safe, uSafe] = checkAASafety(obj)
 %
 % Checks the safety of every active agent with respect to all other active
@@ -15,45 +15,24 @@ function [safe, uSafe, safe_val] = checkAASafety(obj)
 % uSafe needs to be cell because controls may have different dimensions in
 % different agents
 safe = ones(length(obj.aas));
-uSafe = cell(length(obj.aas), 1);
+uSafeOptimal = cell(length(obj.aas), 1);
+uSafeRight = cell(length(obj.aas), 1);
+uSafeLeft = cell(length(obj.aas), 1);
 safe_val = 10*ones(length(obj.aas));
 
 % Go through every pair of agents and return safety indicator and control
 for i = 1:length(obj.aas)
-  uSafei = cell(1, length(obj.aas));
+  uSafeOptimali = cell(1, length(obj.aas));
+  uSafeLefti = cell(1, length(obj.aas));
+  uSafeRighti = cell(1, length(obj.aas));
 
   % Free vehicles check safety against 
   %   all other free vehicles
   %   all leaders
   if strcmp(obj.aas{i}.q, 'Free')
     for j = 1:length(obj.aas)
-      if strcmp(obj.aas{j}.q, 'Free') || ...
-          strcmp(obj.aas{j}.q, 'Leader') 
-        [safe(i,j), uSafei{j}, safe_val(i,j)] = obj.checkPWSafety(i, j);
-      end
-    end
-  end
-
-  % Leader vehicles check safety against all other leaders and free
-  % vehicles, as well as the vehicle behind him
-  if strcmp(obj.aas{i}.q, 'Leader')
-    for j = 1:length(obj.aas)
-      if obj.aas{j} == obj.aas{i}.BQ || strcmp(obj.aas{j}.q, 'Free') ...
-          || strcmp(obj.aas{j}.q, 'Leader')
-        [safe(i,j), uSafei{j}, safe_val(i,j)] = obj.checkPWSafety(i, j);
-      end
-    end
-  end
-
-  % Followers check safety against 
-  %   Vehicle in the same platoon that is in front
-  %   Vehicle in the same platoon that is behind
-  %   'Free' vehicles (for CDC 2015 paper)
-  if strcmp(obj.aas{i}.q, 'Follower')
-    for j = 1:length(obj.aas)
-      if strcmp(obj.aas{j}.q, 'Free') || obj.aas{j} == obj.aas{i}.BQ || ...
-          obj.aas{j} == obj.aas{i}.FQ
-        [safe(i,j), uSafei{j}, safe_val(i,j)] = obj.checkPWSafety(i, j);
+      if strcmp(obj.aas{j}.q, 'Free') 
+        [safe(i,j), uSafeOptimali{j}, uSafeLefti{j}, uSafeRighti{j}, safe_val(i,j)] = obj.checkPWSafety(i, j);
       end
     end
   end
@@ -67,8 +46,10 @@ for i = 1:length(obj.aas)
   end
   
   % Update safe-preserving control for agent i
-  if nnz(~safe(i,:)) == 1
-    uSafe{i} = uSafei{~safe(i,:)};
+  if nnz(~safe(i,:)) >= 1
+      uSafeOptimal{i} = uSafeOptimali{~safe(i,:)};
+      uSafeRight{i} = uSafeRighti{~safe(i,:)};
+      uSafeLeft{i} = uSafeLefti{~safe(i,:)};
   end
 end
 
