@@ -30,6 +30,12 @@ switch(class(obj.aas{i}))
     %% agent i is a quadrotor
     switch(class(obj.aas{j}))
       case 'UTMQuad4D'
+        % Checking if collition
+        distancePW = norm(obj.aas{i}.getPosition - obj.aas{j}.getPosition);
+        if distancePW < obj.cr
+            disp('Collision!!!: At least two particles are very close!!!')
+        end
+        % Getting controllers
         [safe,  uSafeOptimal, uSafeLeft, uSafeRight, safe_val] = checkPWSafety_qr_qr(obj.qr_qr_safe_V, obj.safetyTime, obj.aas{i}, obj.aas{j});
       otherwise
         error('Unknown agent type')
@@ -65,17 +71,17 @@ if any(base_x <= qr_qr_safe_V.g.min) || ...
 end
 
 % Compute safety value
-% juan:
-V_t = qr_qr_safe_V.data(:,:,:,:,1);
-valuex = eval_u(qr_qr_safe_V.g, V_t, base_x);
+valuex = eval_u(qr_qr_safe_V.g, qr_qr_safe_V.data, base_x);
 
 % Compute safety preserving control if needed
-if valuex > safetyTime %%|| rand > 0.98
+if valuex > safetyTime
   % Safe; no need to worry about computing controller
   safe = 1;
   uSafeOptimal = [];
   uSafeLeft = [];
   uSafeRight = [];
+  % juan: Why do we need valuex going out of the function? why it is 10 by
+  % default
   valuex = 10;
   return
 end
@@ -83,14 +89,8 @@ end
 % Not safe, compute safety controller
 safe = 0;
 
-% Compute control assuming "pursuer" is facing 0 degrees
-% base_grad = calculateCostate(qr_qr_safe_V.g, qr_qr_safe_V.grad, base_x);
-% In the help of calculateCostate it says that it is not needed anymore, because it could be replaced by eval_u
-
 %juan:
-grad_t = {qr_qr_safe_V.grad{1}(:,:,:,:,1); qr_qr_safe_V.grad{2}(:,:,:,:,1); ...
-    qr_qr_safe_V.grad{3}(:,:,:,:,1); qr_qr_safe_V.grad{4}(:,:,:,:,1)};
-base_grad = eval_u(qr_qr_safe_V.g, grad_t , base_x);
+base_grad = eval_u(qr_qr_safe_V.g, qr_qr_safe_V.grad , base_x);
 
 % Controller1: |u|_{inf}<u_{max}
 %ux = (base_grad(2)>=0)*evader.uMax + (base_grad(2)<0)*evader.uMin;
@@ -107,13 +107,9 @@ min_h = base_grad(1)*base_x(2)+base_grad(3)*base_x(4) + ...
 max_h = base_grad(1)*base_x(2)+base_grad(3)*base_x(4);
 
 if min_h * max_h < 0
-    %dV/dt
-    dt = 0.05; %Change it to tm.dV
-    dV_dt = -(data(:,:,:,:,end) - data(:,:,:,:,end-1))/dt; % check the order because time is going backwards
-    base_dV_dt = eval_u(g, dV_dt, base_x);
     % Controller3: |u|_{2}<u_{max} left minimum
     M = -base_grad(2)/(base_grad(4)+ eps);
-    B = (-base_dV_dt - base_grad(1)*base_x(2)-base_grad(3)*base_x(4)+...
+    B = (- base_grad(1)*base_x(2)-base_grad(3)*base_x(4)+...
         norm([base_grad(2),base_grad(4)])*pursuer.uMax)/(base_grad(4)+eps);
     a = 1 + M^2;
     b = 2*M*B;

@@ -58,7 +58,7 @@ tm.regVehicle(intruder);
 colors = lines(length(tm.aas));
 for j = 1:length(tm.aas)
   extraArgs.Color = colors(j,:);
-  extraArgs.arrowLength = 5;
+  extraArgs.ArrowLength = 5;
   tm.aas{j}.plotPosition(extraArgs);
 end
 

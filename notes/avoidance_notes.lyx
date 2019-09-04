@@ -76,7 +76,389 @@
 \begin_body
 
 \begin_layout Section
-Avoidance controller
+Coverage Controller
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\dot{p}_{x,i} & =v_{x,i}\\
+\dot{p}_{y,i} & =v_{y,i}\\
+\dot{v}_{x,i} & =u_{x,i}-\dot{v}_{x,0}\\
+\dot{v}_{y,i} & =u_{y,i}-\dot{v}_{y,0}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The proposed coverage control force is given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u_{i}=-\stackrel[j\neq i]{n}{\sum}\left(f_{I}\left(p_{ij}\right)\frac{p_{ij}}{\left\Vert p_{ij}\right\Vert }-f_{h}\left(h_{i}\right)\frac{h\left(p_{i}\right)}{\left\Vert h\left(p_{i}\right)\right\Vert }+f_{v}\left(v_{i}\right)\frac{v_{i}}{\left\Vert v_{i}\right\Vert }\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $h\left(x\right)=\underset{y\in\Omega}{inf}\left\Vert x-y\right\Vert $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Finding a related potential
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Lemma: 
+\series default
+Let 
+\begin_inset Formula $h\left(p\right)=\underset{y\in\Omega}{\arg\inf}\left\Vert p-y\right\Vert $
+\end_inset
+
+ and 
+\begin_inset Formula $d\left(p\right)=\left\Vert h\left(p\right)\right\Vert $
+\end_inset
+
+, then 
+\begin_inset Formula $\nabla d\left(p\right)=\frac{h\left(p\right)}{\left\Vert h\left(p\right)\right\Vert }$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Proof:
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First notice 
+\begin_inset Formula $\nabla d\left(p\right)$
+\end_inset
+
+ is parallel to 
+\begin_inset Formula $h\left(p\right)$
+\end_inset
+
+, as the largest increase on 
+\begin_inset Formula $d$
+\end_inset
+
+ value is reached when moving on 
+\begin_inset Formula $h\left(p\right)$
+\end_inset
+
+ direction (see figure for a geometrical interpretation), in other words
+ 
+\begin_inset Formula $\frac{\nabla d\left(p\right)}{\left\Vert \nabla d\left(p\right)\right\Vert }=\frac{h\left(p\right)}{\left\Vert h\left(p\right)\right\Vert }$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider the directional derivative of 
+\begin_inset Formula $d$
+\end_inset
+
+ respect to the unit vector 
+\begin_inset Formula $v=\frac{\nabla d\left(p\right)}{\left\Vert \nabla d\left(p\right)\right\Vert }$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial d}{\partial v}\left(p\right)=\underset{\epsilon\rightarrow0}{\lim}\frac{\left\Vert h\left(p+\epsilon v\right)\right\Vert -\left\Vert h\left(p\right)\right\Vert }{\epsilon}=\frac{\epsilon}{\epsilon}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the gradient of 
+\begin_inset Formula $d$
+\end_inset
+
+ to represent this directional derivative we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+1=\nabla d\left(p\right)\cdot v=\nabla d\left(p\right)\cdot\frac{\nabla d\left(p\right)}{\left\Vert \nabla d\left(p\right)\right\Vert }
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+showing 
+\begin_inset Formula $\left\Vert \nabla d\left(p\right)\right\Vert =1$
+\end_inset
+
+, and concluding 
+\begin_inset Formula $\nabla d\left(p\right)=\frac{h\left(p\right)}{\left\Vert h\left(p\right)\right\Vert }$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Proposal
+\series default
+: If 
+\begin_inset Formula $V_{h}\left(s\right)=\stackrel[0]{s}{\int}f_{h}\left(\tau\right)d\tau$
+\end_inset
+
+ then 
+\begin_inset Formula $\nabla V_{h}\left(\left\Vert h\left(p\right)\right\Vert \right)=f_{h}\left(\left\Vert h\left(p\right)\right\Vert \right)\frac{h\left(p\right)}{\left\Vert h\left(p\right)\right\Vert }$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Proof:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\nabla V_{h}\left(\left\Vert h\left(p\right)\right\Vert \right) & =V_{h}^{\prime}\left(\left\Vert h\left(p\right)\right\Vert \right)\nabla\left\Vert h\left(p\right)\right\Vert \\
+ & =f_{h}\left(h_{i}\right)\nabla d\left(p_{i}\right)\\
+ & =f_{h}\left(h_{i}\right)\frac{h\left(p_{i}\right)}{\left\Vert h\left(p_{i}\right)\right\Vert }
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Stability of the controlled system
+\end_layout
+
+\begin_layout Standard
+Consider the Lyapunov function defined on the full state space as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Phi=\frac{1}{2}\stackrel[i=1]{n}{\sum}\left(\dot{p}_{i}\cdot\dot{p}_{i}+\stackrel[j\neq i]{n}{\sum}V_{I}\left(p_{ij}\right)+2V_{h}\left(h_{i}\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The derivative of 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ with respect to time is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\dot{\Phi} & =\stackrel[i=1]{n}{\sum}\dot{p}_{i}\cdot\left(u_{i}+\stackrel[j\neq i]{n}{\sum}\nabla_{i}V_{I}\left(p_{ij}\right)+\nabla_{i}V_{h}\left(h_{i}\right)\right)\\
+ & =\stackrel[i=1]{n}{\sum}\dot{p}_{i}\cdot f_{v_{i}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus, if we chose
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{v_{i}}=-a_{i}\dot{p_{i}},\,a_{i}>0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+for 
+\begin_inset Formula $i=1,\cdots,n$
+\end_inset
+
+, then 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ is negative definite and equal to zero if and only if 
+\begin_inset Formula $\dot{p_{i}}=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ By the LaSalle Invariance Principle we can conclude that an equilibrium
+ that has been made stable without dissipation will be asymptotically stabilized
+ with this form of dissipation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Proposition
+\end_layout
+
+\begin_layout Standard
+Consider a group of n vehicles with dynamics defined by (-), 
+\begin_inset Formula $v_{0}$
+\end_inset
+
+ a constant, and the control law given by (-) and (-).
+ Let the equilibrium of interest be of the form 
+\begin_inset Formula $\dot{p_{i}}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{i}=h_{0}$
+\end_inset
+
+ or 
+\begin_inset Formula $p_{i}>h_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $p_{ij}=d_{0}$
+\end_inset
+
+ or 
+\begin_inset Formula $p_{ij}>d_{1}$
+\end_inset
+
+ , and 
+\begin_inset Formula $h_{ik}=h_{0}$
+\end_inset
+
+ or 
+\begin_inset Formula $h_{ik}>h_{1}$
+\end_inset
+
+ for 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+all
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\begin_inset Formula $i,j=1,\cdots,n$
+\end_inset
+
+ , 
+\begin_inset Formula $j\neq i$
+\end_inset
+
+ , and 
+\begin_inset Formula $k=1,\cdots,m-1$
+\end_inset
+
+ .
+ We assume that 
+\begin_inset Formula $h_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $d_{1}$
+\end_inset
+
+ have been defined so that there is a neighborhood about the equilibrium
+ in which the control law remains smooth.
+ Then, the equilibrium is a global minimum of the sum of all the artificial
+ potentials and is locally asymptotically stable for the closed-loop dynamics.
+ In the case in which there is no symmetry, stability is achieved in the
+ full state space.
+ In the case in which there is symmetry, the relative velocity of all vehicles
+ will go to zero and each symmetry variable will be stabilized to an arbitrary
+ (constant) value.
+\end_layout
+
+\begin_layout Section
+Avoidance Controller
 \end_layout
 
 \begin_layout Standard
@@ -184,28 +566,40 @@ HJ PDE [HJ Rechability: System Decomposition Mo Chen]
 
 \begin_layout Standard
 The value function 
-\begin_inset Formula $V_{A}\left(t,z\right)$
+\begin_inset Formula $V\left(t,z\right)$
 \end_inset
 
  is the viscosity solution of the HJ partial differential equation
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $H\left(s,z,\lambda\right)=\underset{u\in U}{max}\,\underset{d\in D}{min}\,\lambda·f\left(z,u,d\right)$
+\begin_inset Formula 
+\[
+H\left(s,z,\lambda\right)=\underset{u\in U}{max}\,\underset{d\in D}{min}\,\lambda·f\left(z,u,d\right)
+\]
+
 \end_inset
 
 ,
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $V_{A}=\underset{\gamma\left[u\right]\left(\cdot\right)\in\Gamma\left(t\right)}{inf}\underset{u\left(\cdot\right)\in\mathbb{U}}{sup}\underset{s\in\left[t,0\right]}{min}V_{0}\left(\zeta\left(0;z,t,u\left(\cdot\right),\gamma\left[u\right]\left(\cdot\right)\right)\right)$
+\begin_inset Formula 
+\[
+V=\underset{\gamma\left[u\right]\left(\cdot\right)\in\Gamma\left(t\right)}{inf}\underset{u\left(\cdot\right)\in\mathbb{U}}{sup}\underset{s\in\left[t,0\right]}{min}V_{0}\left(\zeta\left(0;z,t,u\left(\cdot\right),\gamma\left[u\right]\left(\cdot\right)\right)\right)
+\]
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $min\left\{ D_{s}V\left(s,z\right)+H\left(z,\nabla V\left(s,z\right)\right),V_{0}\left(z\right)-V\left(s,z\right)\right\} =0$
+\begin_inset Formula 
+\[
+min\left\{ D_{s}V\left(s,z\right)+H\left(z,\nabla V\left(s,z\right)\right),V_{0}\left(z\right)-V\left(s,z\right)\right\} =0
+\]
+
 \end_inset
 
 
@@ -314,7 +708,7 @@ noprefix "false"
 
 \end_inset
 
- become
+ becomes in
 \end_layout
 
 \begin_deeper
@@ -323,6 +717,27 @@ noprefix "false"
 \begin{equation}
 \nabla V\cdot f=\nabla V_{1}v_{x,r}+\nabla V_{3}v_{y,r}\label{eq: optimal controller}
 \end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+The min value when the controller is 
+\begin_inset Formula $\left(u_{x.i},u_{y,i}\right)=-$
+\end_inset
+
+, such a case:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla V\cdot f=\nabla V_{1}v_{x,r}+\nabla V_{3}v_{y,r}-2\left\Vert \left(\nabla V_{2},\nabla V_{4}\right)\right\Vert u_{max}
+\]
 
 \end_inset
 

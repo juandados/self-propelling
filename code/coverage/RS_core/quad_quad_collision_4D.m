@@ -1,4 +1,4 @@
-function [data, g, tau, grad] = quad_quad_collision_4D(d, speed, visualize)
+function [data, grad, g, tau] = quad_quad_collision_4D(d, speed, safetyTime, visualize)
 %
 % Computes collision reachable set for 4D relative quadrotor dynamics for a 
 % circular collision set by
@@ -61,7 +61,7 @@ data = shapeCylinder(g, [2, 4], [0; 0; 0; 0], d);
 % time vector
 t0 = 0;
 dt = 0.05;
-tMax = 5 * dt;
+tMax = (4/3)*safetyTime;
 tau = t0:dt:tMax;
 
 % control trying to min or max value function?
@@ -94,6 +94,7 @@ HJIextraArgs.deleteLastPlot = true; %delete previous plot as you update
 [data, tau, ~] = ...
   HJIPDE_solve(data, tau, schemeData, minWith, HJIextraArgs);
 
+data = TD2TTR(g, data, tau);
 grad = computeGradients(g, data);
            
 end

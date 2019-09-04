@@ -7,7 +7,7 @@ classdef TM < Node
   properties
     % Map
     domain;
-    speed_limit = 10;
+    speedLimit = 10;
     
     % active agents
     aas = {};
@@ -23,6 +23,7 @@ classdef TM < Node
     
     %% Quadrotor reachable sets    
     % Quadrotor-quadrotor safety reachable set
+    % juan: this should be called qr_qr_safe_T instead of ..._safe_V
     qr_qr_safe_V
        
   end
