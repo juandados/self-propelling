@@ -15,14 +15,16 @@ tm.speedLimit = 10;
 % collision radius
 tm.cr = 2.5;
 % safety time (it will be safe during the next st seconds)
-tm.safetyTime = 0.15;
+tm.safetyTime = 1;
+% maximum force for vehicles
+tm.uMax = 3;
 % compute reachable set
 tm.computeRS('qr_qr_safe_V_circle');
 % domain setup
 domainType = 'square';
 switch domainType
     case 'square'
-        r = 0.2;
+        r = 0.5;
         vertX = [-50,-50, 50, 50]*r;
         vertY = [-50, 50, 50, -50]*r;
     case 'L'
@@ -61,17 +63,25 @@ axis square;
 % ---- Quadrotors ----
 
 % random initial states
-n = 5;
-px = 50 * rand(n,1);
-py = 50 * rand(n,1);
+n = 16;
+initial = 'random';
+if strcmp(initial,'line')
+    px = 80*ones(n,1);
+    py = linspace(-50,50,n)';
+elseif strcmp(initial, 'random')
+    px = 50 * rand(n,1);
+    py = 50 * rand(n,1);
+end
 vx = 0.1 * rand(n,1);
 vy = 0.1 * rand(n,1);
-maxForce = 3;
-minForce = -3;
+
+% max and min forces
+uMin = -tm.uMax;
+uMax = tm.uMax;
 
 % registering vehicles in traffic manager
 for j = 1:length(px)
-  q = UTMQuad4D([px(j) vx(1) py(j) vy(2)], minForce, maxForce);
+  q = UTMQuad4D([px(j) vx(1) py(j) vy(2)], uMin, uMax);
   tm.regVehicle(q);
 end
 
@@ -107,6 +117,7 @@ for i = 1:length(t)
   uCoverage = tm.coverageCtrl;
   for j = 1:length(tm.aas)
     if safe(j)
+    %if true
       u{j} = uCoverage{j};
     else
       %projection (aug 22 2019)
@@ -134,10 +145,24 @@ for i = 1:length(t)
           u{j} = uC;
       end
       % using only optimal
-      %u{j} = uO;
+      project = false;
+      if ~project
+          if any(isnan(uO))
+              u{j} = [0;0];
+          else
+              if rand > 0.9
+                u{j} = uO;
+              else
+                u{j} = uCoverage{j};
+              end
+          end
+      end
     end  
     tm.aas{j}.updateState(u{j}, tm.dt);
     tm.aas{j}.plotPosition;
+    % this varible is intended to help to determine the grid bounds
+    velx(i,j) = tm.aas{j}.x(2);
+    vely(i,j) = tm.aas{j}.x(4);
     % Plot reachable set
     % tm.aas{j}.plot_safe_V(tm.aas{end}, tm.qr_qr_safe_V, tm.safetyTime)
   end
@@ -147,4 +172,8 @@ for i = 1:length(t)
       writeVideo(vidObj, getframe(gca));
   end
 end
+    disp(['max vx: ', num2str(max(velx(:))), ' min vx: ', num2str(min(velx(:)))]);
+    disp(['max vy: ', num2str(max(vely(:))), ' min vy: ', num2str(min(vely(:)))]);
+    disp(['collision count: ', num2str(tm.collisionCount)]);
+    disp(['unsafe count: ', num2str(tm.unsafeCount)]);
 end

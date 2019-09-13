@@ -1,4 +1,4 @@
-function [data, grad, g, tau] = quad_quad_collision_4D(d, speed, safetyTime, visualize)
+function [data, grad, g, tau, dataV] = quad_quad_collision_4D(d, speed, safetyTime, visualize)
 %
 % Computes collision reachable set for 4D relative quadrotor dynamics for a 
 % circular collision set by
@@ -42,15 +42,16 @@ bMax = 3; % bMax: x- and y-acceleration bounds for vehicle B
 %---------------------------------------------------------------------------
 % Approximately how many grid cells?
 %   (Slightly different grid cell counts will be chosen for each dimension.)
-Nx = 51;
+Nx = 101;
+Nv = 101;
 
 % Create the grid.
 g.dim = 4; % Number of dimensions
 % ???? The limits could be chosen diferent?
-g.min = [-20; -15; -20; -15];     % Bounds on computational domain
-g.max = [20; 15; 20; 15];
+g.min = [-30; -10; -30; -10];% Bounds on computational domain
+g.max = [30; 10; 30; 10];
 g.bdry = @addGhostExtrapolate;
-g.N = [Nx; Nx; Nx; Nx];
+g.N = [Nx; Nv; Nx; Nv];
 % ???? quad_quad_collision_2D uses g = processGrid(g) instead
 %g = createGrid(grid_min, grid_max, N);
 g = createGrid(g.min, g.max, g.N); % there are not periodic state space dim
@@ -61,7 +62,7 @@ data = shapeCylinder(g, [2, 4], [0; 0; 0; 0], d);
 % time vector
 t0 = 0;
 dt = 0.05;
-tMax = (4/3)*safetyTime;
+tMax = (7/6)*safetyTime;
 tau = t0:dt:tMax;
 
 % control trying to min or max value function?
@@ -93,7 +94,7 @@ HJIextraArgs.deleteLastPlot = true; %delete previous plot as you update
 % ???? the output should be data(:,:,:,:,end) ?
 [data, tau, ~] = ...
   HJIPDE_solve(data, tau, schemeData, minWith, HJIextraArgs);
-
+dataV = data(:,:,:,:,end);
 data = TD2TTR(g, data, tau);
 grad = computeGradients(g, data);
            

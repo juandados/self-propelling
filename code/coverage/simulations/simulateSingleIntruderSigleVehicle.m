@@ -1,7 +1,7 @@
 function simulateSingleIntruderSigleVehicle(save_figures, fig_formats)
 % Simulates 2 quadrotors avoiding each other
 
-addpath(genpath('..'))
+addpath('..');
 
 if nargin < 1
   save_figures = false;
@@ -12,15 +12,18 @@ if nargin < 2
 end
 
 %% TM
+% ---- Traffic Manager ----
 tm = TM;
-tm.computeRS('qr_qr_safe_V');
-% Highway speed
-tm.speed_limit = 10;
+% setup speed limit
+tm.speedLimit = 10;
 % collision radius
-tm.cr = 5;
-%% Domain
-%dm = Domain();
-%tm.addDomain(hw);
+tm.cr = 2.5;
+% safety time (it will be safe during the next st seconds)
+tm.safetyTime = 1;
+% maximum force for vehicles
+tm.uMax = 3;
+% compute reachable set
+tm.computeRS('qr_qr_safe_V_circle');
 
 % plot
 f = figure;
@@ -35,20 +38,22 @@ f.Color = 'white';
 %% Quadrotors
 %(1 vehicles)
 n = 1;
+r = 1;
 xs = zeros(n,1);
 ys = zeros(size(xs));
 theta = -pi/2*rand;
-vq = [10 0];
+vq = [7 0];
 vq = rotate2D(vq, theta);
 
+% Main Vehicle
 for j = 1:length(xs)
   q = UTMQuad4D([xs(j) vq(1) ys(j) vq(2)]);
   tm.regVehicle(q);
 end
 
 % Intruder
-pin = [250 50];
-vin = [10 0];
+pin = r*[250 50];
+vin = [7 0];
 vin = rotate2D(vin, 9*pi/8);
 pin = rotate2D(pin, theta);
 vin = rotate2D(vin, theta);
@@ -91,18 +96,19 @@ if save_figures
 end
 
 %% Integration
-tMax = 25;
+tMax = 50;
 t = 0:tm.dt:tMax;
 
 u = cell(size(tm.aas));
 for i = 1:length(t)
-  [safe, uSafe] = tm.checkAASafety;
+  disp(['time:', num2str(t(i))]);
+  [safe, uSafeOptimal] = tm.checkAASafety;
   safe(length(tm.aas)) = 1;
   for j = 1:length(tm.aas)
     if safe(j)
       u{j} = controlLogic(tm, tm.aas{j});
     else
-      u{j} = uSafe{j};
+      u{j} = uSafeOptimal{j};
     end
     
     tm.aas{j}.updateState(u{j}, tm.dt);

@@ -32,11 +32,19 @@ switch(class(obj.aas{i}))
       case 'UTMQuad4D'
         % Checking if collition
         distancePW = norm(obj.aas{i}.getPosition - obj.aas{j}.getPosition);
-        if distancePW < obj.cr
-            disp('Collision!!!: At least two particles are very close!!!')
+        if distancePW < obj.cr * 0.8
+            disp(['Collision!!!: Pair i:', num2str(i), ' j:', num2str(j)]);
+            %disp(['Collision!!!: Pair i:', num2str(i), ' j:', num2str(j), ...
+            %    ': (', num2str(obj.aas{i}.x'), '), (', num2str(obj.aas{j}.x'), ')']);
+            obj.collisionCount = obj.collisionCount + 1;
         end
         % Getting controllers
         [safe,  uSafeOptimal, uSafeLeft, uSafeRight, safe_val] = checkPWSafety_qr_qr(obj.qr_qr_safe_V, obj.safetyTime, obj.aas{i}, obj.aas{j});
+        if ~safe
+            disp(['Unsafe!!!: A pair i:', num2str(i), ' j:', num2str(j), ' is unsafe']);
+            disp(['Optimal Controller: ', num2str(uSafeOptimal')]);
+            obj.unsafeCount = obj.unsafeCount + 1;
+        end
       otherwise
         error('Unknown agent type')
         
@@ -60,8 +68,9 @@ base_vel = rotate2D(evader.getVelocity - pursuer.getVelocity, -theta);
 base_x = [base_pos(1); base_vel(1); base_pos(2); base_vel(2)];
 
 % Check if state is within grid bounds for a closer safety check
-if any(base_x <= qr_qr_safe_V.g.min) || ...
-    any(base_x >= qr_qr_safe_V.g.max)
+I = [1,3];
+if any(base_x(I) <= qr_qr_safe_V.g.min(I)) || ...
+    any(base_x(I) >= qr_qr_safe_V.g.max(I))
   safe = 1;
   uSafeOptimal = [];
   uSafeLeft = [];
@@ -122,7 +131,7 @@ if min_h * max_h < 0
     ux = (-b - sqrt(b^2-4*a*c))/(2*a);
     uy = M * ux + B;
     if abs(imag(ux))>0.01 || abs(imag(uy))>0.01
-        error('Complex force is not allowed');
+        %error('Complex force is not allowed');
     end
     ul = [ux; uy];
 else
@@ -135,5 +144,5 @@ uSafeOptimal = rotate2D(uo, theta);
 % Rigth and left intercepts for zero hamiltonian an force constrain*
 uSafeRight = rotate2D(ur, theta);
 uSafeLeft = rotate2D(ul, theta);
-
+disp(['base_x: ', num2str(base_x'), ' valuex:', num2str(valuex')]);
 end

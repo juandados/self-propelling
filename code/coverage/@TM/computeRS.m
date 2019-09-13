@@ -25,16 +25,17 @@ switch type
         if exist(filename, 'file')
             load(filename)
         else
-            [data, grad, g, tau] = ...
+            [data, grad, g, tau, dataV] = ...
                 quad_quad_collision_4D(obj.cr, obj.speedLimit, obj.safetyTime, visualize);
             % Is the grad properly computed? or should it computed using
             % computecostate?
-            save(filename, 'g', 'data', 'grad', 'tau', '-v7.3');
+            save(filename, 'g', 'data', 'grad', 'tau', 'dataV', '-v7.3');
         end
         obj.qr_qr_safe_V.g = g;
         obj.qr_qr_safe_V.data = data;
         obj.qr_qr_safe_V.grad = grad;
-        obj.qr_qr_safe_V.tau = tau;        
+        obj.qr_qr_safe_V.tau = tau;
+        obj.qr_qr_safe_V.data = dataV;
     case 'qr_qr_safe_V'
         % Safety between two quadrotors square domain
         % TO DO: Change the filename when working with projections

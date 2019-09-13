@@ -7,6 +7,8 @@ classdef TM < Node
   properties
     % Map
     domain;
+    
+    % Speed Limit
     speedLimit = 10;
     
     % active agents
@@ -20,6 +22,13 @@ classdef TM < Node
     
     % Frequency of state updates to the system
     dt = 0.1;
+    
+    % Juan: maximum force allowed for vehicles registred in the tm:
+    uMax = 3;
+    
+    % Juan: varible for collision count
+    collisionCount = 0;
+    unsafeCount = 0;
     
     %% Quadrotor reachable sets    
     % Quadrotor-quadrotor safety reachable set
