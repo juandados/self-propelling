@@ -1,4 +1,4 @@
-function [data, grad, g, tau, dataV] = quad_quad_collision_4D(d, speed, safetyTime, visualize)
+function [ttr, ttr_grad, g, dataV] = quad_quad_collision_4D(d, speed, safetyTime, visualize)
 %
 % Computes collision reachable set for 4D relative quadrotor dynamics for a 
 % circular collision set by
@@ -42,8 +42,8 @@ bMax = 3; % bMax: x- and y-acceleration bounds for vehicle B
 %---------------------------------------------------------------------------
 % Approximately how many grid cells?
 %   (Slightly different grid cell counts will be chosen for each dimension.)
-Nx = 101;
-Nv = 101;
+Nx = 81;
+Nv = 31;
 
 % Create the grid.
 g.dim = 4; % Number of dimensions
@@ -54,7 +54,7 @@ g.bdry = @addGhostExtrapolate;
 g.N = [Nx; Nv; Nx; Nv];
 % ???? quad_quad_collision_2D uses g = processGrid(g) instead
 %g = createGrid(grid_min, grid_max, N);
-g = createGrid(g.min, g.max, g.N); % there are not periodic state space dim
+g = ndgrid(g.min, g.max, g.N); % there are not periodic state space dim
 
 % data0 = shapeCylinder(grid,ignoreDims,center,radius)
 data = shapeCylinder(g, [2, 4], [0; 0; 0; 0], d);
@@ -88,6 +88,7 @@ HJIextraArgs.keepLast = false;
 HJIextraArgs.visualize = visualize; %show plot
 HJIextraArgs.fig_num = 1; %set figure number
 HJIextraArgs.deleteLastPlot = true; %delete previous plot as you update
+HJIextraArgs.low_memory = true; %juan
 
 %[data, tau, extraOuts] = ...
 % HJIPDE_solve(data0, tau, schemeData, minWith, extraArgs)
@@ -95,7 +96,7 @@ HJIextraArgs.deleteLastPlot = true; %delete previous plot as you update
 [data, tau, ~] = ...
   HJIPDE_solve(data, tau, schemeData, minWith, HJIextraArgs);
 dataV = data(:,:,:,:,end);
-data = TD2TTR(g, data, tau);
-grad = computeGradients(g, data);
+ttr = TD2TTR(g, data, tau);
+ttr_grad = computeGradients(g, ttr);
            
 end

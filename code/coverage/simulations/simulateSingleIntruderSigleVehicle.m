@@ -17,9 +17,9 @@ tm = TM;
 % setup speed limit
 tm.speedLimit = 10;
 % collision radius
-tm.cr = 2.5;
+tm.cr = 2;
 % safety time (it will be safe during the next st seconds)
-tm.safetyTime = 1;
+tm.safetyTime = 3;
 % maximum force for vehicles
 tm.uMax = 3;
 % compute reachable set
@@ -38,11 +38,13 @@ f.Color = 'white';
 %% Quadrotors
 %(1 vehicles)
 n = 1;
-r = 1;
+r = 0.064;
+%r = 0.1;
 xs = zeros(n,1);
 ys = zeros(size(xs));
 theta = -pi/2*rand;
-vq = [7 0];
+v0 = 2;
+vq = [v0 0];
 vq = rotate2D(vq, theta);
 
 % Main Vehicle
@@ -53,7 +55,7 @@ end
 
 % Intruder
 pin = r*[250 50];
-vin = [7 0];
+vin = [v0 0];
 vin = rotate2D(vin, 9*pi/8);
 pin = rotate2D(pin, theta);
 vin = rotate2D(vin, theta);
@@ -115,9 +117,6 @@ for i = 1:length(t)
     tm.aas{j}.plotPosition;
     
   end
-  
-  % Plot reachable set
-  tm.aas{1}.plot_safe_V(tm.aas{end}, tm.qr_qr_safe_V, tm.safetyTime)
     
   title(['t=' num2str(t(i))])
   drawnow
