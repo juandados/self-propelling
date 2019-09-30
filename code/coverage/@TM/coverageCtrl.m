@@ -37,7 +37,8 @@ u = dV1 - dV2;
 
 %Thresholding the force:
 if true
-    acc_max = obj.uMax;
+    %acc_max = obj.uMax;
+    acc_max = 3;
     u_norm = apply(@(v)norm(v,2), u);
     u = (u./u_norm).*min(acc_max, u_norm);
     %figure(3); hold off; plot(dV_norm, 'r*'); hold on;

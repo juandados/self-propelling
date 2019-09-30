@@ -32,11 +32,13 @@ switch(class(obj.aas{i}))
       case 'UTMQuad4D'
         % Checking if collition
         distancePW = norm(obj.aas{i}.getPosition - obj.aas{j}.getPosition);
-        if distancePW < obj.cr * 0.8
+        if distancePW < obj.cr
             disp(['Collision!!!: Pair i:', num2str(i), ' j:', num2str(j)]);
             %disp(['Collision!!!: Pair i:', num2str(i), ' j:', num2str(j), ...
             %    ': (', num2str(obj.aas{i}.x'), '), (', num2str(obj.aas{j}.x'), ')']);
-            obj.collisionCount = obj.collisionCount + 1;
+            obj.collisionCount = [obj.collisionCount; 1];
+        else
+            obj.collisionCount = [obj.collisionCount; 0];
         end
         % Getting controllers
         [safe,  uSafeOptimal, uSafeLeft, uSafeRight, safe_val] = checkPWSafety_qr_qr(obj.qr_qr_safe_V, obj.safetyTime, obj.aas{i}, obj.aas{j});
@@ -67,20 +69,8 @@ base_pos = rotate2D(evader.getPosition - pursuer.getPosition, -theta);
 base_vel = rotate2D(evader.getVelocity - pursuer.getVelocity, -theta);
 base_x = [base_pos(1); base_vel(1); base_pos(2); base_vel(2)];
 
-% Check if state is within grid bounds for a closer safety check
-I = [1,3];
-if any(base_x(I) <= qr_qr_safe_V.g.min(I)) || ...
-    any(base_x(I) >= qr_qr_safe_V.g.max(I))
-  safe = 1;
-  uSafeOptimal = [];
-  uSafeLeft = [];
-  uSafeRight = [];
-  valuex = 10;
-  return
-end
-
 % Compute safety value
-valuex = eval_u(qr_qr_safe_V.g, qr_qr_safe_V.data, base_x);
+valuex = TTR(base_x);
 
 % Compute safety preserving control if needed
 if valuex > safetyTime
@@ -89,8 +79,6 @@ if valuex > safetyTime
   uSafeOptimal = [];
   uSafeLeft = [];
   uSafeRight = [];
-  % juan: Why do we need valuex going out of the function? why it is 10 by
-  % default
   valuex = 10;
   return
 end
@@ -99,7 +87,7 @@ end
 safe = 0;
 
 %juan:
-base_grad = eval_u(qr_qr_safe_V.g, qr_qr_safe_V.grad , base_x);
+base_grad = TTRGrad(base_x);
 
 % Controller1: |u|_{inf}<u_{max}
 %ux = (base_grad(2)>=0)*evader.uMax + (base_grad(2)<0)*evader.uMin;
@@ -131,7 +119,7 @@ if min_h * max_h < 0
     ux = (-b - sqrt(b^2-4*a*c))/(2*a);
     uy = M * ux + B;
     if abs(imag(ux))>0.01 || abs(imag(uy))>0.01
-        %error('Complex force is not allowed');
+        error('Complex force is not allowed');
     end
     ul = [ux; uy];
 else
@@ -141,8 +129,28 @@ end
 % Rotate the control to correspond with the actual heading of the "pursuer"
 % Optimal controller is the one that maximize the hamiltonian
 uSafeOptimal = rotate2D(uo, theta);
-% Rigth and left intercepts for zero hamiltonian an force constrain*
 uSafeRight = rotate2D(ur, theta);
 uSafeLeft = rotate2D(ul, theta);
 disp(['base_x: ', num2str(base_x'), ' valuex:', num2str(valuex')]);
+end
+
+function phi = TTR(x)
+    px = x(1); vx = x(2); py = x(3); vy = x(4);
+    cr = 2;
+    a = vx.^2+vy.^2;
+    b = 2*px.*vx+2*py.*vy;
+    c = px.^2+py.^2-cr.^2;
+    t1 =(-b-sqrt(b^2-4*a.*c))/(2*a);
+    t2 =(-b+sqrt(b^2-4*a.*c))/(2*a);
+    phi = t1.*(t1>=0) + 100*(t2<=0);
+    phi(isnan(phi))=100;
+    phi((imag(phi)~=0))=100;
+end
+
+function grad = TTRGrad(x)
+    h = 1e-6;
+    grad = [(TTR(x + [h 0 0 0]')-TTR(x))/h ...
+    (TTR(x + [0 h 0 0]')-TTR(x))/h ...
+    (TTR(x + [0 0 h 0]')-TTR(x))/h ...
+    (TTR(x + [0 0 0 h]')-TTR(x))/h];
 end

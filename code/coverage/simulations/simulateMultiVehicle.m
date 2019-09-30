@@ -13,13 +13,13 @@ tm = TM;
 % setup speed limit
 tm.speedLimit = 10;
 % collision radius
-tm.cr = 2.5;
+tm.cr = 2;
 % safety time (it will be safe during the next st seconds)
-tm.safetyTime = 1;
+tm.safetyTime = 3;
 % maximum force for vehicles
 tm.uMax = 3;
 % compute reachable set
-tm.computeRS('qr_qr_safe_V_circle');
+%tm.computeRS('qr_qr_safe_V_circle');
 % domain setup
 domainType = 'square';
 switch domainType
@@ -64,7 +64,7 @@ axis square;
 
 % random initial states
 n = 16;
-initial = 'random';
+initial = 'line';
 if strcmp(initial,'line')
     px = 80*ones(n,1);
     py = linspace(-50,50,n)';
@@ -107,7 +107,7 @@ end
 
 % Time integration
 tm.dt = 0.1;
-tMax = 60;
+tMax = 40;
 t = 0:tm.dt:tMax;
 
 u = cell(size(tm.aas));
@@ -120,44 +120,11 @@ for i = 1:length(t)
     %if true
       u{j} = uCoverage{j};
     else
-      %projection (aug 22 2019)
-      uC = uCoverage{j}';
-      uO = uSafeOptimal{j};
-      uR = uSafeRight{j};
-      uL = uSafeLeft{j};
-      s = uL - uR;
-      % z values associated to the plane which is parallel to vector s and 
-      % (1,1,1), it is only one of the infiniteS possible planes parallel
-      % to s
-      zOptimal = s(2) * (uO(1) - uR(1)) - s(1) * (uO(2) - uR(2));
-      zCoverage = s(2) * (uC(1) - uR(1)) - s(1) * (uC(2) - uR(2));
-      if zOptimal * zCoverage < 0
-          d = uR - uC;
-          % projected controller over the segment uR_uL
-          u{j} = -(d' * s / norm(s)^2)*s + uR;
-          if norm(u{j}) > tm.aas{j}.uMax
-              ctrls = [uR, uL];
-              dists = [norm(uC-uR), norm(uC-uL)];
-              [minDist, ind] = min(dists);
-              u{j} = ctrls(:,ind);
-          end
-      else
-          u{j} = uC;
-      end
-      % using only optimal
-      project = false;
-      if ~project
-          if any(isnan(uO))
-              u{j} = [0;0];
-          else
-              if rand > 0.9
-                u{j} = uO;
-              else
-                u{j} = uCoverage{j};
-              end
-          end
-      end
-    end  
+      u{j} = uSafeOptimal{j};
+      %u{j} = projectControl(uCoverage{j}',uSafeOptimal{j},uSafeRight{j},uSafeLeft{j});
+      disp(['Projected Controller: ', num2str(u{j}')]);
+    end
+    
     tm.aas{j}.updateState(u{j}, tm.dt);
     tm.aas{j}.plotPosition;
     % this varible is intended to help to determine the grid bounds
@@ -174,6 +141,29 @@ for i = 1:length(t)
 end
     disp(['max vx: ', num2str(max(velx(:))), ' min vx: ', num2str(min(velx(:)))]);
     disp(['max vy: ', num2str(max(vely(:))), ' min vy: ', num2str(min(vely(:)))]);
-    disp(['collision count: ', num2str(tm.collisionCount)]);
+    disp(['collision count: ', num2str(sum(tm.collisionCount))]);
     disp(['unsafe count: ', num2str(tm.unsafeCount)]);
+end
+
+
+function u = projectControl(uC,uO,uR,uL)
+    s = uL - uR;
+    % z values associated to the plane which is parallel to vector s and 
+    % (1,1,1), it is only one of the infiniteS possible planes parallel
+    % to s
+    zOptimal = s(2) * (uO(1) - uR(1)) - s(1) * (uO(2) - uR(2));
+    zCoverage = s(2) * (uC(1) - uR(1)) - s(1) * (uC(2) - uR(2));
+    if zOptimal * zCoverage < 0
+      d = uR - uC;
+      % projected controller over the segment uR_uL
+      u = -(d' * s / norm(s)^2)*s + uR;
+      if norm(u) > 3
+          ctrls = [uR, uL];
+          dists = [norm(uC-uR), norm(uC-uL)];
+          [minDist, ind] = min(dists);
+          u = ctrls(:,ind);
+      end
+    else
+      u = uC;
+    end
 end

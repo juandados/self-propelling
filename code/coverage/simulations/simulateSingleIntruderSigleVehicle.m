@@ -38,12 +38,12 @@ f.Color = 'white';
 %% Quadrotors
 %(1 vehicles)
 n = 1;
-r = 0.064;
-%r = 0.1;
+%r = 1;
+r = 0.1;
 xs = zeros(n,1);
 ys = zeros(size(xs));
 theta = -pi/2*rand;
-v0 = 2;
+v0 = 6;
 vq = [v0 0];
 vq = rotate2D(vq, theta);
 

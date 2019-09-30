@@ -100,7 +100,7 @@ The proposed coverage control force is given by
 \begin_layout Standard
 \begin_inset Formula 
 \[
-u_{i}=-\stackrel[j\neq i]{n}{\sum}\left(f_{I}\left(p_{ij}\right)\frac{p_{ij}}{\left\Vert p_{ij}\right\Vert }-f_{h}\left(h_{i}\right)\frac{h\left(p_{i}\right)}{\left\Vert h\left(p_{i}\right)\right\Vert }+f_{v}\left(v_{i}\right)\frac{v_{i}}{\left\Vert v_{i}\right\Vert }\right)
+u_{i}=-\stackrel[j\neq i]{n}{\sum}\left(f_{I}\left(p_{ij}\right)\frac{p_{ij}}{\left\Vert p_{ij}\right\Vert }+f_{h}\left(h_{i}\right)\frac{h\left(p_{i}\right)}{\left\Vert h\left(p_{i}\right)\right\Vert }-f_{v}\left(v_{i}\right)\frac{v_{i}}{\left\Vert v_{i}\right\Vert }\right)
 \]
 
 \end_inset
@@ -249,7 +249,7 @@ showing
 \labelwidthstring 00.00.0000
 
 \series bold
-Proposal
+Proposition
 \series default
 : If 
 \begin_inset Formula $V_{h}\left(s\right)=\stackrel[0]{s}{\int}f_{h}\left(\tau\right)d\tau$
@@ -288,7 +288,11 @@ Consider the Lyapunov function defined on the full state space as
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\Phi=\frac{1}{2}\stackrel[i=1]{n}{\sum}\left(\dot{p}_{i}\cdot\dot{p}_{i}+\stackrel[j\neq i]{n}{\sum}V_{I}\left(p_{ij}\right)+2V_{h}\left(h_{i}\right)\right)$
+\begin_inset Formula 
+\[
+\Phi=\frac{1}{2}\stackrel[i=1]{n}{\sum}\left(\dot{p}_{i}\cdot\dot{p}_{i}+\stackrel[j\neq i]{n}{\sum}V_{I}\left(p_{ij}\right)+2V_{h}\left(h_{i}\right)\right)
+\]
+
 \end_inset
 
 
@@ -747,6 +751,121 @@ The min value when the controller is
 \end_deeper
 \begin_layout Standard
 Goal satisfaction like controller
+\end_layout
+
+\begin_layout Section
+TTR
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\left(z,u,d\right)=\left(\begin{array}{c}
+v_{x}\\
+u_{x}-d_{x}\\
+v_{y}\\
+u_{y}-d_{y}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\underset{u}{\max}\,\underset{d}{\min}\left\{ -\left(\nabla\phi\left(z\right)\right)^{\top}f\left(z,u,d\right)-1\right\}  & =0\,\text{in}\,\mathcal{R^{*}}\setminus\Gamma\\
+\phi\left(x\right) & =0\,\text{on}\,\Gamma
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After a geometric argument we can show TTR function should be the minimum
+ solution for the following cuadratic equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left(v_{x}^{2}+v_{y}^{2}\right)\phi^{2}\left(z\right)+2\left(p_{x}v_{x}+p_{y}v_{y}\right)\phi\left(z\right)+\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)=0\,\text{in}\,\mathcal{R^{*}}\setminus\Gamma
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's check that 
+\begin_inset Formula $\phi\left(z\right)$
+\end_inset
+
+ solves PDE:
+\end_layout
+
+\begin_layout Standard
+First, using implicit differentiation one can show
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla\phi\left(x\right)=\frac{-1}{\left(v_{x}^{2}+v_{y}^{2}\right)\phi\left(z\right)+\left(p_{x}v_{x}+p_{y}v_{y}\right)}\left(\begin{array}{c}
+v_{x}\phi\left(z\right)+p_{x}\\
+v_{x}\phi^{2}\left(z\right)+p_{x}\\
+v_{y}\phi\left(z\right)+p_{y}\\
+v_{y}\phi^{2}\left(z\right)+p_{y}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\underset{u}{\max}\,\underset{d}{\min}\left\{ -\left(\nabla\phi\left(z\right)\right)^{\top}f\left(z,u,d\right)-1\right\}  & =\underset{u}{\max}\,\underset{d}{\min}\left\{ -\left(\frac{\partial\phi}{\partial p_{x}}v_{x}+\frac{\partial\phi}{\partial v_{x}}\left(u_{x}-d_{x}\right)+\frac{\partial\phi}{\partial p_{y}}v_{y}+\frac{\partial\phi}{\partial v_{y}}\left(u_{y}-d_{y}\right)\right)-1\right\} \\
+ & =-\left(\frac{\partial\phi}{\partial p_{x}}v_{x}+\frac{\partial\phi}{\partial p_{y}}v_{y}\right)-1\\
+ & =\frac{\left(v_{x}\phi\left(z\right)+p_{x}\right)v_{x}+\left(v_{y}\phi\left(z\right)+p_{y}\right)v_{y}}{\left(v_{x}^{2}+v_{y}^{2}\right)\phi\left(z\right)+\left(p_{x}v_{x}+p_{y}v_{y}\right)}-1\\
+ & =\frac{v_{x}^{2}\phi\left(z\right)+p_{x}v_{x}+v_{y}^{2}\phi\left(z\right)+p_{y}v_{y}}{\left(v_{x}^{2}+v_{y}^{2}\right)\phi\left(z\right)+\left(p_{x}v_{x}+p_{y}v_{y}\right)}-1\\
+ & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now let's see it satisfies the boundary condition, as the TTR function is
+ definened in terms of the minimum solution of the quadratic equation we
+ have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\phi\left(z\right) & =\frac{-2\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{4\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-4\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{2\left(v_{x}^{2}+v_{y}^{2}\right)}\\
+ & =\frac{\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{v_{x}^{2}+v_{y}^{2}}\\
+ & =\frac{\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\cancelto{0\left(\because p_{x}^{2}+p_{y}^{2}-c_{r}^{2}=0\right)}{\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}}{v_{x}^{2}+v_{y}^{2}}\\
+ & =\frac{\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}}}{v_{x}^{2}+v_{y}^{2}}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \end_body
