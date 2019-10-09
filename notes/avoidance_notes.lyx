@@ -75,17 +75,136 @@
 
 \begin_body
 
-\begin_layout Section
-Coverage Controller
+\begin_layout Standard
+Signed Distance
 \end_layout
 
 \begin_layout Standard
+We can introduce an oriented measure of how far a point 
+\begin_inset Formula $x$
+\end_inset
+
+ is from 
+\begin_inset Formula $\partial\Gamma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+the signed distance function from 
+\begin_inset Formula $x$
+\end_inset
+
+ to 
+\begin_inset Formula $\partial\Gamma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $h\left(x\right)=\begin{cases}
+\underset{x_{p}\in\partial\Gamma}{\min}\left\Vert x-x_{p}\right\Vert , & if\,x\in\Gamma^{c}\\
+-\underset{x_{p}\in\partial\Gamma}{\min}\left\Vert x-x_{p}\right\Vert , & if\,x\in\Gamma
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\nabla h\left(x\right)$
+\end_inset
+
+ exists, then there exists a unique 
+\begin_inset Formula $P_{\partial\Gamma}\left(x\right)\in\partial\Gamma$
+\end_inset
+
+, called the projection of 
+\begin_inset Formula $x$
+\end_inset
+
+ on 
+\begin_inset Formula $\partial\Gamma$
+\end_inset
+
+, such that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $h\left(x\right)=\begin{cases}
+\left\Vert P_{\partial\Gamma}\left(x\right)-x\right\Vert , & if\,x\in\Gamma^{c}\\
+-\left\Vert P_{\partial\Gamma}\left(x\right)-x\right\Vert , & if\,x\in\Gamma
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla h\left(x\right)=\frac{x-P_{\partial\Gamma}\left(x\right)}{h\left(x\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Control System
+\end_layout
+
+\begin_layout Standard
+We consider a group of 
+\begin_inset Formula $N$
+\end_inset
+
+ vehicles trying to cover a domain bounded by a piecewise smooth curve 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathbb{R}^{2}.$
+\end_inset
+
+ We will denote the 
+\begin_inset Formula $N$
+\end_inset
+
+ vehicles as 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $i=1,\cdots,N.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The position and velocity of 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+ relative to 0 are denoted by 
+\begin_inset Formula $p_{i}=\left(p_{x,i},\,p_{y,i}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{i}=\left(v_{x,i},\,v_{y,i}\right)$
+\end_inset
+
+ respectively.
+ The equations of motion are
 \begin_inset Formula 
 \begin{align*}
-\dot{p}_{x,i} & =v_{x,i}\\
-\dot{p}_{y,i} & =v_{y,i}\\
-\dot{v}_{x,i} & =u_{x,i}-\dot{v}_{x,0}\\
-\dot{v}_{y,i} & =u_{y,i}-\dot{v}_{y,0}
+\dot{p}_{i} & =v_{i}\\
+\dot{v}_{i} & =u_{i}
 \end{align*}
 
 \end_inset
@@ -94,13 +213,55 @@ Coverage Controller
 \end_layout
 
 \begin_layout Standard
-The proposed coverage control force is given by
+for 
+\begin_inset Formula $i=1,\cdots,N$
+\end_inset
+
+, where 
+\begin_inset Formula $u_{i}$
+\end_inset
+
+ is the control force for the mobile agent 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We will denote 
+\begin_inset Formula $p_{ij}=p_{i}-p_{j}$
+\end_inset
+
+, 
+\begin_inset Formula $\left\llbracket h_{i}\right\rrbracket =b\left(p_{i}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $h_{i}$
+\end_inset
+
+ will be the shortest vector connecting 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ with 
+\begin_inset Formula $\partial\Gamma$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $h_{i}=p_{i}-P_{\partial\Gamma}\left(p_{i}\right)$
+\end_inset
+
+ .
+ The proposed control force is given as
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-u_{i}=-\stackrel[j\neq i]{n}{\sum}\left(f_{I}\left(p_{ij}\right)\frac{p_{ij}}{\left\Vert p_{ij}\right\Vert }+f_{h}\left(h_{i}\right)\frac{h\left(p_{i}\right)}{\left\Vert h\left(p_{i}\right)\right\Vert }-f_{v}\left(v_{i}\right)\frac{v_{i}}{\left\Vert v_{i}\right\Vert }\right)
+u_{i}=-\stackrel[j\neq i]{n}{\sum}\left(f_{I}\left(\left\Vert p_{ij}\right\Vert \right)\frac{p_{ij}}{\left\Vert p_{ij}\right\Vert }\right)-f_{h}\left(h_{i}\right)\frac{h_{i}}{\left\llbracket h_{i}\right\rrbracket }+f_{v}\left(\left\Vert v_{i}\right\Vert \right)\frac{v_{i}}{\left\Vert v_{i}\right\Vert }
 \]
 
 \end_inset
@@ -109,8 +270,18 @@ u_{i}=-\stackrel[j\neq i]{n}{\sum}\left(f_{I}\left(p_{ij}\right)\frac{p_{ij}}{\l
 \end_layout
 
 \begin_layout Standard
-where 
-\begin_inset Formula $h\left(x\right)=\underset{y\in\Omega}{inf}\left\Vert x-y\right\Vert $
+This control law can be seen as different forces applied in direction of
+ distances, in the case of distance inter vehicle the election of a particular
+ 
+\begin_inset Formula $f_{I}$
+\end_inset
+
+ could promote the vehicles get close to each other.
+ Similarly fh...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
 \end_inset
 
 
@@ -120,31 +291,6 @@ where
 Finding a related potential
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-
-\series bold
-Lemma: 
-\series default
-Let 
-\begin_inset Formula $h\left(p\right)=\underset{y\in\Omega}{\arg\inf}\left\Vert p-y\right\Vert $
-\end_inset
-
- and 
-\begin_inset Formula $d\left(p\right)=\left\Vert h\left(p\right)\right\Vert $
-\end_inset
-
-, then 
-\begin_inset Formula $\nabla d\left(p\right)=\frac{h\left(p\right)}{\left\Vert h\left(p\right)\right\Vert }$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Proof:
-\end_layout
-
 \begin_layout Standard
 \begin_inset space ~
 \end_inset
@@ -153,53 +299,11 @@ Proof:
 \end_layout
 
 \begin_layout Standard
-First notice 
-\begin_inset Formula $\nabla d\left(p\right)$
-\end_inset
-
- is parallel to 
-\begin_inset Formula $h\left(p\right)$
-\end_inset
-
-, as the largest increase on 
-\begin_inset Formula $d$
-\end_inset
-
- value is reached when moving on 
-\begin_inset Formula $h\left(p\right)$
-\end_inset
-
- direction (see figure for a geometrical interpretation), in other words
- 
-\begin_inset Formula $\frac{\nabla d\left(p\right)}{\left\Vert \nabla d\left(p\right)\right\Vert }=\frac{h\left(p\right)}{\left\Vert h\left(p\right)\right\Vert }$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Consider the directional derivative of 
-\begin_inset Formula $d$
-\end_inset
-
- respect to the unit vector 
-\begin_inset Formula $v=\frac{\nabla d\left(p\right)}{\left\Vert \nabla d\left(p\right)\right\Vert }$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+The inter-vehicle and vehicle-domain forces are conservative, the can be
+ written as the negative gradient of a potential,
 \begin_inset Formula 
 \[
-\frac{\partial d}{\partial v}\left(p\right)=\underset{\epsilon\rightarrow0}{\lim}\frac{\left\Vert h\left(p+\epsilon v\right)\right\Vert -\left\Vert h\left(p\right)\right\Vert }{\epsilon}=\frac{\epsilon}{\epsilon}=1
+V_{h}\left(p_{i}\right)=\stackrel[0]{\left\Vert h_{i}\right\Vert }{\int}f_{h}\left(s\right)ds
 \]
 
 \end_inset
@@ -208,17 +312,9 @@ Consider the directional derivative of
 \end_layout
 
 \begin_layout Standard
-Using the gradient of 
-\begin_inset Formula $d$
-\end_inset
-
- to represent this directional derivative we have
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
-1=\nabla d\left(p\right)\cdot v=\nabla d\left(p\right)\cdot\frac{\nabla d\left(p\right)}{\left\Vert \nabla d\left(p\right)\right\Vert }
+V_{I}\left(p_{i}\right)=\stackrel[j\neq i]{n}{\sum}\stackrel[0]{\left\Vert p_{ij}\right\Vert }{\int}f_{I}\left(s\right)ds
 \]
 
 \end_inset
@@ -227,53 +323,22 @@ Using the gradient of
 \end_layout
 
 \begin_layout Standard
-showing 
-\begin_inset Formula $\left\Vert \nabla d\left(p\right)\right\Vert =1$
-\end_inset
-
-, and concluding 
-\begin_inset Formula $\nabla d\left(p\right)=\frac{h\left(p\right)}{\left\Vert h\left(p\right)\right\Vert }$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-
-\series bold
-Proposition
-\series default
-: If 
-\begin_inset Formula $V_{h}\left(s\right)=\stackrel[0]{s}{\int}f_{h}\left(\tau\right)d\tau$
-\end_inset
-
- then 
-\begin_inset Formula $\nabla V_{h}\left(\left\Vert h\left(p\right)\right\Vert \right)=f_{h}\left(\left\Vert h\left(p\right)\right\Vert \right)\frac{h\left(p\right)}{\left\Vert h\left(p\right)\right\Vert }$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Proof:
+In other words eq becomes
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{align*}
-\nabla V_{h}\left(\left\Vert h\left(p\right)\right\Vert \right) & =V_{h}^{\prime}\left(\left\Vert h\left(p\right)\right\Vert \right)\nabla\left\Vert h\left(p\right)\right\Vert \\
- & =f_{h}\left(h_{i}\right)\nabla d\left(p_{i}\right)\\
- & =f_{h}\left(h_{i}\right)\frac{h\left(p_{i}\right)}{\left\Vert h\left(p_{i}\right)\right\Vert }
-\end{align*}
+\[
+u_{i}=-\stackrel[j\neq i]{n}{\sum}\nabla_{i}V_{I}\left(p_{i}\right)-\nabla_{i}V_{h}\left(p_{i}\right)+f_{v}\left(\left\Vert v_{i}\right\Vert \right)\frac{v_{i}}{\left\Vert v_{i}\right\Vert }
+\]
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
 \end_inset
 
 
@@ -310,7 +375,8 @@ The derivative of
 \begin_inset Formula 
 \begin{align*}
 \dot{\Phi} & =\stackrel[i=1]{n}{\sum}\dot{p}_{i}\cdot\left(u_{i}+\stackrel[j\neq i]{n}{\sum}\nabla_{i}V_{I}\left(p_{ij}\right)+\nabla_{i}V_{h}\left(h_{i}\right)\right)\\
- & =\stackrel[i=1]{n}{\sum}\dot{p}_{i}\cdot f_{v_{i}}
+ & =\stackrel[i=1]{n}{\sum}\dot{p}_{i}\cdot f_{v}\left(\left\Vert v_{i}\right\Vert \right)\frac{v_{i}}{\left\Vert v_{i}\right\Vert }\\
+ & =\stackrel[i=1]{n}{\sum}f_{v}\left(\left\Vert v_{i}\right\Vert \right)\left\Vert v_{i}\right\Vert 
 \end{align*}
 
 \end_inset
@@ -319,13 +385,13 @@ The derivative of
 \end_layout
 
 \begin_layout Standard
-Thus, if we chose
+Thus, if we choose
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-f_{v_{i}}=-a_{i}\dot{p_{i}},\,a_{i}>0
+f_{v_{i}}=-a_{i}\left\Vert v_{i}\right\Vert ,\,a_{i}>0
 \]
 
 \end_inset
@@ -335,7 +401,7 @@ f_{v_{i}}=-a_{i}\dot{p_{i}},\,a_{i}>0
 
 \begin_layout Standard
 for 
-\begin_inset Formula $i=1,\cdots,n$
+\begin_inset Formula $i=1,\cdots,N$
 \end_inset
 
 , then 
@@ -454,11 +520,6 @@ all
  in which the control law remains smooth.
  Then, the equilibrium is a global minimum of the sum of all the artificial
  potentials and is locally asymptotically stable for the closed-loop dynamics.
- In the case in which there is no symmetry, stability is achieved in the
- full state space.
- In the case in which there is symmetry, the relative velocity of all vehicles
- will go to zero and each symmetry variable will be stabilized to an arbitrary
- (constant) value.
 \end_layout
 
 \begin_layout Section
@@ -466,16 +527,16 @@ Avoidance Controller
 \end_layout
 
 \begin_layout Standard
-The dynamic between two quadrotors 
-\begin_inset Formula $Q_{i},$
+The dynamic between two vehicles 
+\begin_inset Formula $Q_{i}$
 \end_inset
 
- 
+, 
 \begin_inset Formula $Q_{j}$
 \end_inset
 
- can be defined in terms of relative variables as follows [rechability-based
- safety and Goal Satisfaction p.
+ can be obtained by defing the relative variables [rechability-based safety
+ and Goal Satisfaction p.
  6].
 \end_layout
 
@@ -494,7 +555,7 @@ v_{y,r} & =v_{y,i}-v_{y,j}
 \end_layout
 
 \begin_layout Standard
-Where 
+Where the vehicle 
 \begin_inset Formula $Q_{i}$
 \end_inset
 
@@ -506,7 +567,7 @@ Where
 \end_layout
 
 \begin_layout Standard
-In this case, we have
+In this case the relative dinamical system is given by
 \end_layout
 
 \begin_layout Standard

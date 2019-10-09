@@ -24,13 +24,14 @@ for i = 1:n
     DUsI = (fI(r)./r)*ones(1,2).*R;
     DUsI(i,:) = zeros(1,2);
     DUsI = DUsI;
-    [h, x_poly,y_poly] = poly_dist(X(i,1),X(i,2),vertX,vertY);
-    H = X(i,:)-[x_poly, y_poly];
+    [h, x_proj,y_proj] = poly_dist(X(i,1),X(i,2),vertX,vertY);
+    H = X(i,:)-[x_proj, y_proj];
     DUsH = repmat(fh(h),1,2).*H/h;
     dV2(i,:) = sum(DUsI,1) + sum(DUsH,1);
 end
 
-vd = 0; a = 0.15;
+vd = 0; %a = 0.15;
+a = 0.2;
 v = apply(@(v)norm(v,2), V);
 dV1 = -a*((v-vd)./v)*ones(1,2).*V;
 u = dV1 - dV2;

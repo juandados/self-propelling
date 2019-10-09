@@ -15,13 +15,15 @@ tm.speedLimit = 10;
 % collision radius
 tm.cr = 2;
 % safety time (it will be safe during the next st seconds)
-tm.safetyTime = 3;
+tm.safetyTime = 4;
 % maximum force for vehicles
 tm.uMax = 3;
+
 % compute reachable set
 %tm.computeRS('qr_qr_safe_V_circle');
+
 % domain setup
-domainType = 'square';
+domainType = 'squarePaper';
 switch domainType
     case 'square'
         r = 0.5;
@@ -43,10 +45,13 @@ switch domainType
         t = linspace(0, 2*pi*(1-1/ns), ns);
         vertX = 50 * sin(t);
         vertY = 50 * cos(t);
+    case 'squarePaper'
+        r = 0.12;
+        vertX = [-50,-50, 50, 50]*r;
+        vertY = [-50, 50, 50, -50]*r;   
 end
 domain = TargetDomain(vertX, vertY);
 tm.addDomain(domain);
-
 % figure setup
 f = figure;
 domain.domainPlot('blue', 'red');
@@ -55,8 +60,9 @@ f.Children.FontSize = 9;
 f.Position(1:2) = [200 200];
 f.Position(3:4) = [1000 750];
 f.Color = 'white';
-xlim([-250 250]);
-ylim([-250 250]);
+scale = 8;
+xlim([min(vertX) max(vertX)]*scale);
+ylim([min(vertY) max(vertY)]*scale);
 title('t=0');
 axis square;
 
@@ -66,8 +72,8 @@ axis square;
 n = 16;
 initial = 'line';
 if strcmp(initial,'line')
-    px = 80*ones(n,1);
-    py = linspace(-50,50,n)';
+    px = linspace(-50,50,n)';
+    py = -15*ones(n,1);
 elseif strcmp(initial, 'random')
     px = 50 * rand(n,1);
     py = 50 * rand(n,1);
@@ -81,7 +87,7 @@ uMax = tm.uMax;
 
 % registering vehicles in traffic manager
 for j = 1:length(px)
-  q = UTMQuad4D([px(j) vx(1) py(j) vy(2)], uMin, uMax);
+  q = UTMQuad4D([px(j) vx(j) py(j) vy(j)], uMin, uMax);
   tm.regVehicle(q);
 end
 
@@ -107,8 +113,10 @@ end
 
 % Time integration
 tm.dt = 0.1;
-tMax = 40;
+tMax = 150;
 t = 0:tm.dt:tMax;
+
+avoidance = false;
 
 u = cell(size(tm.aas));
 for i = 1:length(t)
@@ -116,18 +124,22 @@ for i = 1:length(t)
   [safe, uSafeOptimal, uSafeRight, uSafeLeft] = tm.checkAASafety;
   uCoverage = tm.coverageCtrl;
   for j = 1:length(tm.aas)
-    if safe(j)
-    %if true
+    if safe(j) || ~avoidance
       u{j} = uCoverage{j};
     else
       u{j} = uSafeOptimal{j};
       %u{j} = projectControl(uCoverage{j}',uSafeOptimal{j},uSafeRight{j},uSafeLeft{j});
-      disp(['Projected Controller: ', num2str(u{j}')]);
+      %disp(['Projected Controller: ', num2str(u{j}')]);
     end
-    
+    %u{j} = u{j}*((vx^2+vy^2)<100);
     tm.aas{j}.updateState(u{j}, tm.dt);
+    % Adding velocity contstrain
+    speed=norm([tm.aas{j}.x(2),tm.aas{j}.x(4)]);
+    if speed >= tm.speedLimit
+      tm.aas{j}.x(2)=tm.speedLimit*tm.aas{j}.x(2)/speed;
+      tm.aas{j}.x(4)=tm.speedLimit*tm.aas{j}.x(4)/speed;
+    end
     tm.aas{j}.plotPosition;
-    % this varible is intended to help to determine the grid bounds
     velx(i,j) = tm.aas{j}.x(2);
     vely(i,j) = tm.aas{j}.x(4);
     % Plot reachable set

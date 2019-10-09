@@ -43,7 +43,7 @@ r = 0.1;
 xs = zeros(n,1);
 ys = zeros(size(xs));
 theta = -pi/2*rand;
-v0 = 6;
+v0 = 3;
 vq = [v0 0];
 vq = rotate2D(vq, theta);
 
