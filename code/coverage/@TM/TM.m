@@ -27,7 +27,7 @@ classdef TM < Node
     uMax = 3;
     
     % Juan: varible for collision count
-    collisionCount = 0;
+    collisions = {};
     unsafeCount = 0;
     
     %% Quadrotor reachable sets    

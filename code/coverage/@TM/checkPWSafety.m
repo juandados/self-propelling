@@ -36,9 +36,14 @@ switch(class(obj.aas{i}))
             disp(['Collision!!!: Pair i:', num2str(i), ' j:', num2str(j)]);
             %disp(['Collision!!!: Pair i:', num2str(i), ' j:', num2str(j), ...
             %    ': (', num2str(obj.aas{i}.x'), '), (', num2str(obj.aas{j}.x'), ')']);
-            obj.collisionCount = [obj.collisionCount; 1];
+            flag = 1;
         else
-            obj.collisionCount = [obj.collisionCount; 0];
+            flag = 0;
+        end
+        try
+            obj.collisions{i,j} = [obj.collisions{i,j},flag];
+        catch
+            obj.collisions{i,j} = [flag];
         end
         % Getting controllers
         [safe,  uSafeOptimal, uSafeLeft, uSafeRight, safe_val] = checkPWSafety_qr_qr(obj.qr_qr_safe_V, obj.safetyTime, obj.aas{i}, obj.aas{j});
@@ -47,7 +52,7 @@ switch(class(obj.aas{i}))
             disp(['Optimal Controller: ', num2str(uSafeOptimal')]);
             obj.unsafeCount = obj.unsafeCount + 1;
         end
-      otherwise
+    otherwise
         error('Unknown agent type')
         
     end % end inner switch

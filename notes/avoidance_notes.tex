@@ -6,9 +6,42 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{cancel}
+\usepackage{stmaryrd}
 \usepackage{stackrel}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+\makeatother
+
 \usepackage{babel}
 \begin{document}
+Signed Distance
+
+We can introduce an oriented measure of how far a point $x$ is from
+$\partial\Gamma$.
+
+the signed distance function from $x$ to $\partial\Gamma$
+
+$b\left(x\right)=\begin{cases}
+\underset{x_{p}\in\partial\Gamma}{\min}\left\Vert x-x_{p}\right\Vert , & if\,x\in\Gamma^{c}\\
+-\underset{x_{p}\in\partial\Gamma}{\min}\left\Vert x-x_{p}\right\Vert , & if\,x\in\Gamma
+\end{cases}$
+
+If $\nabla b\left(x\right)$ exists, then there exists a unique $P_{\partial\Gamma}\left(x\right)\in\partial\Gamma$,
+called the projection of $x$ on $\partial\Gamma$, such that
+
+$b\left(x\right)=\begin{cases}
+\left\Vert P_{\partial\Gamma}\left(x\right)-x\right\Vert , & if\,x\in\Gamma^{c}\\
+-\left\Vert P_{\partial\Gamma}\left(x\right)-x\right\Vert , & if\,x\in\Gamma
+\end{cases}$
+
+and
+
+$\nabla b\left(x\right)=\frac{x-P_{\partial\Gamma}\left(x\right)}{b\left(x\right)}$
 
 \section{Control System}
 
@@ -27,18 +60,21 @@ respectively. The equations of motion are
 for $i=1,\cdots,N$, where $u_{i}$ is the control force for the mobile
 agent $Q_{i}$.
 
-We will denote $p_{ij}=p_{i}-p_{j}$ and $h_{i}$ will be the shortest
-vector connecting $p_{i}$ with $\Gamma$. The proposed control force
-is given as
+We will denote $p_{ij}=p_{i}-p_{j}$, $\left\llbracket h_{i}\right\rrbracket =b\left(p_{i}\right)$
+and $h_{i}$ will be the shortest vector connecting $p_{i}$ with
+$\partial\Gamma$, i.e. $h_{i}=p_{i}-P_{\partial\Gamma}\left(p_{i}\right)$
+. The proposed control force is given as
 
 \[
-u_{i}=-\stackrel[j\neq i]{n}{\sum}\left(f_{I}\left(\left\Vert p_{ij}\right\Vert \right)\frac{p_{ij}}{\left\Vert p_{ij}\right\Vert }\right)-f_{h}\left(\left\Vert h_{i}\right\Vert \right)\frac{h_{i}}{\left\Vert h_{i}\right\Vert }+f_{v}\left(\left\Vert v_{i}\right\Vert \right)\frac{v_{i}}{\left\Vert v_{i}\right\Vert }
+u_{i}=-\stackrel[j\neq i]{n}{\sum}\left(f_{I}\left(\left\Vert p_{ij}\right\Vert \right)\frac{p_{ij}}{\left\Vert p_{ij}\right\Vert }\right)-f_{h}\left(h_{i}\right)\frac{h_{i}}{\left\llbracket h_{i}\right\rrbracket }+f_{v}\left(\left\Vert v_{i}\right\Vert \right)\frac{v_{i}}{\left\Vert v_{i}\right\Vert }
 \]
 
 This control law can be seen as different forces applied in direction
 of distances, in the case of distance inter vehicle the election of
 a particular $f_{I}$ could promote the vehicles get close to each
 other. Similarly fh...
+
+$ $
 
 \subsection{Finding a related potential}
 
@@ -257,10 +293,40 @@ is definened in terms of the minimum solution of the quadratic equation
 we have
 
 \begin{align*}
-\phi\left(z\right) & =\frac{-2\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{4\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-4\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{2\left(v_{x}^{2}+v_{y}^{2}\right)}\\
+\phi\left(z\right) & =\frac{-\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{\left(v_{x}^{2}+v_{y}^{2}\right)}\\
  & =\frac{\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{v_{x}^{2}+v_{y}^{2}}\\
  & =\frac{\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\cancelto{0\left(\because p_{x}^{2}+p_{y}^{2}-c_{r}^{2}=0\right)}{\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}}{v_{x}^{2}+v_{y}^{2}}\\
  & =\frac{\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}}}{v_{x}^{2}+v_{y}^{2}}
 \end{align*}
 
+$\phi\left(x\right)=\begin{cases}
+\frac{-\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{\left(v_{x}^{2}+v_{y}^{2}\right)} & \,\text{in\, }\mathcal{R^{*}}\setminus\Gamma\\
+0 & \,\text{in\,}\Gamma
+\end{cases}$
+
+number of collisions square
+
+\begin{tabular}{|c|c|c|c|}
+\hline 
+ & 9 & 16 & 25\tabularnewline
+\hline 
+\hline 
+avoidance & 0 & 0 & 0\tabularnewline
+\hline 
+no avoidance & 12 & 39 & 124\tabularnewline
+\hline 
+\end{tabular}
+
+number of collisions triangle
+
+\begin{tabular}{|c|c|c|c|}
+\hline 
+ & 6 & 10 & 15\tabularnewline
+\hline 
+\hline 
+avoidance & 0 & 0 & 2\tabularnewline
+\hline 
+no avoidance & 9 & 23 & 72\tabularnewline
+\hline 
+\end{tabular}
 \end{document}
