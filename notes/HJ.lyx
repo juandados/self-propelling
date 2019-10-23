@@ -1,0 +1,290 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+consider the two players differencial game described by the system
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\dot{z} & =f\left(z\left(t\right),u\left(t\right),d\left(t\right)\right)\\
+z\left(0\right) & =x
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $z\in\mathbb{R}^{n}$
+\end_inset
+
+ is the system state, 
+\begin_inset Formula $u\in\mathcal{U}$
+\end_inset
+
+ is the control input and 
+\begin_inset Formula $d\in\mathcal{D}$
+\end_inset
+
+ is the system disturbance.
+\end_layout
+
+\begin_layout Standard
+We assume 
+\begin_inset Formula $f:\mathbb{R}^{n}\times\mathcal{U}\times\mathcal{D}\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+ is uniformly continuous, bounded, and Lipschitz continuous in 
+\begin_inset Formula $z$
+\end_inset
+
+ for fixed 
+\begin_inset Formula $u$
+\end_inset
+
+, and 
+\begin_inset Formula $d$
+\end_inset
+
+, and 
+\begin_inset Formula $u\left(\cdot\right)\in\mathbb{U}$
+\end_inset
+
+, 
+\begin_inset Formula $d\left(\cdot\right)\in\mathbb{D}$
+\end_inset
+
+ are measurable functions.
+ Under these assumptions we can guaratee the dynamical system (*) has unique
+ solution.
+\end_layout
+
+\begin_layout Standard
+In this differential game, the goal of the player 2, the disturbance, is
+ to drive the system into some target set only using nonaticipative strategies,
+ as long as, the player 1, the control, aims to drive the system away from
+ it.
+\end_layout
+
+\begin_layout Standard
+we introduce the Time to reach problem as follows.
+\end_layout
+
+\begin_layout Standard
+(Time-to-reach) Given an starting point 
+\begin_inset Formula $x$
+\end_inset
+
+ find the time to reach a target, noted by 
+\begin_inset Formula $\phi\left(x\right)$
+\end_inset
+
+, when player 1 wants to maximize the time, while player 2 uses a strategy
+ to minimize the time with knowledge of player 1's current and past decisions.
+\end_layout
+
+\begin_layout Standard
+The time to reach a closed target 
+\begin_inset Formula $\Gamma\in\mathbb{R}^{n}$
+\end_inset
+
+ with compact boundary, given 
+\begin_inset Formula $u\left(\cdot\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $d\left(\cdot\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T_{x}\left[u,d\right]=min\left\{ t|z\left(t\right)\in\Gamma\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The set of nonanticipo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Theta=\left\{ \theta:\mathbb{U}\rightarrow\mathbb{D}|u\left(\tau\right)=\hat{u}\left(\tau\right)\,\forall\tau\le t\,\Rightarrow\,\theta\left[u\right]\left(\tau\right)=\theta\left[\hat{u}\right]\left(\tau\right)\,\forall\tau\le t\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then the Time-to-reach problem is equivalent to the differential game problem
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\phi\left(x\right)=\underset{\theta\in\Theta}{\min}\underset{u\in\mathbb{U}}{\max}T_{x}\left[u,\theta\left[u\right]\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The capturability set 
+\begin_inset Formula $\mathcal{R}^{*}=\left\{ x\in\mathbb{R}^{n}|\phi\left(x\right)<+\infty\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Applying the dynamic programming principle, we can obtain 
+\begin_inset Formula $\phi$
+\end_inset
+
+ as the viscosity solution for the following stationary HJ PDE:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\underset{u\in\mathcal{U}}{min}\underset{d\in\mathcal{D}}{max}\left\{ -\nabla\phi\left(z\right)^{\top}f\left(z,u,d\right)-1\right\}  & =0,\,\text{in}\,\mathcal{R}^{*}\backslash\Gamma\\
+\phi\left(x\right) & =0,\,\text{on\,}\Gamma
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\backslash
+subseteq
+\end_layout
+
+\begin_layout Standard
+[comment on references discussing the derivation of the previous equation]
+\end_layout
+
+\begin_layout Standard
+From the solution 
+\begin_inset Formula $\phi\left(x\right)$
+\end_inset
+
+ we can obtain the optimal control for both players as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u^{*}\left(x\right)=\arg\underset{u\in\mathcal{U}}{\min}\underset{d\in\mathcal{D}}{\max}-\nabla\phi\left(z\right)^{\top}f\left(z,u,d\right)-1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left\Vert \right\Vert $
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

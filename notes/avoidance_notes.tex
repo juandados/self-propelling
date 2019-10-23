@@ -3,6 +3,7 @@
 \documentclass[english]{article}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
+\usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{cancel}
@@ -278,11 +279,17 @@ v_{y}\phi^{2}\left(z\right)+p_{y}
 \end{array}\right)
 \]
 
+The collision radius was $c_{r}=2m$, the speed and force limit are
+$10\left[m/s\right]$ and $3\left[m/s^{2}\right]$ respectively and
+$\sqrt{5/2}\text{m/\ensuremath{s^{2}}}$ the prefered distance
+
 Therefore,
 
+\textbackslash qquad
+
 \begin{align*}
-\underset{u}{\max}\,\underset{d}{\min}\left\{ -\left(\nabla\phi\left(z\right)\right)^{\top}f\left(z,u,d\right)-1\right\}  & =\underset{u}{\max}\,\underset{d}{\min}\left\{ -\left(\frac{\partial\phi}{\partial p_{x}}v_{x}+\frac{\partial\phi}{\partial v_{x}}\left(u_{x}-d_{x}\right)+\frac{\partial\phi}{\partial p_{y}}v_{y}+\frac{\partial\phi}{\partial v_{y}}\left(u_{y}-d_{y}\right)\right)-1\right\} \\
- & =-\left(\frac{\partial\phi}{\partial p_{x}}v_{x}+\frac{\partial\phi}{\partial p_{y}}v_{y}\right)-1\\
+\underset{u}{\max}\,\underset{d}{\min}\left\{ -\left(\nabla\phi\left(z\right)\right)^{\top}f\left(z,u,d\right)-1\right\}  & =\underset{u}{\max}\,\underset{d}{\min}\left\{ -\frac{\partial\phi}{\partial p_{x}}v_{x}-\frac{\partial\phi}{\partial v_{x}}\left(u_{x}-d_{x}\right)-\frac{\partial\phi}{\partial p_{y}}v_{y}-\frac{\partial\phi}{\partial v_{y}}\left(u_{y}-d_{y}\right)-1\right\} \\
+ & =\qquad-\left(\frac{\partial\phi}{\partial p_{x}}v_{x}+\frac{\partial\phi}{\partial p_{y}}v_{y}\right)-1\\
  & =\frac{\left(v_{x}\phi\left(z\right)+p_{x}\right)v_{x}+\left(v_{y}\phi\left(z\right)+p_{y}\right)v_{y}}{\left(v_{x}^{2}+v_{y}^{2}\right)\phi\left(z\right)+\left(p_{x}v_{x}+p_{y}v_{y}\right)}-1\\
  & =\frac{v_{x}^{2}\phi\left(z\right)+p_{x}v_{x}+v_{y}^{2}\phi\left(z\right)+p_{y}v_{y}}{\left(v_{x}^{2}+v_{y}^{2}\right)\phi\left(z\right)+\left(p_{x}v_{x}+p_{y}v_{y}\right)}-1\\
  & =0
@@ -292,6 +299,8 @@ Now let's see it satisfies the boundary condition, as the TTR function
 is definened in terms of the minimum solution of the quadratic equation
 we have
 
+$\frac{-\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{\left(v_{x}^{2}+v_{y}^{2}\right)}$
+
 \begin{align*}
 \phi\left(z\right) & =\frac{-\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{\left(v_{x}^{2}+v_{y}^{2}\right)}\\
  & =\frac{\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{v_{x}^{2}+v_{y}^{2}}\\
@@ -299,10 +308,7 @@ we have
  & =\frac{\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}}}{v_{x}^{2}+v_{y}^{2}}
 \end{align*}
 
-$\phi\left(x\right)=\begin{cases}
-\frac{-\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{\left(v_{x}^{2}+v_{y}^{2}\right)} & \,\text{in\, }\mathcal{R^{*}}\setminus\Gamma\\
-0 & \,\text{in\,}\Gamma
-\end{cases}$
+$\psi$
 
 number of collisions square
 
@@ -316,6 +322,9 @@ avoidance & 0 & 0 & 0\tabularnewline
 no avoidance & 12 & 39 & 124\tabularnewline
 \hline 
 \end{tabular}
+\begin{table}[H]
+\caption{}
+\end{table}
 
 number of collisions triangle
 

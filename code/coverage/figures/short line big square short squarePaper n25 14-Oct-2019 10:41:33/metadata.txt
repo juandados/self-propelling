@@ -1,0 +1,13 @@
+domain type: squarePaper
+initial config: line
+number of vehicles: 25
+avoidance: 1.000000 
+speedLimit: 10.000000
+collision radius: 2.000000
+safety time: 5.000000
+u max: 3.000000
+tmax: 100.000000 
+collision count: 0
+r = 0.70;
+px = linspace(-30,30,n)';
+py = -40*ones(n,1);

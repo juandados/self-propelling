@@ -30,6 +30,16 @@ movingBoundary = false;
 % domain setup
 domainType = 'squarePaper';
 switch domainType
+    case 'circle'
+        r = 1/100;
+        ns = 100;
+        t = linspace(0, 2*pi*(1-1/ns), ns);
+        vertX = r * 50 * sin(t);
+        vertY = r * 50 * cos(t);
+    case 'diamond'
+        r = 0.1;
+        vertX = [-50, 0, 50, 0];
+        vertY = [0, 50, 0, -50]*r;
     case 'square'
         r = 0.5;
         vertX = [-50,-50, 50, 50]*r;
@@ -104,7 +114,7 @@ domain.domainPlot('blue', 'red');
 hold on;
 f.Children.FontSize = 9;
 f.Position(1:2) = [200 200];
-f.Position(3:4) = [1000 750];
+f.Position(3:4) = [350 350];
 f.Color = 'white';
 scale = 3;
 xlim([min(vertX) max(vertX)]*scale);
@@ -114,7 +124,7 @@ title('t=0');
 axis square;
 % ---- Quadrotors ----
 
-n = 9;
+n = 16;
 initialConfig = 'line';
 if strcmp(initialConfig,'line')
     px = linspace(-30,30,n)';
@@ -123,14 +133,18 @@ elseif strcmp(initialConfig, 'arrowPaper')
     xx = linspace(-10,10,n);
     px = xx-10;
     py = -1*xx-10;
-    xlim([-20, 60]);
-    ylim([-20, 60]);
+    %xlim([-20, 60]);
+    %ylim([-20, 60]);
 elseif strcmp(initialConfig, 'random')
     px = -10 * rand(n,1);
     py = -10 * rand(n,1);
+elseif strcmp(initialConfig, 'square')
+    s = 1;
+    px = 15*(mod(0:15,4)/3-0.5)+s*rand(1,16);
+    py = 15*(floor([0:15]/4)/3-0.5)+s*rand(1,16);
 end
-vx = 0.1 * rand(n,1);
-vy = 0.1 * rand(n,1);
+vx = 0.01 * rand(n,1);
+vy = 0.01 * rand(n,1);
 
 % registering vehicles in traffic manager
 uMin = -tm.uMax;
@@ -144,8 +158,9 @@ end
 colors = lines(length(tm.aas));
 for j = 1:length(tm.aas)
   extraArgs.Color = colors(j,:);
-  extraArgs.ArrowLength = 1; %j prev 1
-  extraArgs.LineWidth = 0.01; %j
+  extraArgs.ArrowLength = 3; %j prev 1
+  extraArgs.LineStyle = 'none';
+  extraArgs.LineWidth = 0.1; %j
   extraArgs.tailSize = 30; % -1 for showing the whole tail;
   tm.aas{j}.plotPosition(extraArgs);
 end
@@ -154,10 +169,10 @@ drawnow
 
 % Time integration
 tm.dt = 0.1;
-tMax = 100;
+tMax = 80;
 t = 0:tm.dt:tMax;
 
-avoidance = true;
+avoidance = false;
 
 % setting up figure saving
 if saveFigures
@@ -186,17 +201,19 @@ end
 
 u = cell(size(tm.aas));
 for i = 1:length(t)
-  %update domain if moving domaing
+  %update domain if  domaing
   if movingBoundary
-    domain = TargetDomain(vertX+t(i)*vDomain, vertY+t(i)*vDomain);
-    hold off;
-    domain.domainPlot('blue', 'red');
-    hold on;
-    f.Color = 'white';
-    xlim([-20, 60]);
-    ylim([-20, 60]);
-    axis square;
-    tm.addDomain(domain);
+    tl = 0;
+    if t(i)>tl
+        domain = TargetDomain(vertX+(t(i)-tl)*vDomain, vertY+(t(i)-tl)*vDomain);
+        cla;
+        domain.domainPlot('blue', 'red');
+        f.Color = 'white';
+        xlim([-20, 60]+(t(i)-tl)*vDomain);
+        ylim([-20, 60]+(t(i)-tl)*vDomain);
+        axis square;
+        tm.addDomain(domain);
+    end
   end
   disp(['time: ', num2str(t(i))])
   [safe, uSafeOptimal, uSafeRight, uSafeLeft] = tm.checkAASafety;
@@ -230,7 +247,7 @@ for i = 1:length(t)
   if recordVideo
       writeVideo(vidObj, getframe(gca));
   end
-  if saveFigures && mod(i-1,floor(length(t)/screenShotsCount))==0
+  if saveFigures && (mod(i-1,floor(length(t)/screenShotsCount))==0 || ismember(t(i),[9,39,70]))
       savefig([dir,'/',num2str(t(i)),'.fig'])
   end
 end
