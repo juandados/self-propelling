@@ -1,0 +1,1209 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Signed Distance
+\end_layout
+
+\begin_layout Standard
+We can introduce an oriented measure of how far a point 
+\begin_inset Formula $x$
+\end_inset
+
+ is from 
+\begin_inset Formula $\partial\Gamma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+the signed distance function from 
+\begin_inset Formula $x$
+\end_inset
+
+ to 
+\begin_inset Formula $\partial\Gamma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $b\left(x\right)=\begin{cases}
+\underset{x_{p}\in\partial\Gamma}{\min}\left\Vert x-x_{p}\right\Vert , & if\,x\in\Gamma^{c}\\
+-\underset{x_{p}\in\partial\Gamma}{\min}\left\Vert x-x_{p}\right\Vert , & if\,x\in\Gamma
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\nabla b\left(x\right)$
+\end_inset
+
+ exists, then there exists a unique 
+\begin_inset Formula $P_{\partial\Gamma}\left(x\right)\in\partial\Gamma$
+\end_inset
+
+, called the projection of 
+\begin_inset Formula $x$
+\end_inset
+
+ on 
+\begin_inset Formula $\partial\Gamma$
+\end_inset
+
+, such that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $b\left(x\right)=\begin{cases}
+\left\Vert P_{\partial\Gamma}\left(x\right)-x\right\Vert , & if\,x\in\Gamma^{c}\\
+-\left\Vert P_{\partial\Gamma}\left(x\right)-x\right\Vert , & if\,x\in\Gamma
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla b\left(x\right)=\frac{x-P_{\partial\Gamma}\left(x\right)}{b\left(x\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Control System
+\end_layout
+
+\begin_layout Standard
+We consider a group of 
+\begin_inset Formula $N$
+\end_inset
+
+ vehicles trying to cover a domain bounded by a piecewise smooth curve 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathbb{R}^{2}.$
+\end_inset
+
+ We will denote the 
+\begin_inset Formula $N$
+\end_inset
+
+ vehicles as 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $i=1,\cdots,N.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The position and velocity of 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+ relative to 0 are denoted by 
+\begin_inset Formula $p_{i}=\left(p_{x,i},\,p_{y,i}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{i}=\left(v_{x,i},\,v_{y,i}\right)$
+\end_inset
+
+ respectively.
+ The equations of motion are
+\begin_inset Formula 
+\begin{align*}
+\dot{p}_{i} & =v_{i}\\
+\dot{v}_{i} & =u_{i}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+for 
+\begin_inset Formula $i=1,\cdots,N$
+\end_inset
+
+, where 
+\begin_inset Formula $u_{i}$
+\end_inset
+
+ is the control force for the mobile agent 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We will denote 
+\begin_inset Formula $p_{ij}=p_{i}-p_{j}$
+\end_inset
+
+, 
+\begin_inset Formula $\left\llbracket h_{i}\right\rrbracket =b\left(p_{i}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $h_{i}$
+\end_inset
+
+ will be the shortest vector connecting 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ with 
+\begin_inset Formula $\partial\Gamma$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $h_{i}=p_{i}-P_{\partial\Gamma}\left(p_{i}\right)$
+\end_inset
+
+ .
+ The proposed control force is given as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u_{i}=-\stackrel[j\neq i]{n}{\sum}\left(f_{I}\left(\left\Vert p_{ij}\right\Vert \right)\frac{p_{ij}}{\left\Vert p_{ij}\right\Vert }\right)-f_{h}\left(h_{i}\right)\frac{h_{i}}{\left\llbracket h_{i}\right\rrbracket }+f_{v}\left(\left\Vert v_{i}\right\Vert \right)\frac{v_{i}}{\left\Vert v_{i}\right\Vert }
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This control law can be seen as different forces applied in direction of
+ distances, in the case of distance inter vehicle the election of a particular
+ 
+\begin_inset Formula $f_{I}$
+\end_inset
+
+ could promote the vehicles get close to each other.
+ Similarly fh...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Finding a related potential
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The inter-vehicle and vehicle-domain forces are conservative, the can be
+ written as the negative gradient of a potential,
+\begin_inset Formula 
+\[
+V_{h}\left(p_{i}\right)=\stackrel[0]{\left\Vert h_{i}\right\Vert }{\int}f_{h}\left(s\right)ds
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{I}\left(p_{i}\right)=\stackrel[j\neq i]{n}{\sum}\stackrel[0]{\left\Vert p_{ij}\right\Vert }{\int}f_{I}\left(s\right)ds
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In other words eq becomes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u_{i}=-\stackrel[j\neq i]{n}{\sum}\nabla_{i}V_{I}\left(p_{i}\right)-\nabla_{i}V_{h}\left(p_{i}\right)+f_{v}\left(\left\Vert v_{i}\right\Vert \right)\frac{v_{i}}{\left\Vert v_{i}\right\Vert }
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Stability of the controlled system
+\end_layout
+
+\begin_layout Standard
+Consider the Lyapunov function defined on the full state space as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi=\frac{1}{2}\stackrel[i=1]{n}{\sum}\left(\dot{p}_{i}\cdot\dot{p}_{i}+\stackrel[j\neq i]{n}{\sum}V_{I}\left(p_{ij}\right)+2V_{h}\left(h_{i}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The derivative of 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ with respect to time is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\dot{\Phi} & =\stackrel[i=1]{n}{\sum}\dot{p}_{i}\cdot\left(u_{i}+\stackrel[j\neq i]{n}{\sum}\nabla_{i}V_{I}\left(p_{ij}\right)+\nabla_{i}V_{h}\left(h_{i}\right)\right)\\
+ & =\stackrel[i=1]{n}{\sum}\dot{p}_{i}\cdot f_{v}\left(\left\Vert v_{i}\right\Vert \right)\frac{v_{i}}{\left\Vert v_{i}\right\Vert }\\
+ & =\stackrel[i=1]{n}{\sum}f_{v}\left(\left\Vert v_{i}\right\Vert \right)\left\Vert v_{i}\right\Vert 
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus, if we choose
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{v_{i}}=-a_{i}\left\Vert v_{i}\right\Vert ,\,a_{i}>0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+for 
+\begin_inset Formula $i=1,\cdots,N$
+\end_inset
+
+, then 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ is negative definite and equal to zero if and only if 
+\begin_inset Formula $\dot{p_{i}}=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ By the LaSalle Invariance Principle we can conclude that an equilibrium
+ that has been made stable without dissipation will be asymptotically stabilized
+ with this form of dissipation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Proposition
+\end_layout
+
+\begin_layout Standard
+Consider a group of n vehicles with dynamics defined by (-), 
+\begin_inset Formula $v_{0}$
+\end_inset
+
+ a constant, and the control law given by (-) and (-).
+ Let the equilibrium of interest be of the form 
+\begin_inset Formula $\dot{p_{i}}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{i}=h_{0}$
+\end_inset
+
+ or 
+\begin_inset Formula $p_{i}>h_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $p_{ij}=d_{0}$
+\end_inset
+
+ or 
+\begin_inset Formula $p_{ij}>d_{1}$
+\end_inset
+
+ , and 
+\begin_inset Formula $h_{ik}=h_{0}$
+\end_inset
+
+ or 
+\begin_inset Formula $h_{ik}>h_{1}$
+\end_inset
+
+ for 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+all
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\begin_inset Formula $i,j=1,\cdots,n$
+\end_inset
+
+ , 
+\begin_inset Formula $j\neq i$
+\end_inset
+
+ , and 
+\begin_inset Formula $k=1,\cdots,m-1$
+\end_inset
+
+ .
+ We assume that 
+\begin_inset Formula $h_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $d_{1}$
+\end_inset
+
+ have been defined so that there is a neighborhood about the equilibrium
+ in which the control law remains smooth.
+ Then, the equilibrium is a global minimum of the sum of all the artificial
+ potentials and is locally asymptotically stable for the closed-loop dynamics.
+\end_layout
+
+\begin_layout Section
+Avoidance Controller
+\end_layout
+
+\begin_layout Standard
+The dynamic between two vehicles 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $Q_{j}$
+\end_inset
+
+ can be obtained by defing the relative variables [rechability-based safety
+ and Goal Satisfaction p.
+ 6].
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+p_{x,r} & =p_{x,i}-p_{x,j}\\
+p_{y,r} & =p_{y,i}-p_{y,j}\\
+v_{x,r} & =v_{x,i}-v_{x,j}\\
+v_{y,r} & =v_{y,i}-v_{y,j}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where the vehicle 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+ is the evader and 
+\begin_inset Formula $Q_{j}$
+\end_inset
+
+ is the pursuer and is consider as the model disturbance.
+\end_layout
+
+\begin_layout Standard
+In this case the relative dinamical system is given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\dot{p}_{x,r} & =v_{x,r}\\
+\dot{p}_{y,r} & =v_{y,r}\\
+\dot{v}_{x,r} & =u_{x,i}-u_{x,j}\\
+\dot{v}_{y,r} & =u_{y,i}-u_{y,j}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rechability-Based Controllers.
+\end_layout
+
+\begin_layout Subsection
+Avoiding collisions
+\end_layout
+
+\begin_layout Standard
+We define an unsafe configuration when it is within a minimum separation
+ distance 
+\begin_inset Formula $d$
+\end_inset
+
+ to a reference vehicle in both the 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ directions.
+ In such a way we define the target set as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}_{S}=\left\{ x:\text{\left|p_{x,r}\right|, \left|p_{y,r}\right|}\leq d\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The zero sublevel set of the associated HJ PDE
+\end_layout
+
+\begin_layout Subsubsection
+HJ PDE [HJ Rechability: System Decomposition Mo Chen]
+\end_layout
+
+\begin_layout Standard
+The value function 
+\begin_inset Formula $V\left(t,z\right)$
+\end_inset
+
+ is the viscosity solution of the HJ partial differential equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H\left(s,z,\lambda\right)=\underset{u\in U}{max}\,\underset{d\in D}{min}\,\lambda·f\left(z,u,d\right)
+\]
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V=\underset{\gamma\left[u\right]\left(\cdot\right)\in\Gamma\left(t\right)}{inf}\underset{u\left(\cdot\right)\in\mathbb{U}}{sup}\underset{s\in\left[t,0\right]}{min}V_{0}\left(\zeta\left(0;z,t,u\left(\cdot\right),\gamma\left[u\right]\left(\cdot\right)\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+min\left\{ D_{s}V\left(s,z\right)+H\left(z,\nabla V\left(s,z\right)\right),V_{0}\left(z\right)-V\left(s,z\right)\right\} =0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lets consider the inner product 
+\begin_inset Formula $\nabla V\cdot f$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\nabla V\cdot f & =\nabla V_{1}v_{x,r}+\left(\nabla V_{2}u_{x,i}-\nabla V_{2}u_{x,j}\right)+\nabla V_{3}v_{y,r}+\left(\nabla V_{4}u_{y,i}-\nabla V_{4}u_{y,j}\right)\nonumber \\
+ & =\nabla V_{1}v_{x,r}+\nabla V_{3}v_{y,r}+\underset{avoidance\,controller}{\underbrace{\left(\nabla V_{2}u_{x,i}+\nabla V_{4}u_{y,i}\right)}}-\underset{disturbance}{\underbrace{\left(\nabla V_{2}u_{x,j}+\nabla V_{4}u_{y,j}\right)}}\label{eq:vdotf}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The optimal control avoiding danger is given by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u^{*}=\arg\underset{u}{\max}\underset{d}{\min}\nabla V\cdot f
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here some facts:
+\end_layout
+
+\begin_layout Enumerate
+The min value happens when the disturbance is 
+\begin_inset Formula $\left(u_{x,j},u_{y,j}\right)=\frac{\left(\nabla V_{2},\nabla V_{4}\right)}{\left\Vert \left(\nabla V_{2},\nabla V_{4}\right)\right\Vert _{2}}u_{max}$
+\end_inset
+
+, in such a case Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:vdotf"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ becomes:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla V\cdot f=\nabla V_{1}v_{x,r}+\nabla V_{3}v_{y,r}+\underset{avoidance\,controller}{\underbrace{\left(\nabla V_{2}u_{x,i}+\nabla V_{4}u_{y,i}\right)}}-\left\Vert \left(\nabla V_{2},\nabla V_{4}\right)\right\Vert _{2}u_{max}\label{eq:Max avoidance}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The admisible region for controller 
+\begin_inset Formula $u=\left(u_{x,i},u_{y,i}\right)\in\mathbb{R}^{2}$
+\end_inset
+
+, is the intersection between the circle 
+\begin_inset Formula $\left\Vert u_{x,i},u_{y,i}\right\Vert _{2}\leq u_{max}$
+\end_inset
+
+ and the semiplane 
+\begin_inset Formula $u_{y,i}>-\left(\frac{\nabla V_{2}}{\nabla V_{4}}\right)u_{x,i}+\frac{\left(-\nabla V_{1}v_{x,r}-\nabla V_{3}v_{y,r}+\left\Vert \left(\nabla V_{2},\nabla V_{4}\right)\right\Vert _{2}u_{max}\right)}{\nabla V_{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+The max value happens when the controller is 
+\begin_inset Formula $\left(u_{x,i},u_{y,i}\right)=\frac{\left(\nabla V_{2},\nabla V_{4}\right)}{\left\Vert \left(\nabla V_{2},\nabla V_{4}\right)\right\Vert _{2}}u_{max}$
+\end_inset
+
+, in such a case Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Max avoidance"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ becomes in
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla V\cdot f=\nabla V_{1}v_{x,r}+\nabla V_{3}v_{y,r}\label{eq: optimal controller}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+The min value when the controller is 
+\begin_inset Formula $\left(u_{x.i},u_{y,i}\right)=-$
+\end_inset
+
+, such a case:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla V\cdot f=\nabla V_{1}v_{x,r}+\nabla V_{3}v_{y,r}-2\left\Vert \left(\nabla V_{2},\nabla V_{4}\right)\right\Vert u_{max}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Goal satisfaction like controller
+\end_layout
+
+\begin_layout Section
+TTR
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\left(z,u,d\right)=\left(\begin{array}{c}
+v_{x}\\
+u_{x}-d_{x}\\
+v_{y}\\
+u_{y}-d_{y}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\underset{u}{\max}\,\underset{d}{\min}\left\{ -\left(\nabla\phi\left(z\right)\right)^{\top}f\left(z,u,d\right)-1\right\}  & =0\,\text{in}\,\mathcal{R^{*}}\setminus\Gamma\\
+\phi\left(x\right) & =0\,\text{on}\,\Gamma
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After a geometric argument we can show TTR function should be the minimum
+ solution for the following cuadratic equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left(v_{x}^{2}+v_{y}^{2}\right)\phi^{2}\left(z\right)+2\left(p_{x}v_{x}+p_{y}v_{y}\right)\phi\left(z\right)+\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)=0\,\text{in}\,\mathcal{R^{*}}\setminus\Gamma
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's check that 
+\begin_inset Formula $\phi\left(z\right)$
+\end_inset
+
+ solves PDE:
+\end_layout
+
+\begin_layout Standard
+First, using implicit differentiation one can show
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla\phi\left(x\right)=\frac{-1}{\left(v_{x}^{2}+v_{y}^{2}\right)\phi\left(z\right)+\left(p_{x}v_{x}+p_{y}v_{y}\right)}\left(\begin{array}{c}
+v_{x}\phi\left(z\right)+p_{x}\\
+v_{x}\phi^{2}\left(z\right)+p_{x}\\
+v_{y}\phi\left(z\right)+p_{y}\\
+v_{y}\phi^{2}\left(z\right)+p_{y}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\underset{u}{\max}\,\underset{d}{\min}\left\{ -\left(\nabla\phi\left(z\right)\right)^{\top}f\left(z,u,d\right)-1\right\}  & =\underset{u}{\max}\,\underset{d}{\min}\left\{ -\left(\frac{\partial\phi}{\partial p_{x}}v_{x}+\frac{\partial\phi}{\partial v_{x}}\left(u_{x}-d_{x}\right)+\frac{\partial\phi}{\partial p_{y}}v_{y}+\frac{\partial\phi}{\partial v_{y}}\left(u_{y}-d_{y}\right)\right)-1\right\} \\
+ & =-\left(\frac{\partial\phi}{\partial p_{x}}v_{x}+\frac{\partial\phi}{\partial p_{y}}v_{y}\right)-1\\
+ & =\frac{\left(v_{x}\phi\left(z\right)+p_{x}\right)v_{x}+\left(v_{y}\phi\left(z\right)+p_{y}\right)v_{y}}{\left(v_{x}^{2}+v_{y}^{2}\right)\phi\left(z\right)+\left(p_{x}v_{x}+p_{y}v_{y}\right)}-1\\
+ & =\frac{v_{x}^{2}\phi\left(z\right)+p_{x}v_{x}+v_{y}^{2}\phi\left(z\right)+p_{y}v_{y}}{\left(v_{x}^{2}+v_{y}^{2}\right)\phi\left(z\right)+\left(p_{x}v_{x}+p_{y}v_{y}\right)}-1\\
+ & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now let's see it satisfies the boundary condition, as the TTR function is
+ definened in terms of the minimum solution of the quadratic equation we
+ have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\phi\left(z\right) & =\frac{-\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{\left(v_{x}^{2}+v_{y}^{2}\right)}\\
+ & =\frac{\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{v_{x}^{2}+v_{y}^{2}}\\
+ & =\frac{\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\cancelto{0\left(\because p_{x}^{2}+p_{y}^{2}-c_{r}^{2}=0\right)}{\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}}{v_{x}^{2}+v_{y}^{2}}\\
+ & =\frac{\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}}}{v_{x}^{2}+v_{y}^{2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\phi\left(x\right)=\begin{cases}
+\frac{-\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{\left(v_{x}^{2}+v_{y}^{2}\right)} & \,\text{in\, }\mathcal{R^{*}}\setminus\Gamma\\
+0 & \,\text{in\,}\Gamma
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+number of collisions square
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+avoidance
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+no avoidance
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+39
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+124
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+number of collisions triangle
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+avoidance
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+no avoidance
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+72
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

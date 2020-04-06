@@ -1,0 +1,73 @@
+%% LyX 2.3.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{babel}
+\begin{document}
+consider the two players differencial game described by the system
+
+\begin{align*}
+\dot{z} & =f\left(z\left(t\right),u\left(t\right),d\left(t\right)\right)\\
+z\left(0\right) & =x
+\end{align*}
+
+where $z\in\mathbb{R}^{n}$ is the system state, $u\in\mathcal{U}$
+is the control input and $d\in\mathcal{D}$ is the system disturbance.
+
+We assume $f:\mathbb{R}^{n}\times\mathcal{U}\times\mathcal{D}\rightarrow\mathbb{R}^{n}$
+is uniformly continuous, bounded, and Lipschitz continuous in $z$
+for fixed $u$, and $d$, and $u\left(\cdot\right)\in\mathbb{U}$,
+$d\left(\cdot\right)\in\mathbb{D}$ are measurable functions. Under
+these assumptions we can guaratee the dynamical system ({*}) has unique
+solution.
+
+In this differential game, the goal of the player 2, the disturbance,
+is to drive the system into some target set only using nonaticipative
+strategies, as long as, the player 1, the control, aims to drive the
+system away from it.
+
+we introduce the Time to reach problem as follows.
+
+(Time-to-reach) Given an starting point $x$ find the time to reach
+a target, noted by $\phi\left(x\right)$, when player 1 wants to maximize
+the time, while player 2 uses a strategy to minimize the time with
+knowledge of player 1's current and past decisions.
+
+The time to reach a closed target $\Gamma\in\mathbb{R}^{n}$ with
+compact boundary, given $u\left(\cdot\right)$ and $d\left(\cdot\right)$:
+
+$T_{x}\left[u,d\right]=min\left\{ t|z\left(t\right)\in\Gamma\right\} $
+
+The set of nonanticipo
+
+$\Theta=\left\{ \theta:\mathbb{U}\rightarrow\mathbb{D}|u\left(\tau\right)=\hat{u}\left(\tau\right)\,\forall\tau\le t\,\text{implies\,}\theta\left[u\right]\left(\tau\right)=\theta\left[\hat{u}\right]\left(\tau\right)\,\forall\tau\le t\right\} $
+
+Then the Time-to-reach problem is equivalent to the differential game
+problem
+
+$\phi\left(x\right)=\underset{\theta\in\Theta}{\min}\underset{u\in\mathbb{U}}{\max}T_{x}\left[u,\theta\left[u\right]\right]$
+
+The capturability set $\mathcal{R}^{*}=\left\{ x\in\mathbb{R}^{n}|\phi\left(x\right)<+\infty\right\} $
+
+Applying the dynamic programming principle, we can obtain $\phi$
+as the viscosity solution for the following stationary HJ PDE:
+
+\begin{align*}
+\underset{u\in\mathcal{U}}{min}\underset{d\in\mathcal{D}}{max}\left\{ -\nabla\phi\left(z\right)^{\top}f\left(z,u,d\right)-1\right\}  & =0,\,\text{in}\,\mathcal{R}^{*}\backslash\Gamma\\
+\phi\left(x\right) & =0,\,\text{on\,}\Gamma
+\end{align*}
+
+{[}comment on references discussing the derivation of the previous
+equation{]}
+
+From the solution $\phi\left(x\right)$ we can obtain the optimal
+control for both players as:
+
+\[
+u^{*}\left(x\right)=\arg\underset{u\in\mathcal{U}}{\min}\underset{d\in\mathcal{D}}{\max}-\nabla\phi\left(z\right)^{\top}f\left(z,u,d\right)-1
+\]
+
+\end{document}

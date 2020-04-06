@@ -1,0 +1,10 @@
+domain type: trianglePaper
+initial config: line
+number of vehicles: 6
+avoidance: 1.000000 
+speedLimit: 10.000000
+collision radius: 2.000000
+safety time: 5.000000
+u max: 3.000000
+tmax: 60.000000 
+collision count: 0

@@ -1,0 +1,341 @@
+%% LyX 2.3.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{stmaryrd}
+\usepackage{stackrel}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+Signed Distance
+
+We can introduce an oriented measure of how far a point $x$ is from
+$\partial\Gamma$.
+
+the signed distance function from $x$ to $\partial\Gamma$
+
+$b\left(x\right)=\begin{cases}
+\underset{x_{p}\in\partial\Gamma}{\min}\left\Vert x-x_{p}\right\Vert , & if\,x\in\Gamma^{c}\\
+-\underset{x_{p}\in\partial\Gamma}{\min}\left\Vert x-x_{p}\right\Vert , & if\,x\in\Gamma
+\end{cases}$
+
+If $\nabla b\left(x\right)$ exists, then there exists a unique $P_{\partial\Gamma}\left(x\right)\in\partial\Gamma$,
+called the projection of $x$ on $\partial\Gamma$, such that
+
+$b\left(x\right)=\begin{cases}
+\left\Vert P_{\partial\Gamma}\left(x\right)-x\right\Vert , & if\,x\in\Gamma^{c}\\
+-\left\Vert P_{\partial\Gamma}\left(x\right)-x\right\Vert , & if\,x\in\Gamma
+\end{cases}$
+
+and
+
+$\nabla b\left(x\right)=\frac{x-P_{\partial\Gamma}\left(x\right)}{b\left(x\right)}$
+
+\section{Control System}
+
+We consider a group of $N$ vehicles trying to cover a domain bounded
+by a piecewise smooth curve $\Gamma$ in $\mathbb{R}^{2}.$ We will
+denote the $N$ vehicles as $Q_{i}$, $i=1,\cdots,N.$
+
+The position and velocity of $Q_{i}$ relative to 0 are denoted by
+$p_{i}=\left(p_{x,i},\,p_{y,i}\right)$ and $v_{i}=\left(v_{x,i},\,v_{y,i}\right)$
+respectively. The equations of motion are
+\begin{align*}
+\dot{p}_{i} & =v_{i}\\
+\dot{v}_{i} & =u_{i}
+\end{align*}
+
+for $i=1,\cdots,N$, where $u_{i}$ is the control force for the mobile
+agent $Q_{i}$.
+
+We will denote $p_{ij}=p_{i}-p_{j}$, $\left\llbracket h_{i}\right\rrbracket =b\left(p_{i}\right)$
+and $h_{i}$ will be the shortest vector connecting $p_{i}$ with
+$\partial\Gamma$, i.e. $h_{i}=p_{i}-P_{\partial\Gamma}\left(p_{i}\right)$
+. The proposed control force is given as
+
+\[
+u_{i}=-\stackrel[j\neq i]{n}{\sum}\left(f_{I}\left(\left\Vert p_{ij}\right\Vert \right)\frac{p_{ij}}{\left\Vert p_{ij}\right\Vert }\right)-f_{h}\left(h_{i}\right)\frac{h_{i}}{\left\llbracket h_{i}\right\rrbracket }+f_{v}\left(\left\Vert v_{i}\right\Vert \right)\frac{v_{i}}{\left\Vert v_{i}\right\Vert }
+\]
+
+This control law can be seen as different forces applied in direction
+of distances, in the case of distance inter vehicle the election of
+a particular $f_{I}$ could promote the vehicles get close to each
+other. Similarly fh...
+
+$ $
+
+\subsection{Finding a related potential}
+
+~
+
+The inter-vehicle and vehicle-domain forces are conservative, the
+can be written as the negative gradient of a potential,
+\[
+V_{h}\left(p_{i}\right)=\stackrel[0]{\left\Vert h_{i}\right\Vert }{\int}f_{h}\left(s\right)ds
+\]
+
+\[
+V_{I}\left(p_{i}\right)=\stackrel[j\neq i]{n}{\sum}\stackrel[0]{\left\Vert p_{ij}\right\Vert }{\int}f_{I}\left(s\right)ds
+\]
+
+In other words eq becomes
+
+\[
+u_{i}=-\stackrel[j\neq i]{n}{\sum}\nabla_{i}V_{I}\left(p_{i}\right)-\nabla_{i}V_{h}\left(p_{i}\right)+f_{v}\left(\left\Vert v_{i}\right\Vert \right)\frac{v_{i}}{\left\Vert v_{i}\right\Vert }
+\]
+
+$ $
+
+\subsection{Stability of the controlled system}
+
+Consider the Lyapunov function defined on the full state space as
+
+\[
+\Phi=\frac{1}{2}\stackrel[i=1]{n}{\sum}\left(\dot{p}_{i}\cdot\dot{p}_{i}+\stackrel[j\neq i]{n}{\sum}V_{I}\left(p_{ij}\right)+2V_{h}\left(h_{i}\right)\right)
+\]
+
+The derivative of $\Phi$ with respect to time is
+
+\begin{align*}
+\dot{\Phi} & =\stackrel[i=1]{n}{\sum}\dot{p}_{i}\cdot\left(u_{i}+\stackrel[j\neq i]{n}{\sum}\nabla_{i}V_{I}\left(p_{ij}\right)+\nabla_{i}V_{h}\left(h_{i}\right)\right)\\
+ & =\stackrel[i=1]{n}{\sum}\dot{p}_{i}\cdot f_{v}\left(\left\Vert v_{i}\right\Vert \right)\frac{v_{i}}{\left\Vert v_{i}\right\Vert }\\
+ & =\stackrel[i=1]{n}{\sum}f_{v}\left(\left\Vert v_{i}\right\Vert \right)\left\Vert v_{i}\right\Vert 
+\end{align*}
+
+Thus, if we choose
+
+\[
+f_{v_{i}}=-a_{i}\left\Vert v_{i}\right\Vert ,\,a_{i}>0
+\]
+
+for $i=1,\cdots,N$, then $\Phi$ is negative definite and equal to
+zero if and only if $\dot{p_{i}}=0$ for all $i$. By the LaSalle
+Invariance Principle we can conclude that an equilibrium that has
+been made stable without dissipation will be asymptotically stabilized
+with this form of dissipation.
+
+~
+
+\textbf{Proposition}
+
+Consider a group of n vehicles with dynamics defined by (-), $v_{0}$
+a constant, and the control law given by (-) and (-). Let the equilibrium
+of interest be of the form $\dot{p_{i}}=0$ and $p_{i}=h_{0}$ or
+$p_{i}>h_{1}$, $p_{ij}=d_{0}$ or $p_{ij}>d_{1}$ , and $h_{ik}=h_{0}$
+or $h_{ik}>h_{1}$ for all $i,j=1,\cdots,n$ , $j\neq i$ , and $k=1,\cdots,m-1$
+. We assume that $h_{1}$ and $d_{1}$ have been defined so that there
+is a neighborhood about the equilibrium in which the control law remains
+smooth. Then, the equilibrium is a global minimum of the sum of all
+the artificial potentials and is locally asymptotically stable for
+the closed-loop dynamics.
+
+\section{Avoidance Controller}
+
+The dynamic between two vehicles $Q_{i}$, $Q_{j}$ can be obtained
+by defing the relative variables {[}rechability-based safety and Goal
+Satisfaction p. 6{]}.
+
+\begin{align*}
+p_{x,r} & =p_{x,i}-p_{x,j}\\
+p_{y,r} & =p_{y,i}-p_{y,j}\\
+v_{x,r} & =v_{x,i}-v_{x,j}\\
+v_{y,r} & =v_{y,i}-v_{y,j}
+\end{align*}
+
+Where the vehicle $Q_{i}$ is the evader and $Q_{j}$ is the pursuer
+and is consider as the model disturbance.
+
+In this case the relative dinamical system is given by
+
+\begin{align*}
+\dot{p}_{x,r} & =v_{x,r}\\
+\dot{p}_{y,r} & =v_{y,r}\\
+\dot{v}_{x,r} & =u_{x,i}-u_{x,j}\\
+\dot{v}_{y,r} & =u_{y,i}-u_{y,j}
+\end{align*}
+
+Rechability-Based Controllers.
+
+\subsection{Avoiding collisions}
+
+We define an unsafe configuration when it is within a minimum separation
+distance $d$ to a reference vehicle in both the $x$ and $y$ directions.
+In such a way we define the target set as follows:
+
+\[
+\mathcal{L}_{S}=\left\{ x:\text{\ensuremath{\left|p_{x,r}\right|}, \ensuremath{\left|p_{y,r}\right|}}\leq d\right\} 
+\]
+
+The zero sublevel set of the associated HJ PDE
+
+\subsubsection{HJ PDE {[}HJ Rechability: System Decomposition Mo Chen{]}}
+
+The value function $V\left(t,z\right)$ is the viscosity solution
+of the HJ partial differential equation
+
+\[
+H\left(s,z,\lambda\right)=\underset{u\in U}{max}\,\underset{d\in D}{min}\,\lambda\cdot f\left(z,u,d\right)
+\]
+,
+
+\[
+V=\underset{\gamma\left[u\right]\left(\cdot\right)\in\Gamma\left(t\right)}{inf}\underset{u\left(\cdot\right)\in\mathbb{U}}{sup}\underset{s\in\left[t,0\right]}{min}V_{0}\left(\zeta\left(0;z,t,u\left(\cdot\right),\gamma\left[u\right]\left(\cdot\right)\right)\right)
+\]
+
+\[
+min\left\{ D_{s}V\left(s,z\right)+H\left(z,\nabla V\left(s,z\right)\right),V_{0}\left(z\right)-V\left(s,z\right)\right\} =0
+\]
+
+Lets consider the inner product $\nabla V\cdot f$:
+
+\begin{align}
+\nabla V\cdot f & =\nabla V_{1}v_{x,r}+\left(\nabla V_{2}u_{x,i}-\nabla V_{2}u_{x,j}\right)+\nabla V_{3}v_{y,r}+\left(\nabla V_{4}u_{y,i}-\nabla V_{4}u_{y,j}\right)\nonumber \\
+ & =\nabla V_{1}v_{x,r}+\nabla V_{3}v_{y,r}+\underset{avoidance\,controller}{\underbrace{\left(\nabla V_{2}u_{x,i}+\nabla V_{4}u_{y,i}\right)}}-\underset{disturbance}{\underbrace{\left(\nabla V_{2}u_{x,j}+\nabla V_{4}u_{y,j}\right)}}\label{eq:vdotf}
+\end{align}
+
+The optimal control avoiding danger is given by:
+
+\[
+u^{*}=\arg\underset{u}{\max}\underset{d}{\min}\nabla V\cdot f
+\]
+
+Here some facts:
+\begin{enumerate}
+\item The min value happens when the disturbance is $\left(u_{x,j},u_{y,j}\right)=\frac{\left(\nabla V_{2},\nabla V_{4}\right)}{\left\Vert \left(\nabla V_{2},\nabla V_{4}\right)\right\Vert _{2}}u_{max}$,
+in such a case Eq. \ref{eq:vdotf} becomes:
+
+\begin{equation}
+\nabla V\cdot f=\nabla V_{1}v_{x,r}+\nabla V_{3}v_{y,r}+\underset{avoidance\,controller}{\underbrace{\left(\nabla V_{2}u_{x,i}+\nabla V_{4}u_{y,i}\right)}}-\left\Vert \left(\nabla V_{2},\nabla V_{4}\right)\right\Vert _{2}u_{max}\label{eq:Max avoidance}
+\end{equation}
+
+\begin{enumerate}
+\item The admisible region for controller $u=\left(u_{x,i},u_{y,i}\right)\in\mathbb{R}^{2}$,
+is the intersection between the circle $\left\Vert u_{x,i},u_{y,i}\right\Vert _{2}\leq u_{max}$
+and the semiplane $u_{y,i}>-\left(\frac{\nabla V_{2}}{\nabla V_{4}}\right)u_{x,i}+\frac{\left(-\nabla V_{1}v_{x,r}-\nabla V_{3}v_{y,r}+\left\Vert \left(\nabla V_{2},\nabla V_{4}\right)\right\Vert _{2}u_{max}\right)}{\nabla V_{4}}$
+\end{enumerate}
+\item The max value happens when the controller is $\left(u_{x,i},u_{y,i}\right)=\frac{\left(\nabla V_{2},\nabla V_{4}\right)}{\left\Vert \left(\nabla V_{2},\nabla V_{4}\right)\right\Vert _{2}}u_{max}$,
+in such a case Eq. \ref{eq:Max avoidance} becomes in
+
+\begin{equation}
+\nabla V\cdot f=\nabla V_{1}v_{x,r}+\nabla V_{3}v_{y,r}\label{eq: optimal controller}
+\end{equation}
+
+\item The min value when the controller is $\left(u_{x.i},u_{y,i}\right)=-$,
+such a case:
+
+\[
+\nabla V\cdot f=\nabla V_{1}v_{x,r}+\nabla V_{3}v_{y,r}-2\left\Vert \left(\nabla V_{2},\nabla V_{4}\right)\right\Vert u_{max}
+\]
+
+\end{enumerate}
+Goal satisfaction like controller
+
+\section{TTR}
+
+\[
+f\left(z,u,d\right)=\left(\begin{array}{c}
+v_{x}\\
+u_{x}-d_{x}\\
+v_{y}\\
+u_{y}-d_{y}
+\end{array}\right)
+\]
+
+\begin{align}
+\underset{u}{\max}\,\underset{d}{\min}\left\{ -\left(\nabla\phi\left(z\right)\right)^{\top}f\left(z,u,d\right)-1\right\}  & =0\,\text{in}\,\mathcal{R^{*}}\setminus\Gamma\\
+\phi\left(x\right) & =0\,\text{on}\,\Gamma
+\end{align}
+
+After a geometric argument we can show TTR function should be the
+minimum solution for the following cuadratic equation
+
+\begin{equation}
+\left(v_{x}^{2}+v_{y}^{2}\right)\phi^{2}\left(z\right)+2\left(p_{x}v_{x}+p_{y}v_{y}\right)\phi\left(z\right)+\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)=0\,\text{in}\,\mathcal{R^{*}}\setminus\Gamma
+\end{equation}
+
+Let's check that $\phi\left(z\right)$ solves PDE:
+
+First, using implicit differentiation one can show
+
+\[
+\nabla\phi\left(x\right)=\frac{-1}{\left(v_{x}^{2}+v_{y}^{2}\right)\phi\left(z\right)+\left(p_{x}v_{x}+p_{y}v_{y}\right)}\left(\begin{array}{c}
+v_{x}\phi\left(z\right)+p_{x}\\
+v_{x}\phi^{2}\left(z\right)+p_{x}\\
+v_{y}\phi\left(z\right)+p_{y}\\
+v_{y}\phi^{2}\left(z\right)+p_{y}
+\end{array}\right)
+\]
+
+The collision radius was $c_{r}=2m$, the speed and force limit are
+$10\left[m/s\right]$ and $3\left[m/s^{2}\right]$ respectively and
+$\sqrt{5/2}\text{m/\ensuremath{s^{2}}}$ the prefered distance
+
+Therefore,
+
+\textbackslash qquad
+
+\begin{align*}
+\underset{u}{\max}\,\underset{d}{\min}\left\{ -\left(\nabla\phi\left(z\right)\right)^{\top}f\left(z,u,d\right)-1\right\}  & =\underset{u}{\max}\,\underset{d}{\min}\left\{ -\frac{\partial\phi}{\partial p_{x}}v_{x}-\frac{\partial\phi}{\partial v_{x}}\left(u_{x}-d_{x}\right)-\frac{\partial\phi}{\partial p_{y}}v_{y}-\frac{\partial\phi}{\partial v_{y}}\left(u_{y}-d_{y}\right)-1\right\} \\
+ & =\qquad-\left(\frac{\partial\phi}{\partial p_{x}}v_{x}+\frac{\partial\phi}{\partial p_{y}}v_{y}\right)-1\\
+ & =\frac{\left(v_{x}\phi\left(z\right)+p_{x}\right)v_{x}+\left(v_{y}\phi\left(z\right)+p_{y}\right)v_{y}}{\left(v_{x}^{2}+v_{y}^{2}\right)\phi\left(z\right)+\left(p_{x}v_{x}+p_{y}v_{y}\right)}-1\\
+ & =\frac{v_{x}^{2}\phi\left(z\right)+p_{x}v_{x}+v_{y}^{2}\phi\left(z\right)+p_{y}v_{y}}{\left(v_{x}^{2}+v_{y}^{2}\right)\phi\left(z\right)+\left(p_{x}v_{x}+p_{y}v_{y}\right)}-1\\
+ & =0
+\end{align*}
+
+Now let's see it satisfies the boundary condition, as the TTR function
+is definened in terms of the minimum solution of the quadratic equation
+we have
+
+$\frac{-\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{\left(v_{x}^{2}+v_{y}^{2}\right)}$
+
+\begin{align*}
+\phi\left(z\right) & =\frac{-\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{\left(v_{x}^{2}+v_{y}^{2}\right)}\\
+ & =\frac{\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}{v_{x}^{2}+v_{y}^{2}}\\
+ & =\frac{\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}-\cancelto{0\left(\because p_{x}^{2}+p_{y}^{2}-c_{r}^{2}=0\right)}{\left(v_{x}^{2}+v_{y}^{2}\right)\left(p_{x}^{2}+p_{y}^{2}-c_{r}^{2}\right)}}}{v_{x}^{2}+v_{y}^{2}}\\
+ & =\frac{\left(p_{x}v_{x}+p_{y}v_{y}\right)-\sqrt{\left(p_{x}v_{x}+p_{y}v_{y}\right)^{2}}}{v_{x}^{2}+v_{y}^{2}}
+\end{align*}
+
+$\psi$
+
+number of collisions square
+
+\begin{tabular}{|c|c|c|c|}
+\hline 
+ & 9 & 16 & 25\tabularnewline
+\hline 
+\hline 
+avoidance & 0 & 0 & 0\tabularnewline
+\hline 
+no avoidance & 12 & 39 & 124\tabularnewline
+\hline 
+\end{tabular}
+\begin{table}[H]
+\caption{}
+\end{table}
+
+number of collisions triangle
+
+\begin{tabular}{|c|c|c|c|}
+\hline 
+ & 6 & 10 & 15\tabularnewline
+\hline 
+\hline 
+avoidance & 0 & 0 & 2\tabularnewline
+\hline 
+no avoidance & 9 & 23 & 72\tabularnewline
+\hline 
+\end{tabular}
+\end{document}

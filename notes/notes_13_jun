@@ -1,0 +1,18 @@
+#Initial condition
+## The critical radius was defined as 1m
+## What is a good initial condition?
+## Spread 50, and 10
+
+1. Without threshold
+50. Some conflicts, but collissions
+10. conflicts and collitions
+
+2. With boudend force
+50. Some conflicts, but collissions
+10. conflics and collitions more than before but at the begining
+
+3. With bounded + safety controller
+## Frozen particles
+## Twin particles
+
+HelperOC issue
