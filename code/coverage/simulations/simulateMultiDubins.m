@@ -18,7 +18,7 @@ tm = TMDubins;
 % setup speed limit
 tm.speedLimit = 10;
 % Min Speed
-tm.speedMin = 0.1;
+tm.speedMin = 0.3;
 % collision radius
 tm.cr = 2;
 % safety time (it will be safe during the next st seconds)
@@ -29,9 +29,9 @@ tm.uVMax = 3; %same as aMax in model
 
 % compute reachable set
 %tm.computeRS('qr_qr_safe_V_circle');
-movingBoundary = false;
+
 % domain setup
-domainType = 'arrowPaper';
+domainType = 'triangleInLine';
 switch domainType
     case 'circle'
         r = 1/100;
@@ -39,30 +39,37 @@ switch domainType
         t = linspace(0, 2*pi*(1-1/ns), ns);
         vertX = r * 50 * sin(t);
         vertY = r * 50 * cos(t);
+        movingBoundary = false;
     case 'diamond'
         r = 0.1;
         vertX = [-50, 0, 50, 0];
         vertY = [0, 50, 0, -50]*r;
+        movingBoundary = false;
     case 'square'
         r = 0.5;
         vertX = [-50,-50, 50, 50]*r;
         vertY = [-50, 50, 50, -50]*r;
+        movingBoundary = false;
     case 'L'
         vertX = [-50, 50, 50, 0, 0, -50];
         vertY = [-50, -50, 0, 0, 50, 50];
+        movingBoundary = false;
     case 'polygon'
         vertX = -[-50, 50, 0, 0];
         vertY = -[-50, 0, 0, 50];
+        movingBoundary = false;
     case 'triangle'
         ns = 3;
         t = linspace(0, 2*pi*(1-1/ns), ns);
         vertX = 50 * sin(t);
         vertY = 50 * cos(t);
+        movingBoundary = false;
     case 'pentagon'
         ns = 5;
         t = linspace(0, 2*pi*(1-1/ns), ns);
         vertX = 50 * sin(t);
         vertY = 50 * cos(t);
+        movingBoundary = false;
     case 'trianglePaper'
         r = 0.25;
         ns = 3;
@@ -70,6 +77,7 @@ switch domainType
         vertX = 50 * sin(t)*r;
         vertY = 50 * cos(t)*r;
         vertY = vertY - (max(vertY)+min(vertY))/2;
+        movingBoundary = false;
 %         r = 0.20;
 %         vertX = [-50,-50, 50, 50]*r;
 %         vertY = [-50, 50, 50, -50]*r;
@@ -82,6 +90,7 @@ switch domainType
         r = 0.20;
         vertX = [-50,-50, 50, 50]*r;
         vertY = [-50, 50, 50, -50]*r;
+        movingBoundary = false;
 %         r = 0.20;
 %         vertX = [-50,-50, 50, 50]*r;
 %         vertY = [-50, 50, 50, -50]*r;
@@ -91,23 +100,48 @@ switch domainType
 %         n=16
 %         initialConfig = 'line';
     case 'arrowPaper'
+%         r = 0.3;
+%         vertX = r*[50, -50, 0, 0];
+%         vertY = r*[50, 0, 0, -50];
+%         movingBoundary = true;
+        vDomain = 0.3;
         r = 0.3;
         vertX = r*[50, -50, 0, 0];
         vertY = r*[50, 0, 0, -50];
         movingBoundary = true;
         vDomain = 0.3;
+        safetyTime = 5;
+        tm.speedLimit = 10;
+        initialConfig = 'arrowPaper';
+        extraArgs.tailSize = -1
+        avoidance = true;
+    case 'triangleInLine'
+        vDomain = 0.3;
+        r = 0.3;
+        vertX = r*[50, -50, 0];
+        vertY = r*[50, 0, -50];
+        movingBoundary = true;
+        vDomain = 0.3;
+        safetyTime = 5;
+        tm.speedLimit = 10;
+        initialConfig = 'arrowPaper';
+        extraArgs.tailSize = -1
+        avoidance = true;
+    case 'triangleInCircles'
 %         r = 0.3;
 %         vertX = r*[50, -50, 0, 0];
 %         vertY = r*[50, 0, 0, -50];
 %         movingBoundary = true;
-%         vDomain = 0.3;
-%         tMax = 100;
-%         safetyTime = 5;
-%         tm.speedLimit = 10;
-%         n=9
-%         initialConfig = 'arrowPaper';
-%         extraArgs.tailSize = -1
-%         avoidance = true;
+        vDomain = 0.3;
+        vertX = 3*[2.0, 3, 2.5];
+        vertY = 3*[0, 0, sqrt(2)];
+        movingBoundary = true;
+        vDomain = 0.3;
+        safetyTime = 5;
+        tm.speedLimit = 10;
+        initialConfig = 'triangleInCircles';
+        extraArgs.tailSize = -1
+        avoidance = true;
 end
 domain = TargetDomain(vertX, vertY);
 tm.addDomain(domain);
@@ -117,11 +151,12 @@ domain.domainPlot('blue', 'red');
 hold on;
 f.Children.FontSize = 9;
 f.Position(1:2) = [200 200];
-f.Position(3:4) = [350 350];
+%f.Position(3:4) = [350 350];
+f.Position(3:4) = 3*[350 350];
 f.Color = 'white';
 scale = 3;
-xlim([min(vertX) max(vertX)]*scale);
-ylim([min(vertY) max(vertY)]*scale);
+%xlim([min(vertX) max(vertX)]*scale);
+%ylim([min(vertY) max(vertY)]*scale);
 
 title('t=0');
 axis square;
@@ -130,7 +165,7 @@ axis square;
 
 % Initial formation
 n = 6;
-initialConfig = 'line';
+% initialConfig = 'line';
 if strcmp(initialConfig,'line')
     px = linspace(-30,30,n)';
     py = -15*ones(n,1);
@@ -138,8 +173,10 @@ elseif strcmp(initialConfig, 'arrowPaper')
     xx = linspace(-10,10,n);
     px = xx-10;
     py = -1*xx-10;
-    %xlim([-20, 60]);
-    %ylim([-20, 60]);
+elseif strcmp(initialConfig, 'triangleInCircles')
+    xx = linspace(-3,3,n);
+    px = xx;
+    py = -0*xx-3;
 elseif strcmp(initialConfig, 'random')
     px = -10 * rand(n,1);
     py = -10 * rand(n,1);
@@ -158,7 +195,7 @@ v = [ones(n,1), zeros(n,1)];
 wMax = tm.uThetaMax;
 aMax = tm.uVMax;
 for j = 1:length(px)
-  q = UTMDubinsCarAccelerated([px(j) py(j) theta(j) v(j)], wMax, aMax);
+  q = UTMDubinsCarAccelerated([px(j) py(j) theta(j) v(j)], wMax, aMax, tm.speedLimit, tm.speedMin);
   tm.regVehicle(q);
 end
 
@@ -177,14 +214,14 @@ drawnow
 
 % Time integration
 tm.dt = 0.1;
-tMax = 200;
+tMax = 230;
 t = 0:tm.dt:tMax;
 
 avoidance = false;
 
 % setting up figure saving
 if saveFigures
-    dir = ['figures/', domainType,' n',num2str(n),' ',datestr(datetime('now'))];
+    dir = ['figuresDubins/', domainType,' n',num2str(n),' ',datestr(datetime('now'))];
     mkdir(dir);
     %saving meta data
     fileID = fopen([dir,'/metadata.txt'],'w');
@@ -195,7 +232,8 @@ if saveFigures
     fprintf(fileID, 'speedLimit: %f\n', tm.speedLimit);
     fprintf(fileID, 'collision radius: %f\n', tm.cr);
     fprintf(fileID, 'safety time: %f\n', tm.safetyTime);
-    fprintf(fileID, 'u max: %f\n', tm.uMax);
+    fprintf(fileID, 'u Theta max: %f\n', tm.uThetaMax);
+    fprintf(fileID, 'u V max: %f\n', tm.uVMax);
     fprintf(fileID, 'tmax: %f \n', tMax);
 end
 
@@ -205,21 +243,27 @@ if recordVideo
     vidObj.Quality = 100;
     vidObj.FrameRate = 10;
     open(vidObj);
+    ax = gca();
 end
+
 
 u = cell(size(tm.aas));
 for i = 1:length(t)
+      % juan Break point
+
   %update domain if  domaing
   if movingBoundary
     tl = 0;
     if t(i)>tl
-        domain = TargetDomain(vertX+(t(i)-tl)*vDomain, vertY+(t(i)-tl)*vDomain);
+        domain = linearMotion(vertX, vertY, t(i), tl, vDomain);
+        %domain = circleMotion(vertX, vertY, t(i), vDomain/(3*2.5));
         cla;
         domain.domainPlot('blue', 'red');
         f.Color = 'white';
-        xlim([-20, 60]+(t(i)-tl)*vDomain);
-        ylim([-20, 60]+(t(i)-tl)*vDomain);
-        axis square;
+        xlim([-40, 80]); ylim([-40, 80]); % arrow moving
+        %xlim(3*[-5, 5]); ylim(3*[-5, 5]); %triangle in circle
+        %axis square;
+        axis square
         tm.addDomain(domain);
     end
   end
@@ -235,13 +279,13 @@ for i = 1:length(t)
     %u{j} = u{j}*((vx^2+vy^2)<100);
     tm.aas{j}.updateState(u{j}, tm.dt);
     % Juan: check this Adding velocity contstrain
-    speed = tm.aas{j}.x(4);
-    if speed >= tm.speedLimit
-      tm.aas{j}.x(4) = tm.speedLimit;
-    end
-    if speed <= tm.speedMin
-      tm.aas{j}.x(4) = tm.speedMin;
-    end
+%     speed = tm.aas{j}.x(4);
+%     if speed > tm.speedLimit
+%       tm.aas{j}.x(4) = tm.speedLimit;
+%     end
+%     if speed < tm.speedMin
+%       tm.aas{j}.x(4) = tm.speedMin;
+%     end
     extraArgs.Color = colors(j,:);
     tm.aas{j}.plotPosition(extraArgs);
     %tm.aas{j}.plotPosition;
@@ -249,9 +293,9 @@ for i = 1:length(t)
     % tm.aas{j}.plot_safe_V(tm.aas{end}, tm.qr_qr_safe_V, tm.safetyTime)
   end
   title(['t=' num2str(t(i))])
-  drawnow
+  drawnow();
   if recordVideo
-      writeVideo(vidObj, getframe(gca));
+      writeVideo(vidObj, getframe(ax));
   end
   if saveFigures && (mod(i-1,floor(length(t)/screenShotsCount))==0 || ismember(t(i),[9,39,70]))
       savefig([dir,'/',num2str(t(i)),'.fig'])
@@ -272,4 +316,16 @@ if saveFigures
     fclose(fileID);
 end
 %disp(['unsafe count: ', num2str(tm.unsafeCount)]);
+end
+
+% Defining Domain Paths
+function domain = linearMotion(vertX,vertY,s,tl,vDomain)
+domain = TargetDomain(vertX+(s-tl)*vDomain, vertY+(s-tl)*vDomain);
+end
+
+function domain = circleMotion(vertX,vertY,s,vDomain)
+rotMat = [cos(s*vDomain) -sin(s*vDomain); sin(s*vDomain) cos(s*vDomain)];
+oldVertices = [vertX;vertY];
+rotVertices = rotMat * oldVertices;
+domain = TargetDomain(rotVertices(1,:),rotVertices(2,:));
 end

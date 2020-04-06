@@ -14,7 +14,7 @@ u_proj = zeros(size(u));
 
 for i = 1:size(states,2)
   theta = states(3,i);
-  v = abs(states(4,i));%juan: trying to fix the reverse issue add an abs(v) instead of v
+  v = abs(states(4,i))+0.01;%juan: trying to fix the reverse issue add an abs(v) instead of v
   % Rotation Matrix
   R = [cos(theta) -sin(theta); sin(theta) cos(theta)];
   lims = [obj.uVMax, v*obj.uThetaMax;]';
@@ -28,7 +28,7 @@ for i = 1:size(states,2)
   ur_proj_rec = ur*t;
   u_proj_rec(i,:) =  transpose(R*ur_proj_rec);
   % Change force Coordinates
-  u_proj(i,:) = u_proj_rec(i,:)*[ cos(theta) -sin(theta)/(v+eps) ; sin(theta) cos(theta)/(v+eps) ];
+  u_proj(i,:) = u_proj_rec(i,:)*[ cos(theta) -sin(theta)/v ; sin(theta) cos(theta)/v ];
   u_proj(i,[2,1]) = u_proj(i,[1,2]);
   % checking correctness of the formula
   %u_proj_rec_2 = R*diag([1,v])*u_proj(i,:)';
