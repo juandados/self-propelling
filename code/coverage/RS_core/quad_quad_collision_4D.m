@@ -53,8 +53,9 @@ g.max = [30; 10; 30; 10];
 g.bdry = @addGhostExtrapolate;
 g.N = [Nx; Nv; Nx; Nv];
 % ???? quad_quad_collision_2D uses g = processGrid(g) instead
+g = processGrid(g);
 %g = createGrid(grid_min, grid_max, N);
-g = ndgrid(g.min, g.max, g.N); % there are not periodic state space dim
+%g = ndgrid(g.min, g.max, g.N); % there are not periodic state space dim
 
 % data0 = shapeCylinder(grid,ignoreDims,center,radius)
 data = shapeCylinder(g, [2, 4], [0; 0; 0; 0], d);
