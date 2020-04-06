@@ -32,14 +32,14 @@ quiver([pi(1),pj(1)],[pi(2),pj(2)],k*[pij(1),-pij(1)]/norm(pij),k*[pij(2),-pij(2
 %axis([-0.2,1.1,0.2,1.6])
 %set(gca, 'visible', 'off');
 box on;
-text(pi(1),0.2+pi(2),'$p_i$', 'Interpreter','latex','fontSize',20);
-text(pj(1),0.2+pj(2),'$p_j$', 'Interpreter','latex','fontSize',20);
-text(0.1+x_projj,y_projj,'$P_{\partial \Omega}(p_j)$', 'Interpreter','latex','fontSize',18);
-text(0.12+x_proji,-0.1+y_proji,'$P_{\partial \Omega}(p_i)$', 'Interpreter','latex','fontSize',18);
+text(pi(1),0.2+pi(2),'$p_i$', 'Interpreter','latex','fontSize',24);
+text(pj(1),0.2+pj(2),'$p_j$', 'Interpreter','latex','fontSize',24);
+text(-1+x_projj,y_projj,'$P_{\partial \Omega}(p_j)$', 'Interpreter','latex','fontSize',24);
+text(0.15+x_proji,-0.05+y_proji,'$P_{\partial \Omega}(p_i)$', 'Interpreter','latex','fontSize',24);
 text(0.05+pj(1),-0.6+pj(2),'-$\frac{h_{j}}{[[h_{j}]]}$', 'Interpreter','latex','fontSize',25);
 text(-0.9+pi(1),-0.1+pi(2),'-$\frac{h_{i}}{[[h_{i}]]}$', 'Interpreter','latex','fontSize',25);
-text(0.2+pi(1),-0.5+pi(2),'$\frac{p_{ij}}{\left\Vert p_{ij}\right\Vert}$', 'Interpreter','latex','fontSize',25)
-text(-1+pj(1),0.2+pj(2),'$\frac{p_{ji}}{\left\Vert p_{ji}\right\Vert}$', 'Interpreter','latex','fontSize',25)
+text(0.2+pi(1),-0.5+pi(2),'$\frac{p_{ij}}{\left\Vert p_{ij}\right\Vert}$', 'Interpreter','latex','fontSize',28)
+text(-1+pj(1),0.2+pj(2),'$\frac{p_{ji}}{\left\Vert p_{ji}\right\Vert}$', 'Interpreter','latex','fontSize',28)
 text(-0.2+pi(1),-0.8+pi(2),'$u_i$', 'Interpreter','latex','fontSize',25)
 text(-0.7+pj(1),-0.6+pj(2),'$u_j$', 'Interpreter','latex','fontSize',25)
 text(-0.1,-0.2,0,'$\Omega$', 'Interpreter','latex','fontSize',35)
@@ -59,7 +59,7 @@ set(gca, 'visible', 'off');
 axis tight;
 %%
 close all; clear all;
-fontSize = 40;
+fontSize = 50;
 rd = 3;
 fI = @(r)1*(r-rd).*(r-rd<0);
 xmin = -2; xmax=7; ymin=-rd; ymax=0.5*rd;
@@ -74,7 +74,7 @@ line([0 0], get(axh,'YLim'), 'Color', 'k','lineWidth',2);
 % labels
 text(xmax*0.95, 0.25,'$r$','fontSize',fontSize, 'Interpreter','latex');
 text(rd, 0.35,'$r_{d}$','fontSize',fontSize, 'Interpreter','latex');
-text(-2, ymax*0.8,'$f_{I}\left(r\right)$','fontSize',0.9*fontSize, 'Interpreter','latex');
+text(-2.5, ymax*0.8,'$f_{I}\left(r\right)$','fontSize',0.9*fontSize, 'Interpreter','latex');
 set(gca, 'visible', 'off');
 % thight axis
 outerpos = axh.OuterPosition;
@@ -96,7 +96,7 @@ axis tight;
 %% fI
 fI = @(r)1*(r-rd).*(r-(rd*b)<0);
 close all; clear all;
-fontSize = 40;
+fontSize = 50;
 rd = 3;
 fI = @(r)1*(r-rd).*(r-rd<0);
 xmin = -2; xmax=7; ymin=-rd; ymax=0.5*rd;
@@ -132,7 +132,7 @@ patch([xmax-xO -yO; xmax-xO +yO; xmax 0.0], ...
 axis tight;
 %% fh with local min
 close all; clear all;
-fontSize = 40;
+fontSize = 50;
 rd = 3;
 b = 1;
 fh = @(h)1*(h+rd/2).*(h-(-b*rd/2)>=0);
@@ -147,9 +147,9 @@ axh = gca; % use current axes
 line(get(axh,'XLim'), [0 0], 'Color', 'k', 'lineWidth', 2);
 line([0 0], get(axh,'YLim'), 'Color', 'k', 'lineWidth', 2);
 %lables
-text(-2, ymax*0.9,'$f_{h}\left(r\right)$','fontSize',fontSize*0.9, 'Interpreter','latex');
+text(-2.5, ymax*0.9,'$f_{h}\left(r\right)$','fontSize',fontSize*0.9, 'Interpreter','latex');
 text(xmax*0.9, 0.35,'$r$','fontSize',fontSize, 'Interpreter','latex');
-text(-rd/2-0.3, -0.45,'-$\frac{r_{d}}{2}$','fontSize',fontSize, 'Interpreter','latex')
+text(-rd/2-1.6, 0.8,'-$\frac{r_{d}}{2}$','fontSize',fontSize*1.2, 'Interpreter','latex')
 %text(-rd/2-2.5, 0.45,'-$h_{0}$','fontSize',fontSize, 'Interpreter','latex')
 set(gca, 'visible', 'off');
 % thight axis
