@@ -88,23 +88,23 @@ switch domainType
 %         n=16
 %         initialConfig = 'line';
     case 'arrowPaper'
-        r = 0.3;
-        vertX = r*[50, -50, 0, 0];
-        vertY = r*[50, 0, 0, -50];
-        movingBoundary = true;
-        vDomain = 0.3;
 %         r = 0.3;
 %         vertX = r*[50, -50, 0, 0];
 %         vertY = r*[50, 0, 0, -50];
 %         movingBoundary = true;
 %         vDomain = 0.3;
-%         tMax = 100;
-%         safetyTime = 5;
-%         tm.speedLimit = 10;
-%         n=9
-%         initialConfig = 'arrowPaper';
-%         extraArgs.tailSize = -1
-%         avoidance = true;
+        r = 0.3;
+        vertX = r*[50, -50, 0, 0];
+        vertY = r*[50, 0, 0, -50];
+        movingBoundary = true;
+        vDomain = 0.3;
+        tMax = 70;
+        safetyTime = 5;
+        tm.speedLimit = 10;
+        n=9
+        initialConfig = 'arrowPaper';
+        extraArgs.tailSize = -1
+        avoidance = true;
 end
 domain = TargetDomain(vertX, vertY);
 tm.addDomain(domain);
@@ -112,7 +112,7 @@ tm.addDomain(domain);
 f = figure;
 domain.domainPlot('blue', 'red');
 hold on;
-f.Children.FontSize = 9;
+f.Children.FontSize = 16;
 f.Position(1:2) = [200 200];
 f.Position(3:4) = [350 350];
 f.Color = 'white';
@@ -124,7 +124,7 @@ title('t=0');
 axis square;
 % ---- Quadrotors ----
 
-n = 16;
+n = 16 ;
 initialConfig = 'line';
 if strcmp(initialConfig,'line')
     px = linspace(-30,30,n)';
@@ -149,8 +149,9 @@ vy = 0.01 * rand(n,1);
 % registering vehicles in traffic manager
 uMin = -tm.uMax;
 uMax = tm.uMax;
+
 for j = 1:length(px)
-  q = UTMQuad4D([px(j) vx(j) py(j) vy(j)], uMin, uMax);
+  q = UTMQuad4D([px(j) vx(j) py(j) vy(j)], uMin, uMax, tm.speedLimit);
   tm.regVehicle(q);
 end
 
@@ -161,7 +162,7 @@ for j = 1:length(tm.aas)
   extraArgs.ArrowLength = 3; %j prev 1
   extraArgs.LineStyle = 'none';
   extraArgs.LineWidth = 0.1; %j
-  extraArgs.tailSize = 30; % -1 for showing the whole tail;
+  extraArgs.tailSize = 50; % -1 for showing the whole tail;
   tm.aas{j}.plotPosition(extraArgs);
 end
 
@@ -169,17 +170,17 @@ drawnow
 
 % Time integration
 tm.dt = 0.1;
-tMax = 80;
+tMax = 60;
 t = 0:tm.dt:tMax;
 
-avoidance = false;
+avoidance = true;
 
 % setting up figure saving
 if saveFigures
-    dir = ['figures/', domainType,' n',num2str(n),' ',datestr(datetime('now'))];
-    mkdir(dir);
+    directory = ['figures/', domainType,' n',num2str(n),' ',datestr(datetime('now'))];
+    mkdir(directory);
     %saving meta data
-    fileID = fopen([dir,'/metadata.txt'],'w');
+    fileID = fopen([directory,'/metadata.txt'],'w');
     fprintf(fileID, 'domain type: %s\n', domainType);
     fprintf(fileID, 'initial config: %s\n', initialConfig);
     fprintf(fileID, 'number of vehicles: %d\n', n);
@@ -193,7 +194,7 @@ end
 
 % setting up video recorder
 if recordVideo
-    vidObj = VideoWriter([dir, '/movie.avi']);
+    vidObj = VideoWriter([directory, '/movie.avi']);
     vidObj.Quality = 100;
     vidObj.FrameRate = 10;
     open(vidObj);
@@ -228,12 +229,7 @@ for i = 1:length(t)
     end
     %u{j} = u{j}*((vx^2+vy^2)<100);
     tm.aas{j}.updateState(u{j}, tm.dt);
-    % Adding velocity contstrain
-    speed=norm([tm.aas{j}.x(2),tm.aas{j}.x(4)]);
-    if speed >= tm.speedLimit
-      tm.aas{j}.x(2)=tm.speedLimit*tm.aas{j}.x(2)/speed;
-      tm.aas{j}.x(4)=tm.speedLimit*tm.aas{j}.x(4)/speed;
-    end
+    
     extraArgs.Color = colors(j,:);
     tm.aas{j}.plotPosition(extraArgs);
     %tm.aas{j}.plotPosition;
@@ -248,7 +244,7 @@ for i = 1:length(t)
       writeVideo(vidObj, getframe(gca));
   end
   if saveFigures && (mod(i-1,floor(length(t)/screenShotsCount))==0 || ismember(t(i),[9,39,70]))
-      savefig([dir,'/',num2str(t(i)),'.fig'])
+      savefig([directory,'/',num2str(t(i)),'.fig'])
   end
 end
   %collision count
@@ -266,6 +262,11 @@ if saveFigures
     fclose(fileID);
 end
 %disp(['unsafe count: ', num2str(tm.unsafeCount)]);
+
+% Check the historical data satisfies the [if confident this can be removed]
+disp(['max force:',num2str(max(apply(@(v)norm(v,2), tm.aas{1}.uhist')))])
+disp(['max speed:',num2str(max(apply(@(v)norm(v,2), tm.aas{1}.xhist([2,4],:)')))])
+
 end
 
 
