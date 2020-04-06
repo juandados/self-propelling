@@ -19,21 +19,21 @@ switch type
     case 'qr_qr_safe_V_circle'
         % Safety between two quadrotors square domain
         filename = [fileparts(mfilename('fullpath')) ...
-            '/../RS_core/saved/qr_qr_safe_V_circle_Radius_' ...
+            '/../RS_core/saved/db_db_safe_V_circle_Radius_' ...
             num2str(obj.cr) '_Speed_' num2str(obj.speedLimit) ...
             '_SafetyTime_' num2str(obj.safetyTime) '.mat'];
         if exist(filename, 'file')
             load(filename)
         else
             [ttr, ttr_grad, g, dataV] = ...
-                quad_quad_collision_4D(obj.cr, obj.speedLimit, obj.safetyTime, visualize);
+                dubins_dubins_collision(obj.cr, obj.speedLimit, obj.safetyTime, visualize);
             % Is the grad properly computed? or should it computed using
             % computecostate?
             save(filename, 'g', 'ttr', 'ttr_grad', 'dataV', '-v7.3');
         end
-        obj.qr_qr_safe_V.g = g;
-        obj.qr_qr_safe_V.ttr = ttr;
-        obj.qr_qr_safe_V.ttr_grad = ttr_grad;
+        obj.db_db_safe_V.g = g;
+        obj.db_db_safe_V.ttr = ttr;
+        obj.db_db_safe_V.ttr_grad = ttr_grad;
         %obj.qr_qr_safe_V.tau = tau;
         %obj.qr_qr_safe_V.ttr = dataV;
         %obj.qr_qr_safe_V.ttr_grad = computeGradients(g, dataV);
