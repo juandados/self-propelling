@@ -23,8 +23,8 @@ fI = @(r)0.2*1*(r-rd).*(r-(rd*b)<0);
 b = 1+delta/2;
 fh = @(h)0.2*2*(h+rd/2).*(h-(-b*rd/2)>0);
 
-l_al = 1;
-c_al = 3;
+l_al = 0.69*0.5*rd; % two rd's of potential velocity alignment
+c_al = 1;
 dV2 = zeros(size(V));
 for i = 1:n
     % Vehicle-Vehicle
@@ -42,7 +42,7 @@ for i = 1:n
     dV2(i,:) = sum(DUsI,1) + sum(DUsH,1) + sum(DUsV,1);
 end
 
-vd = 0.3 * sqrt(2); %a = 0.15;
+vd = 1; %a = 0.15;
 a = 1* 0.3;
 v = apply(@(v)norm(v,2), V);
 dV1 = -a*((v-vd)./(v+eps))*ones(1,2).*V;

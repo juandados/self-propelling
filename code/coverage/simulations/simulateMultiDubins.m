@@ -27,11 +27,12 @@ tm.safetyTime = 5;
 tm.uThetaMax = pi/10; %same as omegaMax or wMax in model
 tm.uVMax = 3; %same as aMax in model
 
+
 % compute reachable set
 %tm.computeRS('qr_qr_safe_V_circle');
 
 % domain setup
-domainType = 'triangleInLine';
+domainType = 'triangleInTwoLines';
 switch domainType
     case 'circle'
         r = 1/100;
@@ -142,6 +143,28 @@ switch domainType
         initialConfig = 'triangleInCircles';
         extraArgs.tailSize = -1
         avoidance = true;
+    case 'triangleInParabola'
+        vDomain = 0.05;
+        k = 5;
+        vertX = k*[0, 2*sin(pi/3),0];
+        vertY = k*[1, 0, -1];
+        movingBoundary = true;
+        safetyTime = 5;
+        tm.speedLimit = 10;
+        initialConfig = 'arrowPaper';
+        extraArgs.tailSize = -1;
+        avoidance = true;
+    case 'triangleInTwoLines'
+        vDomain = 0.05;
+        k = 5;
+        vertX = k*[0, 2*sin(pi/3),0];
+        vertY = k*[1, 0, -1];
+        movingBoundary = true;
+        safetyTime = 5;
+        tm.speedLimit = 10;
+        initialConfig = 'arrowPaper';
+        extraArgs.tailSize = -1;
+        avoidance = true;
 end
 domain = TargetDomain(vertX, vertY);
 tm.addDomain(domain);
@@ -214,7 +237,7 @@ drawnow
 
 % Time integration
 tm.dt = 0.1;
-tMax = 230;
+tMax = 100;
 t = 0:tm.dt:tMax;
 
 avoidance = false;
@@ -255,8 +278,10 @@ for i = 1:length(t)
   if movingBoundary
     tl = 0;
     if t(i)>tl
-        domain = linearMotion(vertX, vertY, t(i), tl, vDomain);
+        %domain = linearMotion(vertX, vertY, t(i), tl, vDomain);
         %domain = circleMotion(vertX, vertY, t(i), vDomain/(3*2.5));
+        %domain = parabolicMotion(vertX,vertY,t(i),tl,vDomain);
+        domain = twoLinesMotion(vertX,vertY,t(i),tl,vDomain);
         cla;
         domain.domainPlot('blue', 'red');
         f.Color = 'white';
@@ -319,13 +344,35 @@ end
 end
 
 % Defining Domain Paths
+function domain = parabolicMotion(vertX,vertY,s,tl,vDomain)
+    heading = [0.8; 3*2*vDomain^2*s];
+    theta = atan(heading(2,1)/heading(1,1));
+    vert = [cos(theta),-sin(theta);sin(theta),cos(theta)]*[vertX; vertY];
+    vertX = vert(1,:);
+    vertY = vert(2,:);
+    vertX = vertX + 0.8*s;
+    vertY = vertY + 3*(vDomain*s).^2;
+    domain = TargetDomain(vertX, vertY);
+end
+
+function domain = twoLinesMotion(vertX,vertY,s,tl,vDomain)
+    theta_base = pi/6;
+    theta = theta_base*(s<50);
+    vert = [cos(theta),-sin(theta);sin(theta),cos(theta)]*[vertX; vertY];
+    vertX = vert(1,:);
+    vertY = vert(2,:);
+    vertX = vertX + (cos(theta)*s*(s<50))+(cos(theta_base)*50+cos(theta)*(s-50))*(s>=50)-30;
+    vertY = vertY + (sin(theta)*s*(s<50))+(sin(theta_base)*50+sin(theta)*(s-50))*(s>=50);
+    domain = TargetDomain(vertX, vertY);
+end
+
 function domain = linearMotion(vertX,vertY,s,tl,vDomain)
-domain = TargetDomain(vertX+(s-tl)*vDomain, vertY+(s-tl)*vDomain);
+    domain = TargetDomain(vertX+(s-tl)*vDomain, (vertY+(s-tl)*vDomain)^2);
 end
 
 function domain = circleMotion(vertX,vertY,s,vDomain)
-rotMat = [cos(s*vDomain) -sin(s*vDomain); sin(s*vDomain) cos(s*vDomain)];
-oldVertices = [vertX;vertY];
-rotVertices = rotMat * oldVertices;
-domain = TargetDomain(rotVertices(1,:),rotVertices(2,:));
+    rotMat = [cos(s*vDomain) -sin(s*vDomain); sin(s*vDomain) cos(s*vDomain)];
+    oldVertices = [vertX;vertY];
+    rotVertices = rotMat * oldVertices;
+    domain = TargetDomain(rotVertices(1,:),rotVertices(2,:));
 end
