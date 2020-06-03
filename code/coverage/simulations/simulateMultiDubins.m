@@ -154,7 +154,7 @@ f.Position(1:2) = [200 200];
 %f.Position(3:4) = [350 350];
 f.Position(3:4) = 3*[350 350];
 f.Color = 'white';
-scale = 3;
+%scale = 3;
 %xlim([min(vertX) max(vertX)]*scale);
 %ylim([min(vertY) max(vertY)]*scale);
 
@@ -214,7 +214,7 @@ drawnow
 
 % Time integration
 tm.dt = 0.1;
-tMax = 230;
+tMax = 10;
 t = 0:tm.dt:tMax;
 
 avoidance = false;
@@ -254,7 +254,7 @@ for i = 1:length(t)
   %update domain if  domaing
   if movingBoundary
     tl = 0;
-    if t(i)>tl
+    if t(i)>=tl
         domain = linearMotion(vertX, vertY, t(i), tl, vDomain);
         %domain = circleMotion(vertX, vertY, t(i), vDomain/(3*2.5));
         cla;

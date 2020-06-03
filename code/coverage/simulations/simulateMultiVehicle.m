@@ -28,7 +28,7 @@ tm.uMax = 3;
 %tm.computeRS('qr_qr_safe_V_circle');
 movingBoundary = false;
 % domain setup
-domainType = 'squarePaper';
+domainType = 'trianglePaper';
 switch domainType
     case 'circle'
         r = 1/100;
@@ -124,7 +124,7 @@ title('t=0');
 axis square;
 % ---- Quadrotors ----
 
-n = 16 ;
+n = 6 ;
 initialConfig = 'line';
 if strcmp(initialConfig,'line')
     px = linspace(-30,30,n)';
@@ -205,7 +205,7 @@ for i = 1:length(t)
   %update domain if  domaing
   if movingBoundary
     tl = 0;
-    if t(i)>tl
+    if t(i)>=tl
         domain = TargetDomain(vertX+(t(i)-tl)*vDomain, vertY+(t(i)-tl)*vDomain);
         cla;
         domain.domainPlot('blue', 'red');
