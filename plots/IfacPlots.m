@@ -1,4 +1,5 @@
 %% Forces sketch
+clear all;
 % vertX = [-sqrt(3)/2 0 sqrt(3)/2 -sqrt(3)/2];
 % vertY = [-1/2, sqrt(3)/2 -1/2 -1/2];
 vertX = [-1.1 0 1.5];
@@ -57,7 +58,7 @@ set(gca,'yticklabel',[]);
 set(gca, 'visible', 'off');
 axis tight;
 %% Projecting force Dubins - force threshold
-clear all
+clear all;
 xmin = -2.6; xmax=2.6; ymin=-1.8; ymax=1.8;
 vertX = 2*[-1 -1 1 1 -1];
 vertY = [-1  1 1 -1 -1];
