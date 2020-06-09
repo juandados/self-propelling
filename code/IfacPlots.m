@@ -1,4 +1,4 @@
-%%
+%% Forces sketch
 % vertX = [-sqrt(3)/2 0 sqrt(3)/2 -sqrt(3)/2];
 % vertY = [-1/2, sqrt(3)/2 -1/2 -1/2];
 vertX = [-1.1 0 1.5];
@@ -54,10 +54,56 @@ grid on;
 set(gca,'xticklabel',[]);
 set(gca,'yticklabel',[]);
 %axis tight;
-%%
 set(gca, 'visible', 'off');
 axis tight;
-%%
+%% Projecting force Dubins - force threshold
+clear all
+xmin = -2.6; xmax=2.6; ymin=-1.8; ymax=1.8;
+vertX = 2*[-1 -1 1 1 -1];
+vertY = [-1  1 1 -1 -1];
+theta = pi/15;
+R = [cos(theta) -sin(theta); sin(theta) cos(theta)];
+ui = [1; -2];
+ui_proj = ui*0.5;
+%rotating
+vert = R*[vertX;vertY];
+vertX = vert(1,:);
+vertY = vert(2,:);
+ui = R*ui;
+ui_proj = R*ui_proj;
+close all;
+%set(gcf, 'Position',  [100, 100, 450, 450]);
+figure(1); hold on;
+plot(vertX,vertY,'k','LineWidth',3);
+blue = [0, 0.4470, 0.7410];
+red = [0.8500, 0.3250, 0.0980];
+quiver([0],[0],[ui(1)],[ui(2)],1,'linewidth',3, 'Color', blue);
+quiver([0],[0],[ui_proj(1)],[ui_proj(2)],1,'linewidth',3, 'Color', red);
+box on;
+text(-0.7,1.5,'$\frac{dv_y}{dt}$', 'Interpreter','latex','fontSize',30);
+text(2.1,0.4,'$\frac{dv_x}{dt}$', 'Interpreter','latex','fontSize',30);
+text(1.2,0.8,0,'$S$', 'Interpreter','latex','fontSize',35)
+axis equal;
+%axis tight;
+ax = gca; % use current axes
+% axis lines
+line([xmin,xmax], [0 0], 'Color', 'k','lineWidth',2);
+line([0 0], [ymin,ymax], 'Color', 'k','lineWidth',2);
+grid on;
+set(gca,'xticklabel',[]);
+set(gca,'yticklabel',[]);
+% the arrows
+xO = 0.2;  
+yO = 0.1;
+xmax = xmax + xO;
+ymax = ymax + yO;
+%
+patch([xmax-xO -yO; xmax-xO +yO; xmax 0.0], ...
+    [yO ymax-xO; -yO ymax-xO; 0 ymax], 'k', 'clipping', 'off');
+set(gca, 'visible', 'off');
+axis tight;
+
+%% fI
 close all; clear all;
 fontSize = 50;
 rd = 3;
@@ -75,43 +121,6 @@ line([0 0], get(axh,'YLim'), 'Color', 'k','lineWidth',2);
 text(xmax*0.95, 0.25,'$r$','fontSize',fontSize, 'Interpreter','latex');
 text(rd, 0.35,'$r_{d}$','fontSize',fontSize, 'Interpreter','latex');
 text(-2.5, ymax*0.8,'$f_{I}\left(r\right)$','fontSize',0.9*fontSize, 'Interpreter','latex');
-set(gca, 'visible', 'off');
-% thight axis
-outerpos = axh.OuterPosition;
-ti = axh.TightInset; 
-left = outerpos(1) + ti(1);
-bottom = outerpos(2) + ti(2);
-ax_width = outerpos(3) - ti(1) - ti(3);
-ax_height = outerpos(4) - ti(2) - ti(4);
-axh.Position = [left bottom ax_width ax_height];
-% the arrows
-xO = 0.2;  
-yO = 0.1;
-xmax = xmax + xO;
-ymax = ymax + yO;
-%
-patch([xmax-xO -yO; xmax-xO +yO; xmax 0.0], ...
-    [yO ymax-xO; -yO ymax-xO; 0 ymax], 'k', 'clipping', 'off');
-axis tight;
-%% fI
-fI = @(r)1*(r-rd).*(r-(rd*b)<0);
-close all; clear all;
-fontSize = 50;
-rd = 3;
-fI = @(r)1*(r-rd).*(r-rd<0);
-xmin = -2; xmax=7; ymin=-rd; ymax=0.5*rd;
-r = [0:xmax];   
-figure(1);
-plot(r,fI(r),'k','lineWidth',4);
-axis([xmin xmax ymin ymax]);
-axh = gca; % use current axes
-% axis lines
-line(get(axh,'XLim'), [0 0], 'Color', 'k','lineWidth',2);
-line([0 0], get(axh,'YLim'), 'Color', 'k','lineWidth',2);
-% labels
-text(xmax*0.95, 0.25,'$r$','fontSize',fontSize, 'Interpreter','latex');
-text(rd, 0.35,'$r_{d}$','fontSize',fontSize, 'Interpreter','latex');
-text(-2, ymax*0.8,'$f_{I}\left(r\right)$','fontSize',0.9*fontSize, 'Interpreter','latex');
 set(gca, 'visible', 'off');
 % thight axis
 outerpos = axh.OuterPosition;
@@ -169,46 +178,6 @@ ymax = ymax + yO;
 patch([xmax-xO -yO; xmax-xO +yO; xmax 0.0], ...
     [yO ymax-xO; -yO ymax-xO; 0 ymax], 'k', 'clipping', 'off');
 axis tight;
-%% fI with local min
-close all; clear all;
-fontSize = 40;
-rd = 3;
-b = 1;
-fI = @(r) 1*(r-rd).*(r-(rd*b)<=0);
-xmin = -2; xmax=7; ymin=-rd; ymax=0.5*rd;
-r = [0:0.005:xmax];   
-figure(1);hold on;
-plot(r,fI(r),'k.','MarkerSize',15);
-plot(r,fI(r),'k:','lineWidth',4);
-axis([xmin xmax ymin ymax]);
-axh = gca; % use current axes
-% axis lines
-line(get(axh,'XLim'), [0 0], 'Color', 'k','lineWidth',2);
-line([0 0], get(axh,'YLim'), 'Color', 'k','lineWidth',2);
-% labels
-text(xmax*0.95, 0.25,'$r$','fontSize',fontSize, 'Interpreter','latex');
-text(rd-1, 0.35,'$r_{d}$','fontSize',fontSize, 'Interpreter','latex');
-%text(rd+1.6, 0.35,'$r_{0}$','fontSize',fontSize, 'Interpreter','latex');
-text(-2, ymax*0.8,'$f_{I}\left(r\right)$','fontSize',0.9*fontSize, 'Interpreter','latex');
-set(gca, 'visible', 'off');
-% thight axis
-outerpos = axh.OuterPosition;
-ti = axh.TightInset; 
-left = outerpos(1) + ti(1);
-bottom = outerpos(2) + ti(2);
-ax_width = outerpos(3) - ti(1) - ti(3);
-ax_height = outerpos(4) - ti(2) - ti(4);
-axh.Position = [left bottom ax_width ax_height];
-% the arrows
-xO = 0.2;  
-yO = 0.1;
-xmax = xmax + xO;
-ymax = ymax + yO;
-%
-patch([xmax-xO -yO; xmax-xO +yO; xmax 0.0], ...
-    [yO ymax-xO; -yO ymax-xO; 0 ymax], 'k', 'clipping', 'off');
-axis tight;
-
 %% VI Intervehicle Potential
 close all; clear all;
 fontSize = 40;
@@ -250,7 +219,7 @@ patch([xmax-xO -yO; xmax-xO +yO; xmax 0.0], ...
     [yO ymax-xO; -yO ymax-xO; 0 ymax], 'k', 'clipping', 'off');
 axis tight;
 
-%% vehicle Domain Potential
+%% Vh vehicle Domain Potential
 close all; clear all;
 fontSize = 40;
 beta= 0.05;
@@ -291,4 +260,3 @@ ymax = ymax + yO;
 patch([xmax-xO -yO; xmax-xO +yO; xmax 0.0], ...
     [yO ymax-xO; -yO ymax-xO; 0 ymax], 'k', 'clipping', 'off');
 axis tight;
-
