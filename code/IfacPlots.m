@@ -208,3 +208,87 @@ ymax = ymax + yO;
 patch([xmax-xO -yO; xmax-xO +yO; xmax 0.0], ...
     [yO ymax-xO; -yO ymax-xO; 0 ymax], 'k', 'clipping', 'off');
 axis tight;
+
+%% VI Intervehicle Potential
+close all; clear all;
+fontSize = 40;
+alpha = 0.5;
+rd = 3;
+b = 1;
+VI = @(r) (alpha/2)*(r-rd).^2.*(r-(rd*b)<=0);
+xmin = -1.5; xmax=7; ymin=-0.5; ymax=rd;
+r = [0:0.005:xmax];   
+figure(1);hold on;
+plot(r,VI(r),'k.','MarkerSize',15);
+%plot(r,fI(r),'k:','lineWidth',4);
+axis([xmin xmax ymin ymax]);
+axh = gca; % use current axes
+% axis lines
+line(get(axh,'XLim'), [0 0], 'Color', 'k','lineWidth',2);
+line([0 0], get(axh,'YLim'), 'Color', 'k','lineWidth',2);
+% labels
+text(xmax*0.8, -0.4,'$\left\Vert x\right\Vert$','fontSize',fontSize, 'Interpreter','latex');
+text(rd-1, -0.25,'$r_{d}$','fontSize',fontSize, 'Interpreter','latex');
+%text(rd+1.6, 0.35,'$r_{0}$','fontSize',fontSize, 'Interpreter','latex');
+text(-2, ymax*0.9,'$V_{I}\left(x\right)$','fontSize',0.9*fontSize, 'Interpreter','latex');
+set(gca, 'visible', 'off');
+% thight axis
+outerpos = axh.OuterPosition;
+ti = axh.TightInset; 
+left = outerpos(1) + ti(1);
+bottom = outerpos(2) + ti(2);
+ax_width = outerpos(3) - ti(1) - ti(3);
+ax_height = outerpos(4) - ti(2) - ti(4);
+axh.Position = [left bottom ax_width ax_height];
+% the arrows
+xO = 0.2;  
+yO = 0.1;
+xmax = xmax + xO;
+ymax = ymax + yO;
+%
+patch([xmax-xO -yO; xmax-xO +yO; xmax 0.0], ...
+    [yO ymax-xO; -yO ymax-xO; 0 ymax], 'k', 'clipping', 'off');
+axis tight;
+
+%% vehicle Domain Potential
+close all; clear all;
+fontSize = 40;
+beta= 0.05;
+rd = 3;
+b = 1;
+Vh = @(h) (beta/2)*((h+rd/2).^2).*(h-(-b*rd/2)>=0);
+xmin = -4; xmax=12; ymin=-0.3*rd; ymax=1.5*rd;
+r = [xmin-1:0.005:xmax];   
+figure(1);hold on;
+plot(r,Vh(r),'k.','MarkerSize',15);
+%plot(r,fI(r),'k:','lineWidth',4);
+axis([xmin xmax ymin ymax]);
+axh = gca; % use current axes
+% axis lines
+line(get(axh,'XLim'), [0 0], 'Color', 'k','lineWidth',2);
+line([0 0], get(axh,'YLim'), 'Color', 'k','lineWidth',2);
+% labels
+text(xmax*0.4, -0.4,'$[[x - P_{\partial \Omega}\left(x\right)]]$','fontSize',fontSize*0.7, 'Interpreter','latex');
+%text(rd-1, -0.25,'$r_{d}$','fontSize',fontSize, 'Interpreter','latex');
+text(-rd/2-1.6, 0.8,'-$\frac{r_{d}}{2}$','fontSize',fontSize*1.2, 'Interpreter','latex')
+%text(rd+1.6, 0.35,'$r_{0}$','fontSize',fontSize, 'Interpreter','latex');
+text(-4, ymax*0.9,'$V_{h}\left(x\right)$','fontSize',0.9*fontSize, 'Interpreter','latex');
+set(gca, 'visible', 'off');
+% thight axis
+outerpos = axh.OuterPosition;
+ti = axh.TightInset; 
+left = outerpos(1) + ti(1);
+bottom = outerpos(2) + ti(2);
+ax_width = outerpos(3) - ti(1) - ti(3);
+ax_height = outerpos(4) - ti(2) - ti(4);
+axh.Position = [left bottom ax_width ax_height];
+% the arrows
+xO = 0.2;  
+yO = 0.1;
+xmax = xmax + xO;
+ymax = ymax + yO;
+%
+patch([xmax-xO -yO; xmax-xO +yO; xmax 0.0], ...
+    [yO ymax-xO; -yO ymax-xO; 0 ymax], 'k', 'clipping', 'off');
+axis tight;
+
