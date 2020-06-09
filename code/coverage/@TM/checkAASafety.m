@@ -33,6 +33,7 @@ for i = 1:length(obj.aas)
     for j = 1:length(obj.aas)
       if strcmp(obj.aas{j}.q, 'Free') 
         [safe(i,j), uSafeOptimali{j}, uSafeLefti{j}, uSafeRighti{j}, safe_val(i,j)] = obj.checkPWSafety(i, j);
+        %[safe(i,j), uSafeOptimali{j}, safe_val(i,j)] = obj.checkPWSafetyV(i, j);
       end
     end
   end

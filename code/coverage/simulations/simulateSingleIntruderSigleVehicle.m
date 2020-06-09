@@ -23,7 +23,7 @@ tm.safetyTime = 3;
 % maximum force for vehicles
 tm.uMax = 3;
 % compute reachable set
-% tm.computeRS('qr_qr_safe_V_circle');
+tm.computeRS('qr_qr_safe_optimized_dp');
 
 % plot
 f = figure;
