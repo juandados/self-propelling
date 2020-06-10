@@ -22,9 +22,11 @@ if isempty(obj.aas{j}) || obj.aas{i} == obj.aas{j}
 end
 
 switch(class(obj.aas{i}))
-  case 'UTMDubinsCarAccelerated'
+  case 'UTMPlane4D'
+    %case 'UTMDubinsCarAccelerated'
     switch(class(obj.aas{j}))
-      case 'UTMDubinsCarAccelerated'
+      case 'UTMPlane4D'
+      %case 'UTMDubinsCarAccelerated'
         % Checking if collition
         distancePW = norm(obj.aas{i}.getPosition - obj.aas{j}.getPosition);
         if distancePW < obj.cr
@@ -73,12 +75,16 @@ base_x = [cos(theta1)*(pos2(1)-pos1(1)) + sin(theta1)*(pos2(2)-pos1(2));
     speed2];
 
 % Juan: Is the rotation necessary?
+%disp("REMOVE this lines!!!!!!!!!!!!!!!!!!!!!!")
+%safe = 1;
+%uSafeOptimal = [];
+%return
 
 % Compute safety value
 valuex = eval_u(qr_qr_safe_V.g, qr_qr_safe_V.data, base_x);
 
 % Compute safety preserving control if needed
-if (valuex > 1) || any(qr_qr_safe_V.g.max([1,2]) < base_x([1,2])) ...
+if (valuex > 1.5) || any(qr_qr_safe_V.g.max([1,2]) < base_x([1,2])) ...
         || any(qr_qr_safe_V.g.min([1,2]) > base_x([1,2]))
   % Safe; no need to worry about computing controller
   safe = 1;
@@ -94,7 +100,8 @@ base_grad = calculateCostate(qr_qr_safe_V.g, qr_qr_safe_V.grad, base_x);
 
 % Controller2: |u|_{2}<u_{max} optimal
 u_theta = sign(base_grad(1)*base_x(2) - base_grad(2)*base_x(1) - base_grad(3)) * evader.wMax;
-u_v = sign(base_grad(4))*evader.aMax;
+%u_v = sign(base_grad(4))*evader.aMax; % when working with DubinsCarAccelerated
+u_v = sign(base_grad(4))*evader.aRange;
 u = [u_theta; u_v];
 % Rotate the control to correspond with the actual heading of the "pursuer"
 % Optimal controller is the one that maximize the hamiltonian

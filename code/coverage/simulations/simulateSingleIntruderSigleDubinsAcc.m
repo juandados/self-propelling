@@ -1,4 +1,4 @@
-function simulateSingleIntruderSigleDubinsAcc(save_figures, fig_formats)
+function [tm] = simulateSingleIntruderSigleDubinsAcc(save_figures, fig_formats)
 % Simulates 2 quadrotors avoiding each other
 
 addpath('..');
@@ -54,8 +54,10 @@ v0 = 5;
 
 % Main Vehicle
 for j = 1:length(xs)
-  q = UTMDubinsCarAccelerated([xs(j) ys(j) theta v0], tm.uThetaMax, ... 
-      tm.uVMax, tm.speedLimit, tm.speedMin);
+  %q = UTMDubinsCarAccelerated([xs(j) ys(j) theta v0], tm.uThetaMax, ... 
+  %    tm.uVMax, tm.speedLimit, tm.speedMin);
+  q = UTMPlane4D([xs(j) ys(j) theta v0], tm.uThetaMax, tm.uVMax, ...
+      0, [1:4], tm.speedLimit, tm.speedMin);
   tm.regVehicle(q);
 end
 
@@ -63,8 +65,10 @@ end
 pin = r*[250 50];
 vin = v0;
 pin = rotate2D(pin, theta);
-intruder = UTMDubinsCarAccelerated([pin(1) pin(2) theta+9*pi/8 vin], tm.uThetaMax, ...
-    tm.uVMax, tm.speedLimit, tm.speedMin);
+%intruder = UTMDubinsCarAccelerated([pin(1) pin(2) theta+9*pi/8 vin], tm.uThetaMax, ...
+%    tm.uVMax, tm.speedLimit, tm.speedMin);
+intruder = UTMPlane4D([pin(1) pin(2) theta+9*pi/8 vin], tm.uThetaMax, tm.uVMax, ...
+      0, [1:4], tm.speedLimit, tm.speedMin);
 tm.regVehicle(intruder);
 
 colors = lines(length(tm.aas));

@@ -28,7 +28,7 @@ tm.uThetaMax = pi/10; %same as omegaMax or wMax in model
 tm.uVMax = 3; %same as aMax in model
 
 % compute reachable set
-%tm.computeRS('qr_qr_safe_V_circle');
+tm.computeRS('db_db_safe_V_circle');
 
 % domain setup
 domainType = 'triangleInLine';
@@ -195,7 +195,8 @@ v = [ones(n,1), zeros(n,1)];
 wMax = tm.uThetaMax;
 aMax = tm.uVMax;
 for j = 1:length(px)
-  q = UTMDubinsCarAccelerated([px(j) py(j) theta(j) v(j)], wMax, aMax, tm.speedLimit, tm.speedMin);
+  q = UTMPlane4D([px(j) py(j) theta(j) v(j)], wMax, aMax, 0, [1:4], tm.speedLimit, tm.speedMin);
+  %q = UTMDubinsCarAccelerated([px(j) py(j) theta(j) v(j)], wMax, aMax, tm.speedLimit, tm.speedMin);
   tm.regVehicle(q);
 end
 
@@ -214,7 +215,7 @@ drawnow
 
 % Time integration
 tm.dt = 0.1;
-tMax = 10;
+tMax = 50;
 t = 0:tm.dt:tMax;
 
 avoidance = false;
@@ -268,7 +269,7 @@ for i = 1:length(t)
     end
   end
   disp(['time: ', num2str(t(i))])
-  [safe, uSafeOptimal, uSafeRight, uSafeLeft] = tm.checkAASafety;
+  [safe, uSafeOptimal] = tm.checkAASafety;
   uCoverage = tm.coverageCtrl;
   for j = 1:length(tm.aas)
     if safe(j) || ~avoidance
