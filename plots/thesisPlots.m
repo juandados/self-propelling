@@ -57,3 +57,8 @@ extraArgs.a_v = 1; %(vehicle-domain velocity alignment strength )
 simulateMultiVehicle()
 %% 6. Moving arrow (comparing old with new: must reduce oscilations)
 % turn on anything
+%%
+domain = 'square';
+vd = 0;
+simulateMultiVehicle()
+%%
