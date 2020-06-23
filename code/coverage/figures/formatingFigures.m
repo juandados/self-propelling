@@ -11,21 +11,29 @@ xlim([m(1)-s,m(1)+s]);
 ylim([m(2)-s,m(2)+s]);
 xlabel('x position (m)','fontSize',18,'Interpreter','latex');
 ylabel('y position (m)','fontSize',18,'Interpreter','latex');
-% l = 12;
-xlim([-12 12]);
-ylim([-12 12]);
-% xlim([-l l]);
-% ylim([-l l]);
-st = 5;
-set(ax,'xtick',-20:st:40);
-set(ax,'ytick',-20:st:40);
-time = 50;
+l = 50;
+m = 50;
+xlim([-m l]);
+ylim([-m l]);
+%xlim([-l l]);
+%ylim([-l l]);
+st = 15;
+set(ax,'xtick',-m:st:l);
+set(ax,'ytick',-m:st:l);
+time = 48;
 title(['t=',num2str(time),' (s)'],'fontSize',18,'Interpreter','latex');
 axis square;
 box on;
 %axis equal;
 grid on;
-
+set(gcf,'renderer','Painters')
+% plotting path
+a = 2*pi/40;
+r = 30;
+domainPath = @(t) [r*cos(a.*t); r*sin(a.*t)];
+%domainPath = @(t) (1/sqrt(2))*[1;1].*t;
+path = domainPath([0:0.5:80]);
+plot(path(1,:),path(2,:),'--','lineWidth',2,'color','b');
 %%
 for i = 1:16
     ax.Children(end-2*i).AutoScaleFactor=0;
