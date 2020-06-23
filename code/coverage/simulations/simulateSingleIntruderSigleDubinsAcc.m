@@ -15,15 +15,15 @@ end
 % ---- Traffic Manager ----
 tm = TMDubins;
 % setup speed limit
-tm.speedLimit = 100;
+tm.speedLimit = 10;
 % Min Speed
-tm.speedMin = 0;
+tm.speedMin = 0.1;
 % collision radius
 tm.cr = 2;
 % safety time (it will be safe during the next st seconds)
 tm.safetyTime = 15;
 % maximum force for vehicles
-tm.uThetaMax = pi/10; %same as omegaMax or wMax in model
+tm.uThetaMax = pi/2; %same as omegaMax or wMax in model
 tm.uVMax = 3; %same as aMax in model
 
 % compute reachable set

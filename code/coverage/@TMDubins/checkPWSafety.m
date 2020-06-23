@@ -74,19 +74,26 @@ base_x = [cos(theta1)*(pos2(1)-pos1(1)) + sin(theta1)*(pos2(2)-pos1(2));
     speed1;
     speed2];
 
-% Juan: Is the rotation necessary?
-%disp("REMOVE this lines!!!!!!!!!!!!!!!!!!!!!!")
-%safe = 1;
-%uSafeOptimal = [];
-%return
+% disp("REMOVE this lines!!!!!!!!!!!!!!!!!!!!!!")
+% safe = 1;
+% uSafeOptimal = [];
+% return
 
 % Compute safety value
 valuex = eval_u(qr_qr_safe_V.g, qr_qr_safe_V.data, base_x);
 
 % Compute safety preserving control if needed
-if (valuex > 1.5) || any(qr_qr_safe_V.g.max([1,2]) < base_x([1,2])) ...
+if valuex > 0.1
+  % Safe; no need to worry about computing controller
+  safe = 1;
+  uSafeOptimal = [];
+  return
+end
+
+if any(qr_qr_safe_V.g.max([1,2]) < base_x([1,2])) ...
         || any(qr_qr_safe_V.g.min([1,2]) > base_x([1,2]))
   % Safe; no need to worry about computing controller
+  disp('out of grid')
   safe = 1;
   uSafeOptimal = [];
   return

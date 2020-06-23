@@ -1,4 +1,4 @@
-function tm = simulateMultiVehicle(recordVideo, saveFigures)
+function tm = simulateMultiVehicle(recordVideo, saveFigures, extraArgs)
 % Simulates 2 quadrotors avoiding each other
 rng(2);
 
@@ -12,7 +12,99 @@ if nargin < 2
   saveFigures = false;
 end
 
-screenShotsCount = 10;
+if nargin < 3
+  extraArgs = struct();
+end
+
+% ---- Setting Extra Parameters ----
+
+if isfield(extraArgs,'N')
+    N = extraArgs.N;
+else
+    N = 16;
+end
+
+if isfield(extraArgs,'avoidance')
+    avoidance = extraArgs.avoidance;
+else
+    avoidance = true;
+end
+
+if isfield(extraArgs,'domainType')
+    domainType = extraArgs.domainType;
+else
+    domainType = 'triangle';
+end
+
+if isfield(extraArgs,'vd')
+    vd = extraArgs.vd;
+else
+    vd = @(t) [0;0];
+end
+
+if isfield(extraArgs,'domainPath')
+    domainPath = extraArgs.domainPath;
+else
+    domainPath = @(t) t*vd(t);
+end
+
+if isfield(extraArgs,'domainRotationAngle')
+    domainRotationAngle = extraArgs.domainRotationAngle;
+else
+    domainRotationAngle = @(t) 0;
+end
+
+if isfield(extraArgs, 'initialConfig')
+    initialConfig = extraArgs.initialConfig;
+else
+    initialConfig = 'arrowPaper';
+end
+
+if isfield(extraArgs,'c_al')
+    c_al = extraArgs.c_al;
+else
+    c_al = 0;
+end
+
+if isfield(extraArgs,'l_al_decay')
+    %l_al_decay is the proportion of c_al that will be applied at r_d, e.g
+    %0.5 means at rd the alignment force is 0.5 c_al.
+    l_al_decay = extraArgs.l_al_decay;
+else
+    l_al_decay = 0.5;
+end
+
+if isfield(extraArgs, 'a_I')
+    a_I = extraArgs.a_I;
+else
+    a_I = 1;
+end
+
+if isfield(extraArgs, 'a_h')
+    a_h = extraArgs.a_h;
+else
+    a_h = 1;
+end
+
+if isfield(extraArgs, 'a_v')
+    a_v = extraArgs.a_v;
+else
+    a_v = 1;
+end
+
+if isfield(extraArgs, 'tMax')
+    tMax = extraArgs.tMax;
+else
+    tMax = 50;
+end
+
+if ~isfield(extraArgs, 'tailSize')
+    extraArgs.tailSize = 50;
+end
+    
+
+screenShotsCount = 50;
+
 % ---- Traffic Manager ----
 tm = TM;
 % setup speed limit
@@ -23,12 +115,25 @@ tm.cr = 2;
 tm.safetyTime = 5;
 % maximum force for vehicles
 tm.uMax = 3;
+% domain desired velocity
+tm.vd = vd(0);
+% inter vehicle alignement strength
+tm.c_al = c_al;
+% l_al decay, i.e. proportion of c_al that will be applied at r_d
+tm.l_al_decay = l_al_decay;
+% inter vehicle non zero slope
+tm.a_I = a_I;
+% vehicle domain non zero slope
+tm.a_h = a_h;
+% vehicle domain aligment stregth
+tm.a_v = a_v;
 
-% compute reachable set
-%tm.computeRS('qr_qr_safe_V_circle');
-movingBoundary = false;
+
+% compute reachable set: It is not necessary as we can work with the
+% analytical solution
+% tm.computeRS('qr_qr_safe_V_circle');
+
 % domain setup
-domainType = 'trianglePaper';
 switch domainType
     case 'circle'
         r = 1/100;
@@ -53,98 +158,70 @@ switch domainType
     case 'triangle'
         ns = 3;
         t = linspace(0, 2*pi*(1-1/ns), ns);
-        vertX = 50 * sin(t);
-        vertY = 50 * cos(t);
+        vertX = 5 * sin(t);
+        vertY = 5 * cos(t);
     case 'pentagon'
         ns = 5;
         t = linspace(0, 2*pi*(1-1/ns), ns);
         vertX = 50 * sin(t);
         vertY = 50 * cos(t);
     case 'trianglePaper'
-        r = 0.25;
+        r = 0.3;
         ns = 3;
         t = linspace(0, 2*pi*(1-1/ns), ns);
         vertX = 50 * sin(t)*r;
         vertY = 50 * cos(t)*r;
         vertY = vertY - (max(vertY)+min(vertY))/2;
-%         r = 0.20;
-%         vertX = [-50,-50, 50, 50]*r;
-%         vertY = [-50, 50, 50, -50]*r;
-%         tMax = 40;
-%         safetyTime = 5;
-%         tm.speedLimit = 10;
-%         n=16
-%         initialConfig = 'line';
     case 'squarePaper'
         r = 0.20;
         vertX = [-50,-50, 50, 50]*r;
         vertY = [-50, 50, 50, -50]*r;
-%         r = 0.20;
-%         vertX = [-50,-50, 50, 50]*r;
-%         vertY = [-50, 50, 50, -50]*r;
-%         tMax = 60;
-%         safetyTime = 5;
-%         tm.speedLimit = 10;
-%         n=16
-%         initialConfig = 'line';
     case 'arrowPaper'
-%         r = 0.3;
-%         vertX = r*[50, -50, 0, 0];
-%         vertY = r*[50, 0, 0, -50];
-%         movingBoundary = true;
-%         vDomain = 0.3;
         r = 0.3;
         vertX = r*[50, -50, 0, 0];
         vertY = r*[50, 0, 0, -50];
-        movingBoundary = true;
-        vDomain = 0.3;
-        tMax = 70;
-        safetyTime = 5;
-        tm.speedLimit = 10;
-        n=9
-        initialConfig = 'arrowPaper';
-        extraArgs.tailSize = -1
-        avoidance = true;
+        %safetyTime = 5;
+        %tm.speedLimit = 10;
+        %N=9;
+        %extraArgs.tailSize = -1;
 end
+
 domain = TargetDomain(vertX, vertY);
 tm.addDomain(domain);
+
 % figure setup
 f = figure;
 domain.domainPlot('blue', 'red');
 hold on;
 f.Children.FontSize = 16;
-f.Position(1:2) = [200 200];
-f.Position(3:4) = [350 350];
+f.Position(1:2) = [100 100];
+f.Position(3:4) = [750 750];
 f.Color = 'white';
-scale = 3;
-xlim([min(vertX) max(vertX)]*scale);
-ylim([min(vertY) max(vertY)]*scale);
+scale = 10;
+xlim([min([vertX,vertY]) max([vertX,vertY])]*scale);
+ylim([min([vertX,vertY]) max([vertX,vertY])]*scale);
 
 title('t=0');
 axis square;
-% ---- Quadrotors ----
 
-n = 6 ;
-initialConfig = 'line';
+% ---- Quadrotors ----
 if strcmp(initialConfig,'line')
-    px = linspace(-30,30,n)';
-    py = -15*ones(n,1);
+    px = linspace(-30,30,N)';
+    py = -15*ones(N,1);
 elseif strcmp(initialConfig, 'arrowPaper')
-    xx = linspace(-10,10,n);
+    xx = linspace(-10,10,N);
     px = xx-10;
     py = -1*xx-10;
-    %xlim([-20, 60]);
-    %ylim([-20, 60]);
 elseif strcmp(initialConfig, 'random')
-    px = -10 * rand(n,1);
-    py = -10 * rand(n,1);
+    px = -10 * rand(N,1);
+    py = -10 * rand(N,1);
 elseif strcmp(initialConfig, 'square')
     s = 1;
     px = 15*(mod(0:15,4)/3-0.5)+s*rand(1,16);
     py = 15*(floor([0:15]/4)/3-0.5)+s*rand(1,16);
 end
-vx = 0.01 * rand(n,1);
-vy = 0.01 * rand(n,1);
+vx = 0.01 * rand(N,1);
+vy = 0.01 * rand(N,1);
 
 % registering vehicles in traffic manager
 uMin = -tm.uMax;
@@ -162,7 +239,6 @@ for j = 1:length(tm.aas)
   extraArgs.ArrowLength = 3; %j prev 1
   extraArgs.LineStyle = 'none';
   extraArgs.LineWidth = 0.1; %j
-  extraArgs.tailSize = 50; % -1 for showing the whole tail;
   tm.aas{j}.plotPosition(extraArgs);
 end
 
@@ -170,26 +246,32 @@ drawnow
 
 % Time integration
 tm.dt = 0.1;
-tMax = 60;
 t = 0:tm.dt:tMax;
-
-avoidance = true;
 
 % setting up figure saving
 if saveFigures
-    directory = ['figures/', domainType,' n',num2str(n),' ',datestr(datetime('now'))];
+    directory = ['figures/', domainType,' N',num2str(N),' ',datestr(datetime('now'))];
     mkdir(directory);
     %saving meta data
     fileID = fopen([directory,'/metadata.txt'],'w');
+    fprintf(fileID, 'number of vehicles: %d\n', N);
+    fprintf(fileID, 'avoidance included: %s\n', num2str(avoidance));
     fprintf(fileID, 'domain type: %s\n', domainType);
-    fprintf(fileID, 'initial config: %s\n', initialConfig);
-    fprintf(fileID, 'number of vehicles: %d\n', n);
-    fprintf(fileID, 'avoidance: %f \n', avoidance);
+    fprintf(fileID, 'domain velocity: %s\n', char(vd));
+    fprintf(fileID, 'domain path: %s\n', char(domainPath));
+    fprintf(fileID, 'domain rotation angle: %s\n', char(domainRotationAngle));
+    fprintf(fileID, 'vehicles initial configuration: %s\n', initialConfig);
+    fprintf(fileID, 'inter vehicle velocity alignement strength: %f\n', c_al);
+    fprintf(fileID, 'inter vehicle nonzero slope: %f\n', a_I);
+    fprintf(fileID, 'vehicle domain nonzero slope: %f\n', a_h);
+    fprintf(fileID, 'domain velocity strength a_v: %f\n', a_v);
+    fprintf(fileID, 'simulation time: %f\n', tMax);
     fprintf(fileID, 'speedLimit: %f\n', tm.speedLimit);
     fprintf(fileID, 'collision radius: %f\n', tm.cr);
     fprintf(fileID, 'safety time: %f\n', tm.safetyTime);
     fprintf(fileID, 'u max: %f\n', tm.uMax);
-    fprintf(fileID, 'tmax: %f \n', tMax);
+    fprintf(fileID, 'rd: %f\n', sqrt(tm.domain.area/N));
+    fprintf(fileID, 'l_al: %f\n', -sqrt(tm.domain.area/N)/log(tm.l_al_decay));
 end
 
 % setting up video recorder
@@ -202,44 +284,32 @@ end
 
 u = cell(size(tm.aas));
 for i = 1:length(t)
-  %update domain if  domaing
-  if movingBoundary
-    tl = 0;
-    if t(i)>=tl
-        domain = TargetDomain(vertX+(t(i)-tl)*vDomain, vertY+(t(i)-tl)*vDomain);
-        cla;
-        domain.domainPlot('blue', 'red');
-        f.Color = 'white';
-        xlim([-20, 60]+(t(i)-tl)*vDomain);
-        ylim([-20, 60]+(t(i)-tl)*vDomain);
-        axis square;
-        tm.addDomain(domain);
-    end
-  end
+  vert = [vertX;vertY];
+  theta_d = domainRotationAngle(t(i));
+  vert = [cos(theta_d) -sin(theta_d); sin(theta_d) cos(theta_d)] * vert + domainPath(t(i));
+  domain = TargetDomain(vert(1,:), vert(2,:));
+  cla;
+  domain.domainPlot('blue', 'red');
+  f.Color = 'white';
+  axis square;
+  tm.addDomain(domain);
+  tm.vd = vd(t(i));
   disp(['time: ', num2str(t(i))])
-  [safe, uSafeOptimal, uSafeRight, uSafeLeft] = tm.checkAASafety;
+  [safe, uSafeOptimal] = tm.checkAASafety;
   uCoverage = tm.coverageCtrl;
+  
   for j = 1:length(tm.aas)
     if safe(j) || ~avoidance
       u{j} = uCoverage{j};
     else
       u{j} = uSafeOptimal{j};
-      %u{j} = projectControl(uCoverage{j}',uSafeOptimal{j},uSafeRight{j},uSafeLeft{j});
-      %disp(['Projected Controller: ', num2str(u{j}')]);
     end
-    %u{j} = u{j}*((vx^2+vy^2)<100);
     tm.aas{j}.updateState(u{j}, tm.dt);
-    
     extraArgs.Color = colors(j,:);
     tm.aas{j}.plotPosition(extraArgs);
-    %tm.aas{j}.plotPosition;
-    velx(i,j) = tm.aas{j}.x(2);
-    vely(i,j) = tm.aas{j}.x(4);
-    % Plot reachable set
-    % tm.aas{j}.plot_safe_V(tm.aas{end}, tm.qr_qr_safe_V, tm.safetyTime)
   end
   title(['t=' num2str(t(i))])
-  drawnow
+  drawnow;
   if recordVideo
       writeVideo(vidObj, getframe(gca));
   end
@@ -247,15 +317,14 @@ for i = 1:length(t)
       savefig([directory,'/',num2str(t(i)),'.fig'])
   end
 end
-  %collision count
-  collisionCount = 0;
-  for i=1:n
-    for j=i+1:n
+%collision count
+collisionCount = 0;
+for i=1:N
+    for j=i+1:N
         collisionCount = collisionCount + sum(abs(diff(tm.collisions{i,j})))/2;
     end
-  end
-% disp(['max vx: ', num2str(max(velx(:))), ' min vx: ', num2str(min(velx(:)))]);
-% disp(['max vy: ', num2str(max(vely(:))), ' min vy: ', num2str(min(vely(:)))]);
+end
+
 disp(['collision count: ', num2str(collisionCount)]);
 if saveFigures
     fprintf(fileID, 'collision count: %d\n', collisionCount);
@@ -267,28 +336,4 @@ end
 disp(['max force:',num2str(max(apply(@(v)norm(v,2), tm.aas{1}.uhist')))])
 disp(['max speed:',num2str(max(apply(@(v)norm(v,2), tm.aas{1}.xhist([2,4],:)')))])
 
-end
-
-
-
-function u = projectControl(uC,uO,uR,uL)
-    s = uL - uR;
-    % z values associated to the plane which is parallel to vector s and 
-    % (1,1,1), it is only one of the infiniteS possible planes parallel
-    % to s
-    zOptimal = s(2) * (uO(1) - uR(1)) - s(1) * (uO(2) - uR(2));
-    zCoverage = s(2) * (uC(1) - uR(1)) - s(1) * (uC(2) - uR(2));
-    if zOptimal * zCoverage < 0
-      d = uR - uC;
-      % projected controller over the segment uR_uL
-      u = -(d' * s / norm(s)^2)*s + uR;
-      if norm(u) > 3
-          ctrls = [uR, uL];
-          dists = [norm(uC-uR), norm(uC-uL)];
-          [minDist, ind] = min(dists);
-          u = ctrls(:,ind);
-      end
-    else
-      u = uC;
-    end
 end

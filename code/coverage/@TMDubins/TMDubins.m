@@ -22,6 +22,8 @@ classdef TMDubins < Node
     
     % collision radius
     cr = 5;
+    % inter vehicle alignement decay
+    l_al_decay
     
     % Frequency of state updates to the system
     dt = 0.1;
@@ -34,9 +36,19 @@ classdef TMDubins < Node
     collisions = {};
     unsafeCount = 0;
     
-    %% Quadrotor reachable sets    
-    % Quadrotor-quadrotor safety reachable set
-    % juan: this should be called qr_qr_safe_T instead of ..._safe_V
+    % domain desired velocity
+    vd;
+    % inter vehicle alignement strength
+    c_al;
+    % inter vehicle non zero slope
+    a_I;
+    % vehicle domain non zero slope
+    a_h;
+    % vehicle domain aligment stregth
+    a_v;
+    
+    %% Dubins reachable sets    
+    % dubins car-dubins car safety reachable set
     qr_qr_safe_V
        
   end

@@ -23,7 +23,7 @@ switch type
         %    num2str(obj.cr) '_Speed_' num2str(obj.speedLimit) ...
         %    '_SafetyTime_' num2str(obj.safetyTime) '.mat'];
         filename = [fileparts(mfilename('fullpath')) ...
-            '/../RS_core/saved/optimized_dubins_dubins_safe_V_circle_Radius_2_Speed_10_SafetyTime_20.mat'];
+            '/../RS_core/saved/optimized_dubins_dubins_safe_V_circle_Radius_2_Speed_10_SafetyTime_15.mat'];
         if exist(filename, 'file')
             load(filename)
         else
