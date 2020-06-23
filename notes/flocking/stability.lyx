@@ -1,0 +1,1566 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\newcommand{\RR}{\mathbb{R}^{2}}
+\newcommand{\Qi}{Q_{i}}
+\newcommand{\Qj}{Q_{j}}
+\newcommand{\sgnDist}{b}
+\newcommand{\posi}{p_{i}}
+\newcommand{\pos}{p}
+\newcommand{\posrel}{\tilde{p}}
+\newcommand{\vel}{v}
+\newcommand{\velrel}{v}
+\newcommand{\pix}{p_{i,x}}
+\newcommand{\piy}{p_{i,y}}
+\newcommand{\veli}{v_{i}}
+\newcommand{\smax}{s_{max}}
+\newcommand{\vix}{v_{i,x}}
+\newcommand{\viy}{v_{i,y}}
+\newcommand{\ui}{u_i}
+\newcommand{\uix}{u_{i,x}}
+\newcommand{\uiy}{u_{i,y}}
+\newcommand{\uis}{u_{i,s}}
+\newcommand{\uitheta}{u_{i,\theta}}
+\newcommand{\pjx}{p_{j,x}}
+\newcommand{\pjy}{p_{j,y}}
+\newcommand{\vjx}{v_{j,x}}
+\newcommand{\vjy}{v_{j,y}}
+\newcommand{\ujx}{u_{j,x}}
+\newcommand{\ujy}{u_{j,y}}
+\newcommand{\dx}{d_{x}}
+\newcommand{\dy}{d_{y}}
+\newcommand{\thetai}{\theta_{i}}
+\newcommand{\si}{s_{i}}
+
+\newcommand{\vxr}{v_{r,x}}
+\newcommand{\vyr}{v_{r,y}}
+\newcommand{\pxr}{p_{r,x}}
+\newcommand{\pyr}{p_{r,y}}
+\newcommand{\vdxr}{\dot{v}_{r,x}}
+\newcommand{\vdyr}{\dot{v}_{r,y}}
+\newcommand{\pdxr}{\dot{p}_{r,x}}
+\newcommand{\pdyr}{\dot{p}_{r,y}}
+
+\newcommand{\ttr}{\psi}
+\newcommand{\rd}{r_d}
+\newcommand{\rO}{r_0}
+\newcommand{\hO}{h_0}
+
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Double Integrator Model
+\end_layout
+
+\begin_layout Subsection
+Problem Formulation
+\end_layout
+
+\begin_layout Standard
+We consider a group of 
+\begin_inset Formula $N$
+\end_inset
+
+ vehicles, each of them denoted 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $i=1,\cdots,N$
+\end_inset
+
+.
+ Each vehicle with dynamics described by 
+\begin_inset Formula 
+\begin{equation}
+\dot{\posi}=\veli,\,\dot{\veli}=\ui,\quad\left\Vert \veli\right\Vert \leq\smax,\,\left\Vert \left(\uix,\uiy\right)\right\Vert \leq u_{Qmax},\label{eq:problemDynamicQ}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ here 
+\begin_inset Formula $\posi=\left(\pix,\piy\right),$
+\end_inset
+
+ and 
+\begin_inset Formula $\veli=\left(\vix,\viy\right)$
+\end_inset
+
+ are the 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ positions and velocities of 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+ respectively, and 
+\begin_inset Formula $u_{i,Q}:=\left(\uix,\uiy\right)$
+\end_inset
+
+ is the control force applied to this mobile agent.
+\end_layout
+
+\begin_layout Standard
+We consider a vehicle safe if there is no other vehicle closer than a predefined
+ collision radius 
+\begin_inset Formula $c_{r}$
+\end_inset
+
+, in other words, if 
+\begin_inset Formula 
+\begin{equation}
+\left\Vert \pos_{i}-\pos_{j}\right\Vert >c_{r},\qquad\text{ for any }j\neq i.\label{eq:safety}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Definition
+\series default
+ 
+\series bold
+\emph on
+(r-Subcover).
+
+\series default
+\emph default
+ A group of agents is an 
+\begin_inset Formula $\textbf{\ensuremath{r}-subcover}$
+\end_inset
+
+ for a compact domain 
+\begin_inset Formula $\Omega\subseteq\RR$
+\end_inset
+
+ if: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ The distance between any two vehicles is at least 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ The signed distance from any vehicle to 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is less than equal to 
+\begin_inset Formula $-\frac{r}{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Definition
+\series default
+ 
+\begin_inset Formula $\textbf{\textit{(r-Cover).}}$
+\end_inset
+
+ An 
+\begin_inset Formula $r$
+\end_inset
+
+-subcover for 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is an 
+\begin_inset Formula $\textbf{\ensuremath{r}-cover}$
+\end_inset
+
+ for 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ if its size is maximal (i.e., no larger number of agents can be an 
+\begin_inset Formula $r$
+\end_inset
+
+-subcover for 
+\begin_inset Formula $\Omega$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $r$
+\end_inset
+
+-subcover definition is closely related to finding a way to pack circular
+ objects of radius 
+\begin_inset Formula $\frac{r}{2}$
+\end_inset
+
+ inside of a container with shape 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ Having an 
+\begin_inset Formula $r$
+\end_inset
+
+-cover implies the container is full and there is no room for more of such
+ objects.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Definition (flocking around a moving target domain) [based on Ref: A simple
+ proof of CS] 
+\series default
+A group of vehicles with dynamics 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:problemDynamicQ"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ has a time-asymptotic flocking around a moving target domain following
+ the trajectory 
+\begin_inset Formula $\pos{}_{d}\left(t\right)$
+\end_inset
+
+, with velocity 
+\begin_inset Formula $\vel_{d}\left(t\right)$
+\end_inset
+
+ with states if and only if and only if its solutions 
+\begin_inset Formula $\left\{ \posi,\veli\right\} ,\,i=1,\cdots,N$
+\end_inset
+
+ satisfy the following two conditions:
+\end_layout
+
+\begin_layout Standard
+1.
+ The relative velocity fluctuation respect the domain go to zero time-asymptotic
+ally (veloctiy alignement):
+\begin_inset Formula 
+\[
+\underset{t\rightarrow+\infty}{\lim}\stackrel[i=1]{N}{\sum}\left\Vert \veli\left(t\right)-\vel_{d}\left(t\right)\right\Vert ^{2}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ The position fluctuations respect the domain are uniformly bounded in time
+ 
+\begin_inset Formula $t$
+\end_inset
+
+ (forming a group):
+\begin_inset Formula 
+\[
+\underset{0\leq t<\infty}{\sup}\stackrel[i=1]{N}{\sum}\left\Vert \posi\left(t\right)-\pos_{d}\left(t\right)\right\Vert ^{2}<\infty
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We are interested in the following safe domain coverage problem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\textbf{\textit{(Safe-domain-coverage)}}$
+\end_inset
+
+ Consider a compact domain 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ in the plane and 
+\begin_inset Formula $N$
+\end_inset
+
+ vehicles each with dynamics described by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:problemDynamicQ"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, starting from safe initial conditions.
+ Find the maximal 
+\begin_inset Formula $r>0$
+\end_inset
+
+ and a control policy that leads to a stable steady state which is an 
+\begin_inset Formula $r$
+\end_inset
+
+-cover for 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, while satisfying the safety condition 
+\backslash
+eqref{eq:safety} at any time.
+\end_layout
+
+\begin_layout Subsection
+Metodology
+\end_layout
+
+\begin_layout Subsubsection
+Coverage Controller
+\end_layout
+
+\begin_layout Standard
+We consider a group of 
+\begin_inset Formula $N$
+\end_inset
+
+ vehicles, with unconstrained dynamics
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\[
+\dot{\posi}=\veli,\quad\dot{\veli}=\ui.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{2}$
+\end_inset
+
+ be a compact domain containing zero, and define 
+\begin_inset Formula $\Omega\left(t\right)=\Omega+\pos_{d}\left(t\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $\pos_{d}\left(t\right)$
+\end_inset
+
+ is the solution for the system
+\begin_inset Formula 
+\[
+\begin{cases}
+\dot{\pos_{d}} & =\vel_{d}\\
+\dot{\vel_{d}} & =0,
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ we call 
+\begin_inset Formula $\pos_{d}\left(t\right)$
+\end_inset
+
+ the marker point of the moving domain 
+\begin_inset Formula $\Omega\left(t\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+Define 
+\begin_inset Formula $\pos_{ij}:=\pos_{i}-\pos_{j}$
+\end_inset
+
+, and 
+\begin_inset Formula $\vel_{ij}:=\vel_{i}-\vel_{j}$
+\end_inset
+
+ and denote by 
+\begin_inset Formula $P_{\partial\Omega\left(t\right)}\left(\pos_{i}\right)$
+\end_inset
+
+ the closest point of 
+\begin_inset Formula $\partial\Omega\left(t\right)$
+\end_inset
+
+ to 
+\begin_inset Formula $\pos_{i}$
+\end_inset
+
+ (i.e., the projection of 
+\begin_inset Formula $\pos_{i}$
+\end_inset
+
+ on 
+\begin_inset Formula $\partial\Omega\left(t\right)$
+\end_inset
+
+).
+ Also, define 
+\begin_inset Formula $h_{i}:=\pos_{i}-P_{\partial\Omega\left(t\right)}\left(\pos_{i}\right)$
+\end_inset
+
+, and denote by 
+\begin_inset Formula $\left[\left[h_{i}\right]\right]$
+\end_inset
+
+ the signed distance of 
+\begin_inset Formula $\pos_{i}$
+\end_inset
+
+ from 
+\begin_inset Formula $\partial\Omega\left(t\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The proposed control force is given by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+u_{i}=\underset{\text{Inter Vehicle}}{\underbrace{-\sum_{j\neq i}^{N}f_{I}\left(\left\Vert \pos_{ij}\right\Vert \right)\frac{\pos_{ij}}{\left\Vert \pos_{ij}\right\Vert }}}-\underset{\text{Velocity Alignment}}{\underbrace{\frac{1}{N}\sum_{j\neq i}^{N}f_{al}\left(\left\Vert \pos_{ij}\right\Vert \right)\vel_{ij}}}-\overset{\text{Navigational feedback}}{\overbrace{\underset{\text{Domain Vehicle}}{\underbrace{f_{h}\left(\left[\left[h_{i}\right]\right]\right)\frac{h_{i}}{\left[\left[h_{i}\right]\right]}}}-\underset{\text{Speed Alignment}}{\underbrace{a\left(\vel_{i}-\vel_{d}\right)}}}}\label{eq:Coverage-controller}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+As done in [ref] we choose 
+\begin_inset Formula $f_{al}\left(\left\Vert \pos_{ij}\right\Vert \right)=C_{al}e^{-\frac{\left\Vert \pos_{ij}\right\Vert }{l_{al}}}$
+\end_inset
+
+, where 
+\begin_inset Formula $C_{al}$
+\end_inset
+
+ and 
+\begin_inset Formula $l_{al}$
+\end_inset
+
+ are constants associated to the velocity alignment strength and
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The position and velocity of the 
+\begin_inset Formula $i$
+\end_inset
+
+ th vehicle relative to the marker of the moving domain are given by: 
+\begin_inset Formula 
+\[
+\begin{cases}
+\posrel_{i} & :=\pos_{i}-\pos_{d}\\
+\velrel_{i} & :=\vel_{i}-\vel_{d}.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that the inter-vehicle position and velocity in this new framework
+ satisfy:
+\begin_inset Formula 
+\begin{align*}
+\posrel_{ij} & :=\posrel_{i}-\posrel_{j}=\pos_{i}-\pos_{d}-\left(\pos_{j}-\pos_{d}\right)=\pos_{ij},\\
+\velrel_{ij} & :=\velrel_{i}-\velrel_{j}=\vel_{i}-\vel_{d}-\left(\vel_{j}-\vel_{d}\right)=\vel_{ij},
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ it means the relative positions are invariant to the change of coordinates.
+ Moreover, the vehicle domain distance satisfies 
+\begin_inset Formula $h_{i}=\pos_{i}-P_{\partial\Omega\left(t\right)}\left(\pos_{i}\right)=\left(\pos_{i}-\pos_{d}\right)-P_{\partial\Omega\left(t\right)-\pos_{d}}\left(\pos_{i}-\pos_{d}\right)=\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)$
+\end_inset
+
+.
+ This allow us to rewrite (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Coverage-controller"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) as
+\begin_inset Formula 
+\begin{equation}
+u_{i}=-\sum_{j\neq i}^{N}f_{I}\left(\left\Vert \posrel_{ij}\right\Vert \right)\frac{\posrel_{ij}}{\left\Vert \posrel_{ij}\right\Vert }-\frac{1}{N}\sum_{j\neq i}^{N}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\velrel_{ij}-f_{h}\left(\left[\left[h_{i}\right]\right]\right)\frac{h_{i}}{\left[\left[h_{i}\right]\right]}-a\velrel_{i}\label{eq:Coverage-controller-rel}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let us consider the potential 
+\begin_inset Formula 
+\[
+V_{h}\left(\posrel_{i}\right)=\int_{-\frac{r_{d}}{2}}^{\left[\left[\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)\right]\right]}f_{h}\left(s\right)ds
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ which satisfies
+\begin_inset Formula 
+\[
+\nabla_{\posrel_{i}}V_{h}\left(\posrel_{i}\right)=f_{h}\left(\left[\left[\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)\right]\right]\right)\nabla_{\posrel_{i}}\left(\left[\left[\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)\right]\right]\right)=f_{h}\left(\left[\left[h_{i}\right]\right]\right)\frac{h_{i}}{\left[\left[h_{i}\right]\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ where we have used the identity 
+\begin_inset Formula $\nabla_{\posrel_{i}}\left(\left[\left[\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)\right]\right]\right)=\frac{\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)}{\left[\left[\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)\right]\right]}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Similarly, it can be shown that the inter-vehicle force is the negative
+ gradient of the potential 
+\begin_inset Formula 
+\[
+V_{I}\left(\posrel_{ij}\right)=\int_{r_{d}}^{\left\Vert \posrel_{ij}\right\Vert }f_{I}\left(s\right)ds,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ to finally get:
+\begin_inset Formula 
+\begin{equation}
+u_{i}=\underset{\text{Inter Vehicle}}{\underbrace{-\sum_{j\neq i}^{N}\nabla_{\posrel_{i}}V_{I}\left(\posrel_{ij}\right)}}-\underset{\text{Velocity Alignment}}{\underbrace{\frac{1}{N}\sum_{j\neq i}^{N}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\velrel_{ij}}}-\overset{\text{Navigational feedback}}{\overbrace{\underset{\text{Domain Vehicle}}{\underbrace{\nabla_{\posrel_{i}}V_{h}\left(\posrel_{i}\right)}}-\underset{\text{Speed Alignment}}{\underbrace{a\velrel_{i}}}}}\label{eq:Coverage-controller-rel-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ Consider the candidate for Lyapunov function consisting in kinetic plus
+ (artificial) potential energy:
+\begin_inset Formula 
+\[
+\Phi=\frac{1}{2}\underset{i=1}{\overset{N}{\sum}}\Bigl(\dot{\posrel_{i}}\cdot\dot{\posrel_{i}}+\underset{j\neq i}{\overset{N}{\sum}}V_{I}\left(\posrel_{ij}\right)+V_{h}\left(\posrel_{i}\right)\Bigr).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ Note that each term in 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ is non-negative, and 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ reaches its absolute minimum value when the vehicles are totally stopped.
+ 
+\end_layout
+
+\begin_layout Standard
+The derivative of 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ with respect to time can be calculated as: 
+\begin_inset Formula 
+\begin{align*}
+\dot{\Phi} & =\underset{i=1}{\overset{N}{\sum}}\dot{\posrel_{i}}\cdot\Bigl(u_{i}+\underset{j\neq i}{\overset{N}{\sum}}\nabla_{\posrel_{i}}V_{I}\left(\posrel_{ij}\right)+\nabla_{\posrel_{i}}V_{h}\left(\posrel_{i}\right)\Bigr)\\
+ & =\underset{i=1}{\overset{N}{\sum}}\dot{\posrel_{i}}\cdot\left(-\frac{1}{N}\sum_{j\neq i}^{N}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\velrel_{ij}-a\velrel_{i}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ For the (extra) alignment term, write 
+\begin_inset Formula 
+\[
+\underset{i=1}{\overset{N}{\sum}}\velrel_{i}\cdot\underset{j\neq i}{\overset{N}{\sum}}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\left(\velrel_{i}-\velrel_{j}\right)=\frac{1}{2}\underset{i=1}{\overset{N}{\sum}}\velrel_{i}\cdot\underset{j\neq i}{\overset{N}{\sum}}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\left(\velrel_{i}-\velrel_{j}\right)+\frac{1}{2}\underset{j=1}{\overset{N}{\sum}}\velrel_{j}\cdot\underset{i\neq j}{\overset{N}{\sum}}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\left(\velrel_{j}-\velrel_{i}\right),
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ where in the second term in the right-hand-side we simply rename 
+\begin_inset Formula $i\leftrightarrow j$
+\end_inset
+
+ as indices of summation.
+ From there, use that 
+\begin_inset Formula $\|\posrel_{ij}\|=\|\posrel_{ji}\|$
+\end_inset
+
+ to get:
+\begin_inset Formula 
+\[
+\underset{i=1}{\overset{N}{\sum}}\velrel_{i}\cdot\underset{j\neq i}{\overset{N}{\sum}}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\left(\velrel_{i}-\velrel_{j}\right)=\frac{1}{2}\underset{i=1}{\overset{N}{\sum}}\underset{j\neq i}{\overset{N}{\sum}}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\|\velrel_{i}-\velrel_{j}\|^{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ With the minus sign in front this gives a negative-definite term.
+ Conclude that 
+\begin_inset Formula $\dot{\Phi}$
+\end_inset
+
+ is negative semidefinite and equal to zero if and only if 
+\begin_inset Formula $\dot{\posrel_{i}}=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+ (i.e., all vehicles are at equilibrium in the relative framework).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Theorem
+\series default
+ Consider a group of 
+\begin_inset Formula $N$
+\end_inset
+
+ vehicles with dynamics defined by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:problemDynamicQ"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and the control law given by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Coverage-controller"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Let the equilibrium of interest be of the form 
+\begin_inset Formula $\dot{\posrel_{i}}=0$
+\end_inset
+
+, 
+\begin_inset Formula $\left\Vert \posrel_{ij}\right\Vert \geq r_{d}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left[\left[h_{i}\right]\right]\leq-\frac{r_{d}}{2}$
+\end_inset
+
+ for 
+\begin_inset Formula $i,j=1,\cdots,N$
+\end_inset
+
+ (see Definitions 
+\backslash
+ref{defn:subcover} and 
+\backslash
+ref{defn:cover}), and assume that this equilibrium configuration is isolated.
+ Also assume that there is a neighborhood about the equilibrium in which
+ the control law remains smooth.
+ Then, the following statements hold: 
+\end_layout
+
+\begin_layout Enumerate
+The group of agents has a time-asymptotic flocking around a moving target
+ 
+\begin_inset Formula $\Omega\left(t\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Almost every solution of the relative dynamical system (to be defined) asymptoti
+cally converges to an equilibrium point 
+\begin_inset Formula $\left(\posrel^{*},0\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $\posrel^{∗}$
+\end_inset
+
+ is a local minima of 
+\begin_inset Formula $V_{I}\left(\posrel\right)+V_{h}\left(\posrel\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Assume the initial structural energy of the particle system is less than
+ 
+\begin_inset Formula $\left(k+1\right)c^{*}$
+\end_inset
+
+ with 
+\begin_inset Formula $c^{∗}=V_{I}\left(0\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $k\in\mathbb{Z^{+}}$
+\end_inset
+
+.
+ Then, at most 
+\begin_inset Formula $k$
+\end_inset
+
+ distinct pairs of vehicles could possibly collide (
+\begin_inset Formula $k=0$
+\end_inset
+
+ guarantees a collision-free motion).
+ 
+\color blue
+(I have not checked this stronger result yet).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+proof.
+ 
+\series default
+To be done.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qedwhite
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is clear that thresholding the force the theoretical guarantees may not
+ necessary hold anymore, however, when close to the desired operation point
+ the coverage input forces are small enough to not be thresholded and it
+ is feasible for the controller apply the required coverage force, implying
+ the theoretical results are locally valid.
+\end_layout
+
+\begin_layout Subsubsection*
+Choosing the Adequate Cucker Smale Parameters
+\end_layout
+
+\begin_layout Standard
+We assume as premise that the major velocity alignment effects should be
+ for those vehicles within an 
+\begin_inset Formula $r_{d}$
+\end_inset
+
+ radius neighborhood.
+ It seems wide enough to guarantee flocking behavior without causing group
+ inertia that may slow down the domain coverage aim.
+ In order to so, we impose a tenth decay on the alignment strength every
+ 
+\series bold
+
+\begin_inset Formula $r_{d}$
+\end_inset
+
+
+\series default
+, i.e.
+ 
+\begin_inset Formula $l_{al}=-\frac{r_{d}}{\ln\left(0.1\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Collision Avoidance via Analytic HJI PDE Solution
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+(I think we should call the result from the paper for the analytical solution
+ of the HJ eq instead of redoing it here).
+\end_layout
+
+\begin_layout Section
+Fixed-wing model
+\end_layout
+
+\begin_layout Standard
+Similarly as before we consider a group of 
+\begin_inset Formula $N$
+\end_inset
+
+ vehicles, each of them denoted 
+\begin_inset Formula $W_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $i=1,\cdots,N$
+\end_inset
+
+, but this time with dynamics described by 
+\begin_inset Formula 
+\begin{equation}
+\dot{\pos_{i}}=\si\left(\cos\left(\thetai\right),\sin\left(\thetai\right)\right),\,\dot{\thetai}=u_{i,\theta},\,\dot{\si}=\uis,\quad\left|\si\right|\leq\smax\,\left|\uitheta\right|\leq u_{\theta\,max},\,\left|\uis\right|\leq u_{s\,max}\label{eq:problemDynamicW}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ here 
+\begin_inset Formula $\posi=\left(\pix,\piy\right),$
+\end_inset
+
+ and 
+\begin_inset Formula $\veli=\left(\vix,\viy\right)$
+\end_inset
+
+ are the 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ positions and velocities respectively, 
+\begin_inset Formula $\thetai$
+\end_inset
+
+ is the heading angle and 
+\begin_inset Formula $\si$
+\end_inset
+
+ the speed of the vehicle 
+\begin_inset Formula $W_{i}$
+\end_inset
+
+.
+ Additionally, the acceleration is 
+\begin_inset Formula $u_{i,W}:=\left(\uitheta,\uis\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Thresholding Coverage Control Force
+\end_layout
+
+\begin_layout Standard
+As we assume constrained input forces, we to need modify the proposed coverage
+ control force when necessary.
+ For the double integrator model the given coverage control force 
+\begin_inset Formula $u=\left(u_{x},u_{y}\right)$
+\end_inset
+
+ is projected onto the set of admissible forces using the mapping,
+\begin_inset Formula 
+\[
+\hat{u}=\begin{cases}
+u & \text{if }\left\Vert u\right\Vert \leq u_{max},\\
+u_{max}\frac{u}{\left\Vert u\right\Vert } & \text{otherwise.}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On the other hand, in order to get the appropriate Dubins car control force
+ we use the relation
+\begin_inset Formula 
+\begin{equation}
+\frac{d}{dt}\left(\begin{array}{c}
+v_{x}\\
+v_{y}
+\end{array}\right)=R\left(v,\theta\right)\left(\begin{array}{c}
+u_{\theta}\\
+u_{v}
+\end{array}\right);\,R\left(v,\theta\right):=\left(\begin{array}{cc}
+v\sin\left(\theta\right) & \cos\left(\theta\right)\\
+v\cos\left(\theta\right) & -\sin\left(\theta\right)
+\end{array}\right),\label{eq:DubinsToRec}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ which allow us to represent the set of admissible forces from the 
+\begin_inset Formula $xy$
+\end_inset
+
+ perspective as the region 
+\begin_inset Formula 
+\[
+S=\left\{ R\left(v,\theta\right)\left(\begin{array}{c}
+u_{\theta}\\
+u_{v}
+\end{array}\right):\left(\begin{array}{c}
+u_{\theta}\\
+u_{v}
+\end{array}\right)\in\left[-u_{\theta max},u_{\theta max}\right]\times\left[-u_{vmax},u_{vmax}\right]\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+we set 
+\begin_inset Formula $\left(\begin{array}{c}
+\hat{u}_{x}\\
+\hat{u}_{y}
+\end{array}\right)=\sup\left\{ t\in\mathbb{R}:t\left(\begin{array}{c}
+u_{x}\\
+u_{y}
+\end{array}\right)\in S\right\} \left(\begin{array}{c}
+u_{x}\\
+u_{y}
+\end{array}\right)$
+\end_inset
+
+, see Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Thresholding-Dubins-car"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Finally, we get the associated Dubins car input force by inverting 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:DubinsToRec"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ as 
+\begin_inset Formula $\left(\begin{array}{c}
+\hat{u}_{\theta}\\
+\hat{u}_{v}
+\end{array}\right)=R^{-1}\left(v,\theta\right)\left(\begin{array}{c}
+\hat{u}_{x}\\
+\hat{u}_{y}
+\end{array}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../self-propelling/notes/forceThreshold.png
+	width 40col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Thresholding-Dubins-car"
+
+\end_inset
+
+Thresholding Dubins car force in rectangular coordinates.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Collision avoidance
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right) & =\left(\begin{array}{cc}
+\cos\left(\theta_{1}\right) & \sin\left(\theta_{1}\right)\\
+-\sin\left(\theta_{1}\right) & \cos\left(\theta_{1}\right)
+\end{array}\right)\left(\begin{array}{c}
+p_{x,2}-p_{x,1}\\
+p_{y,2}-p_{y,1}
+\end{array}\right)=\left(\begin{array}{c}
+\cos\left(\theta_{1}\right)\left(p_{x,2}-p_{x,1}\right)+\sin\left(\theta_{1}\right)\left(p_{y,2}-p_{y,1}\right)\\
+-\sin\left(\theta_{1}\right)\left(p_{x,2}-p_{x,1}\right)+\cos\left(\theta_{1}\right)\left(p_{y,2}-p_{y,1}\right)
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left(\begin{array}{c}
+\dot{x_{1}}\\
+\dot{x_{2}}
+\end{array}\right) & =\left(\begin{array}{c}
+-\dot{\theta_{1}}\sin\left(\theta_{1}\right)\left(p_{x,2}-p_{x,1}\right)+\cos\left(\theta_{1}\right)\left(\dot{p}_{x,2}-\dot{p}_{x,1}\right)+\dot{\theta_{1}}\cos\left(\theta_{1}\right)\left(p_{y,2}-p_{y,1}\right)+\sin\left(\theta_{1}\right)\left(\dot{p}_{y,2}-\dot{p}_{y,1}\right)\\
+-\dot{\theta_{1}}\cos\left(\theta_{1}\right)\left(p_{x,2}-p_{x,1}\right)-\sin\left(\theta_{1}\right)\left(\dot{p}_{x,2}-\dot{p}_{x,1}\right)-\dot{\theta_{1}}\sin\left(\theta_{1}\right)\left(p_{y,2}-p_{y,1}\right)+\cos\left(\theta_{1}\right)\left(\dot{p}_{y,2}-\dot{p}_{y,1}\right)
+\end{array}\right)\\
+ & =\left(\begin{array}{c}
+\cos\left(\theta_{1}\right)\left(v_{2}\cos\left(\theta_{2}\right)-v_{1}\cos\left(\theta_{1}\right)\right)+\sin\left(\theta_{1}\right)\left(v_{2}\sin\left(\theta_{2}\right)-v_{1}\sin\left(\theta_{1}\right)\right)+\dot{\theta_{1}}x_{2}\\
+-\sin\left(\theta_{1}\right)\left(v_{2}\cos\left(\theta_{2}\right)-v_{1}\cos\left(\theta_{1}\right)\right)+\cos\left(\theta_{1}\right)\left(v_{2}\sin\left(\theta_{2}\right)-v_{1}\sin\left(\theta_{1}\right)\right)-\dot{\theta_{1}}x_{1}
+\end{array}\right)\\
+ & =\left(\begin{array}{c}
+v_{2}\cos\left(\theta_{2}-\theta_{1}\right)-v_{1}+\dot{\theta_{1}}x_{2}\\
+v_{2}\sin\left(\theta_{2}-\theta_{1}\right)-\dot{\theta_{1}}x_{1}
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}\\
+x_{5}
+\end{array}\right)=\left(\begin{array}{c}
+\cos\left(\theta_{1}\right)\left(p_{x,2}-p_{x,1}\right)+\sin\left(\theta_{1}\right)\left(p_{y,2}-p_{y,1}\right)\\
+-\sin\left(\theta_{1}\right)\left(p_{x,2}-p_{x,1}\right)+\cos\left(\theta_{1}\right)\left(p_{y,2}-p_{y,1}\right)\\
+\theta_{2}-\theta_{1}\\
+v_{1}\\
+v_{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\dot{\left(\begin{array}{c}
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}\\
+x_{5}
+\end{array}\right)}=\left(\begin{array}{c}
+x_{5}\cos\left(x_{3}\right)-x_{4}+u_{\theta}x_{2}\\
+x_{5}\sin\left(x_{3}\right)-u_{\theta}x_{1}\\
+d_{\theta}-u_{\theta}\\
+u_{v}\\
+d_{v}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Optimal controller: 
+\begin_inset Formula $u_{\theta}^{*}=\text{sgn}\left(\frac{\partial V}{\partial x_{1}}x_{2}-\frac{\partial V}{\partial x_{2}}x_{1}-\frac{\partial V}{\partial x_{3}}\right)u_{\theta max}$
+\end_inset
+
+, 
+\begin_inset Formula $u_{v}^{*}=\text{sgn}\left(\frac{\partial V}{\partial x_{4}}\right)u_{vmax}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Optimal disturbance: 
+\begin_inset Formula $d_{\theta}^{*}=-\text{sgn}\left(\frac{\partial V}{\partial x_{3}}\right)d_{\theta max}$
+\end_inset
+
+, 
+\begin_inset Formula $d_{v}^{*}=-\text{sgn}\left(\frac{\partial V}{\partial x_{5}}\right)d_{vmax}$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

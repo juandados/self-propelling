@@ -1,0 +1,183 @@
+%% LyX 2.3.4.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\newcommand{\RR}{\mathbb{R}^{2}}
+\newcommand{\Qi}{Q_{i}}
+\newcommand{\Qj}{Q_{j}}
+\newcommand{\sgnDist}{b}
+\newcommand{\posi}{q_{i}}
+\newcommand{\pos}{q}
+\newcommand{\posrel}{x}
+\newcommand{\vel}{p}
+\newcommand{\velrel}{v}
+\newcommand{\pix}{q_{i,x}}
+\newcommand{\piy}{q_{i,y}}
+\newcommand{\veli}{p_{i}}
+\newcommand{\smax}{s_{max}}
+\newcommand{\vix}{p_{i,x}}
+\newcommand{\viy}{p_{i,y}}
+\newcommand{\ui}{u_i}
+\newcommand{\uix}{u_{i,x}}
+\newcommand{\uiy}{u_{i,y}}
+\newcommand{\uis}{u_{i,s}}
+\newcommand{\uitheta}{u_{i,\theta}}
+\newcommand{\pjx}{q_{j,x}}
+\newcommand{\pjy}{q_{j,y}}
+\newcommand{\vjx}{v_{j,x}}
+\newcommand{\vjy}{v_{j,y}}
+\newcommand{\ujx}{u_{j,x}}
+\newcommand{\ujy}{u_{j,y}}
+\newcommand{\dx}{d_{x}}
+\newcommand{\dy}{d_{y}}
+\newcommand{\thetai}{\theta_{i}}
+\newcommand{\si}{s_{i}}
+
+\newcommand{\vxr}{v_{r,x}}
+\newcommand{\vyr}{v_{r,y}}
+\newcommand{\pxr}{p_{r,x}}
+\newcommand{\pyr}{p_{r,y}}
+\newcommand{\vdxr}{\dot{v}_{r,x}}
+\newcommand{\vdyr}{\dot{v}_{r,y}}
+\newcommand{\pdxr}{\dot{p}_{r,x}}
+\newcommand{\pdyr}{\dot{p}_{r,y}}
+
+\newcommand{\ttr}{\psi}
+\newcommand{\rd}{r_d}
+\newcommand{\rO}{r_0}
+\newcommand{\hO}{h_0}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\section{Methodology - Coverage Controller}
+
+We consider a group of $N$ vehicles, each of them denoted $Q_{i}$,
+$i=1,\cdots,N$, with dynamics described by 
+\[
+\dot{\posi}=\veli,\quad\dot{\veli}=\ui.
+\]
+
+Let $\Omega\subseteq\mathbb{R}^{2}$ be a compact domain containing
+zero, and define $\Omega\left(t\right)=\Omega+\pos_{d}\left(t\right)$,
+where $\pos_{d}\left(t\right)$ is the solution for the system
+\[
+\begin{cases}
+\dot{\pos_{d}} & =\vel_{d}\\
+\dot{\vel_{d}} & =f_{d}\left(\pos_{d},\vel_{d}\right),
+\end{cases}
+\]
+
+\noindent we call $\pos_{d}\left(t\right)$ the marker point of the
+moving domain $\Omega\left(t\right)$. 
+
+Define $\pos_{ij}:=\pos_{i}-\pos_{j}$, and $\vel_{ij}:=\vel_{i}-\vel_{j}$
+and denote by $P_{\partial\Omega\left(t\right)}\left(\pos_{i}\right)$
+the closest point of $\partial\Omega\left(t\right)$ to $\pos_{i}$
+(i.e., the projection of $\pos_{i}$ on $\partial\Omega\left(t\right)$).
+Also, define $h_{i}:=\pos_{i}-P_{\partial\Omega\left(t\right)}\left(\pos_{i}\right)$,
+and denote by $\left[\left[h_{i}\right]\right]$ the signed distance
+of $\pos_{i}$ from $\partial\Omega\left(t\right)$.
+
+The proposed control force is given by:
+
+\begin{equation}
+u_{i}=-\sum_{j\neq i}^{N}f_{I}\left(\left\Vert \pos_{ij}\right\Vert \right)\frac{\pos_{ij}}{\left\Vert \pos_{ij}\right\Vert }-\frac{1}{N}\sum_{j\neq i}^{N}f_{al}\left(\left\Vert \pos_{ij}\right\Vert \right)\vel_{ij}-f_{h}\left(\left[\left[h_{i}\right]\right]\right)\frac{h_{i}}{\left[\left[h_{i}\right]\right]}-a\left(\vel_{i}-\vel_{d}\right)\label{eq:Coverage-controller}
+\end{equation}
+
+\begin{comment}
+As done in {[}ref{]} we choose $f_{al}\left(\left\Vert \pos_{ij}\right\Vert \right)=C_{al}e^{-\frac{\left\Vert \pos_{ij}\right\Vert }{l_{al}}}$,
+where $C_{al}$ and $l_{al}$ are constants associated to the velocity
+alignment strength and 
+\end{comment}
+
+The position and velocity of the $i$ th vehicle relative to the marker
+of the moving domain are given by: 
+\[
+\begin{cases}
+\posrel_{i} & :=\pos_{i}-\pos_{d}\\
+\velrel_{i} & :=\vel_{i}-\vel_{d}.
+\end{cases}
+\]
+
+Note that the inter-vehicle position and velocity in this new framework
+satisfy:
+\begin{align*}
+\posrel_{ij} & :=\posrel_{i}-\posrel_{j}=\pos_{i}-\pos_{d}-\left(\pos_{j}-\pos_{d}\right)=\pos_{ij},\\
+\velrel_{ij} & :=\velrel_{i}-\velrel_{j}=\vel_{i}-\vel_{d}-\left(\vel_{j}-\vel_{d}\right)=\vel_{ij},
+\end{align*}
+
+\noindent it means the relative positions are invariant to the change
+of coordinates. Moreover, the vehicle domain distance satisfies $h_{i}=\pos_{i}-P_{\partial\Omega\left(t\right)}\left(\pos_{i}\right)=\left(\pos_{i}-\pos_{d}\right)-P_{\partial\Omega\left(t\right)-\pos_{d}}\left(\pos_{i}-\pos_{d}\right)=\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)$.
+This allow us to rewrite (\ref{eq:Coverage-controller}) as
+\begin{equation}
+u_{i}=-\sum_{j\neq i}^{N}f_{I}\left(\left\Vert \posrel_{ij}\right\Vert \right)\frac{\posrel_{ij}}{\left\Vert \posrel_{ij}\right\Vert }-\frac{1}{N}\sum_{j\neq i}^{N}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\velrel_{ij}-f_{h}\left(\left[\left[h_{i}\right]\right]\right)\frac{h_{i}}{\left[\left[h_{i}\right]\right]}-a\velrel_{i}\label{eq:Coverage-controller-rel}
+\end{equation}
+
+Let us consider the potential 
+\[
+V_{h}\left(\posrel_{i}\right)=\int_{-\frac{r_{d}}{2}}^{\left[\left[\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)\right]\right]}f_{h}\left(s\right)ds
+\]
+
+\noindent which satisfies
+\[
+\nabla_{\posrel_{i}}V_{h}\left(\posrel_{i}\right)=f_{h}\left(\left[\left[\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)\right]\right]\right)\nabla_{\posrel_{i}}\left(\left[\left[\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)\right]\right]\right)=f_{h}\left(\left[\left[h_{i}\right]\right]\right)\frac{h_{i}}{\left[\left[h_{i}\right]\right]}
+\]
+
+\noindent where we have used the identity $\nabla_{\posrel_{i}}\left(\left[\left[\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)\right]\right]\right)=\frac{\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)}{\left[\left[\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)\right]\right]}$.
+
+Similarly, it can be shown that the inter-vehicle force is the negative
+gradient of the potential 
+\[
+V_{I}\left(\posrel_{ij}\right)=\int_{r_{d}}^{\left\Vert \posrel_{ij}\right\Vert }f_{I}\left(s\right)ds,
+\]
+
+\noindent to finally get:
+\begin{equation}
+u_{i}=\underset{\text{Inter Vehicle}}{\underbrace{-\sum_{j\neq i}^{N}\nabla_{\posrel_{i}}V_{I}\left(\posrel_{ij}\right)}}-\underset{\text{Velocity Alignment}}{\underbrace{\frac{1}{N}\sum_{j\neq i}^{N}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\velrel_{ij}}}-\overset{\text{Navigational feedback}}{\overbrace{\underset{\text{Domain Vehicle}}{\underbrace{\nabla_{\posrel_{i}}V_{h}\left(\posrel_{i}\right)}}-\underset{\text{Speed Alignment}}{\underbrace{a\velrel_{i}}}}}\label{eq:Coverage-controller-rel-1}
+\end{equation}
+
+\noindent Consider the candidate for Lyapunov function consisting
+in kinetic plus (artificial) potential energy:
+\[
+\Phi=\frac{1}{2}\underset{i=1}{\overset{N}{\sum}}\Bigl(\dot{\posrel_{i}}\cdot\dot{\posrel_{i}}+\underset{j\neq i}{\overset{N}{\sum}}V_{I}\left(\posrel_{ij}\right)+V_{h}\left(\posrel_{i}\right)\Bigr).
+\]
+
+\noindent Note that each term in $\Phi$ is non-negative, and $\Phi$
+reaches its absolute minimum value when the vehicles are totally stopped. 
+
+The derivative of $\Phi$ with respect to time can be calculated as:
+\begin{align*}
+\dot{\Phi} & =\underset{i=1}{\overset{N}{\sum}}\dot{\posrel_{i}}\cdot\Bigl(u_{i}+\underset{j\neq i}{\overset{N}{\sum}}\nabla_{\posrel_{i}}V_{I}\left(\posrel_{ij}\right)+\nabla_{\posrel_{i}}V_{h}\left(\posrel_{i}\right)\Bigr)\\
+ & =\underset{i=1}{\overset{N}{\sum}}\dot{\posrel_{i}}\cdot\left(-\frac{1}{N}\sum_{j\neq i}^{N}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\velrel_{ij}-a\velrel_{i}\right)
+\end{align*}
+
+\noindent For the (extra) alignment term, write 
+\[
+\underset{i=1}{\overset{N}{\sum}}\velrel_{i}\cdot\underset{j\neq i}{\overset{N}{\sum}}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\left(\velrel_{i}-\velrel_{j}\right)=\frac{1}{2}\underset{i=1}{\overset{N}{\sum}}\velrel_{i}\cdot\underset{j\neq i}{\overset{N}{\sum}}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\left(\velrel_{i}-\velrel_{j}\right)+\frac{1}{2}\underset{j=1}{\overset{N}{\sum}}\velrel_{j}\cdot\underset{i\neq j}{\overset{N}{\sum}}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\left(\velrel_{j}-\velrel_{i}\right),
+\]
+
+\noindent where in the second term in the right-hand-side we simply
+rename $i\leftrightarrow j$ as indices of summation. From there,
+use that $\|\posrel_{ij}\|=\|\posrel_{ji}\|$ to get:
+\[
+\underset{i=1}{\overset{N}{\sum}}\velrel_{i}\cdot\underset{j\neq i}{\overset{N}{\sum}}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\left(\velrel_{i}-\velrel_{j}\right)=\frac{1}{2}\underset{i=1}{\overset{N}{\sum}}\underset{j\neq i}{\overset{N}{\sum}}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\|\velrel_{i}-\velrel_{j}\|^{2}
+\]
+.
+
+\noindent With the minus sign in front this gives a negative-definite
+term. Conclude that $\dot{\Phi}$ is negative semidefinite and equal
+to zero if and only if $\dot{\posrel_{i}}=0$ for all $i$ (i.e.,
+all vehicles are at equilibrium in the relative framework). 
+\end{document}

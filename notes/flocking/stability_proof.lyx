@@ -1,0 +1,633 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\newcommand{\RR}{\mathbb{R}^{2}}
+\newcommand{\Qi}{Q_{i}}
+\newcommand{\Qj}{Q_{j}}
+\newcommand{\sgnDist}{b}
+\newcommand{\posi}{q_{i}}
+\newcommand{\pos}{q}
+\newcommand{\posrel}{x}
+\newcommand{\vel}{p}
+\newcommand{\velrel}{v}
+\newcommand{\pix}{q_{i,x}}
+\newcommand{\piy}{q_{i,y}}
+\newcommand{\veli}{p_{i}}
+\newcommand{\smax}{s_{max}}
+\newcommand{\vix}{p_{i,x}}
+\newcommand{\viy}{p_{i,y}}
+\newcommand{\ui}{u_i}
+\newcommand{\uix}{u_{i,x}}
+\newcommand{\uiy}{u_{i,y}}
+\newcommand{\uis}{u_{i,s}}
+\newcommand{\uitheta}{u_{i,\theta}}
+\newcommand{\pjx}{q_{j,x}}
+\newcommand{\pjy}{q_{j,y}}
+\newcommand{\vjx}{v_{j,x}}
+\newcommand{\vjy}{v_{j,y}}
+\newcommand{\ujx}{u_{j,x}}
+\newcommand{\ujy}{u_{j,y}}
+\newcommand{\dx}{d_{x}}
+\newcommand{\dy}{d_{y}}
+\newcommand{\thetai}{\theta_{i}}
+\newcommand{\si}{s_{i}}
+
+\newcommand{\vxr}{v_{r,x}}
+\newcommand{\vyr}{v_{r,y}}
+\newcommand{\pxr}{p_{r,x}}
+\newcommand{\pyr}{p_{r,y}}
+\newcommand{\vdxr}{\dot{v}_{r,x}}
+\newcommand{\vdyr}{\dot{v}_{r,y}}
+\newcommand{\pdxr}{\dot{p}_{r,x}}
+\newcommand{\pdyr}{\dot{p}_{r,y}}
+
+\newcommand{\ttr}{\psi}
+\newcommand{\rd}{r_d}
+\newcommand{\rO}{r_0}
+\newcommand{\hO}{h_0}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Methodology - Coverage Controller
+\end_layout
+
+\begin_layout Standard
+We consider a group of 
+\begin_inset Formula $N$
+\end_inset
+
+ vehicles, each of them denoted 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $i=1,\cdots,N$
+\end_inset
+
+, with dynamics described by 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\[
+\dot{\posi}=\veli,\quad\dot{\veli}=\ui.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{2}$
+\end_inset
+
+ be a compact domain containing zero, and define 
+\begin_inset Formula $\Omega\left(t\right)=\Omega+\pos_{d}\left(t\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $\pos_{d}\left(t\right)$
+\end_inset
+
+ is the solution for the system
+\begin_inset Formula 
+\[
+\begin{cases}
+\dot{\pos_{d}} & =\vel_{d}\\
+\dot{\vel_{d}} & =0,
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ we call 
+\begin_inset Formula $\pos_{d}\left(t\right)$
+\end_inset
+
+ the marker point of the moving domain 
+\begin_inset Formula $\Omega\left(t\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Define 
+\begin_inset Formula $\pos_{ij}:=\pos_{i}-\pos_{j}$
+\end_inset
+
+, and 
+\begin_inset Formula $\vel_{ij}:=\vel_{i}-\vel_{j}$
+\end_inset
+
+ and denote by 
+\begin_inset Formula $P_{\partial\Omega\left(t\right)}\left(\pos_{i}\right)$
+\end_inset
+
+ the closest point of 
+\begin_inset Formula $\partial\Omega\left(t\right)$
+\end_inset
+
+ to 
+\begin_inset Formula $\pos_{i}$
+\end_inset
+
+ (i.e., the projection of 
+\begin_inset Formula $\pos_{i}$
+\end_inset
+
+ on 
+\begin_inset Formula $\partial\Omega\left(t\right)$
+\end_inset
+
+).
+ Also, define 
+\begin_inset Formula $h_{i}:=\pos_{i}-P_{\partial\Omega\left(t\right)}\left(\pos_{i}\right)$
+\end_inset
+
+, and denote by 
+\begin_inset Formula $\left[\left[h_{i}\right]\right]$
+\end_inset
+
+ the signed distance of 
+\begin_inset Formula $\pos_{i}$
+\end_inset
+
+ from 
+\begin_inset Formula $\partial\Omega\left(t\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The proposed control force is given by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+u_{i}=-\sum_{j\neq i}^{N}f_{I}\left(\left\Vert \pos_{ij}\right\Vert \right)\frac{\pos_{ij}}{\left\Vert \pos_{ij}\right\Vert }-\frac{1}{N}\sum_{j\neq i}^{N}f_{al}\left(\left\Vert \pos_{ij}\right\Vert \right)\vel_{ij}-f_{h}\left(\left[\left[h_{i}\right]\right]\right)\frac{h_{i}}{\left[\left[h_{i}\right]\right]}-a\left(\vel_{i}-\vel_{d}\right)\label{eq:Coverage-controller}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+As done in [ref] we choose 
+\begin_inset Formula $f_{al}\left(\left\Vert \pos_{ij}\right\Vert \right)=C_{al}e^{-\frac{\left\Vert \pos_{ij}\right\Vert }{l_{al}}}$
+\end_inset
+
+, where 
+\begin_inset Formula $C_{al}$
+\end_inset
+
+ and 
+\begin_inset Formula $l_{al}$
+\end_inset
+
+ are constants associated to the velocity alignment strength and 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The position and velocity of the 
+\begin_inset Formula $i$
+\end_inset
+
+ th vehicle relative to the marker of the moving domain are given by: 
+\begin_inset Formula 
+\[
+\begin{cases}
+\posrel_{i} & :=\pos_{i}-\pos_{d}\\
+\velrel_{i} & :=\vel_{i}-\vel_{d}.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that the inter-vehicle position and velocity in this new framework
+ satisfy:
+\begin_inset Formula 
+\begin{align*}
+\posrel_{ij} & :=\posrel_{i}-\posrel_{j}=\pos_{i}-\pos_{d}-\left(\pos_{j}-\pos_{d}\right)=\pos_{ij},\\
+\velrel_{ij} & :=\velrel_{i}-\velrel_{j}=\vel_{i}-\vel_{d}-\left(\vel_{j}-\vel_{d}\right)=\vel_{ij},
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ it means the relative positions are invariant to the change of coordinates.
+ Moreover, the vehicle domain distance satisfies 
+\begin_inset Formula $h_{i}=\pos_{i}-P_{\partial\Omega\left(t\right)}\left(\pos_{i}\right)=\left(\pos_{i}-\pos_{d}\right)-P_{\partial\Omega\left(t\right)-\pos_{d}}\left(\pos_{i}-\pos_{d}\right)=\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)$
+\end_inset
+
+.
+ This allow us to rewrite (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Coverage-controller"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) as
+\begin_inset Formula 
+\begin{equation}
+u_{i}=-\sum_{j\neq i}^{N}f_{I}\left(\left\Vert \posrel_{ij}\right\Vert \right)\frac{\posrel_{ij}}{\left\Vert \posrel_{ij}\right\Vert }-\frac{1}{N}\sum_{j\neq i}^{N}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\velrel_{ij}-f_{h}\left(\left[\left[h_{i}\right]\right]\right)\frac{h_{i}}{\left[\left[h_{i}\right]\right]}-a\velrel_{i}\label{eq:Coverage-controller-rel}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let us consider the potential 
+\begin_inset Formula 
+\[
+V_{h}\left(\posrel_{i}\right)=\int_{-\frac{r_{d}}{2}}^{\left[\left[\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)\right]\right]}f_{h}\left(s\right)ds
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ which satisfies
+\begin_inset Formula 
+\[
+\nabla_{\posrel_{i}}V_{h}\left(\posrel_{i}\right)=f_{h}\left(\left[\left[\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)\right]\right]\right)\nabla_{\posrel_{i}}\left(\left[\left[\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)\right]\right]\right)=f_{h}\left(\left[\left[h_{i}\right]\right]\right)\frac{h_{i}}{\left[\left[h_{i}\right]\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ where we have used the identity 
+\begin_inset Formula $\nabla_{\posrel_{i}}\left(\left[\left[\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)\right]\right]\right)=\frac{\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)}{\left[\left[\posrel_{i}-P_{\partial\Omega\left(0\right)}\left(\posrel_{i}\right)\right]\right]}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Similarly, it can be shown that the inter-vehicle force is the negative
+ gradient of the potential 
+\begin_inset Formula 
+\[
+V_{I}\left(\posrel_{ij}\right)=\int_{r_{d}}^{\left\Vert \posrel_{ij}\right\Vert }f_{I}\left(s\right)ds,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ to finally get:
+\begin_inset Formula 
+\begin{equation}
+u_{i}=\underset{\text{Inter Vehicle}}{\underbrace{-\sum_{j\neq i}^{N}\nabla_{\posrel_{i}}V_{I}\left(\posrel_{ij}\right)}}-\underset{\text{Velocity Alignment}}{\underbrace{\frac{1}{N}\sum_{j\neq i}^{N}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\velrel_{ij}}}-\overset{\text{Navigational feedback}}{\overbrace{\underset{\text{Domain Vehicle}}{\underbrace{\nabla_{\posrel_{i}}V_{h}\left(\posrel_{i}\right)}}-\underset{\text{Speed Alignment}}{\underbrace{a\velrel_{i}}}}}\label{eq:Coverage-controller-rel-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ Consider the candidate for Lyapunov function consisting in kinetic plus
+ (artificial) potential energy:
+\begin_inset Formula 
+\[
+\Phi=\frac{1}{2}\underset{i=1}{\overset{N}{\sum}}\Bigl(\dot{\posrel_{i}}\cdot\dot{\posrel_{i}}+\underset{j\neq i}{\overset{N}{\sum}}V_{I}\left(\posrel_{ij}\right)+V_{h}\left(\posrel_{i}\right)\Bigr).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ Note that each term in 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ is non-negative, and 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ reaches its absolute minimum value when the vehicles are totally stopped.
+ 
+\end_layout
+
+\begin_layout Standard
+The derivative of 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ with respect to time can be calculated as: 
+\begin_inset Formula 
+\begin{align*}
+\dot{\Phi} & =\underset{i=1}{\overset{N}{\sum}}\dot{\posrel_{i}}\cdot\Bigl(u_{i}+\underset{j\neq i}{\overset{N}{\sum}}\nabla_{\posrel_{i}}V_{I}\left(\posrel_{ij}\right)+\nabla_{\posrel_{i}}V_{h}\left(\posrel_{i}\right)\Bigr)\\
+ & =\underset{i=1}{\overset{N}{\sum}}\dot{\posrel_{i}}\cdot\left(-\frac{1}{N}\sum_{j\neq i}^{N}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\velrel_{ij}-a\velrel_{i}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ For the (extra) alignment term, write 
+\begin_inset Formula 
+\[
+\underset{i=1}{\overset{N}{\sum}}\velrel_{i}\cdot\underset{j\neq i}{\overset{N}{\sum}}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\left(\velrel_{i}-\velrel_{j}\right)=\frac{1}{2}\underset{i=1}{\overset{N}{\sum}}\velrel_{i}\cdot\underset{j\neq i}{\overset{N}{\sum}}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\left(\velrel_{i}-\velrel_{j}\right)+\frac{1}{2}\underset{j=1}{\overset{N}{\sum}}\velrel_{j}\cdot\underset{i\neq j}{\overset{N}{\sum}}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\left(\velrel_{j}-\velrel_{i}\right),
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ where in the second term in the right-hand-side we simply rename 
+\begin_inset Formula $i\leftrightarrow j$
+\end_inset
+
+ as indices of summation.
+ From there, use that 
+\begin_inset Formula $\|\posrel_{ij}\|=\|\posrel_{ji}\|$
+\end_inset
+
+ to get:
+\begin_inset Formula 
+\[
+\underset{i=1}{\overset{N}{\sum}}\velrel_{i}\cdot\underset{j\neq i}{\overset{N}{\sum}}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\left(\velrel_{i}-\velrel_{j}\right)=\frac{1}{2}\underset{i=1}{\overset{N}{\sum}}\underset{j\neq i}{\overset{N}{\sum}}f_{al}\left(\left\Vert \posrel_{ij}\right\Vert \right)\|\velrel_{i}-\velrel_{j}\|^{2}
+\]
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ With the minus sign in front this gives a negative-definite term.
+ Conclude that 
+\begin_inset Formula $\dot{\Phi}$
+\end_inset
+
+ is negative semidefinite and equal to zero if and only if 
+\begin_inset Formula $\dot{\posrel_{i}}=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+ (i.e., all vehicles are at equilibrium in the relative framework).
+ 
+\end_layout
+
+\end_body
+\end_document

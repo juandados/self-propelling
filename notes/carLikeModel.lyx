@@ -5,6 +5,73 @@
 \save_transient_properties true
 \origin unavailable
 \textclass article
+\begin_preamble
+\newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]}
+
+\newcommand{\RR}{\mathbb{R}^{2}}
+\newcommand{\Qi}{Q_{i}}
+\newcommand{\Qj}{Q_{j}}
+\newcommand{\sgnDist}{b}
+\newcommand{\pos}{p}
+\newcommand{\posi}{p_{i}}
+\newcommand{\pd}{p_d}
+\newcommand{\posrel}{\tilde{p}}
+\newcommand{\vel}{v}
+\newcommand{\vd}{v_d}
+\newcommand{\velrel}{\tilde{v}}
+\newcommand{\pbf}{\mathbf{p}}
+\newcommand{\ptbf}{\mathbf{\tilde{p}}}
+\newcommand{\vbf}{\mathbf{v}}
+\newcommand{\vtbf}{\mathbf{\tilde{v}}}
+\newcommand{\hrel}{\tilde{h}}
+\newcommand{\pix}{p_{i,x}}
+\newcommand{\piy}{p_{i,y}}
+\newcommand{\veli}{v_{i}}
+\newcommand{\smax}{s_{max}}
+\newcommand{\vix}{v_{i,x}}
+\newcommand{\viy}{v_{i,y}}
+\newcommand{\ui}{u_i}
+\newcommand{\uix}{u_{i,x}}
+\newcommand{\uiy}{u_{i,y}}
+\newcommand{\uis}{u_{i,s}}
+\newcommand{\uitheta}{u_{i,\theta}}
+\newcommand{\pjx}{p_{j,x}}
+\newcommand{\pjy}{p_{j,y}}
+\newcommand{\vjx}{v_{j,x}}
+\newcommand{\vjy}{v_{j,y}}
+\newcommand{\ujx}{u_{j,x}}
+\newcommand{\ujy}{u_{j,y}}
+\newcommand{\dx}{d_{x}}
+\newcommand{\dy}{d_{y}}
+\newcommand{\thetai}{\theta_{i}}
+\newcommand{\si}{s_{i}}
+\newcommand{\heading}{\theta}
+\newcommand{\speed}{s}
+
+\newcommand{\vxr}{v_{r,x}}
+\newcommand{\vyr}{v_{r,y}}
+\newcommand{\pxr}{p_{r,x}}
+\newcommand{\pyr}{p_{r,y}}
+\newcommand{\vdxr}{\dot{v}_{r,x}}
+\newcommand{\vdyr}{\dot{v}_{r,y}}
+\newcommand{\pdxr}{\dot{p}_{r,x}}
+\newcommand{\pdyr}{\dot{p}_{r,y}}
+
+\newcommand{\ttr}{\psi}
+\newcommand{\rd}{r_d}
+\newcommand{\rO}{r_0}
+\newcommand{\hO}{h_0}
+\newcommand{\tc}{t_*}
+
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+%for removing numbers in algorithm
+\let\oldnl\nl% Store \nl in \oldnl
+\newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}}% Remove line number for one line
+
+\newcommand{\mcnote}{\textcolor{red}}
+\newcommand{\jcnote}{\textcolor{blue}}
+\newcommand{\rfnote}{\textcolor{magenta}}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -29,9 +96,10 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -44,6 +112,7 @@
 \use_package undertilde 1
 \cite_engine basic
 \cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -55,6 +124,10 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -75,8 +148,584 @@
 
 \begin_body
 
-\begin_layout Standard
+\begin_layout Subsection
+Problem Formulation
+\end_layout
 
+\begin_layout Standard
+For this chapter we consider a different vehicles' dynamics, each of the
+ vehicles follows the 2D fixed wing dynamics
+\begin_inset Formula 
+\[
+\dot{\pos_{i}}=s_{i}\left(\cos\left(\heading_{i}\right),\sin\left(\heading_{i}\right)\right),\,\left(\dot{\heading}_{i},\dot{\speed}_{i}\right)=\left(u_{i,\heading},u_{i,\speed}\right);\,\speed_{min}\leq\left\Vert \dot{\pos_{i}}\right\Vert \leq\speed_{max},\,\left|u_{i,\heading}\right|\leq u_{\heading max},\,\left|u_{i,\speed}\right|\leq u_{\speed max}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ Here, 
+\begin_inset Formula $\heading_{i}$
+\end_inset
+
+ is the heading angle, 
+\begin_inset Formula $\speed_{i}$
+\end_inset
+
+ is the car speed and 
+\begin_inset Formula $\pos_{i}=\left(\pos_{i,x},\pos_{i,y}\right)$
+\end_inset
+
+ is the position of the 
+\begin_inset Formula $i$
+\end_inset
+
+-th vehicle.
+ In this case we set bounds for the maximum car acceleration 
+\begin_inset Formula $u_{\speed}$
+\end_inset
+
+, and maximum turn rate 
+\begin_inset Formula $u_{\heading}$
+\end_inset
+
+.
+ Additionally, we impose a speed maximum and minimum, the last one particularly
+ relevant for flying vehicles like airplanes.
+\end_layout
+
+\begin_layout Standard
+The pair 
+\begin_inset Formula $\left(q_{r},p_{r}\right)\in\mathbb{R}^{m}\times\mathbb{R}^{m}$
+\end_inset
+
+ is the state of a marker point in the domain, it could be the center of
+ mass of the domain, following the dynamic system:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+\dot{q_{r}} & =p_{r}\\
+\dot{p_{r}} & =f_{r}\left(q_{r},p_{r}\right)
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with initial condition 
+\begin_inset Formula $\left(q_{d},p_{d}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Coverage Controller
+\end_layout
+
+\begin_layout Standard
+Differentiatinng (*) one can show
+\begin_inset Formula 
+\begin{equation}
+\left(\begin{array}{c}
+\ddot{\pos_{i,x}}\\
+\ddot{\pos_{i,y}}
+\end{array}\right)=R\left(\heading_{i},\speed_{i}\right)\left(\begin{array}{c}
+u_{i,\heading}\\
+u_{i,\speed}
+\end{array}\right);\text{ where }R\left(\heading_{i},\speed_{i}\right):=\left(\begin{array}{cc}
+-\speed_{i}\sin\left(\heading_{i}\right) & \cos\left(\heading_{i}\right)\\
+\speed_{i}\cos\left(\heading_{i}\right) & \sin\left(\heading_{i}\right)
+\end{array}\right).\label{eq:car_to_quad_force_transformation}
+\end{equation}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+This relation allow us to compute an expression for the vehicles' control
+ input forces in terms of its Cartesian accelerations, whenever 
+\begin_inset Formula $s_{i}\neq0$
+\end_inset
+
+, as
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+u_{i,\heading}\\
+u_{i,\speed}
+\end{array}\right)=\left(R\left(\heading_{i},\speed_{i}\right)\right)^{-1}\left(\begin{array}{c}
+\ddot{\pos_{i,x}}\\
+\ddot{\pos_{i,y}}
+\end{array}\right).
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Using this correspondece, one can get the necessary car control input 
+\begin_inset Formula $\left(u_{i,\heading},u_{i,\speed}\right)$
+\end_inset
+
+ to obtain the same cartesian accelerations produced by the proposed control
+ force (*control formula), as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+u_{i,\heading}\\
+u_{i,\speed}
+\end{array}\right)=\frac{1}{\speed_{i}}\left(\begin{array}{cc}
+-\sin\left(\heading_{i}\right) & \cos\left(\heading_{i}\right)\\
+\speed_{i}\cos\left(\theta_{i}\right) & \speed_{i}\sin\left(\heading_{i}\right)
+\end{array}\right)\left(-\sum_{j\neq i}^{N}f_{I}\left(\left\Vert \pos_{ij}\right\Vert \right)\frac{\pos_{ij}}{\left\Vert \pos_{ij}\right\Vert }-f_{h}\left(\left[\left[h_{i}\right]\right]\right)\frac{h_{i}}{\left[\left[h_{i}\right]\right]}-\sum_{j\neq i}^{N}f_{al}\left(\left\Vert \pos_{ij}\right\Vert \right)\vel_{ij}-a\left(\vel_{i}-\vd\right)\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Thresholding the Control Force
+\end_layout
+
+\begin_layout Standard
+While finding an admisible force satisfying the contrains for the double
+ integrator model (*) is done by simply normalizing any vehicles' control
+ input (*), getting the appropriate car force satisfying the contrains (*)
+ is not that straightforward.
+\end_layout
+
+\begin_layout Standard
+In order to get the appropriate Dubins car control force we use the relation
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:car_to_quad_force_transformation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Let us define
+\begin_inset Formula 
+\begin{equation}
+R\left(\heading,\speed\right):=\left(\begin{array}{cc}
+-\speed\sin\left(\heading\right) & \cos\left(\heading\right)\\
+\speed\cos\left(\heading\right) & \sin\left(\heading\right)
+\end{array}\right),\label{eq:DubinsToRec}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ which allow us to represent the set of admissible forces from the cartisian
+ perspective as 
+\begin_inset Formula 
+\[
+S\left(\heading_{i},\speed_{i}\right)=\left\{ R\left(\heading_{i},\speed_{i}\right)\left(\begin{array}{c}
+u_{\heading}\\
+u_{\speed}
+\end{array}\right):\left(\begin{array}{c}
+u_{\heading}\\
+u_{\speed}
+\end{array}\right)\in\left[-u_{\heading max},u_{\heading max}\right]\times\left[-u_{\speed max},u_{\speed max}\right]\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+we set 
+\begin_inset Formula $\left(\begin{array}{c}
+\hat{u}_{i,x}\\
+\hat{u}_{i,y}
+\end{array}\right)=\sup\left\{ t\in\mathbb{R}:tR\left(\heading_{i},\speed_{i}\right)\left(\begin{array}{c}
+u_{i,\heading}\\
+u_{i,\speed}
+\end{array}\right)\in S\left(\heading_{i},\speed_{i}\right)\right\} R\left(\heading_{i},\speed_{i}\right)\left(\begin{array}{c}
+u_{i,\heading}\\
+u_{i,\speed}
+\end{array}\right)$
+\end_inset
+
+, see Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Thresholding-Dubins-car"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Finally, we get the associated thresholded Dubins car input force, 
+\begin_inset Formula $\left(\hat{u}_{i,\heading},\hat{u}_{i,\speed}\right)^{\top}$
+\end_inset
+
+, by inverting 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:car_to_quad_force_transformation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ as
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+\hat{u}_{i,\heading}\\
+\hat{u}_{i,\speed}
+\end{array}\right)=R^{-1}\left(\heading_{i},\speed_{i}\right)\left(\begin{array}{c}
+\hat{u}_{i,x}\\
+\hat{u}_{i,y}
+\end{array}\right)
+\]
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+or simply,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+\hat{u}_{i,\heading}\\
+\hat{u}_{i,\speed}
+\end{array}\right)=\sup\left\{ t\in\mathbb{R}:tR\left(\heading_{i},\speed_{i}\right)\left(\begin{array}{c}
+u_{i,\heading}\\
+u_{i,\speed}
+\end{array}\right)\in S\left(\heading_{i},\speed_{i}\right)\right\} \left(\begin{array}{c}
+u_{i,\heading}\\
+u_{i,\speed}
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename notes/forceThreshold.png
+	width 40col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Thresholding-Dubins-car"
+
+\end_inset
+
+Thresholding Dubins car force in rectangular coordinates.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Collision avoidance
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right) & =\left(\begin{array}{cc}
+\cos\left(\theta_{1}\right) & \sin\left(\theta_{1}\right)\\
+-\sin\left(\theta_{1}\right) & \cos\left(\theta_{1}\right)
+\end{array}\right)\left(\begin{array}{c}
+p_{x,2}-p_{x,1}\\
+p_{y,2}-p_{y,1}
+\end{array}\right)=\left(\begin{array}{c}
+\cos\left(\theta_{1}\right)\left(p_{x,2}-p_{x,1}\right)+\sin\left(\theta_{1}\right)\left(p_{y,2}-p_{y,1}\right)\\
+-\sin\left(\theta_{1}\right)\left(p_{x,2}-p_{x,1}\right)+\cos\left(\theta_{1}\right)\left(p_{y,2}-p_{y,1}\right)
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left(\begin{array}{c}
+\dot{x_{1}}\\
+\dot{x_{2}}
+\end{array}\right) & =\left(\begin{array}{c}
+-\dot{\theta_{1}}\sin\left(\theta_{1}\right)\left(p_{x,2}-p_{x,1}\right)+\cos\left(\theta_{1}\right)\left(\dot{p}_{x,2}-\dot{p}_{x,1}\right)+\dot{\theta_{1}}\cos\left(\theta_{1}\right)\left(p_{y,2}-p_{y,1}\right)+\sin\left(\theta_{1}\right)\left(\dot{p}_{y,2}-\dot{p}_{y,1}\right)\\
+-\dot{\theta_{1}}\cos\left(\theta_{1}\right)\left(p_{x,2}-p_{x,1}\right)-\sin\left(\theta_{1}\right)\left(\dot{p}_{x,2}-\dot{p}_{x,1}\right)-\dot{\theta_{1}}\sin\left(\theta_{1}\right)\left(p_{y,2}-p_{y,1}\right)+\cos\left(\theta_{1}\right)\left(\dot{p}_{y,2}-\dot{p}_{y,1}\right)
+\end{array}\right)\\
+ & =\left(\begin{array}{c}
+\cos\left(\theta_{1}\right)\left(v_{2}\cos\left(\theta_{2}\right)-v_{1}\cos\left(\theta_{1}\right)\right)+\sin\left(\theta_{1}\right)\left(v_{2}\sin\left(\theta_{2}\right)-v_{1}\sin\left(\theta_{1}\right)\right)+\dot{\theta_{1}}x_{2}\\
+-\sin\left(\theta_{1}\right)\left(v_{2}\cos\left(\theta_{2}\right)-v_{1}\cos\left(\theta_{1}\right)\right)+\cos\left(\theta_{1}\right)\left(v_{2}\sin\left(\theta_{2}\right)-v_{1}\sin\left(\theta_{1}\right)\right)-\dot{\theta_{1}}x_{1}
+\end{array}\right)\\
+ & =\left(\begin{array}{c}
+v_{2}\cos\left(\theta_{2}-\theta_{1}\right)-v_{1}+\dot{\theta_{1}}x_{2}\\
+v_{2}\sin\left(\theta_{2}-\theta_{1}\right)-\dot{\theta_{1}}x_{1}
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(\begin{array}{c}
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}\\
+x_{5}
+\end{array}\right)=\left(\begin{array}{c}
+\cos\left(\theta_{1}\right)\left(p_{x,2}-p_{x,1}\right)+\sin\left(\theta_{1}\right)\left(p_{y,2}-p_{y,1}\right)\\
+-\sin\left(\theta_{1}\right)\left(p_{x,2}-p_{x,1}\right)+\cos\left(\theta_{1}\right)\left(p_{y,2}-p_{y,1}\right)\\
+\theta_{2}-\theta_{1}\\
+v_{1}\\
+v_{2}
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\left(\begin{array}{c}
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}\\
+x_{5}
+\end{array}\right)}=\left(\begin{array}{c}
+x_{5}\cos\left(x_{3}\right)-x_{4}+u_{\theta}x_{2}\\
+x_{5}\sin\left(x_{3}\right)-u_{\theta}x_{1}\\
+d_{\theta}-u_{\theta}\\
+u_{v}\\
+d_{v}
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Optimal controller:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u_{\theta}^{*}=\text{sgn}\left(\frac{\partial V}{\partial x_{1}}x_{2}-\frac{\partial V}{\partial x_{2}}x_{1}-\frac{\partial V}{\partial x_{3}}\right)u_{\theta max}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u_{v}^{*}=\text{sgn}\left(\frac{\partial V}{\partial x_{4}}\right)u_{vmax}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Optimal disturbance:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $d_{\theta}^{*}=-\text{sgn}\left(\frac{\partial V}{\partial x_{3}}\right)d_{\theta max}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $d_{v}^{*}=-\text{sgn}\left(\frac{\partial V}{\partial x_{5}}\right)d_{vmax}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Numerical simulations
+\end_layout
+
+\begin_layout Section
+General Results and Conjectures
+\end_layout
+
+\begin_layout Enumerate
+For accelerated paths, with 
+\begin_inset Formula $\dot{v_{d}}=f_{d}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $f_{d}\cdot\stackrel[i=1]{N}{\sum}v_{i}\geq0$
+\end_inset
+
+, then the total energy is still decreasing.
+\end_layout
+
+\begin_layout Enumerate
+Cohesiveness is valid for general 
+\begin_inset Formula $f_{h}$
+\end_inset
+
+ if there exists 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ such that 
+\begin_inset Formula $\alpha\leq f_{h}$
+\end_inset
+
+
+\begin_inset Formula $\left(x\right),$
+\end_inset
+
+i.e.
+ if it is lower bounded.
+\end_layout
+
+\begin_layout Section
+Two Comments on the Asymptotic Behavior
+\end_layout
+
+\begin_layout Standard
+It is clear that thresholding the force the theoretical guarantees may not
+ necessary hold anymore, however, when close to the desired operation point
+ the coverage input forces are small enough to not be thresholded and it
+ is feasible for the controller apply the required coverage force, implying
+ the theoretical results are locally valid.
+\end_layout
+
+\begin_layout Standard
+When vehicles are getting to the desired behavior the contribution of the
+ velocity alignment term seems to be negligible respect to the others 
+\color blue
+(We have to check this fact empirically, I am not sure this is the case)
+\color inherit
+.
+ Therefore, the stability results without considering it are likely to hold.
+\end_layout
+
+\begin_layout Subsection
+Choosing the Adequate Cucker Smale Parameters
+\end_layout
+
+\begin_layout Standard
+We assume as premise that the major velocity alignment effects should be
+ for those vehicles within an 
+\begin_inset Formula $r_{d}$
+\end_inset
+
+ radius neighborhood.
+ It seems wide enough to guarantee flocking behavior without causing group
+ inertia that may slow down the domain coverage aim.
+ In order to so, we impose a tenth decay on the alignment strength every
+ 
+\series bold
+
+\begin_inset Formula $r_{d}$
+\end_inset
+
+
+\series default
+, i.e.
+ 
+\begin_inset Formula $l_{al}=-\frac{r_{d}}{\ln\left(0.1\right)}$
+\end_inset
+
+.
 \end_layout
 
 \end_body
