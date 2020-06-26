@@ -32,24 +32,26 @@ switch type
 
         if ~exist('g','var')
             save_flag = true;
-            grid_min = [-20; -20; -pi; -10; -10];% Bounds on computational domain
-            grid_max = [20; 20; pi; 10; 10];
-            N = [40; 40; 20; 20; 20];
+            grid_min = [-20; -20; 0; 0; 0];% Bounds on computational domain
+            grid_max = [20; 20; 2*pi; 10; 10];
+            N = [61; 61; 35; 31; 31];
             pdDims = [3];
             g = createGrid(grid_min, grid_max, N, pdDims);
         end
 
         if ~exist('grad', 'var')
             save_flag = true;
-            grad = computeGradients(g, dataV);
+            %grad = computeGradients(g, dataV);
+            grad = computeGradients(g,dataTTR);
         end
 
         obj.qr_qr_safe_V.g = g;
-        obj.qr_qr_safe_V.data = dataV;
+        %obj.qr_qr_safe_V.data = dataV;
+        obj.qr_qr_safe_V.data = dataTTR;
         obj.qr_qr_safe_V.grad = grad;
 
         if save_flag
-            save(filename, 'g', 'dataV', 'grad', '-v7.3');
+            save(filename, 'g', 'dataTTR', 'grad', '-v7.3');
         end
     otherwise
         error('Undefined reachable set type.')

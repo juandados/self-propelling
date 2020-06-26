@@ -83,7 +83,8 @@ base_x = [cos(theta1)*(pos2(1)-pos1(1)) + sin(theta1)*(pos2(2)-pos1(2));
 valuex = eval_u(qr_qr_safe_V.g, qr_qr_safe_V.data, base_x);
 
 % Compute safety preserving control if needed
-if valuex > 0.1
+%if valuex > 0.1
+if valuex >= 5
   % Safe; no need to worry about computing controller
   safe = 1;
   uSafeOptimal = [];

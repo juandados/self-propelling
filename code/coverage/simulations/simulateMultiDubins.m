@@ -108,9 +108,9 @@ screenShotsCount = 50;
 % ---- Traffic Manager ----
 tm = TMDubins;
 % setup speed limit
-tm.speedLimit = 10;
+tm.speedLimit = 9.5;
 % Min Speed
-tm.speedMin = 0.1;
+tm.speedMin = 0.5;
 % collision radius
 tm.cr = 2;
 % safety time (it will be safe during the next st seconds)

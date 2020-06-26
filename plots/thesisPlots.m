@@ -188,7 +188,7 @@ tm = simulateMultiVehicle(true, true, extraArgs);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 3.2 Moving Domain (vehi-aligment on, domain-alignment on, collision on)
 extraArgs.N = 10;
-extraArgs.avoidance = false;
+extraArgs.avoidance = true;
 extraArgs.domainType = 'trianglePaper';
 extraArgs.vd = @(t)(1/sqrt(2))*[1;1]; %domain velocity
 extraArgs.domainPath = @(t) t*extraArgs.vd(t);
@@ -228,11 +228,11 @@ extraArgs.vd = @(t)[-a*r*sin(a*t); a*r*cos(a*t)];
 extraArgs.domainPath = @(t) [r*cos(a*t); r*sin(a*t)];
 extraArgs.domainRotationAngle = @(t)atan2(a*r*cos(a*t),-a*r*sin(a*t))-pi/2;
 extraArgs.initialConfig = 'arrowPaper';
-extraArgs.c_al = 2; %(inter-vehicle velocity alignment stregth) %1
-extraArgs.l_al_decay = 0.1;
+extraArgs.c_al = 0.2; %(inter-vehicle velocity alignment stregth) %1
+extraArgs.l_al_decay = 0.5;
 extraArgs.a_I = 5; %(same as alpha: non zero slope in fI)
-extraArgs.a_h = 1; %(same as beta: non zero slope in fh) % 5
-extraArgs.a_v = 0.8; %(vehicle-domain velocity alignment strength ) %1
+extraArgs.a_h = 3.2; %(same as beta: non zero slope in fh) % 5
+extraArgs.a_v = 1.5; %(vehicle-domain velocity alignment strength ) %1
 extraArgs.tMax = 80;
 extraArgs.tailSize = 200;
 tm = simulateMultiDubins(true, true, extraArgs);
