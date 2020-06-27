@@ -1,0 +1,5166 @@
+Optimal Controller: 1.5708          -3
+Collision!!!: Pair i:10 j:9
+More than one conflict detected!
+time: 12.2
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:10 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+out of grid
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Collision!!!: Pair i:9 j:10
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708          -3
+Collision!!!: Pair i:10 j:9
+time: 12.3
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:9 j:10
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Collision!!!: Pair i:10 j:9
+More than one conflict detected!
+time: 12.4
+out of grid
+out of grid
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:6 j:10 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+out of grid
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Collision!!!: Pair i:9 j:10
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:10 j:9
+More than one conflict detected!
+time: 12.5
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:10 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+out of grid
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:9 j:10
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:10 j:9
+time: 12.6
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:10 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+out of grid
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:9 j:10
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:10 j:9
+More than one conflict detected!
+time: 12.7
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:9 j:10
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:10 j:9
+Unsafe!!!: A pair i:10 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 12.8
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+out of grid
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:9 j:10
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:10 j:9
+Unsafe!!!: A pair i:10 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 12.9
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:9 j:10
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:10 j:9
+Unsafe!!!: A pair i:10 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 13
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:9 j:10
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:10 j:9
+Unsafe!!!: A pair i:10 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 13.1
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Collision!!!: Pair i:9 j:10
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:10 j:9
+Unsafe!!!: A pair i:10 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 13.2
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:7 j:1 is unsafe
+Optimal Controller: 0  3
+out of grid
+Unsafe!!!: A pair i:7 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:4 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Collision!!!: Pair i:9 j:10
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:10 j:9
+time: 13.3
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Collision!!!: Pair i:9 j:10
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:10 j:9
+Unsafe!!!: A pair i:10 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 13.4
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:9 j:10
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:10 j:9
+time: 13.5
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:7 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:9 j:10
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:10 j:9
+time: 13.6
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:9 j:10
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:10 j:9
+More than one conflict detected!
+time: 13.7
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+out of grid
+Collision!!!: Pair i:5 j:7
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+Collision!!!: Pair i:7 j:5
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 13.8
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:5 j:7
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+out of grid
+Collision!!!: Pair i:7 j:5
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+time: 13.9
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:5 j:7
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Collision!!!: Pair i:7 j:5
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 14
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:5 j:7
+out of grid
+Collision!!!: Pair i:7 j:5
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708          -3
+time: 14.1
+out of grid
+out of grid
+out of grid
+out of grid
+Collision!!!: Pair i:5 j:7
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:7 j:5
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+time: 14.2
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+time: 14.3
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+time: 14.4
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:7 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+time: 14.5
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+time: 14.6
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708          -3
+time: 14.7
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 14.8
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708          -3
+time: 14.9
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+time: 15
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708          -3
+time: 15.1
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+time: 15.2
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:7 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:4 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708          -3
+time: 15.3
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+time: 15.4
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:7 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:4 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708          -3
+time: 15.5
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+time: 15.6
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708          -3
+time: 15.7
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+time: 15.8
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+time: 15.9
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 16
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+time: 16.1
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708          -3
+time: 16.2
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:7 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:4 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:10 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+time: 16.3
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 16.4
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:10 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+time: 16.5
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+time: 16.6
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:7 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 16.7
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+time: 16.8
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:7 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:10 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 16.9
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+time: 17
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 17.1
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 17.2
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 17.3
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+time: 17.4
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:7 j:1 is unsafe
+Optimal Controller: 0  3
+out of grid
+Unsafe!!!: A pair i:7 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:4 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+time: 17.5
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 17.6
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 17.7
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+time: 17.8
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 17.9
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 18
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 18.1
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 18.2
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:5 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:8 j:9
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:9 j:8
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+time: 18.3
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+Collision!!!: Pair i:7 j:6
+Collision!!!: Pair i:8 j:9
+Collision!!!: Pair i:9 j:8
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708          -3
+time: 18.4
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+Collision!!!: Pair i:7 j:6
+Collision!!!: Pair i:8 j:9
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:9 j:8
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 18.5
+out of grid
+out of grid
+out of grid
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:10 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           0
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 18.6
+out of grid
+out of grid
+out of grid
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:6 j:10 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 18.7
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:10 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           0
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+time: 18.8
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:6 j:10 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:10 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+time: 18.9
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+time: 19
+out of grid
+out of grid
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+time: 19.1
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 19.2
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 19.3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:9 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+time: 19.4
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:9 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+time: 19.5
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:9 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+time: 19.6
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+time: 19.7
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:9 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+time: 19.8
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+time: 19.9
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 20
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+out of grid
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 20.1
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 20.2
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+time: 20.3
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+out of grid
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+time: 20.4
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:10 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+time: 20.5
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+out of grid
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+time: 20.6
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+out of grid
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: 1.5708          -3
+time: 20.7
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: 1.5708          -3
+time: 20.8
+Collision!!!: Pair i:1 j:9
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+out of grid
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:9 j:1
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: 1.5708          -3
+time: 20.9
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:1 j:9
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+out of grid
+out of grid
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+out of grid
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:9 j:1
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+time: 21
+Collision!!!: Pair i:1 j:9
+out of grid
+out of grid
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708           0
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Collision!!!: Pair i:9 j:1
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+time: 21.1
+out of grid
+out of grid
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: -1.5708           0
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: -1.5708           3
+time: 21.2
+out of grid
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 21.3
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+time: 21.4
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:4 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+out of grid
+Collision!!!: Pair i:6 j:7
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708           0
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: 1.5708          -3
+time: 21.5
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Collision!!!: Pair i:6 j:7
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: -1.5708           3
+time: 21.6
+out of grid
+Unsafe!!!: A pair i:4 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:6 j:7
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: 1.5708           3
+time: 21.7
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+Collision!!!: Pair i:6 j:7
+Collision!!!: Pair i:7 j:6
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: 1.5708           3
+time: 21.8
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 21.9
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: 1.5708          -3
+time: 22
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+time: 22.1
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:4 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:8 is unsafe
+Optimal Controller: 0  3
+out of grid
+Unsafe!!!: A pair i:4 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:3 is unsafe
+Optimal Controller: -1.5708           3
+time: 22.2
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+time: 22.3
+out of grid
+out of grid
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:2 j:9
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:9 j:2
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+time: 22.4
+out of grid
+out of grid
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 22.5
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+time: 22.6
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:1 is unsafe
+Optimal Controller: 0  3
+out of grid
+Unsafe!!!: A pair i:5 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:8 is unsafe
+Optimal Controller: 0  3
+out of grid
+Unsafe!!!: A pair i:5 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+out of grid
+time: 22.7
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+time: 22.8
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:1 is unsafe
+Optimal Controller: 0  3
+out of grid
+Unsafe!!!: A pair i:5 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:8 is unsafe
+Optimal Controller: 0  3
+out of grid
+Unsafe!!!: A pair i:5 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+time: 22.9
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+time: 23
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:1 is unsafe
+Optimal Controller: 0  3
+out of grid
+Unsafe!!!: A pair i:5 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:8 is unsafe
+Optimal Controller: 0  3
+out of grid
+Unsafe!!!: A pair i:5 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+time: 23.1
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+time: 23.2
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:8 is unsafe
+Optimal Controller: 0  3
+out of grid
+Unsafe!!!: A pair i:5 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+out of grid
+time: 23.3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+time: 23.4
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:8 is unsafe
+Optimal Controller: 0  3
+out of grid
+Unsafe!!!: A pair i:5 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+time: 23.5
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+time: 23.6
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:5 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:5 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+time: 23.7
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:10 j:1 is unsafe
+Optimal Controller: 1.5708           3
+time: 23.8
+out of grid
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:10 j:1 is unsafe
+Optimal Controller: 1.5708           3
+time: 23.9
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:10 j:1 is unsafe
+Optimal Controller: 1.5708           3
+time: 24
+Unsafe!!!: A pair i:1 j:10 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:10 j:1 is unsafe
+Optimal Controller: 1.5708           3
+time: 24.1
+Unsafe!!!: A pair i:1 j:10 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:10 j:1 is unsafe
+Optimal Controller: 1.5708           3
+time: 24.2
+Unsafe!!!: A pair i:1 j:10 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:7 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:10 j:1 is unsafe
+Optimal Controller: 1.5708           3
+time: 24.3
+Unsafe!!!: A pair i:1 j:10 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:10 j:1 is unsafe
+Optimal Controller: 1.5708           3
+time: 24.4
+Unsafe!!!: A pair i:1 j:10 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:10 j:1 is unsafe
+Optimal Controller: 1.5708           3
+time: 24.5
+out of grid
+Unsafe!!!: A pair i:1 j:10 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:1 is unsafe
+Optimal Controller: 1.5708           3
+time: 24.6
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+Unsafe!!!: A pair i:1 j:10 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:10 j:1 is unsafe
+Optimal Controller: 1.5708           3
+time: 24.7
+out of grid
+Unsafe!!!: A pair i:1 j:10 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:1 is unsafe
+Optimal Controller: 1.5708           3
+time: 24.8
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:10 j:1 is unsafe
+Optimal Controller: 1.5708           3
+time: 24.9
+out of grid
+out of grid
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+out of grid
+out of grid
+time: 25
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+time: 25.1
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+out of grid
+out of grid
+out of grid
+time: 25.2
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:7 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+out of grid
+out of grid
+time: 25.3
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+out of grid
+out of grid
+time: 25.4
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+out of grid
+out of grid
+time: 25.5
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+time: 25.6
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+out of grid
+time: 25.7
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+time: 25.8
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+out of grid
+out of grid
+time: 25.9
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+out of grid
+time: 26
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+time: 26.1
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+time: 26.2
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 26.3
+Unsafe!!!: A pair i:1 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 26.4
+Unsafe!!!: A pair i:1 j:10 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 26.5
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:5 is unsafe
+Optimal Controller: -1.5708           3
+time: 26.6
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:10 j:5 is unsafe
+Optimal Controller: -1.5708           3
+time: 26.7
+Unsafe!!!: A pair i:1 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:7 j:4 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+time: 26.8
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:7 j:4 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:10 j:5 is unsafe
+Optimal Controller: -1.5708           3
+time: 26.9
+Unsafe!!!: A pair i:1 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:1 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:5 is unsafe
+Optimal Controller: -1.5708           3
+time: 27
+Unsafe!!!: A pair i:1 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:2 j:3 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:4 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+out of grid
+time: 27.1
+Unsafe!!!: A pair i:1 j:8 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:4 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+time: 27.2
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+time: 27.3
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+time: 27.4
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+out of grid
+out of grid
+time: 27.5
+Unsafe!!!: A pair i:1 j:3 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+time: 27.6
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+out of grid
+time: 27.7
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+out of grid
+out of grid
+Unsafe!!!: A pair i:10 j:5 is unsafe
+Optimal Controller: -1.5708           3
+time: 27.8
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+out of grid
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+out of grid
+out of grid
+time: 27.9
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+out of grid
+time: 28
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+time: 28.1
+out of grid
+out of grid
+out of grid
+time: 28.2
+Unsafe!!!: A pair i:1 j:2 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:5 j:2 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+time: 28.3
+Unsafe!!!: A pair i:1 j:2 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:2 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+Unsafe!!!: A pair i:10 j:5 is unsafe
+Optimal Controller: 1.5708          -3
+time: 28.4
+Unsafe!!!: A pair i:1 j:10 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:2 j:1 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:5 j:2 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:2 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:5 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 28.5
+out of grid
+Unsafe!!!: A pair i:5 j:2 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:10 j:2 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:5 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+time: 28.6
+Unsafe!!!: A pair i:1 j:2 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+Unsafe!!!: A pair i:5 j:2 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:2 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:5 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+time: 28.7
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:5 j:2 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:2 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:10 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+time: 28.8
+Unsafe!!!: A pair i:1 j:2 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+Unsafe!!!: A pair i:10 j:2 is unsafe
+Optimal Controller: -1.5708           3
+time: 28.9
+Unsafe!!!: A pair i:2 j:10 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+out of grid
+Unsafe!!!: A pair i:10 j:2 is unsafe
+Optimal Controller: -1.5708           3
+time: 29
+Unsafe!!!: A pair i:2 j:10 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+out of grid
+out of grid
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+time: 29.1
+Unsafe!!!: A pair i:2 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+time: 29.2
+Unsafe!!!: A pair i:1 j:2 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:2 j:10 is unsafe
+Optimal Controller: 1.5708          -3
+Collision!!!: Pair i:3 j:8
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Collision!!!: Pair i:8 j:3
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708          -3
+time: 29.3
+Collision!!!: Pair i:3 j:8
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:8 j:3
+time: 29.4
+Collision!!!: Pair i:3 j:8
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 1.5708          -3
+Collision!!!: Pair i:8 j:3
+time: 29.5
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:3 j:8
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:8 j:3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+time: 29.6
+Unsafe!!!: A pair i:1 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:3 j:8
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Collision!!!: Pair i:8 j:3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 29.7
+Unsafe!!!: A pair i:1 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 29.8
+Unsafe!!!: A pair i:1 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+time: 29.9
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+time: 30
+Unsafe!!!: A pair i:1 j:2 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+time: 30.1
+Unsafe!!!: A pair i:5 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: -1.5708          -3
+time: 30.2
+out of grid
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:5 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:8 j:10 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+time: 30.3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:10 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: -1.5708          -3
+time: 30.4
+out of grid
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:5 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: -1.5708          -3
+time: 30.5
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:5 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: -1.5708          -3
+time: 30.6
+Unsafe!!!: A pair i:2 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:10 is unsafe
+Optimal Controller: -1.5708          -3
+time: 30.7
+Unsafe!!!: A pair i:5 j:6 is unsafe
+Optimal Controller: -1.5708           3
+time: 30.8
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+time: 30.9
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:5 j:6 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 31
+Unsafe!!!: A pair i:2 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+time: 31.1
+Unsafe!!!: A pair i:1 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:5 j:2 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 31.2
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 31.3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 31.4
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: -1.5708           3
+time: 31.5
+time: 31.6
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708          -3
+time: 31.7
+Unsafe!!!: A pair i:1 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:4 j:2 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:5 j:2 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+time: 31.8
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708          -3
+time: 31.9
+Unsafe!!!: A pair i:4 j:2 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 32
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708          -3
+time: 32.1
+Unsafe!!!: A pair i:1 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:5 j:2 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+time: 32.2
+Unsafe!!!: A pair i:1 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:4 j:2 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:7 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:7 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+time: 32.3
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 32.4
+time: 32.5
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 32.6
+Unsafe!!!: A pair i:4 j:2 is unsafe
+Optimal Controller: 1.5708           3
+time: 32.7
+Unsafe!!!: A pair i:4 j:2 is unsafe
+Optimal Controller: 1.5708           3
+time: 32.8
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 32.9
+Unsafe!!!: A pair i:4 j:2 is unsafe
+Optimal Controller: 1.5708           3
+time: 33
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708          -3
+time: 33.1
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708           3
+time: 33.2
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708           3
+time: 33.3
+time: 33.4
+Unsafe!!!: A pair i:2 j:10 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:4 j:2 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:5 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708          -3
+time: 33.5
+Unsafe!!!: A pair i:1 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:2 j:10 is unsafe
+Optimal Controller: 1.5708           3
+time: 33.6
+Unsafe!!!: A pair i:2 j:10 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:4 j:2 is unsafe
+Optimal Controller: 1.5708           3
+time: 33.7
+Unsafe!!!: A pair i:2 j:10 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 1.5708          -3
+time: 33.8
+Unsafe!!!: A pair i:2 j:4 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:2 j:10 is unsafe
+Optimal Controller: -1.5708          -3
+More than one conflict detected!
+Unsafe!!!: A pair i:4 j:2 is unsafe
+Optimal Controller: 1.5708           3
+time: 33.9
+time: 34
+Unsafe!!!: A pair i:4 j:2 is unsafe
+Optimal Controller: 1.5708           3
+time: 34.1
+time: 34.2
+time: 34.3
+time: 34.4
+time: 34.5
+Unsafe!!!: A pair i:4 j:2 is unsafe
+Optimal Controller: 1.5708           3
+time: 34.6
+time: 34.7
+time: 34.8
+time: 34.9
+time: 35
+time: 35.1
+time: 35.2
+time: 35.3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 1.5708           3
+time: 35.4
+time: 35.5
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: -1.5708           3
+time: 35.6
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+time: 35.7
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+time: 35.8
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:8 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+time: 35.9
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+time: 36
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 36.1
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+Unsafe!!!: A pair i:8 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+time: 36.2
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708           3
+time: 36.3
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:8 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+time: 36.4
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:7 j:6 is unsafe
+Optimal Controller: 1.5708          -3
+time: 36.5
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:5 j:2 is unsafe
+Optimal Controller: -1.5708           3
+time: 36.6
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:9 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+time: 36.7
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:8 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+time: 36.8
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708           3
+time: 36.9
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:5 j:2 is unsafe
+Optimal Controller: -1.5708           3
+time: 37
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708           3
+time: 37.1
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:8 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+time: 37.2
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:4 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+time: 37.3
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:5 j:2 is unsafe
+Optimal Controller: 1.5708           3
+time: 37.4
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 37.5
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+time: 37.6
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708           3
+time: 37.7
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: -1.5708           3
+time: 37.8
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:4 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:5 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:4 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:4 j:10 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+time: 37.9
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+time: 38
+Unsafe!!!: A pair i:1 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 1.5708           3
+time: 38.1
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+time: 38.2
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 38.3
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+time: 38.4
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 38.5
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+time: 38.6
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:6 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+time: 38.7
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+time: 38.8
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 1.5708           3
+time: 38.9
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+time: 39
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:6 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:6 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+time: 39.1
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+time: 39.2
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+time: 39.3
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+time: 39.4
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 39.5
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 1.5708           3
+time: 39.6
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 1.5708           3
+time: 39.7
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+time: 39.8
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+time: 39.9
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+time: 40
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708          -3
+time: 40.1
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 1.5708           3
+time: 40.2
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 40.3
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: 1.5708          -3
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+time: 40.4
+Collision!!!: Pair i:2 j:8
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:8 j:2
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+time: 40.5
+Collision!!!: Pair i:2 j:8
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:8 j:2
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 1.5708           3
+time: 40.6
+Collision!!!: Pair i:2 j:8
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+Collision!!!: Pair i:8 j:2
+time: 40.7
+Collision!!!: Pair i:2 j:8
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:8 j:2
+time: 40.8
+Collision!!!: Pair i:2 j:8
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:8 j:2
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: -1.5708           3
+time: 40.9
+Collision!!!: Pair i:2 j:8
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: 1.5708           3
+More than one conflict detected!
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:8 j:2
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: -1.5708           3
+time: 41
+Unsafe!!!: A pair i:1 j:2 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:2 j:8
+Unsafe!!!: A pair i:2 j:8 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+More than one conflict detected!
+Collision!!!: Pair i:8 j:2
+time: 41.1
+Unsafe!!!: A pair i:1 j:2 is unsafe
+Optimal Controller: 1.5708           3
+Collision!!!: Pair i:2 j:8
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Collision!!!: Pair i:8 j:2
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: -1.5708           3
+time: 41.2
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:9 j:2 is unsafe
+Optimal Controller: -1.5708           3
+time: 41.3
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+Unsafe!!!: A pair i:8 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708          -3
+time: 41.4
+Unsafe!!!: A pair i:2 j:9 is unsafe
+Optimal Controller: -1.5708           3
+time: 41.5
+Unsafe!!!: A pair i:8 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+time: 41.6
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+time: 41.7
+Unsafe!!!: A pair i:8 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:3 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:8 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+time: 41.8
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+time: 41.9
+time: 42
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 42.1
+time: 42.2
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 42.3
+Unsafe!!!: A pair i:2 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+time: 42.4
+Unsafe!!!: A pair i:8 j:9 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 42.5
+Unsafe!!!: A pair i:2 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+time: 42.6
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708          -3
+time: 42.7
+out of grid
+time: 42.8
+Unsafe!!!: A pair i:2 j:1 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+time: 42.9
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+time: 43
+Unsafe!!!: A pair i:2 j:1 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 43.1
+Unsafe!!!: A pair i:2 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+time: 43.2
+out of grid
+Unsafe!!!: A pair i:9 j:3 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+More than one conflict detected!
+time: 43.3
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 43.4
+out of grid
+time: 43.5
+Unsafe!!!: A pair i:2 j:1 is unsafe
+Optimal Controller: 1.5708           3
+out of grid
+time: 43.6
+out of grid
+time: 43.7
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 43.8
+Unsafe!!!: A pair i:2 j:1 is unsafe
+Optimal Controller: 1.5708           3
+Unsafe!!!: A pair i:3 j:1 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:2 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:4 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:5 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:6 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:7 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:8 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 0  3
+Unsafe!!!: A pair i:3 j:10 is unsafe
+Optimal Controller: 0  3
+More than one conflict detected!
+out of grid
+time: 43.9
+time: 44
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 44.1
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+time: 44.2
+time: 44.3
+out of grid
+time: 44.4
+out of grid
+time: 44.5
+out of grid
+time: 44.6
+Unsafe!!!: A pair i:2 j:1 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+time: 44.7
+out of grid
+time: 44.8
+out of grid
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+time: 44.9
+out of grid
+time: 45
+out of grid
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+time: 45.1
+Unsafe!!!: A pair i:2 j:1 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+time: 45.2
+Unsafe!!!: A pair i:2 j:1 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+time: 45.3
+Unsafe!!!: A pair i:2 j:1 is unsafe
+Optimal Controller: -1.5708          -3
+out of grid
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+out of grid
+time: 45.4
+out of grid
+out of grid
+time: 45.5
+out of grid
+out of grid
+time: 45.6
+Unsafe!!!: A pair i:2 j:1 is unsafe
+Optimal Controller: 1.5708          -3
+out of grid
+out of grid
+time: 45.7
+time: 45.8
+time: 45.9
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+time: 46
+Unsafe!!!: A pair i:2 j:1 is unsafe
+Optimal Controller: 1.5708          -3
+time: 46.1
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+time: 46.2
+time: 46.3
+time: 46.4
+out of grid
+time: 46.5
+out of grid
+out of grid
+time: 46.6
+out of grid
+time: 46.7
+out of grid
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 46.8
+out of grid
+time: 46.9
+time: 47
+time: 47.1
+Unsafe!!!: A pair i:9 j:8 is unsafe
+Optimal Controller: -1.5708           3
+time: 47.2
+out of grid
+time: 47.3
+out of grid
+time: 47.4
+out of grid
+time: 47.5
+time: 47.6
+time: 47.7
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+Unsafe!!!: A pair i:8 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+time: 47.8
+time: 47.9
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+time: 48
+Unsafe!!!: A pair i:8 j:5 is unsafe
+Optimal Controller: -1.5708          -3
+time: 48.1
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+time: 48.2
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+time: 48.3
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: 1.5708          -3
+time: 48.4
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708          -3
+time: 48.5
+time: 48.6
+Unsafe!!!: A pair i:3 j:9 is unsafe
+Optimal Controller: -1.5708           3
+time: 48.7
+time: 48.8
+time: 48.9
+time: 49
+time: 49.1
+time: 49.2
+time: 49.3
+time: 49.4
+time: 49.5
+time: 49.6
+time: 49.7
+time: 49.8
+time: 49.9
+time: 50
+time: 50.1
+time: 50.2
+time: 50.3
+time: 50.4
+time: 50.5
+time: 50.6
+time: 50.7
+time: 50.8
+time: 50.9
+time: 51
+time: 51.1
+time: 51.2
+time: 51.3
+time: 51.4
+time: 51.5
+time: 51.6
+time: 51.7
+time: 51.8
+time: 51.9
+time: 52
+time: 52.1
+time: 52.2
+time: 52.3
+time: 52.4
+time: 52.5
+time: 52.6
+time: 52.7
+time: 52.8
+time: 52.9
+time: 53
+time: 53.1
+time: 53.2
+time: 53.3
+time: 53.4
+time: 53.5
+time: 53.6
+time: 53.7
+time: 53.8
+time: 53.9
+time: 54
+time: 54.1
+time: 54.2
+time: 54.3
+time: 54.4
+time: 54.5
+time: 54.6
+time: 54.7
+time: 54.8
+time: 54.9
+time: 55
+time: 55.1
+time: 55.2
+time: 55.3
+time: 55.4
+time: 55.5
+time: 55.6
+time: 55.7
+time: 55.8
+time: 55.9
+time: 56
+time: 56.1
+time: 56.2
+time: 56.3
+time: 56.4
+time: 56.5
+time: 56.6
+time: 56.7
+time: 56.8
+time: 56.9
+time: 57
+time: 57.1
+time: 57.2
+time: 57.3
+time: 57.4
+time: 57.5
+time: 57.6
+time: 57.7
+time: 57.8
+time: 57.9
+time: 58
+time: 58.1
+time: 58.2
+time: 58.3
+time: 58.4
+time: 58.5
+time: 58.6
+time: 58.7
+time: 58.8
+time: 58.9
+time: 59
+time: 59.1
+time: 59.2
+time: 59.3
+time: 59.4
+time: 59.5
+time: 59.6
+time: 59.7
+time: 59.8
+time: 59.9
+time: 60
+collision count: 10
