@@ -8,3 +8,5 @@ We prove, using Lyapunov theory, that certain coverage configurations are locall
 For safety, we utilize Hamilton-Jacobi (HJ) reachability theory to guarantee pairwise collision avoidance. Rather than computing numerical solutions of the associated HJ partial differential equation as is typically done, we derive an analytical solution for our second-order vehicle model. This provides an exact, global solution rather than an approximate, local one within some computational domain. In addition to considerably reducing collision count, the collision avoidance controller also reduces oscillatory behaviour of vehicles, helping the system reach steady state faster. 
 
 We demonstrate our approach in several representative simulations involving a convex and non-convex moving domains.
+
+![](moving-triangle.gif)
