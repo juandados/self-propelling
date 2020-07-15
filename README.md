@@ -9,4 +9,6 @@ For safety, we utilize Hamilton-Jacobi (HJ) reachability theory to guarantee pai
 
 We demonstrate our approach in several representative simulations involving a convex and non-convex moving domains.
 
-![](moving-triangle.gif)
+<p align="center">
+  <img src="moving-triangle.gif" />
+</p>
