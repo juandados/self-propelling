@@ -1,4 +1,4 @@
-# Safe Coverage of Compact Domains ForSecond Order Dynamical Systems
+# Safe Coverage of Compact Domains For Second Order Dynamical Systems
 Autonomous systems operating in close proximity with each other to cover a specified area has many potential applications, but to achieve effective coordination, two key challenges need to be addressed: coordination and safety.
 
 For coordination, we propose a locally asymptotically stable distributed coverage controller for compact domains in the plane and homogeneous vehicles modeled with second order dynamics with bounded input forces. This control policy is based on artificial potentials designed to enforce desired vehicle-domain and inter-vehicle separations, and can be applied to arbitrary compact domains including non-convex ones.
