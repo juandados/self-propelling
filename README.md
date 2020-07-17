@@ -1,6 +1,6 @@
 # Safe Coverage of Compact Domains For Second Order Dynamical Systems
 
-This is the repository of the paper [safe coverage of compact domains for second order dynamical systems](https://arxiv.org/pdf/1911.06519.pdf) by Juan Chacon, Mo Chen, and Razvan Fetecau.
+This is the repository for the paper [safe coverage of compact domains for second order dynamical systems](https://arxiv.org/pdf/1911.06519.pdf) by Juan Chacon, Mo Chen, and Razvan Fetecau.
 
 ## Summary
 
