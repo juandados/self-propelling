@@ -1,3 +1,17 @@
+%% Dorsogna
+extraArgs.N = 100;
+extraArgs.avoidance = false;
+extraArgs.domainType = 'point';
+extraArgs.vd = @(t)[0;0]; %domain velocity
+extraArgs.domainPath = @(t) t*extraArgs.vd(t);
+extraArgs.domainRotationAngle = @(t) 0;
+extraArgs.initialConfig = 'random';
+extraArgs.c_al = 0; %(inter-vehicle velocity alignment stregth)
+extraArgs.a_I = 1; %(same as alpha: non zero slope in fI)
+extraArgs.a_h = 0; %(same as beta: non zero slope in fh)
+extraArgs.a_v = 0; %(vehicle-domain velocity alignment strength )
+extraArgs.tMax = 60;
+simulateDorsogna(true, true, extraArgs)
 %% 1.1 Static domain (avoidance off)
 extraArgs.N = 16;
 extraArgs.avoidance = false;
@@ -175,9 +189,9 @@ extraArgs.vd = @(t)[-a*r*sin(a*t); a*r*cos(a*t)];
 extraArgs.domainPath = @(t) [r*cos(a*t); r*sin(a*t)];
 extraArgs.domainRotationAngle = @(t)atan2(a*r*cos(a*t),-a*r*sin(a*t))-pi/2;
 extraArgs.initialConfig = 'arrowPaper';
-extraArgs.c_al = 1.2; %(inter-vehicle velocity alignment stregth) %1
-extraArgs.a_I = 20; %(same as alpha: non zero slope in fI)
-extraArgs.a_h = 10; %(same as beta: non zero slope in fh) % 5
+extraArgs.c_al = 1.2; %(inter-vehicle velocity alignment stregth) %1.2
+extraArgs.a_I = 10; %(same as alpha: non zero slope in fI) %20
+extraArgs.a_h = 10; %(same as beta: non zero slope in fh) % 10
 extraArgs.a_v = 1; %(vehicle-domain velocity alignment strength ) %1
 extraArgs.tMax = 80;
 extraArgs.tailSize = 200;
@@ -188,7 +202,7 @@ tm = simulateMultiVehicle(true, true, extraArgs);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 3.2 Moving Domain (vehi-aligment on, domain-alignment on, collision on)
 extraArgs.N = 10;
-extraArgs.avoidance = true;
+extraArgs.avoidance = false;
 extraArgs.domainType = 'trianglePaper';
 extraArgs.vd = @(t)(1/sqrt(2))*[1;1]; %domain velocity
 extraArgs.domainPath = @(t) t*extraArgs.vd(t);
@@ -203,7 +217,7 @@ extraArgs.tailSize = 150;
 simulateMultiDubins(true, true, extraArgs)
 %% 4.1 Moving arrow (comparing old with new: must reduce oscilations)
 extraArgs.N = 9;
-extraArgs.avoidance = true;
+extraArgs.avoidance = false;
 extraArgs.domainType = 'arrowPaper';
 tl = 80;
 extraArgs.vd = @(t)1*((1/sqrt(2))*[1;1]*(t<=tl) + [1;0]*(t>tl)); %domain velocity
@@ -211,10 +225,10 @@ extraArgs.domainPath = @(t) t*extraArgs.vd(t)*(t<=tl) + (extraArgs.vd(tl)*tl+...
     +(t-tl)*extraArgs.vd(t))*(t>tl);
 extraArgs.domainRotationAngle = @(t) -pi/4*(t>tl);
 extraArgs.initialConfig = 'arrowPaper';
-extraArgs.c_al = 0.4; %(inter-vehicle velocity alignment stregth)%0.5
-extraArgs.a_I = 1; %(same as alpha: non zero slope in fI)
+extraArgs.c_al = 2; %(inter-vehicle velocity alignment stregth)
+extraArgs.a_I = 5; %(same as alpha: non zero slope in fI)
 extraArgs.a_h = 2; %(same as beta: non zero slope in fh)
-extraArgs.a_v = 0.4; %(vehicle-domain velocity alignment strength )
+extraArgs.a_v = 0.2; %(vehicle-domain velocity alignment strength )
 extraArgs.tMax = 60;
 extraArgs.tailSize = 200;
 tm = simulateMultiDubins(true, true, extraArgs);
@@ -228,11 +242,11 @@ extraArgs.vd = @(t)[-a*r*sin(a*t); a*r*cos(a*t)];
 extraArgs.domainPath = @(t) [r*cos(a*t); r*sin(a*t)];
 extraArgs.domainRotationAngle = @(t)atan2(a*r*cos(a*t),-a*r*sin(a*t))-pi/2;
 extraArgs.initialConfig = 'arrowPaper';
-extraArgs.c_al = 0.2; %(inter-vehicle velocity alignment stregth) %1
-extraArgs.l_al_decay = 0.5;
-extraArgs.a_I = 5; %(same as alpha: non zero slope in fI)
-extraArgs.a_h = 3.2; %(same as beta: non zero slope in fh) % 5
-extraArgs.a_v = 1.5; %(vehicle-domain velocity alignment strength ) %1
+extraArgs.c_al = 1.5; %(inter-vehicle velocity alignment stregth) %0.3%1.5
+extraArgs.l_al_decay = 0.1;%0.3%0.15
+extraArgs.a_I = 5; %(same as alpha: non zero slope in fI) %2%5
+extraArgs.a_h = 2.7; %(same as beta: non zero slope in fh) % 2.7%2.7
+extraArgs.a_v = 1.2; %(vehicle-domain velocity alignment strength ) %1.2%1.2
 extraArgs.tMax = 80;
 extraArgs.tailSize = 200;
 tm = simulateMultiDubins(true, true, extraArgs);

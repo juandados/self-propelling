@@ -89,11 +89,11 @@ text(-1.6,-0.8,0,'$S(\theta_{i},s_i)$', 'Interpreter','latex','fontSize',25);
 % center axis
 plot([0,(vertX(3)+vertX(4))/2],[0,(vertY(3)+vertY(4))/2],'k.-','linewidth',1.2);
 plot([0,(vertX(2)+vertX(3))/2],[0,(vertY(2)+vertY(3))/2],'k.-','linewidth',1.2);
-h = text((vertX(3)+vertX(4))/4-0.5,(vertY(3)+vertY(4))/4,'$u_{smax}$',...
-    'Interpreter','latex','fontSize',20);
+h = text((vertX(3)+vertX(4))/4-0.4,(vertY(3)+vertY(4))/4+0.1,'$u_{s_{max}}$',...
+    'Interpreter','latex','fontSize',25);
 set(h,'Rotation',theta*(180/pi));
-h = text((vertX(2)+vertX(3))/4-1,(vertY(2)+vertY(3))/4-0.3,...
-    '$s_iu_{\theta max}$', 'Interpreter','latex','fontSize',20);
+h = text((vertX(2)+vertX(3))/4-1.1,(vertY(2)+vertY(3))/4-0.3,...
+    '$s_iu_{\theta_{max}}$', 'Interpreter','latex','fontSize',25);
 set(h,'Rotation',theta*(180/pi));
 % ploting angle arc
 tt = 0:0.1:1.2*theta;
@@ -239,12 +239,12 @@ axis tight;
 %% Vh vehicle Domain Potential
 close all; clear all;
 fontSize = 40;
-beta= 0.05;
-rd = 3;
+beta= 12*0.05;
+rd = 2;
 b = 1;
 Vh = @(h) (beta/2)*((h+rd/2).^2).*(h-(-b*rd/2)>=0);
-xmin = -4; xmax=12; ymin=-0.3*rd; ymax=1.5*rd;
-r = [xmin-1:0.005:xmax];   
+xmin = -2; xmax=2; ymin=-0.3*rd; ymax=1.5*rd;
+r = [xmin:0.005:xmax];   
 figure(1);hold on;
 plot(r,Vh(r),'k.','MarkerSize',15);
 %plot(r,fI(r),'k:','lineWidth',4);
@@ -254,11 +254,11 @@ axh = gca; % use current axes
 line(get(axh,'XLim'), [0 0], 'Color', 'k','lineWidth',2);
 line([0 0], get(axh,'YLim'), 'Color', 'k','lineWidth',2);
 % labels
-text(xmax*0.4, -0.4,'$[[x - P_{\partial \Omega}\left(x\right)]]$','fontSize',fontSize*0.7, 'Interpreter','latex');
+text(xmax*0.2, -0.3,'$[[x - P_{\partial \Omega}\left(x\right)]]$','fontSize',fontSize*0.7, 'Interpreter','latex');
 %text(rd-1, -0.25,'$r_{d}$','fontSize',fontSize, 'Interpreter','latex');
-text(-rd/2-1.6, 0.8,'-$\frac{r_{d}}{2}$','fontSize',fontSize*1.2, 'Interpreter','latex')
+text(-rd/2-0.2, -0.4,'-$\frac{r_{d}}{2}$','fontSize',fontSize*1.0, 'Interpreter','latex')
 %text(rd+1.6, 0.35,'$r_{0}$','fontSize',fontSize, 'Interpreter','latex');
-text(-4, ymax*0.9,'$V_{h}\left(x\right)$','fontSize',0.9*fontSize, 'Interpreter','latex');
+text(-1.05, ymax*0.9,'$V_{h}\left(x\right)$','fontSize',0.9*fontSize, 'Interpreter','latex');
 set(gca, 'visible', 'off');
 % thight axis
 outerpos = axh.OuterPosition;

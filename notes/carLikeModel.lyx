@@ -56,6 +56,7 @@
 \newcommand{\vdyr}{\dot{v}_{r,y}}
 \newcommand{\pdxr}{\dot{p}_{r,x}}
 \newcommand{\pdyr}{\dot{p}_{r,y}}
+\newcommand{\csf}{K}
 
 \newcommand{\ttr}{\psi}
 \newcommand{\rd}{r_d}
@@ -147,6 +148,38 @@
 \end_header
 
 \begin_body
+
+\begin_layout Standard
+Intro
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\pos}_{i}=v_{i},\qquad\dot{\vel_{i}}=a_{v,i}\vel_{i}-\sum_{j\neq i}^{N}\nabla{V_{I}}\left(\left\Vert \pos_{ij}\right\Vert \right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\pos}_{i}=v_{i},\qquad\dot{\vel_{i}}=a_{v,i}\vel_{i}-\sum_{j\neq i}^{N}\nabla{V_{I}}\left(\left\Vert \pos_{ij}\right\Vert \right)-\sum_{k=1}^{M}\nabla{V_{h}}\left(\left\Vert \pos_{ij}\right\Vert \right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\pos}_{i}=v_{i},\qquad\dot{\vel_{i}}=\sum_{i=1}^{N}\csf\left(\left\Vert \pos_{ij}\right\Vert \right)\vel_{ij}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\pos}_{i}=v_{i},\qquad\dot{\vel_{i}}=\sum_{i=1}^{N}\csf\left(\left\Vert \pos_{ij}\right\Vert \right)\vel_{ij}$
+\end_inset
+
+
+\end_layout
 
 \begin_layout Subsection
 Problem Formulation
@@ -469,17 +502,6 @@ placement H
 wide false
 sideways false
 status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename notes/forceThreshold.png
-	width 40col%
-
-\end_inset
-
-
-\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
