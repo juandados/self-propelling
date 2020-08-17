@@ -253,7 +253,7 @@ t = 0:tm.dt:tMax;
 % setting up figure saving
 if saveFigures
 %     directory = ['figuresDubins/', domainType,' N',num2str(N),' ',datestr(datetime('now'))];
-    directory = ['figuresDubins/', domainType,' N',num2str(N),' ', now];
+    directory = ['figuresDubins/', domainType,' N',num2str(N),' ', datestr(now)];
     mkdir(directory);
     %saving meta data
     fileID = fopen([directory,'/metadata.txt'],'w');
