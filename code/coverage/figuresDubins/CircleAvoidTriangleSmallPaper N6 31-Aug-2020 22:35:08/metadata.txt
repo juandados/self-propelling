@@ -1,0 +1,20 @@
+number of vehicles: 6
+avoidance included: 1
+domain type: triangleSmallPaper
+domain velocity: @(t)[-a*r*sin(a*t);a*r*cos(a*t)]
+domain path: @(t)[r*cos(a*t);r*sin(a*t)]
+domain rotation angle: @(t)atan2(a*r*cos(a*t),-a*r*sin(a*t))-pi/2
+vehicles initial configuration: arrowPaper
+inter vehicle velocity alignement strength: 1.500000
+inter vehicle nonzero slope: 5.000000
+vehicle domain nonzero slope: 2.700000
+domain velocity strength a_v: 1.200000
+simulation time: 50.000000
+speedLimit: 5.000000
+collision radius: 2.000000
+safety time: 5.000000
+u theta max: 1.570796
+u vel max: 3.000000
+rd: 3.489768
+l_al: 1.515587
+collision count: 1
