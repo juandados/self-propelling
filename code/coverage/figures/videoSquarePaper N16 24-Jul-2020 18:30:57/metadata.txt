@@ -1,0 +1,19 @@
+number of vehicles: 16
+avoidance included: 1
+domain type: squarePaper
+domain velocity: @(t)[0;0]
+domain path: @(t)t*extraArgs.vd(t)
+domain rotation angle: @(t)0
+vehicles initial configuration: line
+inter vehicle velocity alignement strength: 0.000000
+inter vehicle nonzero slope: 1.000000
+vehicle domain nonzero slope: 2.000000
+domain velocity strength a_v: 0.200000
+simulation time: 60.000000
+speedLimit: 10.000000
+collision radius: 2.000000
+safety time: 5.000000
+u max: 3.000000
+rd: 5.000000
+l_al: 7.213475
+collision count: 0

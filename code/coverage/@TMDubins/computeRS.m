@@ -23,7 +23,7 @@ switch type
         %    num2str(obj.cr) '_Speed_' num2str(obj.speedLimit) ...
         %    '_SafetyTime_' num2str(obj.safetyTime) '.mat'];
         filename = [fileparts(mfilename('fullpath')) ...
-            '/../RS_core/saved/optimized_dubins_dubins_safe_V_circle_Radius_2_Speed_5_turn_rate_pi_3_SafetyTime_4.mat'];
+            '/../RS_core/saved/optimized_dubins_dubins_safe_V_circle_Radius_2_Speed_5_SafetyTime_5_2_max_turn_rate_pi_2.mat'];
         if exist(filename, 'file')
             load(filename)
         else
@@ -32,9 +32,9 @@ switch type
 
         if ~exist('g','var')
             save_flag = true;
-            grid_min = [-10; -10; 0; -1; -1];% Bounds on computational domain
-            grid_max = [10; 10; 2*pi; 6; 6];
-            N = [61; 61; 35; 31; 31];
+            grid_min = [-15; -15; 0; 0; 0];% Bounds on computational domain
+            grid_max = [15; 15; 2*pi; 5.5; 5.5];
+            N = [51; 51; 21; 21; 21];
             pdDims = [3];
             g = createGrid(grid_min, grid_max, N, pdDims);
         end

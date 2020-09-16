@@ -108,7 +108,7 @@ screenShotsCount = 50;
 % ---- Traffic Manager ----
 tm = TMDubins;
 % setup speed limit
-tm.speedLimit = 9.5;
+tm.speedLimit = 5.0;
 % Min Speed
 tm.speedMin = 0.5;
 % collision radius
@@ -168,6 +168,13 @@ switch domainType
         vertY = 50 * cos(t);
     case 'trianglePaper'
         r = 0.3;
+        ns = 3;
+        t = linspace(0, 2*pi*(1-1/ns), ns);
+        vertX = 50 * sin(t)*r;
+        vertY = 50 * cos(t)*r;
+        vertY = vertY - (max(vertY)+min(vertY))/2;
+    case 'triangleSmallPaper'
+        r = 0.3*0.5;
         ns = 3;
         t = linspace(0, 2*pi*(1-1/ns), ns);
         vertX = 50 * sin(t)*r;

@@ -24,21 +24,23 @@ classdef UTMPlane4D < Plane4D & UAS
     function obj = UTMPlane4D(varargin)
       
       if nargin < 7
-        speedMin = 0;
+        speedMin_ = 0;
       else
-      	speedMin = varargin{7};
+      	speedMin_ = varargin{7};
         varargin(:,7)=[];
       end
       
       if nargin < 6
-        speedLimit = 10;
+        speedLimit_ = 10;
       else
-        speedLimit = varargin{6};
+        speedLimit_ = varargin{6};
         varargin(:,6)=[];
       end
       
       % obj = UTMQuad4D(x, uMax)
       obj@Plane4D(varargin{:});
+      obj.speedLimit = speedLimit_;
+      obj.speedMin = speedMin_;
     end % end constructor
   end % end methods
 end % end class

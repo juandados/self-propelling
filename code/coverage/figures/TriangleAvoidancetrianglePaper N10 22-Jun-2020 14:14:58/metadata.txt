@@ -1,0 +1,19 @@
+number of vehicles: 10
+avoidance included: 1
+domain type: trianglePaper
+domain velocity: @(t)(1/sqrt(2))*[1;1]
+domain path: @(t)t*extraArgs.vd(t)
+domain rotation angle: @(t)-pi/4
+vehicles initial configuration: arrowPaper
+inter vehicle velocity alignement strength: 0.200000
+inter vehicle nonzero slope: 1.000000
+vehicle domain nonzero slope: 2.000000
+domain velocity strength a_v: 0.200000
+simulation time: 60.000000
+speedLimit: 10.000000
+collision radius: 2.000000
+safety time: 5.000000
+u max: 3.000000
+rd: 5.406326
+l_al: 7.799679
+collision count: 0

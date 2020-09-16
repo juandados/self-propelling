@@ -21,9 +21,9 @@ tm.speedMin = 0.5;%
 % collision radius
 tm.cr = 2;
 % safety time (it will be safe during the next st seconds)
-tm.safetyTime = 4;
+tm.safetyTime = 5;
 % maximum force for vehicles
-tm.uThetaMax = pi/3; %same as omegaMax or wMax in model
+tm.uThetaMax = pi/2; %same as omegaMax or wMax in model
 tm.uVMax = 3; %same as aMax in model
 
 % compute reachable set

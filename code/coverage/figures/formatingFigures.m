@@ -1,18 +1,20 @@
 %xlim([-30 30]);
 %ylim([-30 30]);
-set(gcf, 'Position',  [100, 100, 350, 350]);
+set(gcf, 'Position',  [100, 100, 1.2*350, 1.2*350]);
 axis tight;
 ax = gca;
-ax.FontSize = 14; 
+ax.FontSize = 14*1.5; 
 ax.TickLabelInterpreter='latex';
 s = 1*max(abs(ax.XLim(1)-ax.XLim(2)), abs(ax.YLim(1)-ax.YLim(2)))/2;
 m = [mean(ax.XLim),mean(ax.YLim)];
 xlim([m(1)-s,m(1)+s]);
 ylim([m(2)-s,m(2)+s]);
-xlabel('x position (m)','fontSize',18,'Interpreter','latex');
-ylabel('y position (m)','fontSize',18,'Interpreter','latex');
-l = 60;
-m = 60;
+xlabel('x position (m)','fontSize',1.2*18,'Interpreter','latex');
+ylabel('y position (m)','fontSize',1.2*18,'Interpreter','latex');
+%xlabel(' ','fontSize',1.2*18)
+ylabel(' ','fontSize',1.2*18)
+l = 40;
+m = 40;
 xlim([-m l]);
 ylim([-m l]);
 %xlim([-l l]);
@@ -20,8 +22,9 @@ ylim([-m l]);
 st = 15;
 set(ax,'xtick',-m:st:l);
 set(ax,'ytick',-m:st:l);
-time = 24;
-title(['t=',num2str(time),' (s)'],'fontSize',18,'Interpreter','latex');
+time = 0;
+%title(['t=',num2str(time),' (s)'],'fontSize',18,'Interpreter','latex');
+title('')
 axis square;
 box on;
 %axis equal;

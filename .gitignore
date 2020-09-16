@@ -1,5 +1,5 @@
 *~
 *.mat
-code/coverage/figuresDubins/
-code/coverage/figures/
+#code/coverage/figuresDubins/
+#code/coverage/figures/
 pathdef.m
