@@ -18,7 +18,7 @@ For safety, we utilize Hamilton-Jacobi (HJ) reachability theory to guarantee pai
 
 We demonstrate our approach in several representative simulations involving a convex and non-convex moving domains.
 
-## How to run it?
+## Quick-start guide
 
 1. **Add HelperOC to your path:** The vehicle dynamics are defined in the [helperOC](https://github.com/juandados/helperOC_dev) repository*. Clone the repo and add it to your MATLAB path.
 2. **Run simulateMultiVehicle:** The simulateMultiVehicle function is located on `coverage/simulations/simulateMultiVehicle.m`. Note that for this particular function a numerical solution for the collision avoidance controlled will not be required (the analytical solution is used), in contrast to the simulateMultiDubins case.
